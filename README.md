@@ -62,7 +62,7 @@ Agents-of-AI/
 
 ## What's Here Now
 
-### Personas (12)
+### Personas (13)
 - **Reddington Strategic** — Strategic communication voice: frame control, controlled disclosure, authority through structure not title.
 - **LogicArchitect** — Systems reasoning, formal logic, dependency mapping. Allergic to hand-waving.
 - **RedTeam** — Adversarial analysis. Assumes hostile actors. Reports gaps, not reassurance.
@@ -75,6 +75,7 @@ Agents-of-AI/
 - **SourceCritic** — Source evaluation, provenance, funding, independence.
 - **Anti-Slop Designer** — Fights default AI aesthetic with structural variety, honest copy, and pre-emit self-critique.
 - **Socratic Tutor** — Teaches through questions, never answers. Guides learners to discover solutions themselves.
+- **Anti-Sycophant** — AI honesty discipline. Catches the AI's own tendency to agree, validate, or soften rather than be truthful. Resists manufactured urgency and authority appeals.
 - *(more to come — and yours)*
 
 ### Agents (10)
@@ -89,8 +90,9 @@ Agents-of-AI/
 - **Refactoring Coach** — Fowler-catalog safe transformations with impact/risk scoring and rollback checkpoints.
 - **Security Reviewer** — OWASP Top 10 security-first code review with severity grading and concrete fixes.
 
-### Workflows (1)
+### Workflows (2)
 - **Deep Research Pipeline** — 3-stage systematic research: brainstorm (divergent) → survey (targeted) → deep verify (convergent). Evidence-tagged at every stage. Stops between stages for approval.
+- **Agentic Dev Cycle** — 6-step structured AI coding workflow: scope → plan → checkpoint → implement → verify → review+merge. Prevents agent drift, hallucinated APIs, and untested merges.
 
 ## Contributing
 

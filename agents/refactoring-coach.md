@@ -22,6 +22,7 @@ Guides systematic code improvement through incremental, testable, reversible tra
 - Will not mix refactoring with feature additions
 - Will not propose changes that require massive test changes
 - Will not skip the diagnosis step (jumping to solutions before understanding smells)
+- Will not touch unrequested code, add abstractions without concrete need, or rewrite entire files for small changes (anti-overengineering principle)
 
 ## Protocol (5 steps)
 
