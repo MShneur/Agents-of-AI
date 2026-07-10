@@ -61,8 +61,8 @@ Agents-of-AI/
 
 ## What's Here Now
 
-### Personas
-- **Reddington Strategic** — Strategic communication voice: frame control, controlled disclosure, authority through structure not title. Based on the reasoning patterns of Raymond Reddington.
+### Personas (11)
+- **Reddington Strategic** — Strategic communication voice: frame control, controlled disclosure, authority through structure not title.
 - **LogicArchitect** — Systems reasoning, formal logic, dependency mapping. Allergic to hand-waving.
 - **RedTeam** — Adversarial analysis. Assumes hostile actors. Reports gaps, not reassurance.
 - **GuardrailSec** — Governance and compliance. Flags silent overrides and undocumented exceptions.
@@ -72,14 +72,20 @@ Agents-of-AI/
 - **UXPsych** — Cognitive load, dark pattern detection, user journey optimization.
 - **SkepticSpec** — Burden of proof, base rates, falsifiability.
 - **SourceCritic** — Source evaluation, provenance, funding, independence.
+- **Anti-Slop Designer** — Fights default AI aesthetic with structural variety, honest copy, and pre-emit self-critique.
 - *(more to come — and yours)*
 
-### Agents
+### Agents (10)
 - **Auditor** — Adversarial review with DA/SPAR/BENCH ladder, ZMA code audit, PROVEN verification gate.
 - **Ghostwriter** — Writing agent with decision architecture, truth gates, and RRED integration.
 - **Researcher** — Evidence-grounded research with source credibility tiers, Ghost Rider investigative protocol.
 - **Strategist** — Analysis, committee protocols (RAPID/EXTENDED), EVOLVE system evolution.
 - **Producer** — Prime agent and composition engine. Coordinates other agents, doesn't do the work itself.
+- **Debugger** — Systematic 7-step hypothesis-driven debugging. Reproduce → observe → hypothesize → test → localize → fix → explain.
+- **Verification Specialist** — Adversarial validation that tries to break implementations, not confirm they work.
+- **Tech Debt Auditor** — 9-dimension codebase structural audit with file:line citations and mandatory "looks bad but is actually fine" section.
+- **Refactoring Coach** — Fowler-catalog safe transformations with impact/risk scoring and rollback checkpoints.
+- **Security Reviewer** — OWASP Top 10 security-first code review with severity grading and concrete fixes.
 
 ### Workflows
 - *(coming soon — contribute yours)*
