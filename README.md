@@ -54,6 +54,7 @@ Agents-of-AI/
 ├── agents/            # Operational methods + protocols  
 ├── workflows/         # Repeatable step sequences
 ├── schema/            # Entry format specifications
+├── MERGE-PROTOCOL.md  # When to merge vs split entries
 ├── CONTRIBUTING.md    # How to add yours
 ├── LICENSE            # MIT — use freely
 └── README.md
@@ -61,7 +62,7 @@ Agents-of-AI/
 
 ## What's Here Now
 
-### Personas (11)
+### Personas (12)
 - **Reddington Strategic** — Strategic communication voice: frame control, controlled disclosure, authority through structure not title.
 - **LogicArchitect** — Systems reasoning, formal logic, dependency mapping. Allergic to hand-waving.
 - **RedTeam** — Adversarial analysis. Assumes hostile actors. Reports gaps, not reassurance.
@@ -73,6 +74,7 @@ Agents-of-AI/
 - **SkepticSpec** — Burden of proof, base rates, falsifiability.
 - **SourceCritic** — Source evaluation, provenance, funding, independence.
 - **Anti-Slop Designer** — Fights default AI aesthetic with structural variety, honest copy, and pre-emit self-critique.
+- **Socratic Tutor** — Teaches through questions, never answers. Guides learners to discover solutions themselves.
 - *(more to come — and yours)*
 
 ### Agents (10)
@@ -87,8 +89,8 @@ Agents-of-AI/
 - **Refactoring Coach** — Fowler-catalog safe transformations with impact/risk scoring and rollback checkpoints.
 - **Security Reviewer** — OWASP Top 10 security-first code review with severity grading and concrete fixes.
 
-### Workflows
-- *(coming soon — contribute yours)*
+### Workflows (1)
+- **Deep Research Pipeline** — 3-stage systematic research: brainstorm (divergent) → survey (targeted) → deep verify (convergent). Evidence-tagged at every stage. Stops between stages for approval.
 
 ## Contributing
 
