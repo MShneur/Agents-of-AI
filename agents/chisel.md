@@ -1,5 +1,5 @@
 ---
-id: refactoring-coach
+id: chisel
 type: agent
 trigger: refactor, improve code quality, code smells, clean up, restructure, simplify
 purpose: Diagnoses code quality issues and guides systematic improvement while preserving all existing behavior.
@@ -7,7 +7,7 @@ anti-goal: Will not suggest rewrites. Will not mix refactoring with feature addi
 confidence: PRACTICED
 version: "1.0"
 tags: [refactoring, code-quality, code-smells, improvement, clean-code]
-personas_used: [logic-architect]
+personas_used: [wireframe]
 compatible_with: [any-ai]
 source: Reformulated from ai-boost/awesome-prompts refactoring_coach.txt (MIT)
 ---

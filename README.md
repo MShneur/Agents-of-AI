@@ -38,7 +38,7 @@ This library extracts them, makes them portable, and makes them free. Use them w
 
 ### As a reference in your own system
 ```
-Load persona: personas/reddington-strategic.md
+Load persona: personas/framesmith.md
 Load agent: agents/auditor.md
 ```
 Your governance framework handles the loading. This library just holds the files.
@@ -63,42 +63,42 @@ Agents-of-AI/
 ## What's Here Now
 
 ### Personas (18)
-- **Reddington Strategic** — Strategic communication: frame control, controlled disclosure, adversarial resilience. Now includes negotiation mode (BATNA/ZOPA, concession planning, information asymmetry).
-- **LogicArchitect** — Systems reasoning, formal logic, dependency mapping.
-- **RedTeam** — Adversarial analysis. Assumes hostile actors. Reports gaps, not reassurance.
-- **GuardrailSec** — Governance and compliance. Flags silent overrides and undocumented exceptions.
-- **InternalJudge** — Synthesis and verdict. Speaks last, weighs evidence not authority.
-- **DeepReasoner** — Chain-of-thought, formal proof, step-by-step verification.
-- **StrategySim** — Game theory, stakeholder mapping, second-order effects.
-- **UXPsych** — Cognitive load, dark pattern detection, user journey optimization.
-- **SkepticSpec** — Burden of proof, base rates, falsifiability.
-- **SourceCritic** — Source evaluation, provenance, funding, independence.
-- **Anti-Slop Designer** — Fights default AI aesthetic with structural variety, honest copy, and pre-emit self-critique.
-- **Socratic Tutor** — Teaches through questions, never answers. Guides learners to discover solutions.
-- **Anti-Sycophant** — AI honesty discipline. Catches false confidence, invented signatures, authority appeals.
-- **Data Analyst** — Data → business decisions. Statistical rigor, Simpson's paradox checks, actionable recommendations.
-- **Ops Engineer** — Process optimization via Lean/Six Sigma. Maps bottlenecks, root cause analysis, tiered improvement.
-- **Legal Analyst** — IRAC-based legal reasoning. Contract analysis, compliance gap assessment, litigation risk.
-- **ML Architect** — Production ML systems. Model selection → pipeline → training → inference → monitoring.
-- **Brand Strategist** — Brand positioning, messaging architecture, reputation management, GEO (AI discoverability).
+- **Framesmith** — Strategic communication + adversarial resilience. Frame control, controlled disclosure, negotiation mode.
+- **Wireframe** — Systems reasoning, formal logic, dependency mapping. Finds load-bearing assumptions.
+- **Redline** — Adversarial analysis. Assumes hostile actors. Reports gaps, not reassurance.
+- **Guardrail** — Governance and compliance. Flags silent overrides and undocumented exceptions.
+- **Verdict** — Synthesis and final judgment. Speaks last, weighs evidence not authority.
+- **Prover** — Chain-of-thought, formal proof, step-by-step verification.
+- **Wargame** — Game theory, stakeholder mapping, second-order effects.
+- **Friction** — Cognitive load, dark pattern detection, user journey optimization.
+- **Burden** — Burden of proof, base rates, falsifiability.
+- **Provenance** — Source evaluation, origin tracing, bias detection.
+- **Raw Cut** — Anti-AI-slop design. Structural variety, honest copy, pre-emit self-critique.
+- **Midwife** — Socratic teaching. Delivers understanding, never answers. Guides discovery.
+- **Mirror** — AI honesty discipline. Catches false confidence, authority appeals, invented facts.
+- **Signal** — Data → decisions. Statistical rigor, Simpson's paradox checks, actionable insight.
+- **Gridlock** — Process optimization. Bottleneck hunting, root cause analysis, Lean/Six Sigma.
+- **Briefcase** — IRAC-based legal reasoning. Contract analysis, compliance, litigation risk.
+- **Pipeline** — Production ML systems. Model selection → training → inference → monitoring.
+- **Megaphone** — Brand positioning, messaging architecture, reputation, GEO (AI discoverability).
 - *(more to come — and yours)*
 
 ### Agents (10)
-- **Auditor** — Adversarial review with DA/SPAR/BENCH ladder, ZMA code audit, PROVEN verification gate.
-- **Ghostwriter** — Writing agent with decision architecture, truth gates, and RRED integration.
-- **Researcher** — Evidence-grounded research with source credibility tiers, Ghost Rider investigative protocol.
-- **Strategist** — Analysis, committee protocols (RAPID/EXTENDED), EVOLVE system evolution.
-- **Producer** — Prime agent and composition engine. Coordinates other agents, doesn't do the work itself.
-- **Debugger** — Systematic 7-step hypothesis-driven debugging. Reproduce → observe → hypothesize → test → localize → fix → explain.
-- **Verification Specialist** — Adversarial validation that tries to break implementations, not confirm they work.
-- **Tech Debt Auditor** — 9-dimension codebase structural audit with file:line citations and mandatory "looks bad but is actually fine" section.
-- **Refactoring Coach** — Fowler-catalog safe transformations with impact/risk scoring and rollback checkpoints.
-- **Security Reviewer** — OWASP Top 10 security-first code review with severity grading and concrete fixes.
+- **Auditor** — Adversarial quality review. DA/SPAR/BENCH ladder + code review tier + ZMA audit.
+- **Scribe** — Writing with structural control. Decision architecture, truth gates, persona integration.
+- **Scout** — Evidence-grounded research. Source credibility tiers, Ghost Rider investigative mode.
+- **Conductor** — Analysis and committee protocols (RAPID/EXTENDED). Facilitates multi-perspective decisions.
+- **Showrunner** — Prime agent. Runs the project, composes agent+persona combinations. Doesn't do the work itself.
+- **Tracker** — Systematic debugging by hypothesis. 7-step: reproduce → observe → hypothesize → test → localize → fix → explain.
+- **Stresstest** — Adversarial verification. Tries to break implementations. Iron law: evidence before claims.
+- **Archaeologist** — Codebase structural audit. 9-dimension sweep with file:line citations.
+- **Chisel** — Safe refactoring. Fowler-catalog transforms with impact/risk scoring and rollback checkpoints.
+- **Locksmith** — Security-first code review. OWASP Top 10, severity grading, concrete fixes.
 
 ### Workflows (3)
-- **Deep Research Pipeline** — 3-stage systematic research: brainstorm → survey → deep verify. Evidence-tagged. Stops between stages.
-- **Agentic Dev Cycle** — 6-step AI coding workflow: scope → plan (with hard gate) → checkpoint → implement → verify → review+merge.
-- **Test-Driven Development** — Red → Green → Refactor. Iron law: no production code without a failing test first. Includes anti-pattern guide.
+- **Deep Dig** — 3-stage research: brainstorm → survey → verify. Evidence-tagged. Stops between stages.
+- **Build Chain** — 6-step AI coding: scope → plan (hard gate) → checkpoint → implement → verify → review+merge.
+- **Red Green** — TDD: failing test → minimal code → refactor. Iron law: no code without a failing test first.
 
 ## Contributing
 

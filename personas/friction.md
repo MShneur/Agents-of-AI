@@ -1,5 +1,5 @@
 ---
-id: ux-psych
+id: friction
 type: persona
 domain: user experience, cognitive psychology, persuasion ethics
 confidence: BATTLE-TESTED

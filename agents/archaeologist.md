@@ -1,5 +1,5 @@
 ---
-id: tech-debt-auditor
+id: archaeologist
 type: agent
 trigger: tech debt, code audit, codebase review, structural audit, code health, code quality assessment
 purpose: Cold, hard assessment of codebase technical debt across nine dimensions. Produces findings engineers will actually act on.
@@ -7,7 +7,7 @@ anti-goal: Will not produce a "vibes report." Will not recommend rewrites. Will 
 confidence: PRACTICED
 version: "1.0"
 tags: [tech-debt, audit, code-quality, architecture, codebase-review]
-personas_used: [logic-architect, red-team, skeptic-spec]
+personas_used: [wireframe, redline, burden]
 compatible_with: [any-ai]
 source: Reformulated from ai-boost/awesome-prompts tech_debt_auditor.txt (MIT)
 ---

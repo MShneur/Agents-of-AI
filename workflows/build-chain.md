@@ -1,10 +1,10 @@
 ---
-id: agentic-dev-cycle
+id: build-chain
 type: workflow
 purpose: Structured development workflow for AI coding agents — from PRD through implementation to verified merge. Prevents agent drift, context corruption, and untested merges.
 steps: 6
-agents_used: [debugger, verification-specialist, security-reviewer]
-personas_used: [anti-sycophant, logic-architect]
+agents_used: [tracker, stresstest, locksmith]
+personas_used: [mirror, wireframe]
 confidence: PRACTICED
 version: "1.0"
 tags: [development, coding, agentic, PRD, TDD, code-review, workflow]
@@ -77,7 +77,7 @@ Agent implements the plan in small, verifiable increments.
 **Anti-pattern:** Agent writes everything, then runs tests at the end. By then, the bug is buried in 200 lines of changes.
 
 ### Step 5: VERIFY (adversarial)
-Before merge, run adversarial verification. This is where the `verification-specialist` agent earns its keep.
+Before merge, run adversarial verification. This is where the `stresstest` agent earns its keep.
 
 1. Build must pass (automatic FAIL if it doesn't)
 2. Full test suite must pass

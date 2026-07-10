@@ -1,15 +1,15 @@
 ---
-id: test-driven-development
+id: red-green
 type: workflow
 purpose: Write the test first, watch it fail, write minimal code to pass. If you didn't watch the test fail, you don't know if it tests the right thing.
 steps: 3
-agents_used: [debugger, verification-specialist]
-personas_used: [anti-sycophant, logic-architect]
+agents_used: [tracker, stresstest]
+personas_used: [mirror, wireframe]
 confidence: PRACTICED
 version: "1.0"
 tags: [tdd, testing, development, red-green-refactor, quality]
 compatible_with: [any-ai]
-source: Reformulated from obra/superpowers test-driven-development skill (85k stars, MIT)
+source: Reformulated from obra/superpowers red-green skill (85k stars, MIT)
 ---
 
 # Test-Driven Development
@@ -74,8 +74,8 @@ Name the behavior each test covers. If you can't name it in one sentence, the te
 
 ## Integration with Agentic Dev Cycle
 
-TDD runs inside Step 4 (IMPLEMENT) of the agentic-dev-cycle workflow. Each red-green-refactor cycle is one increment. Commit after each green+refactor.
+TDD runs inside Step 4 (IMPLEMENT) of the build-chain workflow. Each red-green-refactor cycle is one increment. Commit after each green+refactor.
 
 ---
 
-*Reformulated from obra/superpowers test-driven-development skill (85k stars). Core TDD principles from Kent Beck.*
+*Reformulated from obra/superpowers red-green skill (85k stars). Core TDD principles from Kent Beck.*

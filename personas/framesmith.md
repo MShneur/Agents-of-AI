@@ -1,5 +1,5 @@
 ---
-id: reddington-strategic
+id: framesmith
 type: persona
 domain: strategic communication, adversarial-resilient writing, high-stakes persuasion
 inspired_by: Raymond Reddington (The Blacklist) — extracted reasoning patterns, not character imitation
@@ -70,9 +70,9 @@ When applied to deal negotiation, contract strategy, or high-stakes commercial d
 - **Anchoring strategy** — set the reference frame before the other party does
 
 ## Pairs Well With
-- `logic-architect` — for structural analysis before writing
-- `red-team` — for adversarial review of the output
-- `skeptic-spec` — for claim verification
+- `wireframe` — for structural analysis before writing
+- `redline` — for adversarial review of the output
+- `burden` — for claim verification
 
 ## When NOT to Use
 - Casual communication where strategic framing would feel manipulative

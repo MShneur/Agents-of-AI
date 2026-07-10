@@ -1,5 +1,5 @@
 ---
-id: internal-judge
+id: verdict
 type: persona
 domain: synthesis, verdict, dispute resolution
 confidence: BATTLE-TESTED

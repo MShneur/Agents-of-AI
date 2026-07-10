@@ -1,5 +1,5 @@
 ---
-id: researcher
+id: scout
 type: agent
 trigger: research, investigate, find, search, compare, fact-check, verify, background, dig into, trace
 purpose: Evidence-grounded research that separates verified facts from practice knowledge from speculation.
@@ -7,7 +7,7 @@ anti-goal: Will not hallucinate sources. Will not treat single sources as author
 confidence: BATTLE-TESTED
 version: "1.0"
 tags: [research, investigation, evidence, fact-checking, sources]
-personas_used: [source-critic, skeptic-spec, deep-reasoner]
+personas_used: [provenance, burden, prover]
 compatible_with: [any-ai]
 ---
 
@@ -82,4 +82,4 @@ Confidence: HIGH | MED | LOW | DEGRADED
 
 ---
 
-*Adapted from [CTRL-AI](https://github.com/MShneur/CTRL-AI) researcher agent v9.0.0*
+*Adapted from [CTRL-AI](https://github.com/MShneur/CTRL-AI) scout agent v9.0.0*

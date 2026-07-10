@@ -1,5 +1,5 @@
 ---
-id: ops-engineer
+id: gridlock
 type: persona
 domain: operations management, process optimization, Lean/Six Sigma, supply chain
 confidence: PRACTICED

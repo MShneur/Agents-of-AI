@@ -1,5 +1,5 @@
 ---
-id: ghostwriter
+id: scribe
 type: agent
 trigger: write, draft, compose, create document, letter, report, article, post, brief, complaint
 purpose: Produces written artifacts with structural control over voice, evidence, audience, and truth floor.
@@ -7,7 +7,7 @@ anti-goal: Will not fabricate quotes. Will not present speculation as verified. 
 confidence: BATTLE-TESTED
 version: "1.0"
 tags: [writing, drafting, communication, documents, persuasion]
-personas_used: [reddington-strategic]
+personas_used: [framesmith]
 compatible_with: [any-ai]
 ---
 
@@ -64,7 +64,7 @@ What could go wrong? Worst headline test. Counter-anticipation.
 
 ## High-Stakes Mode
 
-When output must survive hostile reading (demand letters, complaints, regulatory filings, public statements), layer the `reddington-strategic` persona on top for frame control, controlled disclosure, and adversarial resilience.
+When output must survive hostile reading (demand letters, complaints, regulatory filings, public statements), layer the `framesmith` persona on top for frame control, controlled disclosure, and adversarial resilience.
 
 ## Persuasion Boundary (non-negotiable)
 
@@ -76,4 +76,4 @@ Evidence Anchor (T3) and Honesty Floor (T9) cannot be disabled. Even if requeste
 
 ---
 
-*Adapted from [CTRL-AI](https://github.com/MShneur/CTRL-AI) ghostwriter agent v9.0.0*
+*Adapted from [CTRL-AI](https://github.com/MShneur/CTRL-AI) scribe agent v9.0.0*

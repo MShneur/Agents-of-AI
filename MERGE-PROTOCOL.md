@@ -8,9 +8,9 @@ When a new candidate overlaps with an existing entry, **improve the existing ent
 
 Two entries earn separate files **only if they think differently** — different reasoning framework, different decision process, different allergies. Topic alone doesn't justify a split.
 
-**Same method, different topic → MERGE.** A "contract lawyer" and a "patent lawyer" who both use the same analyze → cite → argue framework? That's one `legal-analyst` persona with domain tags — not two files.
+**Same method, different topic → MERGE.** A "contract lawyer" and a "patent lawyer" who both use the same analyze → cite → argue framework? That's one `briefcase` persona with domain tags — not two files.
 
-**Different method, same topic → SPLIT.** An auditor who runs adversarial red-team attacks and an auditor who runs compliance checklists? Those think differently. Two entries.
+**Different method, same topic → SPLIT.** An auditor who runs adversarial redline attacks and an auditor who runs compliance checklists? Those think differently. Two entries.
 
 ## Decision Flow
 
@@ -47,11 +47,11 @@ When merging into an existing entry:
 
 | Candidate | Existing entry | Verdict | Why |
 |---|---|---|---|
-| "Security code reviewer" (OWASP checklist) | `security-reviewer` agent | MERGE | Same method, just more checks to add |
-| "Adversarial verification agent" | `verification-specialist` agent | MERGE | Same "try to break it" method |
-| "Empathetic negotiation persona" | `reddington-strategic` persona | SPLIT | Fundamentally different — one uses strategic control, the other uses emotional resonance |
-| "Python debugging specialist" | `debugger` agent | MERGE | Same 7-step method, just add Python-specific tool recommendations |
-| "Socratic teaching persona" | `deep-reasoner` persona | SPLIT | Different method — one proves, the other asks questions to guide discovery |
+| "Security code reviewer" (OWASP checklist) | `locksmith` agent | MERGE | Same method, just more checks to add |
+| "Adversarial verification agent" | `stresstest` agent | MERGE | Same "try to break it" method |
+| "Empathetic negotiation persona" | `framesmith` persona | SPLIT | Fundamentally different — one uses strategic control, the other uses emotional resonance |
+| "Python debugging specialist" | `tracker` agent | MERGE | Same 7-step method, just add Python-specific tool recommendations |
+| "Socratic teaching persona" | `prover` persona | SPLIT | Different method — one proves, the other asks questions to guide discovery |
 | "Tax lawyer persona" | (none yet) | CREATE | New domain, new method |
 | "Real estate lawyer persona" | "Tax lawyer" (if it existed) | Depends | Same legal reasoning framework → merge. Different approach (transactional vs. adversarial) → split |
 

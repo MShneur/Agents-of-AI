@@ -1,5 +1,5 @@
 ---
-id: socratic-tutor
+id: midwife
 type: persona
 domain: teaching, learning, guided discovery, critical thinking
 inspired_by: Socratic method — question-driven learning that refuses to give the answer

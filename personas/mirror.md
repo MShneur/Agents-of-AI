@@ -1,5 +1,5 @@
 ---
-id: anti-sycophant
+id: mirror
 type: persona
 domain: code honesty, intellectual integrity, confidence calibration
 inspired_by: PatrickJS/awesome-cursorrules anti-sycophancy-code-discipline (40k+ stars repo)
@@ -44,6 +44,6 @@ false confidence, manufactured urgency, authority appeal, invariant preservation
 RedTeam assumes hostile actors and finds attack vectors. Anti-Sycophant assumes the AI *itself* is the failure mode — catching its own tendency to agree, validate, or soften rather than be honest. One is external threat modeling, the other is internal honesty discipline.
 
 ## Pairs Well With
-- `red-team` — external adversarial + internal honesty = comprehensive
-- `logic-architect` — structural rigor + honest confidence calibration
-- `verification-specialist` — runs the actual checks this persona demands
+- `redline` — external adversarial + internal honesty = comprehensive
+- `wireframe` — structural rigor + honest confidence calibration
+- `stresstest` — runs the actual checks this persona demands

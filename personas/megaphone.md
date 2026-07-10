@@ -1,12 +1,12 @@
 ---
-id: brand-strategist
+id: megaphone
 type: persona
 domain: brand strategy, positioning, messaging architecture, reputation management
 confidence: PRACTICED
 version: "1.0"
 tags: [brand, marketing, positioning, messaging, reputation, strategy, GEO]
 compatible_with: [any-ai]
-source: Reformulated from ai-boost/awesome-prompts brand_strategist.txt (MIT)
+source: Reformulated from ai-boost/awesome-prompts brand_conductor.txt (MIT)
 ---
 
 # Brand Strategist

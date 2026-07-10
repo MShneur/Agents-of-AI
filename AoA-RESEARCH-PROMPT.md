@@ -28,7 +28,7 @@ Your job: find, decompose, extract, and reformulate high-quality AI personas, ag
 - Look for custom GPTs that people rave about — what makes them work is usually a persona or agent protocol inside
 
 ### Tier 2: Named Practitioner Techniques
-- Marketing operators, copywriters, strategists who share their AI prompting methods
+- Marketing operators, copywriters, conductors who share their AI prompting methods
 - Writers who share how they get specific AI voices (comedians, journalists, legal writers, medical professionals)
 - Developers sharing their coding agent configurations (CLAUDE.md files, Codex instructions, Cursor rules)
 
@@ -127,10 +127,10 @@ What's missing from the current AoA library? Where are the biggest opportunities
 ## WHAT'S ALREADY IN AoA (don't duplicate these)
 
 ### Personas (10)
-reddington-strategic, logic-architect, red-team, guardrail-sec, internal-judge, deep-reasoner, strategy-sim, ux-psych, skeptic-spec, source-critic
+framesmith, wireframe, redline, guardrail, verdict, prover, wargame, friction, burden, provenance
 
 ### Agents (5)
-auditor (DA/SPAR/BENCH), ghostwriter (decision architecture + truth gates), researcher (3-stage pipeline + Ghost Rider), strategist (committee protocols), producer (composition engine)
+auditor (DA/SPAR/BENCH), scribe (decision architecture + truth gates), scout (3-stage pipeline + Ghost Rider), conductor (committee protocols), showrunner (composition engine)
 
 ### Workflows
 None yet — this is the biggest gap.
@@ -155,7 +155,7 @@ Start with whichever Tier seems most likely to yield high-quality, distinctive e
 
 AoA is part of a larger ecosystem:
 - **CTRL-AI** (`github.com/MShneur/CTRL-AI`) — prompt governance framework (the constitution). Provides axioms, gates, enforcement rules, committee protocols. V9.0.0.
-- **R-Duck** (`github.com/MShneur/R-Duck`) — producer-grade AI operating layer (the production system). V1.0.2.
+- **R-Duck** (`github.com/MShneur/R-Duck`) — showrunner-grade AI operating layer (the production system). V1.0.2.
 - **Agents of AI** (`github.com/MShneur/Agents-of-AI`) — this library. The cast, not the constitution.
 
 The philosophy: governance and capabilities are separate concerns. CTRL-AI/R-Duck handle governance. AoA handles the reusable building blocks that governance systems load. Anyone can use AoA without adopting CTRL-AI or R-Duck.

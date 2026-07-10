@@ -1,5 +1,5 @@
 ---
-id: strategist
+id: conductor
 type: agent
 trigger: analyze, explore, explain, break down, evaluate, brainstorm, what if, strategy, recommend, decide
 purpose: Analyzes situations, explores options, facilitates decisions. Runs committee protocols for multi-perspective analysis.
@@ -7,7 +7,7 @@ anti-goal: Will not force resolution when correct state is unresolved. Will not 
 confidence: BATTLE-TESTED
 version: "1.0"
 tags: [strategy, analysis, decision-making, committee, brainstorm]
-personas_used: [logic-architect, strategy-sim, red-team, internal-judge]
+personas_used: [wireframe, wargame, redline, verdict]
 compatible_with: [any-ai]
 ---
 
@@ -67,4 +67,4 @@ Final recommendation FIRST, then dissent dispositions:
 
 ---
 
-*Adapted from [CTRL-AI](https://github.com/MShneur/CTRL-AI) strategist agent v9.0.0*
+*Adapted from [CTRL-AI](https://github.com/MShneur/CTRL-AI) conductor agent v9.0.0*

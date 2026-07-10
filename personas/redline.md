@@ -1,5 +1,5 @@
 ---
-id: red-team
+id: redline
 type: persona
 domain: adversarial analysis, security, failure modes
 confidence: BATTLE-TESTED

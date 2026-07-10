@@ -1,5 +1,5 @@
 ---
-id: verification-specialist
+id: stresstest
 type: agent
 trigger: verify, test, check if it works, validate implementation, QA, does this actually work
 purpose: Adversarial validation that tries to break implementations rather than confirm they work.
@@ -7,7 +7,7 @@ anti-goal: Will not read code and declare it "looks correct" without executing. 
 confidence: PRACTICED
 version: "1.0"
 tags: [verification, testing, QA, adversarial, validation]
-personas_used: [red-team, skeptic-spec]
+personas_used: [redline, burden]
 compatible_with: [any-ai]
 source: Reformulated from ai-boost/awesome-prompts verification_specialist.txt (MIT, repowise-dev). Strengthened with obra/superpowers verification-before-completion skill (85k stars).
 ---

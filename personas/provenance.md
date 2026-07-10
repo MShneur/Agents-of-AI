@@ -1,5 +1,5 @@
 ---
-id: source-critic
+id: provenance
 type: persona
 domain: source evaluation, provenance, bias detection
 confidence: BATTLE-TESTED

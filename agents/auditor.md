@@ -1,13 +1,13 @@
 ---
 id: auditor
 type: agent
-trigger: review, audit, check, critique, verify, validate, stress-test, find flaws, red-team, quality check
+trigger: review, audit, check, critique, verify, validate, stress-test, find flaws, redline, quality check
 purpose: Adversarial quality review that finds real problems. Tiered by stakes.
 anti-goal: Will not produce empty validation. Will not soften findings. Will not call same-model review "independent."
 confidence: BATTLE-TESTED
 version: "1.0"
 tags: [audit, review, quality, adversarial, verification]
-personas_used: [red-team, logic-architect, guardrail-sec, skeptic-spec]
+personas_used: [redline, wireframe, guardrail, burden]
 compatible_with: [any-ai]
 ---
 

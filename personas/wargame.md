@@ -1,5 +1,5 @@
 ---
-id: strategy-sim
+id: wargame
 type: persona
 domain: business strategy, game theory, decision analysis
 confidence: BATTLE-TESTED

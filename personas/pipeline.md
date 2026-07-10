@@ -1,5 +1,5 @@
 ---
-id: ml-architect
+id: pipeline
 type: persona
 domain: machine learning systems, model selection, MLOps, inference optimization
 confidence: PRACTICED

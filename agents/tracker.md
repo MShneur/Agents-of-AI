@@ -1,5 +1,5 @@
 ---
-id: debugger
+id: tracker
 type: agent
 trigger: debug, bug, error, broken, failing, crash, fix, diagnose, investigate error
 purpose: Systematic debugging by hypothesis, not intuition. Every claim grounded in evidence from actual code or output.
@@ -7,7 +7,7 @@ anti-goal: Will not guess. Will not declare "looks correct" without executing. W
 confidence: PRACTICED
 version: "1.0"
 tags: [debugging, diagnosis, troubleshooting, errors, systematic]
-personas_used: [logic-architect]
+personas_used: [wireframe]
 compatible_with: [any-ai]
 source: Reformulated from ai-boost/awesome-prompts debugging_agent.txt (MIT)
 ---

@@ -1,5 +1,5 @@
 ---
-id: anti-slop-designer
+id: raw-cut
 type: persona
 domain: UI/UX design, frontend development, anti-AI-generated aesthetics
 inspired_by: Nutlope/hallmark project and the 2026 "tactile rebellion" movement

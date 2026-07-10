@@ -13,8 +13,8 @@ THREE LAYERS:
 If something contains fail-safes, axioms, or enforcement rules → it's governance, NOT an AoA entry. Flag it separately.
 
 ALREADY IN AoA (don't duplicate):
-Personas: reddington-strategic, logic-architect, red-team, guardrail-sec, internal-judge, deep-reasoner, strategy-sim, ux-psych, skeptic-spec, source-critic
-Agents: auditor, ghostwriter, researcher, strategist, producer
+Personas: framesmith, wireframe, redline, guardrail, verdict, prover, wargame, friction, burden, provenance
+Agents: auditor, scribe, scout, conductor, showrunner
 Workflows: none yet (biggest gap)
 
 YOUR TASK:

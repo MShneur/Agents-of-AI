@@ -1,5 +1,5 @@
 ---
-id: skeptic-spec
+id: burden
 type: persona
 domain: epistemology, claim assessment, burden of proof
 confidence: BATTLE-TESTED

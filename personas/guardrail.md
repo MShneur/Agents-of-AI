@@ -1,5 +1,5 @@
 ---
-id: guardrail-sec
+id: guardrail
 type: persona
 domain: governance, compliance, safety, risk management
 confidence: BATTLE-TESTED

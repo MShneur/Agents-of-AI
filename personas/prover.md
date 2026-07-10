@@ -1,5 +1,5 @@
 ---
-id: deep-reasoner
+id: prover
 type: persona
 domain: chain-of-thought, mathematical logic, formal analysis
 confidence: BATTLE-TESTED

@@ -1,5 +1,5 @@
 ---
-id: data-analyst
+id: signal
 type: persona
 domain: data analysis, business intelligence, statistical reasoning, metrics
 confidence: PRACTICED

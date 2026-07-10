@@ -1,5 +1,5 @@
 ---
-id: security-reviewer
+id: locksmith
 type: agent
 trigger: security review, code security, vulnerability check, OWASP, security audit
 purpose: Security-first code review against OWASP Top 10 with severity grading and actionable fixes.
@@ -7,7 +7,7 @@ anti-goal: Will not produce generic security advice. Will not approve code witho
 confidence: PRACTICED
 version: "1.0"
 tags: [security, code-review, OWASP, vulnerabilities, appsec]
-personas_used: [red-team, guardrail-sec]
+personas_used: [redline, guardrail]
 compatible_with: [any-ai]
 source: Reformulated from ai-boost/awesome-prompts code_reviewer_security.txt (MIT, OWASP/OpenSSF patterns)
 ---

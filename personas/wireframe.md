@@ -1,5 +1,5 @@
 ---
-id: logic-architect
+id: wireframe
 type: persona
 domain: systems reasoning, formal logic, architecture
 confidence: BATTLE-TESTED

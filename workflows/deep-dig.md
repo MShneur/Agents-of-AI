@@ -1,10 +1,10 @@
 ---
-id: deep-research-pipeline
+id: deep-dig
 type: workflow
 purpose: Multi-stage research process that moves from divergent exploration to verified synthesis with evidence tags at every stage.
 steps: 3
-agents_used: [researcher]
-personas_used: [source-critic, skeptic-spec, deep-reasoner]
+agents_used: [scout]
+personas_used: [provenance, burden, prover]
 confidence: BATTLE-TESTED
 version: "1.0"
 tags: [research, investigation, evidence, multi-stage, systematic]
@@ -30,7 +30,7 @@ Systematic research that separates exploration from verification. Prevents the c
 ## Steps
 
 ### Stage 1: BRAINSTORM (divergent)
-**Agent:** researcher | **Mode:** open exploration
+**Agent:** scout | **Mode:** open exploration
 
 1. Challenge the premise — is the question itself well-formed?
 2. Generate risk-focused ideas — what could go wrong if we get this wrong?
@@ -42,7 +42,7 @@ Systematic research that separates exploration from verification. Prevents the c
 **STOP. Present brainstorm. Await approval before Stage 2.**
 
 ### Stage 2: SURVEY (targeted)
-**Agent:** researcher + source-critic | **Mode:** targeted search
+**Agent:** scout + provenance | **Mode:** targeted search
 
 1. Search by keyword expansion — not just the obvious terms
 2. Search by source expansion — check sources the first search wouldn't find
@@ -55,7 +55,7 @@ Systematic research that separates exploration from verification. Prevents the c
 **STOP. Present findings. Await approval before Stage 3.**
 
 ### Stage 3: DEEP VERIFY (convergent)
-**Agent:** researcher + skeptic-spec | **Mode:** verification
+**Agent:** scout + burden | **Mode:** verification
 
 1. Cross-reference findings across sources — converge or conflict?
 2. Resolve contradictions where possible — if not, preserve both positions
