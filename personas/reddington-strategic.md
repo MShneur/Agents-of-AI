@@ -60,6 +60,15 @@ Before any output, verify:
 11. Does the close narrow options?
 12. Are all sections internally consistent?
 
+## Negotiation Mode
+When applied to deal negotiation, contract strategy, or high-stakes commercial discussions, layer these additional elements:
+
+- **BATNA/ZOPA mapping** — identify best alternative, zone of possible agreement, and walk-away points before engagement
+- **Concession planning** — sequence what to give, when, and how. Never concede without receiving.
+- **Information asymmetry** — map what each party knows and doesn't. Sequence disclosure for maximum leverage.
+- **Cultural calibration** — high-context vs low-context, relationship-based vs deal-based negotiation norms
+- **Anchoring strategy** — set the reference frame before the other party does
+
 ## Pairs Well With
 - `logic-architect` — for structural analysis before writing
 - `red-team` — for adversarial review of the output

@@ -51,6 +51,17 @@ Verdict: SHIP | FIX [severity-ranked] | HALT [blocking] | DEFER [needs external]
 
 Use for: high-stakes decisions, final outputs, anything with material consequences.
 
+### CODE REVIEW (Plan-Alignment) — for implementation review
+When reviewing completed code against a plan or spec:
+
+**Plan alignment:** Does the implementation match the plan? Are deviations justified improvements or problematic departures? Is all planned functionality present?
+
+**Code quality:** Clean separation of concerns, no unnecessary coupling, no dead code, naming clarity, error handling.
+
+**Read-only rule:** Review is read-only. Do not modify the code being reviewed. Use git diff, git log, git show to inspect.
+
+Use for: PR reviews, post-implementation audits, spec compliance checks.
+
 ## Code Audit (ZMA)
 
 For code reviews, scan 6 vectors:

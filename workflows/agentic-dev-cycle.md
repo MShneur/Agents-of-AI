@@ -46,8 +46,11 @@ Agent proposes an implementation plan. Human reviews before any code is written.
 1. Agent reads relevant files and proposes approach
 2. Interface-first — define types/interfaces before implementation
 3. List each file that will change and what the change does
-4. Identify risks or questions
-5. Human approves or redirects
+4. Write the plan assuming the implementer has zero context for the codebase — name every file, every test approach, every dependency
+5. Identify risks or questions
+6. Human approves or redirects
+
+**HARD GATE:** Do NOT write any code, scaffold any project, or take any implementation action until the plan is presented and the user has approved it. This applies to EVERY task regardless of perceived simplicity. "Simple" tasks are where unexamined assumptions cause the most wasted work.
 
 **Anti-pattern:** Agent starts coding immediately. Plan exists to catch wrong approaches before they consume context.
 

@@ -62,9 +62,9 @@ Agents-of-AI/
 
 ## What's Here Now
 
-### Personas (13)
-- **Reddington Strategic** — Strategic communication voice: frame control, controlled disclosure, authority through structure not title.
-- **LogicArchitect** — Systems reasoning, formal logic, dependency mapping. Allergic to hand-waving.
+### Personas (18)
+- **Reddington Strategic** — Strategic communication: frame control, controlled disclosure, adversarial resilience. Now includes negotiation mode (BATNA/ZOPA, concession planning, information asymmetry).
+- **LogicArchitect** — Systems reasoning, formal logic, dependency mapping.
 - **RedTeam** — Adversarial analysis. Assumes hostile actors. Reports gaps, not reassurance.
 - **GuardrailSec** — Governance and compliance. Flags silent overrides and undocumented exceptions.
 - **InternalJudge** — Synthesis and verdict. Speaks last, weighs evidence not authority.
@@ -74,8 +74,13 @@ Agents-of-AI/
 - **SkepticSpec** — Burden of proof, base rates, falsifiability.
 - **SourceCritic** — Source evaluation, provenance, funding, independence.
 - **Anti-Slop Designer** — Fights default AI aesthetic with structural variety, honest copy, and pre-emit self-critique.
-- **Socratic Tutor** — Teaches through questions, never answers. Guides learners to discover solutions themselves.
-- **Anti-Sycophant** — AI honesty discipline. Catches the AI's own tendency to agree, validate, or soften rather than be truthful. Resists manufactured urgency and authority appeals.
+- **Socratic Tutor** — Teaches through questions, never answers. Guides learners to discover solutions.
+- **Anti-Sycophant** — AI honesty discipline. Catches false confidence, invented signatures, authority appeals.
+- **Data Analyst** — Data → business decisions. Statistical rigor, Simpson's paradox checks, actionable recommendations.
+- **Ops Engineer** — Process optimization via Lean/Six Sigma. Maps bottlenecks, root cause analysis, tiered improvement.
+- **Legal Analyst** — IRAC-based legal reasoning. Contract analysis, compliance gap assessment, litigation risk.
+- **ML Architect** — Production ML systems. Model selection → pipeline → training → inference → monitoring.
+- **Brand Strategist** — Brand positioning, messaging architecture, reputation management, GEO (AI discoverability).
 - *(more to come — and yours)*
 
 ### Agents (10)
@@ -90,9 +95,10 @@ Agents-of-AI/
 - **Refactoring Coach** — Fowler-catalog safe transformations with impact/risk scoring and rollback checkpoints.
 - **Security Reviewer** — OWASP Top 10 security-first code review with severity grading and concrete fixes.
 
-### Workflows (2)
-- **Deep Research Pipeline** — 3-stage systematic research: brainstorm (divergent) → survey (targeted) → deep verify (convergent). Evidence-tagged at every stage. Stops between stages for approval.
-- **Agentic Dev Cycle** — 6-step structured AI coding workflow: scope → plan → checkpoint → implement → verify → review+merge. Prevents agent drift, hallucinated APIs, and untested merges.
+### Workflows (3)
+- **Deep Research Pipeline** — 3-stage systematic research: brainstorm → survey → deep verify. Evidence-tagged. Stops between stages.
+- **Agentic Dev Cycle** — 6-step AI coding workflow: scope → plan (with hard gate) → checkpoint → implement → verify → review+merge.
+- **Test-Driven Development** — Red → Green → Refactor. Iron law: no production code without a failing test first. Includes anti-pattern guide.
 
 ## Contributing
 
