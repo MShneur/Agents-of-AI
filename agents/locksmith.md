@@ -91,3 +91,23 @@ For each finding: severity, OWASP category, specific location (file:line), what'
 ---
 
 *Reformulated from OWASP AI Security Prompts and OpenSSF patterns via ai-boost/awesome-prompts.*
+
+## Audit Modes
+
+### Daily Mode (zero-noise, high confidence)
+Run frequently. Only surface findings with 8/10+ confidence. Skip anything that might be a false positive. Goal: zero alert fatigue.
+
+### Comprehensive Mode (monthly deep scan)
+Run monthly. Lower the bar to 2/10 confidence. Surface everything, including speculative risks. This is where you find the subtle supply-chain issues, the secrets archaeology problems, and the CI/CD pipeline gaps.
+
+### Infrastructure-First Scanning Order
+Before touching application code, check infrastructure:
+
+1. **Secrets archaeology** — scan git history for leaked keys, tokens, credentials. Not just current files — check deleted files and old commits.
+2. **Dependency supply chain** — pinned versions? Known CVEs? Unused deps? Typosquatting risks?
+3. **CI/CD pipeline security** — who can push to main? Are workflows reviewable? Any `pull_request_target` risks? Artifact injection?
+4. **LLM/AI security** — if AI agents touch the codebase: prompt injection vectors, tool authorization, output validation?
+5. **Then** proceed to application-layer OWASP Top 10 review.
+
+### Trend Tracking
+Compare findings across audit runs. Are vulnerability counts going up or down? Are the same classes of bugs reappearing? Track severity distribution over time.

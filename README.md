@@ -62,7 +62,7 @@ Agents-of-AI/
 
 ## What's Here Now
 
-### Personas (18)
+### Personas (21)
 - **Framesmith** — Strategic communication + adversarial resilience. Frame control, controlled disclosure, negotiation mode.
 - **Wireframe** — Systems reasoning, formal logic, dependency mapping. Finds load-bearing assumptions.
 - **Redline** — Adversarial analysis. Assumes hostile actors. Reports gaps, not reassurance.
@@ -81,6 +81,9 @@ Agents-of-AI/
 - **Briefcase** — IRAC-based legal reasoning. Contract analysis, compliance, litigation risk.
 - **Pipeline** — Production ML systems. Model selection → training → inference → monitoring.
 - **Megaphone** — Brand positioning, messaging architecture, reputation, GEO (AI discoverability).
+- **Distiller** — Output compression. Banned phrases, banned structures, transformation examples. Strips slop without losing information.
+- **Compass** — Product direction. Challenge framing, find the desperate user, scope to the narrowest wedge. Spec generation through 4-phase review gauntlet.
+- **Ledger** — Financial analysis. Multi-lens opposing viewpoints, DCF + comps, scenario analysis, variant perception.
 - *(more to come — and yours)*
 
 ### Agents (10)
@@ -93,12 +96,14 @@ Agents-of-AI/
 - **Stresstest** — Adversarial verification. Tries to break implementations. Iron law: evidence before claims.
 - **Archaeologist** — Codebase structural audit. 9-dimension sweep with file:line citations.
 - **Chisel** — Safe refactoring. Fowler-catalog transforms with impact/risk scoring and rollback checkpoints.
-- **Locksmith** — Security-first code review. OWASP Top 10, severity grading, concrete fixes.
+- **Locksmith** — Security-first code review. OWASP Top 10 + STRIDE, daily/comprehensive audit modes, infrastructure-first scanning, trend tracking.
 
-### Workflows (3)
+### Workflows (5)
 - **Deep Dig** — 3-stage research: brainstorm → survey → verify. Evidence-tagged. Stops between stages.
 - **Build Chain** — 6-step AI coding: scope → plan (hard gate) → checkpoint → implement → verify → review+merge.
 - **Red Green** — TDD: failing test → minimal code → refactor. Iron law: no code without a failing test first.
+- **Razor** — 7-rung YAGNI decision ladder. Stop at the first rung that holds. The best code is the code you never wrote. Three intensity levels.
+- **Retro** — Sprint retrospective from git data, not memory. Measure → patterns → diagnose → one change for next cycle.
 
 ## Contributing
 
