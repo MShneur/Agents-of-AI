@@ -50,15 +50,26 @@ Both frameworks can reference this library. Personas and agents load on-demand t
 
 ```
 Agents-of-AI/
-├── personas/          # Voice + reasoning signatures
-├── agents/            # Operational methods + protocols  
-├── workflows/         # Repeatable step sequences
+├── personas/          # Voice + reasoning signatures (who)
+├── agents/            # Operational methods + protocols (how)
+├── workflows/         # Repeatable step sequences (the plan)
+├── techniques/        # Small reusable reasoning moves (one move)
 ├── schema/            # Entry format specifications
 ├── MERGE-PROTOCOL.md  # When to merge vs split entries
+├── NAMING-LEXICON.md  # How entries are named
 ├── CONTRIBUTING.md    # How to add yours
 ├── LICENSE            # MIT — use freely
 └── README.md
 ```
+
+### Four layers, kept separate
+
+| Layer | What it is | The test |
+|---|---|---|
+| **Persona** | Voice + reasoning signature | Remove the protocol. Just a voice left? → persona |
+| **Agent** | Operational method + protocol | Remove the voice. Protocol still works? → agent |
+| **Workflow** | Repeatable step sequence | Could different agents run the steps? → workflow |
+| **Technique** | Single reusable reasoning move | Not a voice, not a protocol, not a sequence — just one move? → technique |
 
 ## What's Here Now
 
@@ -98,12 +109,23 @@ Agents-of-AI/
 - **Chisel** — Safe refactoring. Fowler-catalog transforms with impact/risk scoring and rollback checkpoints.
 - **Locksmith** — Security-first code review. OWASP Top 10 + STRIDE, daily/comprehensive audit modes, infrastructure-first scanning, trend tracking.
 
-### Workflows (5)
+### Workflows (8)
 - **Deep Dig** — 3-stage research: brainstorm → survey → verify. Evidence-tagged. Stops between stages.
 - **Build Chain** — 6-step AI coding: scope → plan (hard gate) → checkpoint → implement → verify → review+merge.
 - **Red Green** — TDD: failing test → minimal code → refactor. Iron law: no code without a failing test first.
 - **Razor** — 7-rung YAGNI decision ladder. Stop at the first rung that holds. The best code is the code you never wrote. Three intensity levels.
 - **Retro** — Sprint retrospective from git data, not memory. Measure → patterns → diagnose → one change for next cycle.
+- **PRD** — Convert vague idea to requirements doc. 8 steps: intent → success metrics → scope → user journeys → requirements → acceptance criteria → risks → handoff.
+- **Root Cause** — Why a failure happened. Timelines, causal links, separate triggers from root causes, fixes with owners.
+- **Issue to Patch** — Bug report to tested fix. Reproduce → localize → hypothesize → patch narrowly → test → summarize.
+
+### Techniques (6)
+- **Steelman** — Before critiquing, construct the strongest version of the argument. Critique the steelman, not the straw man.
+- **Assumption Surface** — List every unstated assumption a plan depends on. Rank by how catastrophic failure would be if wrong.
+- **Counterfactual** — "If X had NOT happened, would Y still have occurred?" Tests whether claimed causes are real.
+- **Failure Premortem** — Assume the project already failed. Write the post-mortem. Adjust the plan.
+- **RARV Cycle** — Reason → Act → Reflect → Verify. Every agent action passes through this loop. Blind review, no phase advancement without verification, memory accumulation.
+- **Conflict Extraction** — When multiple perspectives analyze a problem, extract and structure their disagreements. Disagreements are the most valuable output.
 
 ## Contributing
 
