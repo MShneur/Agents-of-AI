@@ -66,3 +66,34 @@ AoA names describe **what the persona does**, not what job title they hold. Corp
 | deep-dig | 3-stage research: brainstorm → survey → verify | Compound |
 | build-chain | 6-step AI coding: scope → plan → checkpoint → implement → verify → merge | Compound |
 | red-green | TDD: failing test → minimal code → refactor | Color code (the TDD colors) |
+
+### Techniques
+| ID | Name | Pattern |
+|---|---|---|
+| steelman | Strongest-version-first critique | Established term, re-pointed |
+| assumption-surface | Surfacing unstated dependencies | Compound |
+| counterfactual | Causal claim testing | Established term |
+| failure-premortem | Post-mortem before the project | Established term |
+| rarv-cycle | Reason-Act-Reflect-Verify loop | Acronym |
+| conflict-extraction | Disagreements as first-class output | Compound |
+
+### Modes
+| ID | Name | Pattern |
+|---|---|---|
+| inspect | Review stance — read-only findings | Action verb |
+| forge | Implementation stance — heads-down shipping | Metaphor (shaping under heat) |
+| probe | Research stance — map before committing | Action verb |
+| draft | Writing stance — structure before polish | Action verb (and the noun) |
+
+### Agents (additions)
+| ID | Name | Pattern |
+|---|---|---|
+| firehose | Live incident management | Metaphor (the emergency flow) |
+
+### Personas (additions)
+| ID | Name | Pattern |
+|---|---|---|
+| distiller | Output compression, anti-slop | Action noun (removes waste) |
+| compass | Product direction | Metaphor (finds the heading) |
+| ledger | Financial analysis | Metaphor (the record of value) |
+| scaffold | Platform engineering | Metaphor (what everything is built on) |

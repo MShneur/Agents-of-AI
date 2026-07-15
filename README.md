@@ -54,6 +54,7 @@ Agents-of-AI/
 ├── agents/            # Operational methods + protocols (how)
 ├── workflows/         # Repeatable step sequences (the plan)
 ├── techniques/        # Small reusable reasoning moves (one move)
+├── modes/             # Runtime stances for task classes (switched on/off)
 ├── schema/            # Entry format specifications
 ├── MERGE-PROTOCOL.md  # When to merge vs split entries
 ├── NAMING-LEXICON.md  # How entries are named
@@ -70,10 +71,11 @@ Agents-of-AI/
 | **Agent** | Operational method + protocol | Remove the voice. Protocol still works? → agent |
 | **Workflow** | Repeatable step sequence | Could different agents run the steps? → workflow |
 | **Technique** | Single reusable reasoning move | Not a voice, not a protocol, not a sequence — just one move? → technique |
+| **Mode** | Runtime stance for a task class | A switchable configuration (defaults, interaction style, stopping rules)? → mode |
 
 ## What's Here Now
 
-### Personas (21)
+### Personas (22)
 - **Framesmith** — Strategic communication + adversarial resilience. Frame control, controlled disclosure, negotiation mode.
 - **Wireframe** — Systems reasoning, formal logic, dependency mapping. Finds load-bearing assumptions.
 - **Redline** — Adversarial analysis. Assumes hostile actors. Reports gaps, not reassurance.
@@ -95,9 +97,10 @@ Agents-of-AI/
 - **Distiller** — Output compression. Banned phrases, banned structures, transformation examples. Strips slop without losing information.
 - **Compass** — Product direction. Challenge framing, find the desperate user, scope to the narrowest wedge. Spec generation through 4-phase review gauntlet.
 - **Ledger** — Financial analysis. Multi-lens opposing viewpoints, DCF + comps, scenario analysis, variant perception.
+- **Scaffold** — Platform engineering. Declarative IaC, blast-radius thinking, paved roads over gates, environment parity, toil elimination.
 - *(more to come — and yours)*
 
-### Agents (10)
+### Agents (11)
 - **Auditor** — Adversarial quality review. DA/SPAR/BENCH ladder + code review tier + ZMA audit.
 - **Scribe** — Writing with structural control. Decision architecture, truth gates, persona integration.
 - **Scout** — Evidence-grounded research. Source credibility tiers, Ghost Rider investigative mode.
@@ -108,6 +111,7 @@ Agents-of-AI/
 - **Archaeologist** — Codebase structural audit. 9-dimension sweep with file:line citations.
 - **Chisel** — Safe refactoring. Fowler-catalog transforms with impact/risk scoring and rollback checkpoints.
 - **Locksmith** — Security-first code review. OWASP Top 10 + STRIDE, daily/comprehensive audit modes, infrastructure-first scanning, trend tracking.
+- **Firehose** — Live incident management. Stabilize → communicate → diagnose → resolve → learn. Mitigation ladder, fixed severity levels, blameless reviews.
 
 ### Workflows (8)
 - **Deep Dig** — 3-stage research: brainstorm → survey → verify. Evidence-tagged. Stops between stages.
@@ -126,6 +130,12 @@ Agents-of-AI/
 - **Failure Premortem** — Assume the project already failed. Write the post-mortem. Adjust the plan.
 - **RARV Cycle** — Reason → Act → Reflect → Verify. Every agent action passes through this loop. Blind review, no phase advancement without verification, memory accumulation.
 - **Conflict Extraction** — When multiple perspectives analyze a problem, extract and structure their disagreements. Disagreements are the most valuable output.
+
+### Modes (4)
+- **Inspect** — Review stance. Read-only, findings first, severity-ranked. Inspection ends where modification begins.
+- **Forge** — Implementation stance. Execute the approved plan, small verified increments, no re-litigating settled decisions.
+- **Probe** — Research stance. Uncertainty-first, contradictions preserved, breadth before depth, stops between stages.
+- **Draft** — Writing stance. Structure locked before polish, revise in order: structure → evidence → compression → tone.
 
 ## Contributing
 
