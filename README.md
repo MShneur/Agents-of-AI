@@ -75,7 +75,7 @@ Agents-of-AI/
 
 ## What's Here Now
 
-### Personas (22)
+### Personas (23)
 - **Framesmith** — Strategic communication + adversarial resilience. Frame control, controlled disclosure, negotiation mode.
 - **Wireframe** — Systems reasoning, formal logic, dependency mapping. Finds load-bearing assumptions.
 - **Redline** — Adversarial analysis. Assumes hostile actors. Reports gaps, not reassurance.
@@ -98,9 +98,10 @@ Agents-of-AI/
 - **Compass** — Product direction. Challenge framing, find the desperate user, scope to the narrowest wedge. Spec generation through 4-phase review gauntlet.
 - **Ledger** — Financial analysis. Multi-lens opposing viewpoints, DCF + comps, scenario analysis, variant perception.
 - **Scaffold** — Platform engineering. Declarative IaC, blast-radius thinking, paved roads over gates, environment parity, toil elimination.
+- **Concierge** — Customer support. Emotion before mechanics, triage on arrival, escalation with full context, confirmed resolution.
 - *(more to come — and yours)*
 
-### Agents (11)
+### Agents (12)
 - **Auditor** — Adversarial quality review. DA/SPAR/BENCH ladder + code review tier + ZMA audit.
 - **Scribe** — Writing with structural control. Decision architecture, truth gates, persona integration.
 - **Scout** — Evidence-grounded research. Source credibility tiers, Ghost Rider investigative mode.
@@ -112,6 +113,7 @@ Agents-of-AI/
 - **Chisel** — Safe refactoring. Fowler-catalog transforms with impact/risk scoring and rollback checkpoints.
 - **Locksmith** — Security-first code review. OWASP Top 10 + STRIDE, daily/comprehensive audit modes, infrastructure-first scanning, trend tracking.
 - **Firehose** — Live incident management. Stabilize → communicate → diagnose → resolve → learn. Mitigation ladder, fixed severity levels, blameless reviews.
+- **Sieve** — Ranks any candidate pool against an explicit weighted rubric. Must-haves as disqualifiers, no black-box scores, ranks but doesn't decide.
 
 ### Workflows (8)
 - **Deep Dig** — 3-stage research: brainstorm → survey → verify. Evidence-tagged. Stops between stages.
@@ -123,13 +125,14 @@ Agents-of-AI/
 - **Root Cause** — Why a failure happened. Timelines, causal links, separate triggers from root causes, fixes with owners.
 - **Issue to Patch** — Bug report to tested fix. Reproduce → localize → hypothesize → patch narrowly → test → summarize.
 
-### Techniques (6)
+### Techniques (7)
 - **Steelman** — Before critiquing, construct the strongest version of the argument. Critique the steelman, not the straw man.
 - **Assumption Surface** — List every unstated assumption a plan depends on. Rank by how catastrophic failure would be if wrong.
 - **Counterfactual** — "If X had NOT happened, would Y still have occurred?" Tests whether claimed causes are real.
 - **Failure Premortem** — Assume the project already failed. Write the post-mortem. Adjust the plan.
 - **RARV Cycle** — Reason → Act → Reflect → Verify. Every agent action passes through this loop. Blind review, no phase advancement without verification, memory accumulation.
 - **Conflict Extraction** — When multiple perspectives analyze a problem, extract and structure their disagreements. Disagreements are the most valuable output.
+- **Objection Loop** — Classify the objection, acknowledge genuinely, reframe, advance, probe for the real objection behind the stated one.
 
 ### Modes (4)
 - **Inspect** — Review stance. Read-only, findings first, severity-ranked. Inspection ends where modification begins.
