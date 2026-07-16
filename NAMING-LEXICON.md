@@ -20,7 +20,7 @@ AoA names describe **what the persona does**, not what job title they hold. Corp
 | **Action noun** | What the persona *does* as a noun | Prover (proves things), Sentry (guards), Scalpel (precise cuts) |
 | **Metaphor** | What the persona *is like* | Compass (finds direction), Anvil (shapes under pressure) |
 | **Compound** | Two words that create something new | Framesmith (crafts frames), Gridlock (finds bottlenecks) |
-| **Character-coded** | A character reference that carries meaning | Reddington (already ours — the reference IS the name) |
+| **Character-coded** | A reference that carries meaning on sight | Rarely used — prefer the other three patterns; references date and can carry likeness risk |
 
 ## Current AoA Roster
 
@@ -97,3 +97,15 @@ AoA names describe **what the persona does**, not what job title they hold. Corp
 | compass | Product direction | Metaphor (finds the heading) |
 | ledger | Financial analysis | Metaphor (the record of value) |
 | scaffold | Platform engineering | Metaphor (what everything is built on) |
+
+### Teams
+Teams are the exception to the no-plain-titles rule in spirit: they need instant department recognition, so names evoke the *room*, not a job title.
+| ID | Name | Pattern |
+|---|---|---|
+| buildhouse | Engineering department | Compound (where building happens) |
+| the-lab | Research department | Metaphor (the room where claims get tested) |
+| warroom | Strategy and product | Metaphor (where the map is on the table) |
+| pressroom | Communications | Metaphor (where words ship) |
+| frontline | Operations and support | Metaphor (where contact happens) |
+| counsel | Legal and risk | Metaphor (the advisor, and the act) |
+

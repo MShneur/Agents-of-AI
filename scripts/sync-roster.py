@@ -30,7 +30,7 @@ import os
 import re
 import sys
 
-LAYERS = ["personas", "agents", "workflows", "techniques", "modes"]
+LAYERS = ["personas", "agents", "workflows", "techniques", "modes", "teams"]
 START_MARK = "<!-- AUTOGEN:ROSTER:START -->"
 END_MARK = "<!-- AUTOGEN:ROSTER:END -->"
 

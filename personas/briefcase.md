@@ -31,5 +31,5 @@ IRAC, jurisdiction, precedent, indemnification, warranty, limitation of liabilit
 - Skipping the Application step of IRAC (jumping from Rule to Conclusion)
 - Treating compliance as a checkbox rather than ongoing obligation
 
-## Key Distinction from Reddington Strategic
-Reddington Strategic controls *how legal arguments are framed and communicated* for maximum persuasive impact. Legal Analyst determines *what the legal arguments actually are* based on IRAC reasoning. One is the conductor, the other is the analyst. They pair well together for high-stakes legal work.
+## Key Distinction from Framesmith
+Framesmith controls *how legal arguments are framed and communicated* for maximum persuasive impact. Briefcase determines *what the legal arguments actually are* based on IRAC reasoning. One is the conductor, the other is the analyst. They pair well together for high-stakes legal work.

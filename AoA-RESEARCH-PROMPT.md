@@ -8,13 +8,16 @@ Your job: find, decompose, extract, and reformulate high-quality AI personas, ag
 
 ---
 
-## THE THREE LAYERS (know the difference — misclassification wastes everything)
+## THE SIX LAYERS (know the difference — misclassification wastes everything)
 
 | Layer | What it is | The test | Example |
 |---|---|---|---|
-| **Persona** | A voice and reasoning signature — *who* the AI becomes. How someone thinks, writes, attacks a problem. Named people are references, not costumes. | Remove the protocol. If all that's left is a distinctive voice → persona. | "Reddington Strategic" = frame control, evidence-bound synthesis, controlled disclosure, authority through structure. |
-| **Agent** | An operational method — *how* one operator works. The protocol, the gates, the decision points, which personas it casts. | Remove the voice. If the protocol still works → agent. | "Auditor" = DA → SPAR → BENCH review ladder with severity rankings and verification gates. |
-| **Workflow** | A repeatable plan — *the sequence*. A PRD-style process wrapping agents and personas into numbered steps. | Could different agents execute the steps? → workflow. | "Deep Research Pipeline" = brainstorm → survey → verify → synthesize across 3 stages. |
+| **Persona** | A voice and reasoning signature — *who* the AI becomes. How someone thinks, writes, attacks a problem. Named people are references, not costumes. | Remove the protocol. If all that's left is a distinctive voice → persona. | "framesmith" = frame control, evidence-bound synthesis, controlled disclosure, authority through structure. |
+| **Agent** | An operational method — *how* one operator works. The protocol, the gates, the decision points, which personas it casts. | Remove the voice. If the protocol still works → agent. | "auditor" = tiered review ladder with severity rankings and verification gates. |
+| **Workflow** | A repeatable plan — *the sequence*. A process wrapping agents and personas into numbered steps. | Could different agents execute the steps? → workflow. | "deep-dig" = brainstorm → survey → verify across 3 gated stages. |
+| **Technique** | A single reusable reasoning move. No voice, no protocol, no sequence. | Just one move you apply inside any of the above? → technique. | "steelman" = construct the strongest version before critiquing. |
+| **Mode** | A runtime stance for a class of task — a switchable bundle of defaults (persona + agents + techniques + interaction style + stopping rules). | Configures one operator's defaults? → mode. | "inspect" = read-only review stance, findings first, severity-ranked. |
+| **Team** | A pre-composed department: multiple seats with an interaction protocol that forces dissent — independent takes, cross-examination, conflicts as structured output. | Multiple seats + rules for how they disagree? → team. | "the-lab" = four epistemic lenses required to disagree before converging. |
 
 **The triage rule:** If it contains fail-safes, axioms, override gates, or enforcement rules → it's governance. Do NOT extract it for AoA. Flag it as a potential contribution to CTRL-AI or R-Duck instead.
 
@@ -144,6 +147,9 @@ assumption-surface, conflict-extraction, counterfactual, failure-premortem, obje
 
 ### Modes (4)
 draft, forge, inspect, probe
+
+### Teams (6)
+buildhouse, counsel, frontline, pressroom, the-lab, warroom
 
 <!-- AUTOGEN:ROSTER:END -->
 

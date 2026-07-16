@@ -14,7 +14,7 @@ Three layers, kept separate:
 
 | Layer | What it is | Example |
 |---|---|---|
-| **Personas** | *Who* — a voice and reasoning signature. How someone thinks, writes, attacks a problem. | Raymond Reddington's strategic framing. A Bloomberg editor's compression style. |
+| **Personas** | *Who* — a voice and reasoning signature. How someone thinks, writes, attacks a problem. | A master negotiator's strategic framing. A wire-service editor's compression style. |
 | **Agents** | *How one operator works* — the method, the protocol, which personas it pulls. | An adversarial auditor that runs DA → SPAR → BENCH review ladders. |
 | **Workflows** | *The plan* — a repeatable sequence of steps wrapping agents and personas. | A "deep research" pipeline: brainstorm → survey → verify → synthesize. |
 
@@ -55,6 +55,7 @@ Agents-of-AI/
 ├── workflows/         # Repeatable step sequences (the plan)
 ├── techniques/        # Small reusable reasoning moves (one move)
 ├── modes/             # Runtime stances for task classes (switched on/off)
+├── teams/             # Pre-composed departments with built-in dissent
 ├── schema/            # Entry format specifications
 ├── MERGE-PROTOCOL.md  # When to merge vs split entries
 ├── NAMING-LEXICON.md  # How entries are named
@@ -72,6 +73,7 @@ Agents-of-AI/
 | **Workflow** | Repeatable step sequence | Could different agents run the steps? → workflow |
 | **Technique** | Single reusable reasoning move | Not a voice, not a protocol, not a sequence — just one move? → technique |
 | **Mode** | Runtime stance for a task class | A switchable configuration (defaults, interaction style, stopping rules)? → mode |
+| **Team** | Pre-composed department of multiple entries | Multiple seats + rules for how they disagree? → team |
 
 ## What's Here Now
 
@@ -140,6 +142,15 @@ Agents-of-AI/
 - **Probe** — Research stance. Uncertainty-first, contradictions preserved, breadth before depth, stops between stages.
 - **Draft** — Writing stance. Structure locked before polish, revise in order: structure → evidence → compression → tone.
 
+### Teams (6)
+Departments, not soloists: multiple specialized seats with an interaction protocol that forces real dissent — independent takes, mandatory cross-examination, conflicts as structured output. Each seat argues from a named methodological lens, so disagreements are substantive, not stylistic.
+- **Buildhouse** — Engineering. Five specialized seats (implementation, debugging, verification, security, structure) — never one generic coder.
+- **The Lab** — Research. Four epistemic lenses (evidence, proof standards, source forensics, formal validity) required to disagree before converging.
+- **Warroom** — Strategy & product. Conviction vs. competitive response vs. user reality vs. financial consequence, with mandatory premortem.
+- **Pressroom** — Communications. Positioning → threat model → draft → compression, each later seat licensed to reject the earlier one's work.
+- **Frontline** — Operations. Platform, incident command, process flow, and the affected human — one commander mid-incident, four accountabilities after.
+- **Counsel** — Legal & risk. IRAC analysis vs. hostile reading vs. obligations vs. defensible drafting. Analysis, never advice.
+
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for the full guide. The short version:
@@ -172,7 +183,7 @@ We're building a community around this. Places to connect:
 ## Philosophy
 
 - **Agreement is not success.** The best personas include what they're *allergic to* — what they refuse to do.
-- **Named people are references, not costumes.** "Reddington strategic" means we extracted the reasoning pattern. It doesn't mean the AI pretends to be a TV character.
+- **Named inspirations are references, not costumes.** When an entry is inspired by a real practitioner or tradition, we extract the reasoning pattern — the AI never pretends to be that person.
 - **Portable over powerful.** A persona that works in one AI and breaks in another is a bad persona. These should work everywhere.
 - **Evidence tags matter.** `[VERIFIED]`, `[PRACTICE]`, `[SPECULATIVE]` — know what you're getting.
 - **Community contributions don't touch governance.** You can add any persona, agent, or workflow. You cannot add axioms, gates, or override rules. That's a feature, not a limitation.

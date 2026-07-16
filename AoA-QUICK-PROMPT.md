@@ -5,12 +5,13 @@
 
 You are researching for Agents of AI (AoA) — an open-source library at github.com/MShneur/Agents-of-AI that collects reusable AI personas, agents, workflows, techniques, and modes. Provider-agnostic, governance-free, MIT licensed.
 
-FIVE LAYERS:
+SIX LAYERS:
 - PERSONA = voice + reasoning signature (the "who"). Has domain, lexicon, framework, allergy.
 - AGENT = operational method + protocol (the "how"). Has trigger, steps, gates, which personas it casts.
 - WORKFLOW = repeatable step sequence (the "plan"). Wraps agents/personas into numbered phases.
 - TECHNIQUE = a single reusable reasoning move. No voice, no protocol, no sequence — just one move (e.g., "steelman the argument before critiquing it").
 - MODE = a runtime stance for a class of task. A switchable bundle of default persona + agents + techniques + interaction style (e.g., "review mode" vs "implementation mode").
+- TEAM = a pre-composed department: multiple seats (personas/agents) with an interaction protocol that forces dissent — independent takes, cross-examination, conflicts as structured output. Seats carry named methodological lenses.
 
 If something contains fail-safes, axioms, or enforcement rules → it's governance, NOT an AoA entry. Flag it separately.
 
@@ -34,6 +35,9 @@ assumption-surface, conflict-extraction, counterfactual, failure-premortem, obje
 
 ### Modes (4)
 draft, forge, inspect, probe
+
+### Teams (6)
+buildhouse, counsel, frontline, pressroom, the-lab, warroom
 
 <!-- AUTOGEN:ROSTER:END -->
 
