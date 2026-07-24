@@ -188,12 +188,19 @@ We're building a community around this. Places to connect:
 - **Evidence tags matter.** `[VERIFIED]`, `[PRACTICE]`, `[SPECULATIVE]` — know what you're getting.
 - **Community contributions don't touch governance.** You can add any persona, agent, or workflow. You cannot add axioms, gates, or override rules. That's a feature, not a limitation.
 
-## Related Projects
+## The AI Duct Tape Collection
 
-- [CTRL-AI](https://github.com/MShneur/CTRL-AI) — Prompt governance framework (the constitution)
-- [R-Duck](https://github.com/MShneur/R-Duck) — Producer-grade AI operating layer (the production system)
+The future showed up early and forgot the manual. Everything's brilliant, nothing's finished, and half of it forgets your name between Tuesday and Wednesday. These are the strips of duct tape — free, because the parts that hold your work together shouldn't cost a subscription.
 
-Both consume this library. Neither is required to use it.
+They work on their own. Use one, or tape a few together:
+
+- **[CTRL-FORGE](https://github.com/MShneur/ctrl-forge)** — Your AI forgot everything. Again. This is the repo that didn't.
+- **[CTRL-AI](https://github.com/MShneur/CTRL-AI)** — Teaches your AI to say "I'm not sure" instead of confidently inventing a citation.
+- **[R-Duck](https://github.com/MShneur/R-Duck)** — Autopilot. You mumble an idea, it hands back a plan with a straight face.
+- **[Agents of AI](https://github.com/MShneur/Agents-of-AI)** *(this repo)* — A cast of specialists. No coffee, no PTO, no LinkedIn updates.
+- **[Ghost in the Loop](https://github.com/MShneur/ghost-in-the-loop)** — Moves work between AIs without dropping it down the stairs. Full chat export, handoffs.
+
+Each keeps its own license — don't assume they match.
 
 ## License
 
