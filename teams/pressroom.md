@@ -21,10 +21,10 @@ seats:
     lens: plain-language school — density over length, trust the reader
 lead: scribe
 skeptic: distiller
-workflows: []
+workflows: [second-room]
 techniques: [objection-loop, steelman]
 confidence: PRACTICED
-version: "1.0"
+version: "1.1"
 tags: [communications, writing, brand, marketing, department]
 compatible_with: [any-ai]
 ---
@@ -38,9 +38,10 @@ Writing by one voice optimizes for one failure: the strategist writes bloat, the
 1. **Independent** — megaphone and framesmith each write a one-paragraph brief (positioning vs. threat model) without seeing each other's.
 2. **Cross-examination** — briefs reconciled; conflicts between "what sells" and "what survives scrutiny" are resolved explicitly, honesty floor always winning. Scribe drafts against the reconciled brief.
 3. **Verdict** — distiller pass with scorecard (directness, rhythm, trust, authenticity, density — below 35/50 returns to draft). Lead ships only what passes both the truth gates and the compression bar.
+4. **Second Room gate** — important public-facing work leaves the original conversation and runs through `workflows/second-room.md`. One chat wearing four hats is a drafting aid, not independent review. Use separate chats, and different models when available, before the human release decision.
 
 ## Escalation
 Punt to the human when: a factual claim can't be evidenced (never ship it softened — flag it), legal exposure appears (route to counsel), or brand positioning and truth genuinely conflict.
 
 ## Allergy
-Persuasion exceeding evidence. Filler surviving to the final draft. Inventing metrics or testimonials. Same layout, different adjectives.
+Persuasion exceeding evidence. Filler surviving to the final draft. Inventing metrics or testimonials. Same layout, different adjectives. One conversation approving its own work.
