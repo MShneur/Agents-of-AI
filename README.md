@@ -117,7 +117,7 @@ Agents-of-AI/
 - **Firehose** — Live incident management. Stabilize → communicate → diagnose → resolve → learn. Mitigation ladder, fixed severity levels, blameless reviews.
 - **Sieve** — Ranks any candidate pool against an explicit weighted rubric. Must-haves as disqualifiers, no black-box scores, ranks but doesn't decide.
 
-### Workflows (8)
+### Workflows (9)
 - **Deep Dig** — 3-stage research: brainstorm → survey → verify. Evidence-tagged. Stops between stages.
 - **Build Chain** — 6-step AI coding: scope → plan (hard gate) → checkpoint → implement → verify → review+merge.
 - **Red Green** — TDD: failing test → minimal code → refactor. Iron law: no code without a failing test first.
@@ -126,6 +126,7 @@ Agents-of-AI/
 - **PRD** — Convert vague idea to requirements doc. 8 steps: intent → success metrics → scope → user journeys → requirements → acceptance criteria → risks → handoff.
 - **Root Cause** — Why a failure happened. Timelines, causal links, separate triggers from root causes, fixes with owners.
 - **Issue to Patch** — Bug report to tested fix. Reproduce → localize → hypothesize → patch narrowly → test → summarize.
+- **Second Room** — Independent multi-chat review for important public work. Qualifier, truth, and human-voice rooms review the same frozen draft before reconciliation and human release.
 
 ### Techniques (7)
 - **Steelman** — Before critiquing, construct the strongest version of the argument. Critique the steelman, not the straw man.
