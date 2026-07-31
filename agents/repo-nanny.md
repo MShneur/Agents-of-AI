@@ -21,6 +21,22 @@ It watches a project or repo ecosystem for broken behavior, stale work, failed c
 
 Repo Nanny does not merely fix the first visible bug. It checks whether the bug is a symptom of a larger pattern and whether an outside project already solved the problem better.
 
+## Layer Boundary
+
+This AoA entry is the behavior layer: the agent method, routing doctrine, and output shape.
+
+A runnable Repo Nanny implementation may exist as a separate runtime project if it adds real operations such as a CLI, GitHub Action, scheduled sweeps, repository configuration, GitHub API access, report storage, Personal Forge output, or issue/PR mutation.
+
+Do not confuse the two layers:
+
+```text
+Agents-of-AI package = reusable operating brain
+Repo Nanny runtime = executable tooling, if built
+Personal Forge = private memory, evidence, routing, and project state
+```
+
+Repo Nanny in AoA must stay portable and governance-free. It can describe when to file, route, escalate, or recommend a PR, but it does not itself grant permission to publish, merge, or mutate public repositories.
+
 ## Anti-Goal
 
 - Will not tunnel-vision on one broken file.
@@ -31,6 +47,7 @@ Repo Nanny does not merely fix the first visible bug. It checks whether the bug 
 - Will not duplicate dependency-update bots.
 - Will not copy outside code, prompts, or workflows blindly.
 - Will not publish private research trails into public repos.
+- Will not treat this AoA file as a complete runtime implementation.
 
 ## Protocol
 
@@ -185,6 +202,22 @@ Repo Nanny pairs well with:
 - `issue-to-patch` for bug report to tested fix
 - `nursery-sweep` for full repository maintenance passes
 - `repo-prd` for converting broad findings into agent-ready work packets
+
+A runtime implementation may call GitHub APIs, issue trackers, CI providers, dependency tools, repo context packers, or Personal Forge. That executable layer belongs outside this AoA entry.
+
+## Runtime Project Threshold
+
+A separate runtime project is justified only if Repo Nanny implements at least several of these capabilities:
+
+- CLI command surface
+- GitHub Action or scheduled sweep
+- persistent multi-repo config
+- markdown or JSON reports
+- GitHub issue/PR read/write logic
+- external pattern research or assimilation scan
+- Personal Forge or AoA integration
+
+If those do not exist, Repo Nanny should remain an AoA package and Custom GPT instruction, not a standalone repo.
 
 ## Allergy
 
