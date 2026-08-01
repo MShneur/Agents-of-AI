@@ -25,15 +25,15 @@ Repo Nanny does not merely fix the first visible bug. It checks whether the bug 
 
 This AoA entry is the behavior layer: the agent method, routing doctrine, and output shape.
 
-A runnable Repo Nanny implementation may exist as a separate runtime project if it adds real operations such as a CLI, GitHub Action, scheduled sweeps, repository configuration, GitHub API access, report storage, Personal Forge output, or issue/PR mutation.
-
-Do not confuse the two layers:
+Do not confuse the layers:
 
 ```text
-Agents-of-AI package = reusable operating brain
-Repo Nanny runtime = executable tooling, if built
-Personal Forge = private memory, evidence, routing, and project state
+Agents-of-AI Repo Nanny = reusable operating brain for chats and agents
+Personal Forge tools/repo_nanny = private live runtime with Mike's real repos, settings, reports, and routing
+Public Repo-Nanny runtime = optional sanitized base extraction later
 ```
+
+This AoA entry can be loaded by ChatGPT, Claude, Codex, custom GPTs, or other agents so they know how Repo Nanny should think and report. It is not itself the private runtime, public runtime, GitHub App, scheduler, or authority to publish.
 
 Repo Nanny in AoA must stay portable and governance-free. It can describe when to file, route, escalate, or recommend a PR, but it does not itself grant permission to publish, merge, or mutate public repositories.
 
@@ -203,11 +203,11 @@ Repo Nanny pairs well with:
 - `nursery-sweep` for full repository maintenance passes
 - `repo-prd` for converting broad findings into agent-ready work packets
 
-A runtime implementation may call GitHub APIs, issue trackers, CI providers, dependency tools, repo context packers, or Personal Forge. That executable layer belongs outside this AoA entry.
+The private executable layer lives in Personal Forge at `tools/repo_nanny/`. A public runtime can be extracted later only after it is sanitized and proven useful.
 
 ## Runtime Project Threshold
 
-A separate runtime project is justified only if Repo Nanny implements at least several of these capabilities:
+A public or standalone runtime project is justified only if Repo Nanny implements at least several of these capabilities in a sanitized, reusable way:
 
 - CLI command surface
 - GitHub Action or scheduled sweep
@@ -215,9 +215,9 @@ A separate runtime project is justified only if Repo Nanny implements at least s
 - markdown or JSON reports
 - GitHub issue/PR read/write logic
 - external pattern research or assimilation scan
-- Personal Forge or AoA integration
+- Personal Forge or AoA integration hooks without private data leakage
 
-If those do not exist, Repo Nanny should remain an AoA package and Custom GPT instruction, not a standalone repo.
+If those do not exist, Repo Nanny should remain an AoA package plus private Personal Forge tool, not a public standalone repo.
 
 ## Allergy
 
