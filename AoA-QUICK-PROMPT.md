@@ -24,14 +24,14 @@ ALREADY IN AoA (don't duplicate) — **this is a snapshot and may be stale; veri
 ### Personas (23)
 briefcase, burden, compass, concierge, distiller, framesmith, friction, gridlock, guardrail, ledger, megaphone, midwife, mirror, pipeline, provenance, prover, raw-cut, redline, scaffold, signal, verdict, wargame, wireframe
 
-### Agents (12)
-archaeologist, auditor, chisel, conductor, firehose, locksmith, scout, scribe, showrunner, sieve, stresstest, tracker
+### Agents (13)
+archaeologist, auditor, chisel, conductor, firehose, locksmith, repo-nanny, scout, scribe, showrunner, sieve, stresstest, tracker
 
-### Workflows (8)
-build-chain, deep-dig, issue-to-patch, prd, razor, red-green, retro, root-cause
+### Workflows (12)
+build-chain, deep-dig, human-gate-committee, issue-to-patch, nursery-sweep, prd, razor, red-green, repo-prd, retro, root-cause, second-room
 
-### Techniques (7)
-assumption-surface, conflict-extraction, counterfactual, failure-premortem, objection-loop, rarv-cycle, steelman
+### Techniques (10)
+adjacent-breakage-check, assumption-surface, conflict-extraction, counterfactual, failure-premortem, objection-loop, rarv-cycle, single-dispatch-operator, steelman, wheel-check
 
 ### Modes (4)
 draft, forge, inspect, probe

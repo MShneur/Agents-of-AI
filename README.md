@@ -1,6 +1,6 @@
 # Agents of AI
 
-**The open library of personas, agents, and workflows for any AI.**
+**The open library of personas, agents, workflows, techniques, modes, and teams for any AI.**
 
 > You don't need a new framework. You need the right cast.
 
@@ -10,13 +10,16 @@
 
 Agents of AI is a community-driven library of reusable AI components. Not a governance framework. Not an agent runtime. Not another "awesome list" of links. It's the actual files — drop them into any AI system and they work.
 
-Three layers, kept separate:
+Six layers, kept separate:
 
 | Layer | What it is | Example |
 |---|---|---|
-| **Personas** | *Who* — a voice and reasoning signature. How someone thinks, writes, attacks a problem. | A master negotiator's strategic framing. A wire-service editor's compression style. |
-| **Agents** | *How one operator works* — the method, the protocol, which personas it pulls. | An adversarial auditor that runs DA → SPAR → BENCH review ladders. |
-| **Workflows** | *The plan* — a repeatable sequence of steps wrapping agents and personas. | A "deep research" pipeline: brainstorm → survey → verify → synthesize. |
+| **Personas** | *Who* — a voice and reasoning signature. How someone thinks, writes, attacks a problem. | A master negotiator's strategic framing. |
+| **Agents** | *How one operator works* — the method, the protocol, which personas it pulls. | An adversarial auditor that runs review ladders. |
+| **Workflows** | *The plan* — a repeatable sequence of steps wrapping agents and personas. | A deep research pipeline: brainstorm → survey → verify → synthesize. |
+| **Techniques** | *One reusable move* — a reasoning move that can plug into any persona, agent, workflow, mode, or team. | Steelman the strongest version before critiquing. |
+| **Modes** | *Runtime stance* — switchable defaults for a class of task. | Inspect mode: read-only, findings first, severity-ranked. |
+| **Teams** | *Pre-composed departments* — multiple seats with a disagreement protocol. | Buildhouse: implementation, debugging, verification, security, and structure seats. |
 
 **None of this is governance.** Governance belongs in your own system (like [CTRL-AI](https://github.com/MShneur/CTRL-AI) or [R-Duck](https://github.com/MShneur/R-Duck)). This library is what governance systems *load* — the cast, not the constitution.
 
@@ -37,7 +40,7 @@ This library extracts them, makes them portable, and makes them free. Use them w
 4. Done
 
 ### As a reference in your own system
-```
+```text
 Load persona: personas/framesmith.md
 Load agent: agents/auditor.md
 ```
@@ -48,7 +51,7 @@ Both frameworks can reference this library. Personas and agents load on-demand t
 
 ## Structure
 
-```
+```text
 Agents-of-AI/
 ├── personas/          # Voice + reasoning signatures (who)
 ├── agents/            # Operational methods + protocols (how)
@@ -64,7 +67,7 @@ Agents-of-AI/
 └── README.md
 ```
 
-### Four layers, kept separate
+### Six layers, kept separate
 
 | Layer | What it is | The test |
 |---|---|---|
@@ -103,7 +106,7 @@ Agents-of-AI/
 - **Concierge** — Customer support. Emotion before mechanics, triage on arrival, escalation with full context, confirmed resolution.
 - *(more to come — and yours)*
 
-### Agents (12)
+### Agents (13)
 - **Auditor** — Adversarial quality review. DA/SPAR/BENCH ladder + code review tier + ZMA audit.
 - **Scribe** — Writing with structural control. Decision architecture, truth gates, persona integration.
 - **Scout** — Evidence-grounded research. Source credibility tiers, Ghost Rider investigative mode.
@@ -114,10 +117,11 @@ Agents-of-AI/
 - **Archaeologist** — Codebase structural audit. 9-dimension sweep with file:line citations.
 - **Chisel** — Safe refactoring. Fowler-catalog transforms with impact/risk scoring and rollback checkpoints.
 - **Locksmith** — Security-first code review. OWASP Top 10 + STRIDE, daily/comprehensive audit modes, infrastructure-first scanning, trend tracking.
+- **Repo Nanny** — Repository ecosystem maintenance. Sweeps issues, PRs, checks, stale work, adjacent breakage, and external patterns before choosing fix-or-file action.
 - **Firehose** — Live incident management. Stabilize → communicate → diagnose → resolve → learn. Mitigation ladder, fixed severity levels, blameless reviews.
 - **Sieve** — Ranks any candidate pool against an explicit weighted rubric. Must-haves as disqualifiers, no black-box scores, ranks but doesn't decide.
 
-### Workflows (9)
+### Workflows (12)
 - **Deep Dig** — 3-stage research: brainstorm → survey → verify. Evidence-tagged. Stops between stages.
 - **Build Chain** — 6-step AI coding: scope → plan (hard gate) → checkpoint → implement → verify → review+merge.
 - **Red Green** — TDD: failing test → minimal code → refactor. Iron law: no code without a failing test first.
@@ -127,8 +131,11 @@ Agents-of-AI/
 - **Root Cause** — Why a failure happened. Timelines, causal links, separate triggers from root causes, fixes with owners.
 - **Issue to Patch** — Bug report to tested fix. Reproduce → localize → hypothesize → patch narrowly → test → summarize.
 - **Second Room** — Independent multi-chat review for important public work. Qualifier, truth, and human-voice rooms review the same frozen draft before reconciliation and human release.
+- **Nursery Sweep** — Full repository maintenance pass. Collects repo signals, ranks risks, checks adjacent breakage, runs Wheel Check, and routes each finding.
+- **Repo PRD** — Converts broad repo findings into agent-ready work packets with problem, evidence, scope, acceptance checks, and routing.
+- **Human Gate Committee** — Named multi-perspective decision review. Uses two distinct domain methods, an operator, an adversarial reviewer when warranted, and a target-user representative; forces a consensus challenge before a consequential human gate.
 
-### Techniques (7)
+### Techniques (10)
 - **Steelman** — Before critiquing, construct the strongest version of the argument. Critique the steelman, not the straw man.
 - **Assumption Surface** — List every unstated assumption a plan depends on. Rank by how catastrophic failure would be if wrong.
 - **Counterfactual** — "If X had NOT happened, would Y still have occurred?" Tests whether claimed causes are real.
@@ -136,6 +143,9 @@ Agents-of-AI/
 - **RARV Cycle** — Reason → Act → Reflect → Verify. Every agent action passes through this loop. Blind review, no phase advancement without verification, memory accumulation.
 - **Conflict Extraction** — When multiple perspectives analyze a problem, extract and structure their disagreements. Disagreements are the most valuable output.
 - **Objection Loop** — Classify the objection, acknowledge genuinely, reframe, advance, probe for the real objection behind the stated one.
+- **Adjacent Breakage Check** — After one bug or weakness is found, check sibling files, adjacent paths, docs, tests, and configs for the same failure pattern.
+- **Wheel Check** — Before building or refactoring, check whether an outside project, library, pattern, prompt, workflow, or agent already solves the problem better.
+- **Single Dispatch Operator** — One chief operator, bounded specialists, ownership checks, and explicit handoffs. Rejects recursive manager sprawl and competing writers.
 
 ### Modes (4)
 - **Inspect** — Review stance. Read-only, findings first, severity-ranked. Inspection ends where modification begins.
