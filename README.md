@@ -10,7 +10,7 @@
 
 Agents of AI is a community-driven library of reusable AI components. Not a governance framework. Not an agent runtime. Not another "awesome list" of links. It's the actual files — drop them into any AI system and they work.
 
-Six layers, kept separate:
+Seven layers, kept separate:
 
 | Layer | What it is | Example |
 |---|---|---|
