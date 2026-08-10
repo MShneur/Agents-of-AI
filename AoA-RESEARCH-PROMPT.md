@@ -154,6 +154,9 @@ draft, forge, inspect, probe
 ### Teams (6)
 buildhouse, counsel, frontline, pressroom, the-lab, warroom
 
+### Failures (6)
+authority-laundering, constraint-decay, cycle-lock, orthogonal-edit, premature-convergence, silent-completion
+
 <!-- AUTOGEN:ROSTER:END -->
 
 ---

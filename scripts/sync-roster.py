@@ -2,7 +2,7 @@
 """
 sync-roster.py — regenerates the entry-count/roster listings in README.md,
 AoA-RESEARCH-PROMPT.md, and AoA-QUICK-PROMPT.md directly from the actual
-files in personas/, agents/, workflows/, techniques/, modes/.
+files in personas/, agents/, workflows/, techniques/, modes/, teams/, failures/.
 
 WHY THIS EXISTS:
 On 2026-07-15 the research prompts were caught listing 10 personas / 5
@@ -30,7 +30,7 @@ import os
 import re
 import sys
 
-LAYERS = ["personas", "agents", "workflows", "techniques", "modes", "teams"]
+LAYERS = ["personas", "agents", "workflows", "techniques", "modes", "teams", "failures"]
 START_MARK = "<!-- AUTOGEN:ROSTER:START -->"
 END_MARK = "<!-- AUTOGEN:ROSTER:END -->"
 

@@ -67,7 +67,7 @@ Agents-of-AI/
 └── README.md
 ```
 
-### Six layers, kept separate
+### Seven layers, kept separate
 
 | Layer | What it is | The test |
 |---|---|---|
@@ -176,6 +176,15 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for the full guide. The short version:
 2. **Use the schema.** YAML frontmatter + markdown body. See `schema/` for the format.
 3. **Tag your confidence.** Is this battle-tested or experimental?
 4. **PR it.** Community contributions enter as `[COMMUNITY]` until reviewed.
+
+### Failures (6)
+Named failure modes, not advice. Each entry is one way work goes wrong, with the signal that reveals it and the fix that closes it. Route to a failure entry when its signal fires; cite it by name in a post-mortem so incidents get a shared vocabulary instead of six guesses.
+- **Silent Completion** — a step failed or returned nothing, the run continued, and the report is confident with no artifact behind it. Assert on the artifact, never the claim.
+- **Cycle Lock** — the same operation repeats with near-identical inputs and no progress while cost accrues. Define termination first; track a progress key; escalate past three repeats.
+- **Premature Convergence** — a panel agrees fast, dissent thins, confidence rises while findings fall. Independence before exposure; no-dissent is a trigger, not a result.
+- **Constraint Decay** — a rule stated at intake quietly stops being applied and nothing announces its departure. Keep constraints in a standing block, re-read not recalled; check non-goals explicitly.
+- **Orthogonal Edit** — work touched what it was never asked to touch and buried the sanctioned change in an unreviewable diff. Declare the blast radius; record adjacent findings instead of performing them.
+- **Authority Laundering** — a suggestion re-enters the record as a decision because compression dropped the speaker and the modality. Track provenance per claim; recommendations stay attributed across every summary.
 
 ### What makes a good contribution
 - A persona you actually use that makes your AI output noticeably better

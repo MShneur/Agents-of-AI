@@ -11,7 +11,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-LAYERS = ("personas", "agents", "workflows", "techniques", "modes", "teams")
+LAYERS = ("personas", "agents", "workflows", "techniques", "modes", "teams", "failures")
 LINK_RE = re.compile(r"\[[^\]]*\]\(([^)]+)\)")
 
 
