@@ -1,18 +1,23 @@
 ---
 id: human-gate-committee
 type: workflow
-trigger: human decision, consequential choice, architecture fork, release gate, safety tradeoff, unresolved expert disagreement
+trigger: >
+  Invoked by name: "human gate", "quorum", "convene quorum", "run human gate".
+  Also on: consequential choice, architecture fork, release gate, safety tradeoff,
+  unresolved expert disagreement, or any decision expensive to reverse.
 purpose: Convene the Human Gate: a named expert committee with deliberate methodological opposition and target-user representation before consequential decisions.
 anti-goal: Will not manufacture consensus, use decorative personas, impersonate real experts, or replace the human decision owner.
 confidence: EXPERIMENTAL
 version: "1.1"
-tags: [decision, human-gate, committee, dissent, expert-review, user-representation]
+tags: [decision, human-gate, quorum, dissent, expert-review, user-representation]
 compatible_with: [any-ai]
 ---
 
 # Human Gate
 
-**Canonical name:** Human Gate  
+**Canonical name:** Human Gate
+**The assembled body:** Quorum — the minimum seats required for a decision to be valid. An incomplete quorum does not produce a weaker decision; it produces no decision.
+**Invocation:** `human gate` · `quorum` · `convene quorum`
 **Backward-compatible alias:** Human Gate Committee
 
 ## Purpose

@@ -27,8 +27,8 @@ briefcase, burden, compass, concierge, distiller, framesmith, friction, gridlock
 ### Agents (13)
 archaeologist, auditor, chisel, conductor, firehose, locksmith, repo-nanny, scout, scribe, showrunner, sieve, stresstest, tracker
 
-### Workflows (12)
-build-chain, deep-dig, human-gate-committee, issue-to-patch, nursery-sweep, prd, razor, red-green, repo-prd, retro, root-cause, second-room
+### Workflows (13)
+build-chain, cleanerz, deep-dig, human-gate-committee, issue-to-patch, nursery-sweep, prd, razor, red-green, repo-prd, retro, root-cause, second-room
 
 ### Techniques (16)
 adjacent-breakage-check, assumption-surface, conflict-extraction, counterfactual, error-decorrelation, failure-premortem, judge-rubric, objection-loop, observation-masking, rarv-cycle, retrieval-precision-gate, single-dispatch-operator, skill-provenance, steelman, symbol-trace, wheel-check
