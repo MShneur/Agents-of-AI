@@ -20,6 +20,7 @@ Seven layers, kept separate:
 | **Techniques** | *One reusable move* — a reasoning move that can plug into any persona, agent, workflow, mode, or team. | Steelman the strongest version before critiquing. |
 | **Modes** | *Runtime stance* — switchable defaults for a class of task. | Inspect mode: read-only, findings first, severity-ranked. |
 | **Teams** | *Pre-composed departments* — multiple seats with a disagreement protocol. | Buildhouse: implementation, debugging, verification, security, and structure seats. |
+| **Failures** | *What goes wrong* — a named failure mode with the signal that reveals it and the fix that closes it. | Silent completion: the step failed, the run continued, the report is confident. |
 
 **None of this is governance.** Governance belongs in your own system (like [CTRL-AI](https://github.com/MShneur/CTRL-AI) or [R-Duck](https://github.com/MShneur/R-Duck)). This library is what governance systems *load* — the cast, not the constitution.
 
