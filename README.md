@@ -138,7 +138,7 @@ Agents-of-AI/
 - **Cleanerz** — The meta-workflow. Every other workflow operates inside the plan; Cleanerz operates on the plan. Fires when work is looping — a fix that fixes a fix, three corrections with no progress, or the operator saying something is off. Stop, name the loop, salvage, kill, horizon (now/next/later/out of reach), hand back one page and one decision. Output ceiling is binding: if the cleaning is longer than the mess, it failed.
 - **Quorum** — The expert assembly protocol. Seats are weighted, not equal: heavy (leads, frames the question) and light (supports, tests the frame) — two real practitioners per seat, documented public methods, sourced live at convening time. Invented composites void the body; a stored roster is the assembler's own reasoning wearing other people's names. Role rotation forced after three cycles. Spike mandatory on unanimity or thin dissent. Every objection closes ACCEPTED / MITIGATED / OVERRIDDEN / DISPUTED.
 
-### Techniques (16)
+### Techniques (17)
 - **Steelman** — Before critiquing, construct the strongest version of the argument. Critique the steelman, not the straw man.
 - **Assumption Surface** — List every unstated assumption a plan depends on. Rank by how catastrophic failure would be if wrong.
 - **Counterfactual** — "If X had NOT happened, would Y still have occurred?" Tests whether claimed causes are real.
@@ -155,6 +155,7 @@ Agents-of-AI/
 - **Retrieval Precision Gate** — Retrieval over-collects by default. Score each item load-bearing, corroborating, or ambient; drop ambient before synthesis; name what is missing.
 - **Skill Provenance** — Treat any third-party instruction file as untrusted executable input. Read before load, check for instruction smuggling, inventory the reach, trace the origin, load narrow, re-gate on every update.
 - **Symbol Trace** — Fix a legend, then represent state, transitions, and dependencies as compact notation rather than sentences. The trace is the source of truth; the prose is the answer.
+- **Controlled Vocabulary** — Approve one word per concept, forbid its synonyms by name, one part of speech per term, one instruction per sentence, enforced mechanically. A reader with no back-channel cannot ask whether "verify" and "check" mean the same thing — it guesses, and the guess is invisible.
 
 ### Modes (4)
 - **Inspect** — Review stance. Read-only, findings first, severity-ranked. Inspection ends where modification begins.

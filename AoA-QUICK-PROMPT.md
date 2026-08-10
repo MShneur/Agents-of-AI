@@ -30,8 +30,8 @@ archaeologist, auditor, chisel, conductor, firehose, locksmith, repo-nanny, scou
 ### Workflows (14)
 build-chain, cleanerz, deep-dig, human-gate-committee, issue-to-patch, nursery-sweep, prd, quorum, razor, red-green, repo-prd, retro, root-cause, second-room
 
-### Techniques (16)
-adjacent-breakage-check, assumption-surface, conflict-extraction, counterfactual, error-decorrelation, failure-premortem, judge-rubric, objection-loop, observation-masking, rarv-cycle, retrieval-precision-gate, single-dispatch-operator, skill-provenance, steelman, symbol-trace, wheel-check
+### Techniques (17)
+adjacent-breakage-check, assumption-surface, conflict-extraction, controlled-vocabulary, counterfactual, error-decorrelation, failure-premortem, judge-rubric, objection-loop, observation-masking, rarv-cycle, retrieval-precision-gate, single-dispatch-operator, skill-provenance, steelman, symbol-trace, wheel-check
 
 ### Modes (4)
 draft, forge, inspect, probe
