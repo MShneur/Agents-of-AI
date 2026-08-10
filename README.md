@@ -122,7 +122,7 @@ Agents-of-AI/
 - **Firehose** — Live incident management. Stabilize → communicate → diagnose → resolve → learn. Mitigation ladder, fixed severity levels, blameless reviews.
 - **Sieve** — Ranks any candidate pool against an explicit weighted rubric. Must-haves as disqualifiers, no black-box scores, ranks but doesn't decide.
 
-### Workflows (13)
+### Workflows (14)
 - **Deep Dig** — 3-stage research: brainstorm → survey → verify. Evidence-tagged. Stops between stages.
 - **Build Chain** — 6-step AI coding: scope → plan (hard gate) → checkpoint → implement → verify → review+merge.
 - **Red Green** — TDD: failing test → minimal code → refactor. Iron law: no code without a failing test first.
@@ -136,6 +136,7 @@ Agents-of-AI/
 - **Repo PRD** — Converts broad repo findings into agent-ready work packets with problem, evidence, scope, acceptance checks, and routing.
 - **Human Gate Committee** — Named multi-perspective decision review. Uses two distinct domain methods, an operator, an adversarial reviewer when warranted, and a target-user representative; forces a consensus challenge before a consequential human gate.
 - **Cleanerz** — The meta-workflow. Every other workflow operates inside the plan; Cleanerz operates on the plan. Fires when work is looping — a fix that fixes a fix, three corrections with no progress, or the operator saying something is off. Stop, name the loop, salvage, kill, horizon (now/next/later/out of reach), hand back one page and one decision. Output ceiling is binding: if the cleaning is longer than the mess, it failed.
+- **Quorum** — The expert assembly protocol. Seats are weighted, not equal: heavy (leads, frames the question) and light (supports, tests the frame) — two real practitioners per seat, documented public methods, sourced live at convening time. Invented composites void the body; a stored roster is the assembler's own reasoning wearing other people's names. Role rotation forced after three cycles. Spike mandatory on unanimity or thin dissent. Every objection closes ACCEPTED / MITIGATED / OVERRIDDEN / DISPUTED.
 
 ### Techniques (16)
 - **Steelman** — Before critiquing, construct the strongest version of the argument. Critique the steelman, not the straw man.

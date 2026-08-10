@@ -16,7 +16,7 @@ compatible_with: [any-ai]
 # Human Gate
 
 **Canonical name:** Human Gate
-**The assembled body:** Quorum — the minimum seats required for a decision to be valid. An incomplete quorum does not produce a weaker decision; it produces no decision.
+**The assembled body:** Quorum (`workflows/quorum.md`) — the minimum seats required for a decision to be valid. Human Gate is the *stop*; Quorum is the *assembly*. Quorum's Named Rule is binding here: real practitioners with documented public methods, sourced live, two per seat (heavy/light). Invented composites void the body.
 **Invocation:** `human gate` · `quorum` · `convene quorum`
 **Backward-compatible alias:** Human Gate Committee
 
