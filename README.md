@@ -135,7 +135,7 @@ Agents-of-AI/
 - **Repo PRD** — Converts broad repo findings into agent-ready work packets with problem, evidence, scope, acceptance checks, and routing.
 - **Human Gate Committee** — Named multi-perspective decision review. Uses two distinct domain methods, an operator, an adversarial reviewer when warranted, and a target-user representative; forces a consensus challenge before a consequential human gate.
 
-### Techniques (10)
+### Techniques (16)
 - **Steelman** — Before critiquing, construct the strongest version of the argument. Critique the steelman, not the straw man.
 - **Assumption Surface** — List every unstated assumption a plan depends on. Rank by how catastrophic failure would be if wrong.
 - **Counterfactual** — "If X had NOT happened, would Y still have occurred?" Tests whether claimed causes are real.
@@ -146,6 +146,12 @@ Agents-of-AI/
 - **Adjacent Breakage Check** — After one bug or weakness is found, check sibling files, adjacent paths, docs, tests, and configs for the same failure pattern.
 - **Wheel Check** — Before building or refactoring, check whether an outside project, library, pattern, prompt, workflow, or agent already solves the problem better.
 - **Single Dispatch Operator** — One chief operator, bounded specialists, ownership checks, and explicit handoffs. Rejects recursive manager sprawl and competing writers.
+- **Error Decorrelation** — A check only counts if the checker differs from the author on a named axis: different engine, framing, evidence, direction, or stake. A reviewer sharing the author's blind spot returns confidence, not evidence.
+- **Judge Rubric** — Score against the brief slot by slot — goal faithfulness, constraint compliance, evidence use, output shape, unsupported claims. Catches fluent-and-wrong, the failure mode that reads best.
+- **Observation Masking** — Declare a context budget first, then mark each observation live, resolved, or dead. Collapse resolved to one line, drop dead entirely. Prune the working set instead of accumulating it.
+- **Retrieval Precision Gate** — Retrieval over-collects by default. Score each item load-bearing, corroborating, or ambient; drop ambient before synthesis; name what is missing.
+- **Skill Provenance** — Treat any third-party instruction file as untrusted executable input. Read before load, check for instruction smuggling, inventory the reach, trace the origin, load narrow, re-gate on every update.
+- **Symbol Trace** — Fix a legend, then represent state, transitions, and dependencies as compact notation rather than sentences. The trace is the source of truth; the prose is the answer.
 
 ### Modes (4)
 - **Inspect** — Review stance. Read-only, findings first, severity-ranked. Inspection ends where modification begins.
