@@ -1,6 +1,7 @@
 ---
 id: cycle-lock
 type: failure
+failure_class: process
 domain: agent execution, orchestration, multi-agent
 purpose: The same work repeats with near-identical inputs and no progress, while cost accrues at full speed. Nothing errors, so nothing stops it.
 confidence: PRACTICED

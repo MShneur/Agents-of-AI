@@ -1,6 +1,7 @@
 ---
 id: premature-convergence
 type: failure
+failure_class: governance
 domain: review, committees, decision-making, research
 purpose: A panel or a review pass agrees quickly, dissent thins out, and confidence rises while the finding count falls. Agreement gets recorded as verification.
 confidence: PRACTICED

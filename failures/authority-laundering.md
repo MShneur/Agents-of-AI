@@ -1,6 +1,7 @@
 ---
 id: authority-laundering
 type: failure
+failure_class: human_loop
 domain: continuity, handoffs, long projects, records
 purpose: A suggestion re-enters the record as a decision. Nobody approved it; it was proposed, summarized, and the summary lost the difference.
 confidence: EXPERIMENTAL

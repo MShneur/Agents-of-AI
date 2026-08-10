@@ -12,6 +12,14 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 LAYERS = ("personas", "agents", "workflows", "techniques", "modes", "teams", "failures")
+
+# Shared classification vocabulary for the failures layer. Kept identical to the
+# record-classification enum used by downstream tooling so a filed incident and a
+# library entry can be tagged with the same word.
+FAILURE_CLASSES = {
+    "process", "architecture", "governance", "scope", "data",
+    "security", "naming", "drift", "tooling", "human_loop", "other",
+}
 LINK_RE = re.compile(r"\[[^\]]*\]\(([^)]+)\)")
 
 
@@ -68,6 +76,16 @@ def main() -> int:
             if meta:
                 entry_id = meta.get("id", "").strip('"\'')
                 entry_type = meta.get("type", "").strip('"\'')
+
+                if entry_type == "failure":
+                    fc = meta.get("failure_class", "").strip('"\'')
+                    if not fc:
+                        errors.append(f"{rel}: failure entry missing failure_class")
+                    elif fc not in FAILURE_CLASSES:
+                        errors.append(
+                            f"{rel}: failure_class '{fc}' not in shared vocabulary "
+                            f"({', '.join(sorted(FAILURE_CLASSES))})"
+                        )
                 if not entry_id:
                     errors.append(f"{rel}: front matter missing id")
                 else:

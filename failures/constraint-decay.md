@@ -1,6 +1,7 @@
 ---
 id: constraint-decay
 type: failure
+failure_class: drift
 domain: long sessions, complex briefs, agent execution
 purpose: A rule stated at the start quietly stops being applied. Nobody removed it; it just fell out of the working set and the output violates it without comment.
 confidence: PRACTICED

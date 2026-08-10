@@ -1,6 +1,7 @@
 ---
 id: orthogonal-edit
 type: failure
+failure_class: scope
 domain: engineering, editing, document work
 purpose: Work touched things it was never asked to touch. The requested change is correct and buried inside a much larger diff nobody sanctioned.
 confidence: PRACTICED

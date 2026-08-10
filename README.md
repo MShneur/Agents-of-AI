@@ -180,6 +180,8 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for the full guide. The short version:
 
 ### Failures (6)
 Named failure modes, not advice. Each entry is one way work goes wrong, with the signal that reveals it and the fix that closes it. Route to a failure entry when its signal fires; cite it by name in a post-mortem so incidents get a shared vocabulary instead of six guesses.
+
+Each entry also carries a `failure_class` from a fixed eleven-value vocabulary — process, architecture, governance, scope, data, security, naming, drift, tooling, human_loop, other — so a library entry and a filed incident can be tagged with the same word. CI rejects any value outside it. The class says *where the failure lives*; the entry id says *which failure it is*.
 - **Silent Completion** — a step failed or returned nothing, the run continued, and the report is confident with no artifact behind it. Assert on the artifact, never the claim.
 - **Cycle Lock** — the same operation repeats with near-identical inputs and no progress while cost accrues. Define termination first; track a progress key; escalate past three repeats.
 - **Premature Convergence** — a panel agrees fast, dissent thins, confidence rises while findings fall. Independence before exposure; no-dissent is a trigger, not a result.

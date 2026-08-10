@@ -1,6 +1,7 @@
 ---
 id: silent-completion
 type: failure
+failure_class: tooling
 domain: agent execution, automation, tool use
 purpose: A step failed, produced nothing, or returned junk — and the run continued as though it had succeeded. The report is confident and the artifact does not exist.
 confidence: PRACTICED
