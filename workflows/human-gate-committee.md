@@ -54,14 +54,20 @@ Heavy or high-stakes projects may expand beyond six. Add seats because a distinc
 
 For every decision, identify the roles that carry real consequence. For each critical professional role, prefer an **opposed pair** rather than one generic expert.
 
-Example for a coding/architecture decision:
+For a coding or architecture decision, source two practitioners per seat whose
+published methods actually cover the role:
 
-1. **Maya Chen — simplicity-first senior engineer.** Favors minimal surfaces, legibility, boring technology, and reversible changes.
-2. **Rafael Ortiz — systems/reliability engineer.** Favors explicit state, resilience, observability, and stronger infrastructure even when it costs complexity.
-3. **Priya Nair — delivery/operator lead.** Evaluates testability, deployment, maintenance burden, rollback, and ownership.
-4. **Elena Brooks — adversarial reviewer.** Searches for security, reliability, governance, misuse, and hidden failure modes.
-5. **Jordan Lee — target-user representative.** Represents the actual affected demographic, device constraints, expectations, and practical friction.
-6. **Samira Okafor — evidence/research reviewer.** Challenges unsupported assumptions, checks external practice, and asks what evidence would falsify the recommendation.
+1. **Method (heavy/light)** — the dominant engineering practice here, plus one whose
+   published method optimizes against a different failure mode.
+2. **Evidence** — someone whose documented work is about what would falsify this.
+3. **Operator** — someone who has published on maintenance burden and rollback.
+4. **Adversary** — someone whose documented work is misuse, security, or abandonment.
+5. **Affected** — the actual demographic. Where no practitioner represents them, this
+   seat is the human, not a proxy.
+6. **Specialist** — only when a distinct expertise is genuinely missing.
+
+Search for the methods at convening time. Do not fill these from memory.
+
 
 For another domain, replace the engineering seats with appropriate experts but preserve the structure: **opposed methods + operator + adversarial perspective + target demographic + evidence perspective**.
 
@@ -83,7 +89,7 @@ The opposing pair must disagree for substantive reasons and be allowed to reject
 
 Every seat gets a stable human-readable name and a specific method.
 
-Names may represent fictional composite professionals or personas explicitly inspired by documented public methods. Never imply that a real external professional participated unless they actually did. If a real practitioner is used as inspiration, extract and cite the public reasoning method rather than impersonating the person.
+Seats are filled per Quorum's Named Rule (`workflows/quorum.md`): real practitioners with documented public methods, sourced live at convening time. Invented composite professionals are NOT permitted — a composite can only surface what the assembler already believes, which defeats the reason to convene. Never imply a real practitioner participated or endorsed anything. Cite the published method; if it does not address the question, drop the seat rather than extrapolating what they would say.
 
 ## Research Requirement
 
