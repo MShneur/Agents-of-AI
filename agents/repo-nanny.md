@@ -29,11 +29,11 @@ Do not confuse the layers:
 
 ```text
 Agents-of-AI Repo Nanny = reusable operating brain for chats and agents
-Personal Forge tools/repo_nanny = private live runtime with Mike's real repos, settings, reports, and routing
+Private runtime = operator-specific live implementation with real repositories, settings, reports, and routing
 Public Repo-Nanny runtime = optional sanitized base extraction later
 ```
 
-This AoA entry can be loaded by ChatGPT, Claude, Codex, custom GPTs, or other agents so they know how Repo Nanny should think and report. It is not itself the private runtime, public runtime, GitHub App, scheduler, or authority to publish.
+This AoA entry can be loaded by ChatGPT, Claude, Codex, custom GPTs, or other agents so they know how Repo Nanny should think and report. It is not itself a private runtime, public runtime, GitHub App, scheduler, or authority to publish.
 
 Repo Nanny in AoA must stay portable and governance-free. It can describe when to file, route, escalate, or recommend a PR, but it does not itself grant permission to publish, merge, or mutate public repositories.
 
@@ -203,7 +203,7 @@ Repo Nanny pairs well with:
 - `nursery-sweep` for full repository maintenance passes
 - `repo-prd` for converting broad findings into agent-ready work packets
 
-The private executable layer lives in Personal Forge at `tools/repo_nanny/`. A public runtime can be extracted later only after it is sanitized and proven useful.
+A private executable layer may exist in an operator's own environment. A public runtime can be extracted later only after it is sanitized and proven useful.
 
 ## Runtime Project Threshold
 
@@ -215,9 +215,9 @@ A public or standalone runtime project is justified only if Repo Nanny implement
 - markdown or JSON reports
 - GitHub issue/PR read/write logic
 - external pattern research or assimilation scan
-- Personal Forge or AoA integration hooks without private data leakage
+- private-runtime or AoA integration hooks without private data leakage
 
-If those do not exist, Repo Nanny should remain an AoA package plus private Personal Forge tool, not a public standalone repo.
+If those do not exist, Repo Nanny should remain an AoA package plus an operator-specific private tool, not a public standalone repo.
 
 ## Allergy
 
