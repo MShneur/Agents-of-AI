@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 2,
+  "manifestVersion": "2026-08-21.1",
+  "title": "CTRL Walkthrough",
+  "modules": [
+    {"id": "termius", "title": "Termius Student", "path": "modules/termius.json", "enabled": true},
+    {"id": "cloudflare", "title": "Cloudflare Free", "path": "modules/cloudflare.json", "enabled": true},
+    {"id": "f5bot", "title": "F5Bot", "path": "modules/f5bot.json", "enabled": true},
+    {"id": "zyte", "title": "Zyte Scrapy Cloud Student", "path": "modules/zyte.json", "enabled": true},
+    {"id": "firecrawl-chatgpt", "title": "Firecrawl to ChatGPT", "path": "modules/firecrawl-chatgpt.json", "enabled": true}
+  ]
+}
