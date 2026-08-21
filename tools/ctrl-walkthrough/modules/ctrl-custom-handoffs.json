@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 2,
+  "id": "ctrl-custom-handoffs",
+  "version": "2026-08-21.1",
+  "title": "CTRL: Add AI / Private Walkthroughs",
+  "description": "How to choose a safe CTRL handoff transport for public, private, large, or secret-dependent setup instructions.",
+  "steps": [
+    {
+      "title": "Use public modules only for permanently public-safe guidance",
+      "body": "If a walkthrough is generic, reusable, and contains no personal/project-private data, it can live as a normal Agents of AI CTRL module. Do not publish something merely because you plan to delete it later: Git history can retain deleted committed content.",
+      "action": {"type": "none"}
+    },
+    {
+      "title": "Private or project-specific one-off: ask for CWZ2",
+      "body": "For a private/project-specific walkthrough that contains no credentials, ask the AI for a CWZ2 handoff. CWZ2 is gzip-compressed schema-v2 JSON encoded with Base64URL. In CTRL, tap +, paste the one-line CWZ2 code, and press Load pasted code.",
+      "action": {"type": "none"}
+    },
+    {
+      "title": "Use CW2 only when gzip decode is unavailable",
+      "body": "CW2 carries the same schema-v2 JSON as Base64URL without gzip compression. It is larger but is a useful compatibility fallback if the browser cannot decode CWZ2.",
+      "action": {"type": "none"}
+    },
+    {
+      "title": "Large walkthrough: use a local file",
+      "body": "If a private walkthrough is too long for comfortable copy/paste, have the AI provide a .walkthrough.json file/attachment. Tap + -> Import file and choose it from the device. Do not move private content into a public repo just to shorten the paste.",
+      "action": {"type": "none"}
+    },
+    {
+      "title": "Compression is not encryption",
+      "body": "CWZ2 and CW2 are transport formats, not secrecy. Never place passwords, API keys, bearer tokens, SSH/private keys, recovery codes, cookies, or other credentials in a walkthrough code/file/URL. The walkthrough should use placeholders and tell you to enter the secret directly into the provider or server-local secret store.",
+      "action": {"type": "none"},
+      "humanGate": "If an AI asks you to paste a real credential into a CW code, stop and ask it to replace the credential with a placeholder."
+    },
+    {
+      "title": "Private GitHub pointers are best-effort only",
+      "body": "CWG1 and normal private GitHub blob links can be convenient, but a signed-in GitHub page does not guarantee the userscript can fetch the private raw file. If a private GitHub import returns NetworkError, do not create a PAT just for CTRL; ask the AI for a CWZ2 code or local walkthrough file instead.",
+      "action": {"type": "none"}
+    },
+    {
+      "title": "What to tell an AI",
+      "body": "A useful request is: 'I have CTRL Walkthrough installed. Build a walkthrough for this fix. If it is public-safe, use/update the public module. If it is private/project-specific, give me a CWZ2 code. If it is too large, give me a walkthrough file. Never include secrets.'",
+      "action": {"type": "none"}
+    }
+  ]
+}
