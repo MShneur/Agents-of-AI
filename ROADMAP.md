@@ -1,152 +1,150 @@
-# AoA Roadmap — Gap Analysis, Rough Diamonds, & Next Targets
+# Agents of AI Roadmap
 
-*Generated July 9, 2026 from GitHub Trending, awesome-lists, and source mining*
-
----
-
-## 1. CURRENT LIBRARY STATE (after rename)
-
-| Layer | Count | Coverage |
-|---|---|---|
-| Personas | 18 | Dev, security, design, data, ML, ops, legal, brand, teaching, epistemology |
-| Agents | 10 | Writing, research, audit, debugging, verification, security, refactoring, orchestration |
-| Workflows | 3 | Research pipeline, dev cycle, TDD |
-| **Total** | **31** | Strong in dev/code. Weak in creative, product, finance, domain-specific |
+**Snapshot:** `2026.08.21`  
+**Purpose:** current gaps and next public targets. Historical changes belong in [`CHANGELOG.md`](CHANGELOG.md); version rules live in [`VERSIONING.md`](VERSIONING.md).
 
 ---
 
-## 2. GAP MAP — What AoA is Missing
+## 1. Current Library State
 
-### HIGH PRIORITY (would immediately broaden appeal)
+| Layer | Count | Current strength |
+|---|---:|---|
+| Personas | 23 | Writing, epistemology, product, finance, platform, support, legal, ML, brand, process |
+| Agents | 13 | Research, audit, debugging, verification, security, refactoring, orchestration, incident response, repo maintenance |
+| Workflows | 16 | Research, implementation, TDD, requirements, root cause, repo maintenance, review, large-file handoff, workspace bootstrap |
+| Techniques | 17 | Dissent, assumptions, evidence precision, context control, verification, terminology, provenance |
+| Modes | 4 | Inspect, Forge, Probe, Draft |
+| Teams | 6 | Engineering, research, strategy/product, communications, operations, legal/risk |
+| Failures | 6 | Process/reliability drift patterns with shared names and fixes |
+| **Total** | **85** | Broad reusable operating library |
 
-| Gap | Why it matters | Proposed AoA name |
+The live directories are source truth. If this table disagrees with the repository, fix this file; do not rationalize the drift.
+
+The repository also has a **supporting tools shelf** under `tools/`. It is not an eighth composable layer.
+
+---
+
+## 2. What Changed Since the Original July Roadmap
+
+Several July targets are now implemented rather than future work:
+
+- `distiller` — output compression / anti-slop
+- `compass` — product direction
+- `ledger` — financial analysis
+- `scaffold` — platform engineering
+- `firehose` — incident response
+- `razor` — YAGNI decision workflow
+- six cross-functional Teams with mandatory disagreement protocols
+- a Failures layer with shared incident vocabulary
+- Repo Nanny and repository-maintenance workflows
+- large-artifact handoff and AI-workspace bootstrap workflows
+- roster drift detection via `scripts/sync-roster.py`
+- public software recommendations, API catalog, free-tool ledger, and publication-safety rules
+- public responsive CTRL Walkthrough runner with reusable setup modules and custom walkthrough imports
+- project/tool changelogs and explicit snapshot/component versioning rules
+- community issue intake for software, API, and walkthrough recommendations
+
+The old roadmap's note that research prompts were stale is also closed: both research prompts now describe all seven layers, carry the current 16-workflow roster, and route tool/API research into the supporting tools shelf.
+
+---
+
+## 3. Current High-Value Gaps
+
+These are candidates, not promises. Every new entry still has to pass the merge/split and distinctiveness bar.
+
+### Composable library
+
+| Gap | Why it may deserve a distinct entry | Likely form |
 |---|---|---|
-| **Product manager / PM** | One of the most-requested persona types across all prompt libraries. 100+ PM skills in trending repos. | `compass` (finds product direction) |
-| **Incident commander / SRE** | Zero ops-crisis coverage. Incident response is a distinct method from general ops. | `firehose` (manages the emergency flow) |
-| **Creative writing coach** | Ghostwriter/scribe writes for you. A coach helps *you* write better. Different method. | `chiselpen` or `lathe` |
-| **Financial analyst** | Zero finance coverage. CFO strategy, investment research, valuation — distinct from data analysis. | `ledger` (the financial record) |
-| **Prompt engineer / meta-prompt** | The "stop-slop" and "talk-normal" prompts are trending hard (73% token reduction). Meta-level persona. | `distiller` (removes waste) |
-| **OSINT / intelligence analyst** | Trending in security space. Different method from researcher (source triangulation under adversarial conditions). | `dragnet` (wide net for intelligence) |
+| **Accessibility review** | WCAG/accessibility has a concrete method and evidence surface beyond generic UX critique | Agent or specialized auditor mode |
+| **Academic peer review** | Contribution, methodology, statistical validity, novelty, and reproducibility form a distinct review protocol | Agent |
+| **OSINT / intelligence analysis** | Adversarial-source triangulation, source protection, confidence grading, deception risk | Persona/agent pair if methods remain distinct |
+| **Curriculum design** | Designing a learning path is different from Socratic tutoring one learner in the moment | Persona or workflow |
+| **Recruiting / structured hiring** | Competency design, evidence-based interviewing, scorecards, bias controls | Workflow/agent if kept non-governance |
+| **Accessibility / human-impact failure patterns** | Current Failures skew toward process/reliability; user-harm and accessibility drift may be underrepresented | Failure entries after repeated evidence |
 
-### MEDIUM PRIORITY (depth in existing domains)
+### Supporting tools shelf
 
-| Gap | Why it matters | Merge or split? |
-|---|---|---|
-| DevOps / platform engineer | Cloud architect + IaC patterns are distinct from ops-engineer (Lean/process). | SPLIT — `scaffold` (builds the platform) |
-| Content moderator | Rising with AI safety. Different from auditor (trust & safety vs code quality). | SPLIT — `bouncer` |
-| Academic peer reviewer | Manuscript review is a distinct protocol from general auditing (contribution assessment, methodology critique). | SPLIT — `peer` |
-| Accessibility auditor | WCAG/ADA compliance is a specialized review lens. | Could MERGE into auditor as a mode, but the method is specific enough to SPLIT — `ramp` (making things accessible) |
-
-### LOW PRIORITY (niche but differentiating)
-
-| Gap | Why it matters |
+| Gap | Next useful improvement |
 |---|---|
-| Game designer | Unique reasoning (economy balancing, level design, player psychology) |
-| Medical/clinical analyst | Extremely high-stakes, distinct method, liability-aware |
-| Recruiter / HR | People evaluation is a distinct reasoning pattern |
-| Teacher / curriculum designer | Different from midwife (designs the learning path, not the individual session) |
+| **Machine-readable tool registry** | Add a public data file for software/API discovery only if a real consumer needs it; avoid duplicating markdown canon prematurely |
+| **More walkthroughs** | Add data-only guides when a recommended tool has a repeatable browser setup path worth automating/highlighting |
+| **API freshness** | Re-check access model/auth/docs when an API is used or materially changes; time-sensitive claims carry verification dates |
+| **Retired-tool handling** | Make retired/changed services visible instead of silently deleting history |
+| **Interoperability examples** | Add small provider-neutral examples showing how an agent/workflow can use a queue, webhook, object store, or MCP surface |
+| **Community recommendations** | Route proposals through the Tool/API recommendation issue template and graduate only public-safe, sourced entries |
 
 ---
 
-## 3. ROUGH DIAMONDS — Trending Now, Not Widely Recognized Yet
+## 4. Quality Work Before More Volume
 
-These are rising fast, under-documented, and contain extractable methods:
+Adding entries is not automatically progress. Current quality priorities:
 
-### ★ LazyCodex / oh-my-openagent (64.8k stars, created June 2026)
-**What:** A "YAGNI laziness ladder" — before writing code, the agent climbs rungs: does it need to exist → already in codebase → stdlib → native feature → installed dep → one line? Only then write code.
-**Why it's a diamond:** The *method* (laziness ladder) is a genuinely novel decision framework we don't have. Not a persona — it's a **workflow step** that slots into build-chain before Step 4.
-**AoA extraction:** Merge as a pre-implementation gate in `build-chain`, or create a micro-workflow called `razor` (Occam's razor for code).
-
-### ★ Headroom / chopratejas (2.4k stars, +2473/week in June)
-**What:** Context compression — reduces token usage 60-95% without quality loss.
-**Why it's a diamond:** Token discipline is a *meta-skill* that every other persona and agent benefits from. We don't have anything covering this.
-**AoA extraction:** New persona `compress` — the voice that strips tokens without losing meaning. Pairs with `distiller` (prompt-level) and `mirror` (honesty about what's needed).
-
-### ★ last30days-skill / mvanhorn (1.1k stars, +731/week)
-**What:** Cross-platform social research across Reddit, X, YouTube, HN, Polymarket.
-**Why it's a diamond:** The *method* (multi-source social sentiment triangulation) is a research approach our `scout` agent doesn't cover — scout does evidence-grounded research, this does social signal detection.
-**AoA extraction:** Merge as a "social signal" mode in `scout`, or if the method is distinct enough, create `antenna` (picks up signals across platforms).
-
-### ★ Agent-Reach / Panniantong (961 stars, trending June)
-**What:** "Give your AI agent eyes to see the entire internet" — zero-API-fee research.
-**Why it's a diamond:** Tool-specific but the *read → search → synthesize across platforms* workflow is extractable.
-**AoA extraction:** Workflow patterns merge into `deep-dig`.
-
-### ★ stop-slop / hexiecs (rising, cited by ai-boost)
-**What:** System prompt that removes AI slop — 72-73% token reduction on GPT-4o-mini with zero information loss.
-**Why it's a diamond:** Directly addresses the #1 complaint about AI output. The anti-patterns list is a behavioral signature.
-**AoA extraction:** `distiller` persona — the voice that strips filler, hedge-stacks, sycophancy, and em-dash pileups.
-
-### ★ design.md / Google Labs Code (24k stars, April 2026)
-**What:** YAML frontmatter + markdown for design tokens — colors, type, spacing as agent-readable specs.
-**Why it's a diamond:** The pattern (structured design context for agents) is extractable even without the CLI tool.
-**AoA extraction:** Merge into `raw-cut` persona as a "design token discipline" section.
-
-### ★ AI Berkshire / investment research (8.1k stars, April 2026)
-**What:** Four investment masters (Buffett, Munger, Duan Yongping, Li Lu) as opposing viewpoints that generate real tension.
-**Why it's a diamond:** The "opposing named personas debate" pattern is exactly our committee protocol, applied to finance. Validates the approach.
-**AoA extraction:** `ledger` persona (finance) + merge the "opposing debate" pattern into `conductor` agent's committee protocol as a worked example.
-
-### ★ garrytan/gstack (922 stars/day, June 2026)
-**What:** 23 opinionated tools covering CEO, Designer, Eng Manager, Release Manager, Doc Engineer, QA roles.
-**Why it's a diamond:** Role-as-tool pattern. Each role is a scoped agent with clear boundaries.
-**AoA extraction:** Several of these are already covered by AoA entries. Cherry-pick the QA and Release Manager methods if they pass the merge-vs-split test.
+1. **Cross-reference composition.** Make it easier to see which agents cast which personas and which workflows commonly compose them.
+2. **Examples where they teach something.** Add before/after or worked examples only when they clarify the behavioral difference; do not bloat every file mechanically.
+3. **Complexity signal.** Explore a small complexity/effort marker if users actually struggle to choose between lightweight and heavy components.
+4. **Merge pressure.** Treat overlap as a reason to strengthen an existing entry unless a candidate has a genuinely different method, failure signal, or interaction protocol.
+5. **Failure vocabulary coverage.** Prefer failures observed repeatedly in real work over speculative taxonomy filling.
+6. **Roster consistency.** README and research prompts must track the live directories; `scripts/sync-roster.py --check` is the local drift check.
+7. **Public tooling freshness.** Tool/API facts decay faster than personas. Reverify time-sensitive claims rather than copying old quotas forward.
 
 ---
 
-## 4. TOP CONTENDER PROJECTS TO MONITOR
+## 5. Research Targets
 
-| Project | Stars | Why watch it | AoA relevance |
-|---|---|---|---|
-| **OpenClaw** | 188k (fastest repo ever) | Self-hosted agent + 5,700 community skills + SOUL.md pattern | Their SOUL.md = our persona format. 177 production configs across 24 categories. Massive extraction target. |
-| **obra/superpowers** | 85k | Already partially mined. 14 composable skills. | Continue mining: systematic-debugging sub-skills, condition-based-waiting |
-| **agent-skills** | 69k | Production-grade engineering skills | Overlaps with what we have but may have domain-specific skills worth extracting |
-| **awesome-cursorrules** | 40k | 130+ cursor rules | Mostly mined. Watch for new additions. |
-| **ai-boost/awesome-prompts** | 8.1k | 300+ prompts, actively growing | Still 250+ unmined prompts. Next pass should target domain-specific ones. |
-| **NVIDIA/skills** | New, rising | NVIDIA's own agent skills for agentic platforms | Could contain hardware/compute-specific methods |
-| **deer-flow (ByteDance)** | 25k+ | Long-horizon super-agent with memory, subagents | Architecture patterns may be extractable |
+Good future mining sources include public practitioner methods, open agent/skill repositories, public prompt libraries, code-agent configuration patterns, postmortems, research-method documentation, and real workflows that expose a distinctive repeatable method.
+
+The extraction rule remains:
+
+> **Extract the operating pattern, not the costume or copyrighted text.**
+
+A candidate should change behavior materially after being loaded. Generic job-title prompts, copied paid prompts, governance smuggled into a persona, and renamed duplicates do not clear the bar.
 
 ---
 
-## 5. RECOMMENDED EXTRACTION ORDER (next sessions)
+## 6. Tools and API Direction
 
-### Immediate (next 1-2 sessions)
-1. **`distiller`** persona — from stop-slop + talk-normal + headroom patterns. Highest-impact single addition.
-2. **`compass`** persona — product manager. From garrytan/gstack CEO/PM role + ai-boost PM prompts.
-3. **`razor`** micro-workflow — LazyCodex YAGNI ladder merged into build-chain.
-4. **`ledger`** persona — financial analysis. From AI Berkshire + ai-boost CFO/financial.
+Start at [`TOOLS.md`](TOOLS.md) and [`tools/README.md`](tools/README.md).
 
-### Near-term (next 3-5 sessions)
-5. **`firehose`** agent — incident response. From SRE/incident commander patterns.
-6. **`scaffold`** persona — DevOps/platform engineering. From ai-boost platform_engineer_iac + cloud_architect.
-7. **OpenClaw SOUL.md mining** — 177 production configs. Massive extraction run with heavy merge-protocol filtering.
-8. **`peer`** agent — academic peer review. From ai-boost Academic_Peer_Reviewer.
+The public tooling shelf currently separates:
 
-### Horizon (ongoing)
-9. **`bouncer`** persona — content moderation / trust & safety
-10. **`dragnet`** persona — OSINT / intelligence analysis
-11. **Social signal mode** for `scout` — from last30days-skill pattern
-12. **Design token discipline** merged into `raw-cut` — from design.md pattern
-13. **Continuous monitoring** — weekly check of GitHub Trending for new rough diamonds
+- **software recommendations** — what to consider for a job;
+- **API catalog** — what integration surfaces exist;
+- **free-tool ledger** — what public free/student claims were verified and when;
+- **CTRL Walkthrough** — how a browser setup can be guided without embedding personal configuration;
+- **publication safety** — what cannot enter the public repo;
+- **tools changelog** — what changed over time.
+
+Keep those concerns separate. A service can be a good API without being free; a free service can be a poor recommendation; a recommended service may not need a walkthrough.
 
 ---
 
-## 6. OPTIMIZATION NOTES
+## 7. Community and Maintenance
 
-### What's working
-- Merge protocol prevents bloat effectively
-- AoA naming convention creates identity
-- Three-layer separation (persona/agent/workflow) is validated by every major project we studied
-- Schema format (YAML frontmatter + markdown) matches the emerging standard
+Community contributors can propose:
 
-### What needs improvement
-- **Research prompts need updating** — AoA-RESEARCH-PROMPT.md and AoA-QUICK-PROMPT.md still reference old names
-- **Cross-references** — personas should reference which agents commonly cast them, and vice versa
-- **Difficulty/complexity tags** — some entries are simple (midwife), some are heavy (archaeologist). Users need a signal.
-- **Example outputs** — the highest-rated prompt repos include before/after examples. AoA entries should too.
-- **Community intake pipeline** — CONTRIBUTING.md describes the process but there's no issue template or PR template to guide submissions
-- **Registry.json** — listed in the structure but never created. Needed for programmatic discovery.
+- new composable entries;
+- merges or improvements to existing entries;
+- new software/API recommendations;
+- corrections to stale public capability claims;
+- public-safe CTRL Walkthrough modules;
+- newly observed failure patterns.
+
+Use [`CONTRIBUTING.md`](CONTRIBUTING.md) and the GitHub issue templates. Material public changes update the relevant changelog.
+
+No public contribution should contain credentials, personal account state, private infrastructure, private repositories, private endpoints, affiliate identifiers, or other private configuration.
 
 ---
 
-*This roadmap is a living document. Update after each extraction session.*
+## 8. Definition of Progress
+
+The roadmap is succeeding when:
+
+- users can find a genuinely different reasoning/operator pattern quickly;
+- the library grows without duplicate-role bloat;
+- disagreements and failures become more explicit rather than hidden;
+- a new AI workspace can discover useful public tools and APIs without rediscovering the ecosystem from scratch;
+- setup walkthroughs save human navigation effort without storing personal information;
+- counts, prompts, READMEs, and change history agree with the files that actually exist.
+
+This roadmap is a living public view. Update it when priorities materially change; do not rewrite it merely to make activity look newer.
