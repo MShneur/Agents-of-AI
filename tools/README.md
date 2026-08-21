@@ -15,6 +15,8 @@ It is **not an eighth AoA composable layer**. Personas, agents, workflows, techn
 | [`api-catalog.md`](api-catalog.md) | Public API/MCP/integration surfaces that can be wired into AI workflows |
 | [`free-tool-ledger.md`](free-tool-ledger.md) | Publicly verified free/student quotas, limits, and caveats |
 | [`ctrl-walkthrough/`](ctrl-walkthrough/) | Responsive Tampermonkey setup runner and reusable public walkthrough JSON |
+| [`ctrl-walkthrough/AI_HANDOFF_PROTOCOL.md`](ctrl-walkthrough/AI_HANDOFF_PROTOCOL.md) | How an AI should choose public module vs `CWZ2`/`CW2` paste code vs local file vs best-effort private GitHub pointer |
+| [`ctrl-walkthrough/make_handoff.py`](ctrl-walkthrough/make_handoff.py) | Deterministic gzip+Base64URL `CWZ2` / Base64URL `CW2` generator with expiry and basic secret guards |
 | [`publication-safety.md`](publication-safety.md) | Privacy and publication gate for anything added under `tools/` |
 | [`CHANGELOG.md`](CHANGELOG.md) | Fast-moving history for tool/API/walkthrough additions and changes |
 
@@ -30,9 +32,13 @@ The public manifest currently includes setup guides for:
 - Zyte
 - Firecrawl → ChatGPT
 
-The runner also accepts **custom walkthrough JSON** from a local file or a public HTTPS URL. A custom walkthrough can live in another repository entirely; it does not have to be contributed here.
+The runner also accepts custom handoffs through `CW -> +`: `CWZ2` compressed paste codes, `CW2` fallback codes, raw JSON, local walkthrough files, public HTTPS URLs, and best-effort private GitHub pointers.
+
+For private/project-specific one-off fixes, **`CWZ2` is the default transport**. A private GitHub page being visible does not guarantee a userscript can fetch its private raw file. Large private walkthroughs should use a local file instead.
 
 Public walkthroughs are data-only. They may contain public URLs, generic control names/selectors, non-secret values, and safety/user-gate notes. They must never contain personal account state, tokens, API keys, private hosts, private repository paths, affiliate IDs, billing details, or other private configuration.
+
+Compression is not encryption: `CWZ2`/`CW2` must never contain credentials or secret values. Secrets are entered directly at the provider or server-local environment using placeholders/human gates in the walkthrough.
 
 ## Recommend a tool, API, or walkthrough
 
