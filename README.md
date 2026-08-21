@@ -122,7 +122,7 @@ Agents-of-AI/
 - **Firehose** — Live incident management. Stabilize → communicate → diagnose → resolve → learn. Mitigation ladder, fixed severity levels, blameless reviews.
 - **Sieve** — Ranks any candidate pool against an explicit weighted rubric. Must-haves as disqualifiers, no black-box scores, ranks but doesn't decide.
 
-### Workflows (14)
+### Workflows (16)
 - **Deep Dig** — 3-stage research: brainstorm → survey → verify. Evidence-tagged. Stops between stages.
 - **Build Chain** — 6-step AI coding: scope → plan (hard gate) → checkpoint → implement → verify → review+merge.
 - **Red Green** — TDD: failing test → minimal code → refactor. Iron law: no code without a failing test first.
@@ -131,7 +131,9 @@ Agents-of-AI/
 - **PRD** — Convert vague idea to requirements doc. 8 steps: intent → success metrics → scope → user journeys → requirements → acceptance criteria → risks → handoff.
 - **Root Cause** — Why a failure happened. Timelines, causal links, separate triggers from root causes, fixes with owners.
 - **Issue to Patch** — Bug report to tested fix. Reproduce → localize → hypothesize → patch narrowly → test → summarize.
+- **Large Artifact Handoff** — Moves large binaries through proper storage/queue pipelines while keeping only metadata in AI context.
 - **Second Room** — Independent multi-chat review for important public work. Qualifier, truth, and human-voice rooms review the same frozen draft before reconciliation and human release.
+- **New AI Workspace Bootstrap** — Rebuilds a portable AI workspace by separating reusable public workflow knowledge from private configuration.
 - **Nursery Sweep** — Full repository maintenance pass. Collects repo signals, ranks risks, checks adjacent breakage, runs Wheel Check, and routes each finding.
 - **Repo PRD** — Converts broad repo findings into agent-ready work packets with problem, evidence, scope, acceptance checks, and routing.
 - **Human Gate Committee** — Named multi-perspective decision review. Uses two distinct domain methods, an operator, an adversarial reviewer when warranted, and a target-user representative; forces a consensus challenge before a consequential human gate.
