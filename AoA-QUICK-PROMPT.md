@@ -9,19 +9,24 @@ SEVEN LAYERS:
 - PERSONA = voice + reasoning signature (the "who"). Has domain, lexicon, framework, allergy.
 - AGENT = operational method + protocol (the "how"). Has trigger, steps, gates, which personas it casts.
 - WORKFLOW = repeatable step sequence (the "plan"). Wraps agents/personas into numbered phases.
-- TECHNIQUE = a single reusable reasoning move. No voice, no protocol, no sequence — just one move (e.g., "steelman the argument before critiquing it").
-- MODE = a runtime stance for a class of task. A switchable bundle of default persona + agents + techniques + interaction style (e.g., "review mode" vs "implementation mode").
-- TEAM = a pre-composed department: multiple seats (personas/agents) with an interaction protocol that forces dissent — independent takes, cross-examination, conflicts as structured output. Seats carry named methodological lenses.
+- TECHNIQUE = a single reusable reasoning move. No voice, no protocol, no sequence — just one move.
+- MODE = a runtime stance for a class of task. A switchable bundle of defaults.
+- TEAM = a pre-composed department: multiple seats with an interaction protocol that forces dissent.
 - FAILURE = a named way work goes wrong, with the signal that reveals it and the fix that closes it.
 
-If something contains fail-safes, axioms, or enforcement rules → it's governance, NOT an AoA entry. Flag it separately.
+If a candidate's value is primarily system-wide axioms, override gates, or enforcement rules → it's governance, NOT an AoA composable entry. Flag it separately.
 
 SUPPORTING TOOLS (NOT AN EIGHTH LAYER):
-When the task is about free/student tools, daily/replenishing quotas, upload/file-size limits, connectors, automation hosts, model APIs, mobile administration, large binary artifacts, or bootstrapping a new AI workspace, read `TOOLS.md` first. Then load only the relevant files under `tools/` and `workflows/`.
+When the task is about software recommendations, APIs/MCP/webhooks, free/student tools, quotas, upload/file-size limits, connectors, automation hosts, model APIs, mobile administration, large binary artifacts, or bootstrapping a new AI workspace, read `TOOLS.md` first. Then use only what is relevant:
+- `tools/README.md` — public tools landing page + contribution/freshness rules
+- `tools/software-recommendations.md` — curated software by use case
+- `tools/api-catalog.md` — API/MCP/webhook/event-stream catalog
+- `tools/free-tool-ledger.md` — public free/student quota evidence and caveats
+- `tools/ctrl-walkthrough/` — public responsive setup runner + walkthrough library
 
-The public tools area must contain provider-published facts and reusable patterns only. Never publish a person's account state, credentials, balances, entitlement dates, private repositories/projects, private endpoints, hosts/IPs, affiliate IDs, or other private infrastructure markers. Fast-changing quotas need an official source and verification date.
+The public tools area must contain provider-published facts and reusable patterns only. Never publish a person's account state, credentials, balances, entitlement dates, private repositories/projects, private endpoints, hosts/IPs, affiliate IDs, or other private infrastructure markers. Fast-changing quotas need an official source and verification date. Unknown is better than a guess.
 
-ALREADY IN AoA (don't duplicate) — **this is a snapshot and may be stale; verify against the live repo directories before finalizing anything**:
+ALREADY IN AoA (don't duplicate) — **this is a snapshot; verify against the live repo directories before finalizing anything**:
 
 <!-- AUTOGEN:ROSTER:START -->
 
@@ -51,15 +56,15 @@ authority-laundering, constraint-decay, cycle-lock, orthogonal-edit, premature-c
 <!-- AUTOGEN:ROSTER:END -->
 
 YOUR TASK:
-Search for high-quality AI personas, agent protocols, workflows, techniques, and modes from: custom GPT system prompts, GitHub prompt libraries, Reddit/Twitter shared prompts, practitioner techniques, marketing/writing/coding agent configs, and "awesome" lists.
+Search for high-quality AI personas, agent protocols, workflows, techniques, modes, teams, and failure patterns from public custom GPT/system-prompt material, GitHub prompt libraries, public community discussions, practitioner techniques, marketing/writing/coding agent configs, and strong open collections.
 
 For each find:
 1. DISCOVER — source, type, confidence (HIGH/MED/LOW), why it's interesting
-2. DECOMPOSE — what's the behavioral signature? Separate voice from method from sequence from single-move technique.
-3. CLASSIFY — persona, agent, workflow, technique, mode, governance, or junk?
-4. MERGE-OR-SPLIT CHECK — if it overlaps 60%+ with an existing entry, does it think differently (different framework/process/allergies)? If not, this should MERGE into the existing entry, not become a new one. Only SPLIT if the method is genuinely different.
-5. REFORMULATE — rewrite in AoA schema format (YAML frontmatter + markdown). Never copy verbatim. Include the allergy (what it refuses). Tag confidence. Do not name the source project inside the entry itself — AoA entries are reformulated originals, not attributed excerpts.
-6. VALIDATE — is it distinctive? Portable across AIs? Free of governance contamination? Not a duplicate?
+2. DECOMPOSE — identify the behavioral signature; separate voice, method, sequence, single-move technique, stance, team protocol, and named failure pattern
+3. CLASSIFY — persona, agent, workflow, technique, mode, team, failure, governance, or junk
+4. MERGE-OR-SPLIT CHECK — if it overlaps 60%+ with an existing entry, does it actually use a different method/framework/failure signal? If not, MERGE rather than duplicate
+5. REFORMULATE — rewrite in AoA schema format. Never copy verbatim. Preserve the distinctive pattern and required allergy/anti-goal/signal fields. Tag confidence
+6. VALIDATE — distinctive? portable? free of governance contamination? not a duplicate?
 
 OUTPUT:
 - Discovery report (candidate list with verdicts)
