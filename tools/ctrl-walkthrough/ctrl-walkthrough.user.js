@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         CTRL Walkthrough
 // @namespace    https://github.com/MShneur/Agents-of-AI
-// @version      0.2.0
+// @version      0.2.1
 // @description  Responsive, public, data-only setup walkthrough runner with custom walkthrough imports.
 // @match        https://*/*
 // @match        http://localhost/*
@@ -20,7 +20,7 @@
 (() => {
   'use strict';
 
-  const VERSION = '0.2.0';
+  const VERSION = '0.2.1';
   const CANONICAL_MANIFEST = 'https://raw.githubusercontent.com/MShneur/Agents-of-AI/main/tools/ctrl-walkthrough/manifest.json';
   const STATE_KEY = 'ctrlw:v2:state';
   const CACHE_KEY = 'ctrlw:v2:canonical-cache';
@@ -35,11 +35,12 @@
   let lastError = null;
   let compact = false;
 
+  function cloneValue(value) { return JSON.parse(JSON.stringify(value)); }
   function loadJson(key, fallback) {
     try {
       const raw = GM_getValue(key, '');
-      return raw ? JSON.parse(raw) : structuredClone(fallback);
-    } catch (_) { return structuredClone(fallback); }
+      return raw ? JSON.parse(raw) : cloneValue(fallback);
+    } catch (_) { return cloneValue(fallback); }
   }
   function saveState() { GM_setValue(STATE_KEY, JSON.stringify(state)); }
   function saveCustom() { GM_setValue(CUSTOM_KEY, JSON.stringify(custom)); }
@@ -110,13 +111,17 @@
     lastError = { version: VERSION, scope, code: err?.name || 'Error', message: safeText(err?.message || err, 500), url: `${location.origin}${location.pathname}`, active: state.activeId || null, step: state.activeId ? (Number(state.step[state.activeId] || 0) + 1) : null, time: new Date().toISOString() };
   }
 
+  const pageStyle = document.createElement('style');
+  pageStyle.textContent = '.ctrl-walkthrough-page-highlight{outline:4px solid #f47a20!important;outline-offset:3px!important;box-shadow:0 0 0 8px rgba(244,122,32,.18)!important}';
+  (document.head || document.documentElement).appendChild(pageStyle);
+
   const host = document.createElement('div');
-  host.id = 'ctrl-walkthrough-host';
+  host.id = 'ctrl-walkthrough-host-v2';
   document.documentElement.appendChild(host);
   const root = host.attachShadow({ mode: 'closed' });
   root.innerHTML = `
     <style>
-      :host{all:initial}*{box-sizing:border-box}.cw-launch{position:fixed;right:12px;bottom:12px;z-index:2147483647;width:46px;height:46px;border:0;border-radius:15px;background:#111827;color:#fff;font:800 12px system-ui;box-shadow:0 8px 28px #0006}.cw-panel{position:fixed;right:12px;bottom:12px;z-index:2147483646;width:min(430px,calc(100vw - 24px));max-height:min(760px,calc(100vh - 24px));display:none;flex-direction:column;background:#07111c;color:#f8fafc;border:1px solid #334155;border-radius:18px;box-shadow:0 20px 70px #0008;font:14px/1.4 system-ui,-apple-system,sans-serif;overflow:hidden}.cw-panel.open{display:flex}.cw-hidden{display:none!important}.cw-head{display:flex;align-items:center;gap:7px;padding:9px 10px;border-bottom:1px solid #263648}.cw-head strong{flex:1;font-size:14px}.cw-icon{border:0;border-radius:9px;padding:6px 9px;background:#1f2937;color:#fff;font:800 13px system-ui}.cw-status{padding:5px 10px;background:#0d1b28;color:#9fb3c7;font-size:11px;border-bottom:1px solid #263648}.cw-content{overflow:auto;padding:12px}.cw-title{font-size:17px;font-weight:800;margin:0 0 5px}.cw-desc{font-size:12.5px;color:#b9c7d5;margin:0 0 10px}.cw-meta{font-size:11px;color:#93a4b5;margin:0 0 6px}select,input[type=url]{width:100%;border:1px solid #475569;border-radius:10px;background:#0b1623;color:#fff;padding:9px 10px;font:600 13px system-ui}.cw-row{display:flex;gap:7px;flex-wrap:wrap}.cw-btn{border:0;border-radius:10px;padding:8px 10px;font:750 12.5px system-ui;background:#1f2937;color:#fff}.cw-primary{background:#f47a20;color:#111}.cw-light{background:#e5e7eb;color:#111}.cw-danger{background:#442020;color:#fecaca}.cw-card{padding:9px;border:1px solid #294057;border-radius:12px;background:#0d1b28;margin-top:9px}.cw-stepbody{font-size:12.5px;color:#e2e8f0;white-space:pre-wrap;margin:7px 0 10px}.cw-progress{height:3px;background:#1e293b}.cw-progress span{display:block;height:100%;background:#f47a20}.cw-tools{padding:8px 10px;border-top:1px solid #263648;display:flex;gap:6px;flex-wrap:wrap}.cw-tools .cw-btn{font-size:11px;padding:6px 8px}.cw-msg{margin-top:8px;padding:8px;border-radius:9px;background:#132536;color:#d3dfeb;font-size:11.5px}.cw-warn{background:#3b2b0d;color:#fde7ae}.cw-ok{background:#12311f;color:#c6f6d5}.cw-bad{background:#3a1515;color:#fecaca}.cw-file{display:none}.cw-highlight{outline:4px solid #f47a20!important;outline-offset:3px!important;box-shadow:0 0 0 8px rgba(244,122,32,.18)!important}@media(max-width:640px){.cw-launch{width:40px;height:40px;border-radius:13px;right:8px;bottom:8px;font-size:11px}.cw-panel{left:8px;right:8px;bottom:8px;width:auto;max-height:44vh;border-radius:14px;font-size:12px}.cw-panel.expanded{max-height:78vh}.cw-head{padding:6px 8px}.cw-head strong{font-size:12.5px}.cw-icon{padding:4px 7px;font-size:12px}.cw-status{padding:4px 8px;font-size:10px}.cw-content{padding:8px}.cw-title{font-size:14px}.cw-desc,.cw-stepbody{font-size:11px}.cw-meta{font-size:9.5px}select,input[type=url]{padding:7px 8px;font-size:11.5px}.cw-btn{padding:6px 8px;font-size:11px;border-radius:8px}.cw-card{padding:7px;margin-top:7px}.cw-tools{padding:6px 8px}.cw-tools .cw-btn{font-size:10px;padding:5px 7px}}
+      :host{all:initial}*{box-sizing:border-box}.cw-launch{position:fixed;right:12px;bottom:12px;z-index:2147483647;width:46px;height:46px;border:0;border-radius:15px;background:#111827;color:#fff;font:800 12px system-ui;box-shadow:0 8px 28px #0006}.cw-panel{position:fixed;right:12px;bottom:12px;z-index:2147483646;width:min(430px,calc(100vw - 24px));max-height:min(760px,calc(100vh - 24px));display:none;flex-direction:column;background:#07111c;color:#f8fafc;border:1px solid #334155;border-radius:18px;box-shadow:0 20px 70px #0008;font:14px/1.4 system-ui,-apple-system,sans-serif;overflow:hidden}.cw-panel.open{display:flex}.cw-hidden{display:none!important}.cw-head{display:flex;align-items:center;gap:7px;padding:9px 10px;border-bottom:1px solid #263648}.cw-head strong{flex:1;font-size:14px}.cw-icon{border:0;border-radius:9px;padding:6px 9px;background:#1f2937;color:#fff;font:800 13px system-ui}.cw-status{padding:5px 10px;background:#0d1b28;color:#9fb3c7;font-size:11px;border-bottom:1px solid #263648}.cw-content{overflow:auto;padding:12px}.cw-title{font-size:17px;font-weight:800;margin:0 0 5px}.cw-desc{font-size:12.5px;color:#b9c7d5;margin:0 0 10px}.cw-meta{font-size:11px;color:#93a4b5;margin:0 0 6px}select,input[type=url]{width:100%;border:1px solid #475569;border-radius:10px;background:#0b1623;color:#fff;padding:9px 10px;font:600 13px system-ui}.cw-row{display:flex;gap:7px;flex-wrap:wrap}.cw-btn{border:0;border-radius:10px;padding:8px 10px;font:750 12.5px system-ui;background:#1f2937;color:#fff}.cw-primary{background:#f47a20;color:#111}.cw-light{background:#e5e7eb;color:#111}.cw-danger{background:#442020;color:#fecaca}.cw-card{padding:9px;border:1px solid #294057;border-radius:12px;background:#0d1b28;margin-top:9px}.cw-stepbody{font-size:12.5px;color:#e2e8f0;white-space:pre-wrap;margin:7px 0 10px}.cw-progress{height:3px;background:#1e293b}.cw-progress span{display:block;height:100%;background:#f47a20}.cw-tools{padding:8px 10px;border-top:1px solid #263648;display:flex;gap:6px;flex-wrap:wrap}.cw-tools .cw-btn{font-size:11px;padding:6px 8px}.cw-msg{margin-top:8px;padding:8px;border-radius:9px;background:#132536;color:#d3dfeb;font-size:11.5px}.cw-warn{background:#3b2b0d;color:#fde7ae}.cw-ok{background:#12311f;color:#c6f6d5}.cw-bad{background:#3a1515;color:#fecaca}.cw-file{display:none}@media(max-width:640px){.cw-launch{width:40px;height:40px;border-radius:13px;right:8px;bottom:8px;font-size:11px}.cw-panel{left:8px;right:8px;bottom:8px;width:auto;max-height:44vh;border-radius:14px;font-size:12px}.cw-panel.expanded{max-height:78vh}.cw-head{padding:6px 8px}.cw-head strong{font-size:12.5px}.cw-icon{padding:4px 7px;font-size:12px}.cw-status{padding:4px 8px;font-size:10px}.cw-content{padding:8px}.cw-title{font-size:14px}.cw-desc,.cw-stepbody{font-size:11px}.cw-meta{font-size:9.5px}select,input[type=url]{padding:7px 8px;font-size:11.5px}.cw-btn{padding:6px 8px;font-size:11px;border-radius:8px}.cw-card{padding:7px;margin-top:7px}.cw-tools{padding:6px 8px}.cw-tools .cw-btn{font-size:10px;padding:5px 7px}}
     </style>
     <button class="cw-launch" aria-label="Open CTRL Walkthrough">CW</button>
     <section class="cw-panel" role="dialog" aria-label="CTRL Walkthrough"><div class="cw-head"><strong>CTRL Walkthrough</strong><button class="cw-icon" data-act="home" title="Walkthrough list">⌂</button><button class="cw-icon" data-act="expand" title="Expand or compact">↕</button><button class="cw-icon" data-act="settings" title="Custom walkthroughs">⋮</button><button class="cw-icon" data-act="close" title="Close">×</button></div><div class="cw-status">Starting…</div><div class="cw-progress"><span style="width:0%"></span></div><div class="cw-content"></div><div class="cw-tools"><button class="cw-btn" data-act="reload">Reload walkthroughs</button><button class="cw-btn" data-act="error">Copy error</button></div><input class="cw-file" type="file" accept="application/json,.json,.walkthrough.json"></section>`;
@@ -152,7 +157,7 @@
     const selected = moduleById(state.selectedId);
     if (selected) {
       const card = el('div', 'cw-card'); card.appendChild(el('div', 'cw-meta', `Walkthrough key: ${selected.id}`)); card.appendChild(el('div', 'cw-desc', selected.description || ''));
-      const row = el('div', 'cw-row'); row.appendChild(btn('Start walkthrough', 'cw-primary', () => startWalkthrough(selected))); row.appendChild(btn('Copy key', '', () => GM_setClipboard(selected.id))); card.appendChild(row); content.appendChild(card);
+      const row = el('div', 'cw-row'); row.appendChild(btn('Start walkthrough', 'cw-primary', () => startWalkthrough(selected))); row.appendChild(btn('Copy key', '', () => GM_setClipboard(selected.id))); row.appendChild(btn('Download JSON', '', () => downloadModule(selected))); card.appendChild(row); content.appendChild(card);
     }
     const active = moduleById(state.activeId);
     if (active) { const row = el('div', 'cw-row'); row.style.marginTop = '9px'; row.appendChild(btn(`Resume ${active.title}`, 'cw-light', () => renderStep(active))); row.appendChild(btn('End', '', () => { state.activeId = ''; saveState(); renderHome(); })); content.appendChild(row); }
@@ -192,28 +197,47 @@
     for (const selector of spec.selectors || []) { try { const found = document.querySelector(selector); if (found) return found; } catch (_) {} }
     return candidatesFromText(spec.text)[0] || null;
   }
-  function clearHighlights() { document.querySelectorAll('.cw-highlight').forEach(n => n.classList.remove('cw-highlight')); }
+  function clearHighlights() { document.querySelectorAll('.ctrl-walkthrough-page-highlight').forEach(n => n.classList.remove('ctrl-walkthrough-page-highlight')); }
   function findAndHighlight(spec) {
     clearHighlights(); const node = locate(spec);
     if (!node) { message('I could not find that control on this page. The provider may have changed its UI; you can continue manually or update the walkthrough.', 'cw-warn'); return; }
-    node.classList.add('cw-highlight'); node.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' }); message(`Found: ${safeText(node.innerText || node.getAttribute?.('aria-label') || node.textContent || node.tagName, 120)}`, 'cw-ok'); setTimeout(() => node.classList.remove('cw-highlight'), 10000);
+    node.classList.add('ctrl-walkthrough-page-highlight'); node.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' }); message(`Found: ${safeText(node.innerText || node.getAttribute?.('aria-label') || node.textContent || node.tagName, 120)}`, 'cw-ok'); setTimeout(() => node.classList.remove('ctrl-walkthrough-page-highlight'), 10000);
   }
   function checkSuccess(spec) {
     let ok = false; if (spec.urlIncludes && String(location.href).includes(spec.urlIncludes)) ok = true; if (!ok && (spec.selectors || spec.text)) ok = Boolean(locate(spec));
     message(ok ? (spec.successMessage || 'This page looks ready. You can continue.') : (spec.failureMessage || 'I cannot confirm that state yet. Complete the page step manually, then check again.'), ok ? 'cw-ok' : 'cw-warn');
   }
 
+  function cleanPortableModule(mod) {
+    const out = cloneValue(mod);
+    delete out.source;
+    delete out._remoteUrl;
+    return out;
+  }
+  function downloadModule(mod) {
+    const portable = cleanPortableModule(mod);
+    const blob = new Blob([JSON.stringify(portable, null, 2) + '\n'], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = `${portable.id}.walkthrough.json`; a.style.display = 'none'; document.documentElement.appendChild(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+  }
   function renderSettings() {
     clearContent(); progress.style.width = '0%'; content.appendChild(el('div', 'cw-title', 'Custom walkthroughs')); content.appendChild(el('div', 'cw-desc', 'Import a data-only JSON walkthrough. No JavaScript in walkthrough files is executed. Local imports are stored only in Tampermonkey storage on this browser.'));
     const row = el('div', 'cw-row'); row.appendChild(btn('Import JSON file', 'cw-primary', () => fileInput.click())); row.appendChild(btn('Load from URL', '', () => renderUrlImport())); content.appendChild(row);
-    custom.forEach(m => { const card = el('div', 'cw-card'); card.appendChild(el('div', 'cw-meta', `Custom key: ${m.id}`)); card.appendChild(el('div', 'cw-desc', m.title)); card.appendChild(btn('Remove', 'cw-danger', () => { custom = custom.filter(x => x.id !== m.id); if (state.activeId === m.id) state.activeId = ''; if (state.selectedId === m.id) state.selectedId = ''; saveCustom(); saveState(); renderSettings(); })); content.appendChild(card); });
+    custom.forEach(m => {
+      const card = el('div', 'cw-card'); card.appendChild(el('div', 'cw-meta', `Custom key: ${m.id}`)); card.appendChild(el('div', 'cw-desc', m.title));
+      const actions = el('div', 'cw-row'); actions.appendChild(btn('Download', '', () => downloadModule(m)));
+      if (m._remoteUrl) actions.appendChild(btn('Refresh URL', '', async () => { try { const fresh = validateModule(await fetchJson(m._remoteUrl)); upsertCustom(fresh, m._remoteUrl); renderSettings(); message(`Refreshed ${fresh.title}`, 'cw-ok'); } catch (err) { rememberError(err, 'custom-refresh'); message(err.message, 'cw-bad'); } }));
+      actions.appendChild(btn('Remove', 'cw-danger', () => { custom = custom.filter(x => x.id !== m.id); if (state.activeId === m.id) state.activeId = ''; if (state.selectedId === m.id) state.selectedId = ''; saveCustom(); saveState(); renderSettings(); })); card.appendChild(actions); content.appendChild(card);
+    });
   }
   function renderUrlImport() {
     clearContent(); content.appendChild(el('div', 'cw-title', 'Load walkthrough URL')); content.appendChild(el('div', 'cw-desc', 'Enter a public HTTPS JSON URL that permits browser CORS. If it does not, download the JSON and use Import JSON file instead.'));
     const input = el('input'); input.type = 'url'; input.placeholder = 'https://example.com/my.walkthrough.json'; content.appendChild(input); const row = el('div', 'cw-row'); row.style.marginTop = '8px';
-    row.appendChild(btn('Load', 'cw-primary', async () => { try { const mod = validateModule(await fetchJson(input.value.trim())); upsertCustom(mod); message(`Loaded ${mod.title}`, 'cw-ok'); } catch (err) { rememberError(err, 'custom-url'); message(err.message, 'cw-bad'); } })); row.appendChild(btn('Back', '', renderSettings)); content.appendChild(row);
+    row.appendChild(btn('Load', 'cw-primary', async () => { try { const remoteUrl = input.value.trim(); const mod = validateModule(await fetchJson(remoteUrl)); upsertCustom(mod, remoteUrl); renderSettings(); message(`Loaded ${mod.title}`, 'cw-ok'); } catch (err) { rememberError(err, 'custom-url'); message(err.message, 'cw-bad'); } })); row.appendChild(btn('Back', '', renderSettings)); content.appendChild(row);
   }
-  function upsertCustom(mod) { custom = custom.filter(x => x.id !== mod.id); custom.push({ ...mod, source: 'custom' }); saveCustom(); state.selectedId = mod.id; saveState(); }
+  function upsertCustom(mod, remoteUrl = '') { custom = custom.filter(x => x.id !== mod.id); custom.push({ ...cleanPortableModule(mod), source: 'custom', ...(remoteUrl ? { _remoteUrl: remoteUrl } : {}) }); saveCustom(); state.selectedId = mod.id; saveState(); }
   fileInput.addEventListener('change', async () => {
     const file = fileInput.files?.[0]; fileInput.value = ''; if (!file) return;
     try { if (file.size > MAX_BYTES) throw new Error('Walkthrough file is too large'); const mod = validateModule(JSON.parse(await file.text())); upsertCustom(mod); renderSettings(); message(`Imported ${mod.title}`, 'cw-ok'); }
