@@ -40,6 +40,7 @@ For fast-moving tool/API changes, also see [`tools/CHANGELOG.md`](tools/CHANGELO
 - Moved walkthrough distribution to public, data-only JSON so ordinary walkthroughs do not require access to a private repository.
 - Added a compact mobile UI and larger desktop UI that adapt to the available viewport.
 - Added walkthrough selection, Start/Resume behavior, page-control finding/highlighting, success checks, custom JSON imports, and public HTTPS custom walkthrough loading.
+- **v0.2.2:** added a visible `+` header button that directly opens the local custom-walkthrough file picker. This gives private/project-specific walkthroughs a download-then-import path without giving the public userscript private-repository credentials.
 - Added canonical public walkthroughs for Termius, Cloudflare, F5Bot, Zyte, and Firecrawl → ChatGPT.
 - Walkthrough content is public-safe only: no credentials, account IDs, private infrastructure, private repository paths, affiliate identifiers, or personal setup state.
 
