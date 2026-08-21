@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 2,
+  "id": "firecrawl-chatgpt",
+  "version": "2026-08-21.1",
+  "title": "Firecrawl to ChatGPT",
+  "description": "Connect Firecrawl to a supported ChatGPT workspace using the public MCP endpoints without placing API keys in the walkthrough.",
+  "steps": [
+    {
+      "title": "Open ChatGPT web",
+      "body": "Use ChatGPT in a browser and switch to the workspace where you want the connector. On a phone, Desktop site may expose settings that the native mobile layout hides.",
+      "action": {"type": "open", "label": "Open ChatGPT", "url": "https://chatgpt.com/"},
+      "humanGate": "Workspace sign-in and administrator permissions stay under your control."
+    },
+    {
+      "title": "Find Settings",
+      "body": "Use Find on page to locate Settings or Apps. CTRL highlights visible controls but does not approve workspace-wide permissions for you.",
+      "action": {"type": "find", "label": "Find Settings / Apps"},
+      "target": {"text": ["Settings", "Apps", "Connectors", "Developer mode"]}
+    },
+    {
+      "title": "Copy the keyless MCP URL",
+      "body": "Start with Firecrawl's public keyless MCP endpoint so no API secret needs to be entered into CTRL Walkthrough.",
+      "action": {"type": "copy", "label": "Copy MCP URL", "text": "https://mcp.firecrawl.dev/v2/mcp"}
+    },
+    {
+      "title": "Find the MCP server field",
+      "body": "On the app/connector creation page, use Find on page to locate the server URL or MCP URL field. Paste the copied URL there and choose no authentication for the keyless test if that option is available.",
+      "action": {"type": "find", "label": "Find server URL field"},
+      "target": {"text": ["MCP Server URL", "Server URL", "MCP URL", "Authentication"]}
+    },
+    {
+      "title": "Scan tools",
+      "body": "Use Find on page to locate Scan Tools or the equivalent validation control. Review the discovered tools before creating or publishing anything.",
+      "action": {"type": "find", "label": "Find Scan Tools"},
+      "target": {"text": ["Scan Tools", "Scan tools", "Test connection", "Validate"]},
+      "humanGate": "Creating, publishing or granting workspace-wide access remains your decision."
+    },
+    {
+      "title": "Optional OAuth connection",
+      "body": "If you intentionally want account-authenticated Firecrawl access, copy the OAuth MCP endpoint and complete the provider's browser authorization yourself.",
+      "action": {"type": "copy", "label": "Copy OAuth MCP URL", "text": "https://mcp.firecrawl.dev/v2/mcp-oauth"},
+      "humanGate": "OAuth consent and account authorization require your confirmation."
+    },
+    {
+      "title": "Open Firecrawl MCP documentation",
+      "body": "Use current provider documentation as the authority if the setup UI or supported authentication modes change.",
+      "action": {"type": "open", "label": "Open MCP docs", "url": "https://docs.firecrawl.dev/mcp-server"}
+    }
+  ]
+}
