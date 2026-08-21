@@ -29,6 +29,16 @@ The userscript runs on normal HTTPS pages and shows a small `CW` launcher in the
 5. On provider pages, **Find on page** searches visible buttons, links, fields, labels, ARIA labels, and common interactive controls, scrolls the match into view, and highlights it.
 6. Login, MFA, CAPTCHA, terms, OAuth consent, billing, purchases, publishing, and other consequential controls remain user-gated.
 
+### Header controls
+
+- `⌂` — walkthrough list/home.
+- `+` — **quick import of a local/private custom walkthrough JSON file**.
+- `↕` — expand/compact the phone panel.
+- `⋮` — manage custom walkthroughs, including URL imports, refresh, download, and removal.
+- `×` — close.
+
+The `+` button is intentionally a local-file picker. That gives private repositories and private project-specific fixes a clean path: download the walkthrough JSON while authenticated to the private source, then import the local file. The public userscript never needs the private repository token.
+
 ### Responsive behavior
 
 - Phone / narrow viewport: compact panel, small text and buttons, about 44% maximum viewport height by default.
@@ -58,14 +68,16 @@ Importing another custom walkthrough with the same `id` replaces the previous cu
 
 ## Custom walkthroughs
 
-Open `CW` -> `⋮`.
+The fastest path is `CW` -> **`+`** and choose a local `.json` / `.walkthrough.json` file.
+
+For full custom management, open `CW` -> `⋮`.
 
 Two paths are supported:
 
-- **Import JSON file**: choose a `.json` walkthrough from local device storage. This is the most private and reliable custom path.
+- **Import JSON file**: choose a `.json` walkthrough from local device storage. This is the most private and reliable custom path and is what the `+` button opens directly.
 - **Load from URL**: enter a public HTTPS JSON URL. The host must permit browser CORS. If it does not, download the JSON and import the file instead.
 
-A custom walkthrough may live in any repository or website that can serve the JSON over HTTPS with CORS. It does not need to be part of Agents of AI.
+A custom walkthrough may live in any repository or website that can serve the JSON over HTTPS with CORS. It does not need to be part of Agents of AI. For a private repository, prefer local download + `+` import rather than embedding credentials or temporary tokenized raw URLs.
 
 ## Schema v2
 
