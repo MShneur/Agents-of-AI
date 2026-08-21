@@ -2,15 +2,29 @@
 
 Agents of AI is primarily a library of personas, agents, workflows, techniques, modes, teams, and failures. This file is a **supporting reference layer**, not an eighth composable layer.
 
-The goal is simple: when a workflow needs an external service, free quota, file-transfer pattern, automation host, scraper, model endpoint, or mobile administration tool, contributors should not have to rediscover the same limits and setup mistakes from scratch.
+The goal is simple: when a workflow needs an external service, API, free quota, file-transfer pattern, automation host, scraper, model endpoint, or mobile administration tool, contributors should not have to rediscover the same limits and setup mistakes from scratch.
 
 ## Start here
 
-- [`tools/free-tool-ledger.md`](tools/free-tool-ledger.md) — publicly verifiable free/student tools and quotas.
+- [`tools/README.md`](tools/README.md) — the public landing page for the actively maintained tools shelf.
+- [`tools/software-recommendations.md`](tools/software-recommendations.md) — curated software recommendations grouped by real job/use case.
+- [`tools/api-catalog.md`](tools/api-catalog.md) — public API, MCP, webhook, event-stream, and integration surfaces.
+- [`tools/free-tool-ledger.md`](tools/free-tool-ledger.md) — publicly verifiable free/student tools, quotas, and caveats.
 - [`tools/publication-safety.md`](tools/publication-safety.md) — privacy and red-team gate for anything added here.
-- [`tools/ctrl-walkthrough/`](tools/ctrl-walkthrough/) — public responsive Tampermonkey setup runner plus reusable data-only walkthroughs for tools in this section.
+- [`tools/ctrl-walkthrough/`](tools/ctrl-walkthrough/) — public responsive Tampermonkey setup runner plus reusable data-only walkthroughs.
+- [`tools/CHANGELOG.md`](tools/CHANGELOG.md) — fast-moving history for tools/APIs/walkthroughs.
 - [`workflows/large-artifact-handoff.md`](workflows/large-artifact-handoff.md) — provider-neutral pattern for moving large binary artifacts without stuffing them through an AI context window.
 - [`workflows/new-ai-workspace-bootstrap.md`](workflows/new-ai-workspace-bootstrap.md) — rebuild a capable AI workspace without repeating old connector/setup mistakes.
+
+Repository-wide changes are tracked in [`CHANGELOG.md`](CHANGELOG.md), and version/snapshot rules are in [`VERSIONING.md`](VERSIONING.md).
+
+## Recommend a tool or API
+
+Community recommendations are welcome. Use the GitHub **Tool or API recommendation** issue template, or open a PR against the appropriate file under `tools/`.
+
+A useful recommendation includes the official provider/docs URL, the problem it solves, its access model, API/MCP/webhook surface if relevant, any publicly verifiable quota/student offer, important caveats, and the date the public claim was checked.
+
+Unknown is an acceptable answer. Guessing is not.
 
 ## CTRL Walkthrough rule
 
@@ -23,7 +37,7 @@ The public userscript supports local JSON imports and public HTTPS custom walkth
 ## Rules for this section
 
 1. **Public facts only.** Every service limit, quota, student offer, or capability must come from a public provider source.
-2. **Date every quota.** Free tiers change. Record `verified_on` and a source link.
+2. **Date every quota.** Free tiers change. Record `Verified on: YYYY-MM-DD` and a source link.
 3. **Do not publish account state.** No balances, entitlement dates, invoices, account IDs, private limits, usage history, or whether a specific person has claimed an offer.
 4. **No secrets or private infrastructure.** No API keys, tokens, credentials, IPs, private hosts, private repo names, internal paths, environment-variable values, affiliate IDs, or unpublished endpoints.
 5. **Patterns over fingerprints.** Publish reusable architecture and failure lessons, not a reconstruction of somebody's private stack.
@@ -31,6 +45,7 @@ The public userscript supports local JSON imports and public HTTPS custom walkth
 7. **Prefer event-driven free capacity.** Webhooks, feeds, queues, on-demand calls, and provider reset quotas are usually better than quota-burning scheduled polling.
 8. **Binary stays binary.** Large files should move through object/file transfer surfaces, not base64 inside an AI prompt unless the file is genuinely small.
 9. **Walkthroughs are data, not executable plugins.** Public or custom walkthrough JSON must never be evaluated as JavaScript. Provider UI changes should fail to manual guidance rather than guessing a nearby control.
+10. **Keep the shelf visibly current.** Material additions/removals update `tools/CHANGELOG.md`; stale time-sensitive claims are marked `CHECK_AT_USE` until reverified.
 
 ## Tool-entry shape
 
@@ -43,6 +58,7 @@ Free surface:
 Reset/cap:
 Hard cap?: yes | no | unknown | varies
 Card required?: yes | no | unknown
+API/MCP/webhook?:
 Best use:
 Main catch:
 Official source:
