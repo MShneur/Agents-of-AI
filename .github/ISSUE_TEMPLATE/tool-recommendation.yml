@@ -1,0 +1,96 @@
+name: Tool or API recommendation
+description: Recommend public software, an API, an integration surface, or a CTRL Walkthrough.
+title: "[Tool recommendation] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping expand the public tools shelf. Use public provider facts only. **Do not paste API keys, tokens, cookies, account IDs, private hostnames/IPs, private repo names, billing details, affiliate IDs, or other private configuration.** Unknown fields can simply say `unknown`.
+
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Recommendation type
+      options:
+        - Software / service
+        - API / MCP / webhook / event stream
+        - CTRL Walkthrough
+        - Software + API
+        - Software + walkthrough
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: name
+    attributes:
+      label: Tool or API name
+      placeholder: Example: Activepieces
+    validations:
+      required: true
+
+  - type: input
+    id: official
+    attributes:
+      label: Official product or documentation URL
+      placeholder: https://...
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem does it solve?
+      description: Explain the job it is good at and why it belongs in Agents of AI's supporting tools shelf.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: access
+    attributes:
+      label: Publicly advertised access model
+      options:
+        - Open source / self-hosted
+        - Free tier
+        - Student / education offer
+        - Free trial
+        - Paid only
+        - Mixed / varies
+        - Unknown
+    validations:
+      required: true
+
+  - type: input
+    id: billing
+    attributes:
+      label: Card or billing setup required?
+      placeholder: yes / no / varies / unknown
+
+  - type: textarea
+    id: integration
+    attributes:
+      label: API, MCP, webhook, or automation surface
+      description: If applicable, link the official integration/API documentation and summarize the interface.
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Public evidence for free/student/quota claims
+      description: Link the provider page and include the date you checked it. Do not include screenshots containing account-specific information.
+      placeholder: "Verified on YYYY-MM-DD: https://..."
+
+  - type: textarea
+    id: caveats
+    attributes:
+      label: Important caveats
+      description: Billing risk, source restrictions, data-use terms, rate limits, platform limitations, approval requirements, etc.
+
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Public-safety confirmation
+      options:
+        - label: I did not include credentials, personal account state, private infrastructure, affiliate IDs, or unpublished/private endpoints.
+          required: true
+        - label: Any quota, student offer, or pricing claim I supplied comes from a public provider source or is clearly marked unknown.
+          required: true
