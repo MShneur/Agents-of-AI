@@ -8,8 +8,17 @@ The goal is simple: when a workflow needs an external service, free quota, file-
 
 - [`tools/free-tool-ledger.md`](tools/free-tool-ledger.md) — publicly verifiable free/student tools and quotas.
 - [`tools/publication-safety.md`](tools/publication-safety.md) — privacy and red-team gate for anything added here.
+- [`tools/ctrl-walkthrough/`](tools/ctrl-walkthrough/) — public responsive Tampermonkey setup runner plus reusable data-only walkthroughs for tools in this section.
 - [`workflows/large-artifact-handoff.md`](workflows/large-artifact-handoff.md) — provider-neutral pattern for moving large binary artifacts without stuffing them through an AI context window.
 - [`workflows/new-ai-workspace-bootstrap.md`](workflows/new-ai-workspace-bootstrap.md) — rebuild a capable AI workspace without repeating old connector/setup mistakes.
+
+## CTRL Walkthrough rule
+
+When a tool in the public ledger has a setup path that can be usefully guided from a browser, prefer adding or updating a data-only walkthrough under `tools/ctrl-walkthrough/modules/` rather than publishing personal setup notes.
+
+Walkthroughs may contain public provider URLs, public non-secret values, generic control names/selectors, and user-gate warnings. They must not contain personal information, credentials, tokens, account identifiers, private infrastructure, private repository paths, private research terms, entitlement/account state, affiliate identifiers, or billing details.
+
+The public userscript supports local JSON imports and public HTTPS custom walkthrough URLs, so contributors can keep their own walkthroughs wherever they choose. Imported local walkthroughs are stored in that browser's Tampermonkey storage; they are not committed to this repository.
 
 ## Rules for this section
 
@@ -21,6 +30,7 @@ The goal is simple: when a workflow needs an external service, free quota, file-
 6. **Do not invent hard caps.** "Free tier" does not automatically mean "cannot bill." Mark billing/overage risk explicitly.
 7. **Prefer event-driven free capacity.** Webhooks, feeds, queues, on-demand calls, and provider reset quotas are usually better than quota-burning scheduled polling.
 8. **Binary stays binary.** Large files should move through object/file transfer surfaces, not base64 inside an AI prompt unless the file is genuinely small.
+9. **Walkthroughs are data, not executable plugins.** Public or custom walkthrough JSON must never be evaluated as JavaScript. Provider UI changes should fail to manual guidance rather than guessing a nearby control.
 
 ## Tool-entry shape
 
