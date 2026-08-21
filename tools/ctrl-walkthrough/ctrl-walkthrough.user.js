@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         CTRL Walkthrough
 // @namespace    https://github.com/MShneur/Agents-of-AI
-// @version      0.2.1
+// @version      0.2.2
 // @description  Responsive, public, data-only setup walkthrough runner with custom walkthrough imports.
 // @match        https://*/*
 // @match        http://localhost/*
@@ -20,7 +20,7 @@
 (() => {
   'use strict';
 
-  const VERSION = '0.2.1';
+  const VERSION = '0.2.2';
   const CANONICAL_MANIFEST = 'https://raw.githubusercontent.com/MShneur/Agents-of-AI/main/tools/ctrl-walkthrough/manifest.json';
   const STATE_KEY = 'ctrlw:v2:state';
   const CACHE_KEY = 'ctrlw:v2:canonical-cache';
@@ -124,7 +124,7 @@
       :host{all:initial}*{box-sizing:border-box}.cw-launch{position:fixed;right:12px;bottom:12px;z-index:2147483647;width:46px;height:46px;border:0;border-radius:15px;background:#111827;color:#fff;font:800 12px system-ui;box-shadow:0 8px 28px #0006}.cw-panel{position:fixed;right:12px;bottom:12px;z-index:2147483646;width:min(430px,calc(100vw - 24px));max-height:min(760px,calc(100vh - 24px));display:none;flex-direction:column;background:#07111c;color:#f8fafc;border:1px solid #334155;border-radius:18px;box-shadow:0 20px 70px #0008;font:14px/1.4 system-ui,-apple-system,sans-serif;overflow:hidden}.cw-panel.open{display:flex}.cw-hidden{display:none!important}.cw-head{display:flex;align-items:center;gap:7px;padding:9px 10px;border-bottom:1px solid #263648}.cw-head strong{flex:1;font-size:14px}.cw-icon{border:0;border-radius:9px;padding:6px 9px;background:#1f2937;color:#fff;font:800 13px system-ui}.cw-status{padding:5px 10px;background:#0d1b28;color:#9fb3c7;font-size:11px;border-bottom:1px solid #263648}.cw-content{overflow:auto;padding:12px}.cw-title{font-size:17px;font-weight:800;margin:0 0 5px}.cw-desc{font-size:12.5px;color:#b9c7d5;margin:0 0 10px}.cw-meta{font-size:11px;color:#93a4b5;margin:0 0 6px}select,input[type=url]{width:100%;border:1px solid #475569;border-radius:10px;background:#0b1623;color:#fff;padding:9px 10px;font:600 13px system-ui}.cw-row{display:flex;gap:7px;flex-wrap:wrap}.cw-btn{border:0;border-radius:10px;padding:8px 10px;font:750 12.5px system-ui;background:#1f2937;color:#fff}.cw-primary{background:#f47a20;color:#111}.cw-light{background:#e5e7eb;color:#111}.cw-danger{background:#442020;color:#fecaca}.cw-card{padding:9px;border:1px solid #294057;border-radius:12px;background:#0d1b28;margin-top:9px}.cw-stepbody{font-size:12.5px;color:#e2e8f0;white-space:pre-wrap;margin:7px 0 10px}.cw-progress{height:3px;background:#1e293b}.cw-progress span{display:block;height:100%;background:#f47a20}.cw-tools{padding:8px 10px;border-top:1px solid #263648;display:flex;gap:6px;flex-wrap:wrap}.cw-tools .cw-btn{font-size:11px;padding:6px 8px}.cw-msg{margin-top:8px;padding:8px;border-radius:9px;background:#132536;color:#d3dfeb;font-size:11.5px}.cw-warn{background:#3b2b0d;color:#fde7ae}.cw-ok{background:#12311f;color:#c6f6d5}.cw-bad{background:#3a1515;color:#fecaca}.cw-file{display:none}@media(max-width:640px){.cw-launch{width:40px;height:40px;border-radius:13px;right:8px;bottom:8px;font-size:11px}.cw-panel{left:8px;right:8px;bottom:8px;width:auto;max-height:44vh;border-radius:14px;font-size:12px}.cw-panel.expanded{max-height:78vh}.cw-head{padding:6px 8px}.cw-head strong{font-size:12.5px}.cw-icon{padding:4px 7px;font-size:12px}.cw-status{padding:4px 8px;font-size:10px}.cw-content{padding:8px}.cw-title{font-size:14px}.cw-desc,.cw-stepbody{font-size:11px}.cw-meta{font-size:9.5px}select,input[type=url]{padding:7px 8px;font-size:11.5px}.cw-btn{padding:6px 8px;font-size:11px;border-radius:8px}.cw-card{padding:7px;margin-top:7px}.cw-tools{padding:6px 8px}.cw-tools .cw-btn{font-size:10px;padding:5px 7px}}
     </style>
     <button class="cw-launch" aria-label="Open CTRL Walkthrough">CW</button>
-    <section class="cw-panel" role="dialog" aria-label="CTRL Walkthrough"><div class="cw-head"><strong>CTRL Walkthrough</strong><button class="cw-icon" data-act="home" title="Walkthrough list">⌂</button><button class="cw-icon" data-act="expand" title="Expand or compact">↕</button><button class="cw-icon" data-act="settings" title="Custom walkthroughs">⋮</button><button class="cw-icon" data-act="close" title="Close">×</button></div><div class="cw-status">Starting…</div><div class="cw-progress"><span style="width:0%"></span></div><div class="cw-content"></div><div class="cw-tools"><button class="cw-btn" data-act="reload">Reload walkthroughs</button><button class="cw-btn" data-act="error">Copy error</button></div><input class="cw-file" type="file" accept="application/json,.json,.walkthrough.json"></section>`;
+    <section class="cw-panel" role="dialog" aria-label="CTRL Walkthrough"><div class="cw-head"><strong>CTRL Walkthrough</strong><button class="cw-icon" data-act="home" title="Walkthrough list">⌂</button><button class="cw-icon" data-act="add" title="Load custom walkthrough">+</button><button class="cw-icon" data-act="expand" title="Expand or compact">↕</button><button class="cw-icon" data-act="settings" title="Manage custom walkthroughs">⋮</button><button class="cw-icon" data-act="close" title="Close">×</button></div><div class="cw-status">Starting…</div><div class="cw-progress"><span style="width:0%"></span></div><div class="cw-content"></div><div class="cw-tools"><button class="cw-btn" data-act="reload">Reload walkthroughs</button><button class="cw-btn" data-act="error">Copy error</button></div><input class="cw-file" type="file" accept="application/json,.json,.walkthrough.json"></section>`;
 
   const launch = root.querySelector('.cw-launch');
   const panel = root.querySelector('.cw-panel');
@@ -148,7 +148,7 @@
     clearContent(); progress.style.width = '0%';
     const mods = allModules();
     content.appendChild(el('div', 'cw-title', 'Choose a walkthrough'));
-    content.appendChild(el('div', 'cw-desc', 'Pick a setup guide, then press Start. Canonical guides are public; custom guides stay in this browser unless you choose a remote URL.'));
+    content.appendChild(el('div', 'cw-desc', 'Pick a setup guide, then press Start. Canonical guides are public; custom guides stay in this browser unless you choose a remote URL. Tap + to import a private/local walkthrough file.'));
     const select = el('select');
     const placeholder = el('option', '', mods.length ? 'Select walkthrough…' : 'No walkthroughs loaded'); placeholder.value = ''; select.appendChild(placeholder);
     mods.forEach(m => { const o = el('option', '', `${m.title}${m.source === 'custom' ? ' · custom' : ''}`); o.value = m.id; select.appendChild(o); });
@@ -223,7 +223,7 @@
     setTimeout(() => URL.revokeObjectURL(url), 1000);
   }
   function renderSettings() {
-    clearContent(); progress.style.width = '0%'; content.appendChild(el('div', 'cw-title', 'Custom walkthroughs')); content.appendChild(el('div', 'cw-desc', 'Import a data-only JSON walkthrough. No JavaScript in walkthrough files is executed. Local imports are stored only in Tampermonkey storage on this browser.'));
+    clearContent(); progress.style.width = '0%'; content.appendChild(el('div', 'cw-title', 'Custom walkthroughs')); content.appendChild(el('div', 'cw-desc', 'Import a data-only JSON walkthrough. No JavaScript in walkthrough files is executed. Local imports are stored only in Tampermonkey storage on this browser. The + button is the quick local-file importer.'));
     const row = el('div', 'cw-row'); row.appendChild(btn('Import JSON file', 'cw-primary', () => fileInput.click())); row.appendChild(btn('Load from URL', '', () => renderUrlImport())); content.appendChild(row);
     custom.forEach(m => {
       const card = el('div', 'cw-card'); card.appendChild(el('div', 'cw-meta', `Custom key: ${m.id}`)); card.appendChild(el('div', 'cw-desc', m.title));
@@ -233,7 +233,7 @@
     });
   }
   function renderUrlImport() {
-    clearContent(); content.appendChild(el('div', 'cw-title', 'Load walkthrough URL')); content.appendChild(el('div', 'cw-desc', 'Enter a public HTTPS JSON URL that permits browser CORS. If it does not, download the JSON and use Import JSON file instead.'));
+    clearContent(); content.appendChild(el('div', 'cw-title', 'Load walkthrough URL')); content.appendChild(el('div', 'cw-desc', 'Enter a public HTTPS JSON URL that permits browser CORS. If it does not, download the JSON and use Import JSON file instead. Private repository files should normally be downloaded locally and loaded with +.'));
     const input = el('input'); input.type = 'url'; input.placeholder = 'https://example.com/my.walkthrough.json'; content.appendChild(input); const row = el('div', 'cw-row'); row.style.marginTop = '8px';
     row.appendChild(btn('Load', 'cw-primary', async () => { try { const remoteUrl = input.value.trim(); const mod = validateModule(await fetchJson(remoteUrl)); upsertCustom(mod, remoteUrl); renderSettings(); message(`Loaded ${mod.title}`, 'cw-ok'); } catch (err) { rememberError(err, 'custom-url'); message(err.message, 'cw-bad'); } })); row.appendChild(btn('Back', '', renderSettings)); content.appendChild(row);
   }
@@ -246,11 +246,12 @@
 
   root.addEventListener('click', (e) => {
     const act = e.target?.dataset?.act; if (!act) return;
-    if (act === 'close') setOpen(false); if (act === 'home') renderHome(); if (act === 'settings') renderSettings(); if (act === 'expand') { state.expanded = !state.expanded; saveState(); updateViewportMode(); } if (act === 'reload') loadCanonical();
+    if (act === 'close') setOpen(false); if (act === 'home') renderHome(); if (act === 'add') fileInput.click(); if (act === 'settings') renderSettings(); if (act === 'expand') { state.expanded = !state.expanded; saveState(); updateViewportMode(); } if (act === 'reload') loadCanonical();
     if (act === 'error') { GM_setClipboard(JSON.stringify(lastError || { version: VERSION, message: 'No error recorded', url: `${location.origin}${location.pathname}` }, null, 2)); setStatus('Redacted error copied'); }
   });
   launch.addEventListener('click', () => setOpen(true));
   GM_registerMenuCommand('Open CTRL Walkthrough', () => setOpen(true));
+  GM_registerMenuCommand('Import custom walkthrough', () => { setOpen(true); fileInput.click(); });
   GM_registerMenuCommand('Reload CTRL Walkthroughs', () => loadCanonical());
   if (state.open) setOpen(true);
   loadCanonical();
