@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 2,
+  "id": "zyte",
+  "version": "2026-08-21.1",
+  "title": "Zyte Scrapy Cloud Student",
+  "description": "Claim the GitHub Student Zyte offer and reach Scrapy Cloud without storing account identifiers, credentials, or crawler targets in the walkthrough.",
+  "steps": [
+    {
+      "title": "Open GitHub Student Developer Pack",
+      "body": "Open the Student Pack while signed into the GitHub account associated with your education eligibility.",
+      "action": {"type": "open", "label": "Open Student Pack", "url": "https://education.github.com/pack/"},
+      "humanGate": "Student verification, login, MFA, CAPTCHA and offer acceptance stay under your control."
+    },
+    {
+      "title": "Find Zyte",
+      "body": "Use Find on page to highlight the Zyte offer if it is present in the current Student Pack layout.",
+      "action": {"type": "find", "label": "Find Zyte"},
+      "target": {"text": ["Zyte", "Scrapy Cloud"]}
+    },
+    {
+      "title": "Open Zyte",
+      "body": "Continue through the provider claim or sign-in flow. Do not paste API keys or account secrets into CTRL Walkthrough.",
+      "action": {"type": "open", "label": "Open Zyte", "url": "https://www.zyte.com/"},
+      "humanGate": "Account creation, consent, terms, MFA/CAPTCHA and any paid upgrade require your confirmation."
+    },
+    {
+      "title": "Locate Scrapy Cloud",
+      "body": "Once signed in, use Find on page to look for Scrapy Cloud or project controls. If the provider changes its UI, continue manually and the walkthrough can be updated later.",
+      "action": {"type": "find", "label": "Find Scrapy Cloud"},
+      "target": {"text": ["Scrapy Cloud", "Projects", "Create project"]}
+    },
+    {
+      "title": "Keep source permissions separate",
+      "body": "Crawler compute does not grant permission to access restricted material. Use it only for sources and data you are authorized to collect.",
+      "action": {"type": "none"}
+    }
+  ]
+}
