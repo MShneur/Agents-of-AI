@@ -15,15 +15,18 @@ Fast-moving history for `tools/`. Repository-wide changes live in [`../CHANGELOG
 - Public walkthroughs for Termius, Cloudflare, F5Bot, Zyte, and Firecrawl -> ChatGPT.
 - Custom walkthrough import from local JSON or public HTTPS JSON.
 - GitHub issue template for community tool/API/walkthrough recommendations.
+- `ctrl-walkthrough/AI_HANDOFF_PROTOCOL.md` — canonical decision tree for public modules, compressed private handoffs, local files, private GitHub pointers, expiry, and secret handling.
+- `ctrl-walkthrough/make_handoff.py` — stdlib generator for deterministic `CWZ2` gzip+Base64URL and `CW2` Base64URL handoff codes; defaults to a 24-hour expiry and basic secret-pattern rejection.
 
 ### Changed
 
 - CTRL Walkthrough moved away from a private-repository manifest model. Public-safe walkthroughs load directly from Agents of AI and require no private repository token.
-- CTRL Walkthrough engine is now **v0.3.0**. The visible `+` button opens a compact Add Walkthrough surface rather than forcing a file picker.
+- CTRL Walkthrough engine is **v0.3.0**. The visible `+` button opens a compact Add Walkthrough surface rather than forcing a file picker.
 - Added AI-to-browser handoff formats: `CWG1` private GitHub pointers, `CWZ2` compressed self-contained handoffs, `CW2` Base64URL handoffs, and direct pasted schema-v2 JSON.
-- A `CWG1` or normal GitHub blob link can open a private repository file in the user's normal signed-in GitHub session and import it into Tampermonkey without asking the user to paste a Personal Access Token into CTRL.
-- GitHub file links ending in `#ctrl-walkthrough-import` can trigger the same signed-in import automatically when the page opens.
-- Private handoffs loaded from GitHub/code/JSON are temporary by default: they persist across navigation while the walkthrough is active and are automatically removed after completion.
+- **Handoff priority changed after live mobile validation:** `CWZ2` is now the default for private/project-specific one-off walkthroughs; `CW2` is the fallback; local file import is preferred for oversized handoffs; `CWG1` is best-effort only because a signed-in private GitHub page does not guarantee userscript/raw fetch access.
+- Private handoffs loaded from code/JSON are temporary by default: they persist across navigation while the walkthrough is active and are automatically removed after completion.
+- AI-generated handoffs should normally carry `handoffExpiresAt` (24 hours by default from the generator).
+- Timed deletion from a public Git repository is explicitly **not** a privacy mechanism. Public modules must be safe to remain public permanently because deleted committed content remains in Git history.
 - File and public-URL custom imports remain persistent until manually removed.
 - Mobile UI remains compact/dynamic; desktop retains the larger docked view.
 - Walkthroughs can identify/highlight expected page controls and check defined page states while leaving login, MFA, CAPTCHA, billing, terms acceptance, and other consequential interactions to the user.
@@ -32,7 +35,8 @@ Fast-moving history for `tools/`. Repository-wide changes live in [`../CHANGELOG
 ### Safety boundary
 
 - No personal account state, credentials, tokens, private infrastructure, private repository paths, private research terms, affiliate IDs, or billing details belong in public walkthroughs or catalogs.
-- Private GitHub imports use the user's existing GitHub web session; CTRL does not require or persist a GitHub PAT for that flow.
+- `CWZ2`/`CW2` are compression/encoding transports, **not encryption**. Never put credentials or secret values in them.
+- Private GitHub imports use the user's existing GitHub web session when supported; CTRL does not require or persist a GitHub PAT for that flow.
 - Do not distribute temporary signed raw-GitHub URLs as walkthrough codes.
 - Quotas and free/student offers must carry an official source and verification date; stale claims are rechecked rather than repeated from memory.
 
