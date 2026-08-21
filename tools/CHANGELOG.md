@@ -12,11 +12,12 @@ Fast-moving history for `tools/`. Repository-wide changes live in [`../CHANGELOG
 - `free-tool-ledger.md` — public free/student capability evidence and quota notes.
 - `publication-safety.md` — privacy and public-release gate for tools content.
 - `ctrl-walkthrough/` — public responsive Tampermonkey setup runner with data-only walkthrough modules.
-- Public walkthroughs for Termius, Cloudflare, F5Bot, Zyte, and Firecrawl -> ChatGPT.
+- Public walkthroughs for Termius, Cloudflare, F5Bot, Zyte, Firecrawl -> ChatGPT, and CTRL custom/private handoff guidance.
 - Custom walkthrough import from local JSON or public HTTPS JSON.
 - GitHub issue template for community tool/API/walkthrough recommendations.
 - `ctrl-walkthrough/AI_HANDOFF_PROTOCOL.md` — canonical decision tree for public modules, compressed private handoffs, local files, private GitHub pointers, expiry, and secret handling.
 - `ctrl-walkthrough/make_handoff.py` — stdlib generator for deterministic `CWZ2` gzip+Base64URL and `CW2` Base64URL handoff codes; defaults to a 24-hour expiry and basic secret-pattern rejection.
+- `ctrl-walkthrough/modules/ctrl-custom-handoffs.json` — public in-runner walkthrough explaining when to use canonical modules, CWZ2/CW2, local files, and why secrets/timed public files are not valid handoff mechanisms.
 
 ### Changed
 
