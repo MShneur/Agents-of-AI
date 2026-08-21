@@ -31,6 +31,7 @@ The public manifest currently includes setup guides for:
 - F5Bot
 - Zyte
 - Firecrawl → ChatGPT
+- CTRL: Add AI / Private Walkthroughs
 
 The runner also accepts custom handoffs through `CW -> +`: `CWZ2` compressed paste codes, `CW2` fallback codes, raw JSON, local walkthrough files, public HTTPS URLs, and best-effort private GitHub pointers.
 
