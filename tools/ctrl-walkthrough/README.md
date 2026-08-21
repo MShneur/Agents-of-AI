@@ -4,13 +4,15 @@ CTRL Walkthrough is a public, mobile-first Tampermonkey userscript for guided in
 
 Current engine: **v0.3.0**.
 
+For AI authors, the canonical transport rules are in [`AI_HANDOFF_PROTOCOL.md`](AI_HANDOFF_PROTOCOL.md). A deterministic gzip/Base64URL generator is provided as [`make_handoff.py`](make_handoff.py).
+
 ## Privacy model
 
 This folder is public. Nothing here may contain personal information, credentials, tokens, API keys, private hostnames/IPs, private repository paths, account identifiers, private research terms, billing details, entitlement state, or other user-specific configuration.
 
 Walkthrough files are **declarative JSON only**. The userscript never evaluates JavaScript from a walkthrough.
 
-Private/project-specific walkthroughs can remain in a private repository. CTRL v0.3.0 can import them through the user's normal signed-in GitHub browser session or through a self-contained handoff code. It does **not** require a Personal Access Token to be pasted into CTRL.
+Private/project-specific walkthroughs should normally be handed to the browser as a self-contained `CWZ2` code or a local `.walkthrough.json` file. CTRL does **not** require a Personal Access Token to be pasted into the tool.
 
 ## Install
 
@@ -46,11 +48,38 @@ The userscript runs on normal HTTPS pages and shows a small `CW` launcher in the
 - Desktop / wide viewport: larger right-side panel.
 - The layout reacts live to viewport/orientation changes; it does not rely on a device-name check.
 
-## AI handoff codes
+## AI handoff priority
 
-The `+` box accepts several formats.
+For a one-off private/project-specific fix, the preferred order is:
 
-### `CWG1` — signed-in GitHub pointer
+1. **`CWZ2`** — compressed self-contained handoff; default.
+2. **`CW2`** — uncompressed Base64URL fallback when gzip decoding is unavailable.
+3. **Local `.walkthrough.json` file** — preferred when the walkthrough is too large for comfortable copy/paste.
+4. **`CWG1` / private GitHub blob pointer** — best-effort convenience only when signed-in private import has already been proven in that browser.
+
+A private GitHub page being visible does not guarantee a userscript can fetch its raw private file. If `CWG1` produces a network error, do not ask the user for a PAT as the first workaround; generate a `CWZ2` code instead.
+
+### `CWZ2` — compressed self-contained handoff
+
+`CWZ2:` is gzip-compressed schema-v2 JSON encoded with Base64URL. The entire walkthrough travels inside the pasted code and is decoded in the browser. Pasted handoffs are temporary by default.
+
+Generate one with:
+
+```bash
+python3 tools/ctrl-walkthrough/make_handoff.py my.walkthrough.json
+```
+
+The generator defaults to a 24-hour `handoffExpiresAt` value and performs basic secret-pattern checks.
+
+### `CW2` — uncompressed fallback
+
+`CW2:` is Base64URL-encoded UTF-8 schema-v2 JSON. It is larger than `CWZ2` but does not require gzip decompression.
+
+```bash
+python3 tools/ctrl-walkthrough/make_handoff.py my.walkthrough.json --format cw2
+```
+
+### `CWG1` — best-effort private GitHub pointer
 
 Format:
 
@@ -58,51 +87,33 @@ Format:
 CWG1:OWNER/REPO@REF:path/to/walkthrough.json
 ```
 
-This is the preferred short code for a walkthrough that already lives in a private GitHub repository.
+CTRL can attempt to open the normal GitHub blob page and import through the signed-in browser session. Mobile/browser privacy, session and fetch behavior can block this even when the page itself is visible, so it is no longer the default private transport.
 
-Flow:
-
-1. paste the `CWG1` line into `CW` -> `+`;
-2. CTRL opens the matching normal `github.com/.../blob/...` page;
-3. if GitHub requires login, the user signs in normally;
-4. on that GitHub page, CTRL attempts to read the file through the user's existing GitHub web session;
-5. the validated walkthrough is copied into Tampermonkey storage as a **temporary** custom walkthrough;
-6. no GitHub PAT/token is stored by CTRL;
-7. after the walkthrough is completed, the temporary copy is automatically removed.
-
-A normal GitHub `blob` URL can be pasted instead of the `CWG1` form.
-
-A one-click GitHub link can also append:
-
-```text
-#ctrl-walkthrough-import
-```
-
-When that file page opens, CTRL attempts the same signed-in import automatically.
-
-### `CWZ2` — compressed self-contained handoff
-
-`CWZ2:` is a gzip + Base64URL encoded schema-v2 walkthrough. It is useful when a private repository session is unavailable. The entire walkthrough travels inside the pasted code and is decoded only in the browser. It is temporary by default.
-
-### `CW2` — uncompressed self-contained handoff
-
-`CW2:` is Base64URL encoded UTF-8 JSON. It is larger than `CWZ2` but requires no gzip decoder.
+A normal GitHub `blob` URL can also be pasted. A blob URL ending in `#ctrl-walkthrough-import` asks CTRL to attempt the import automatically.
 
 ### Raw JSON
 
 A complete schema-v2 JSON object can be pasted directly into the `+` box. Pasted JSON is temporary by default.
 
-## Temporary private memory
+## Compression is not encryption
 
-Private handoffs loaded through `CWG1`, `CWZ2`, `CW2`, or pasted JSON are stored in Tampermonkey so they survive navigation and can resume across pages. They are marked temporary and removed automatically when the walkthrough finishes.
+`CWZ2`, `CW2`, and raw JSON are transport formats, not secrecy mechanisms. Anyone who has the code can decode the instructions.
 
-Local-file and public-URL imports are persistent until the user removes them.
+**Never include passwords, API keys, bearer tokens, SSH keys, recovery codes, cookies, private keys, or other credentials in any walkthrough code/file/URL.** Use placeholders and human gates; the user enters secrets directly into the provider or server-local secret store.
 
-This provides a practical split:
+## Temporary local state
 
-- public reusable setup knowledge -> Agents of AI;
-- private/project-specific recovery instructions -> the user's private repository;
-- current temporary instructions -> Tampermonkey storage while the walkthrough is active.
+Pasted private handoffs live in Tampermonkey storage so they can survive page navigation while the walkthrough is being followed. They are removed automatically when the walkthrough finishes. AI-generated handoffs should normally also carry a short `handoffExpiresAt` value (24 hours by default).
+
+This is browser-local walkthrough state, **not AI long-term memory**.
+
+Local-file and public-URL imports remain persistent until the user removes them.
+
+## Do not use timed public GitHub files for private handoffs
+
+A public file that is deleted later is still present in Git history. Therefore a deletion timer does not make a public GitHub commit safe for personal, project-private or sensitive walkthrough content.
+
+Public GitHub should contain only content that is safe to remain public permanently. If a walkthrough is public-safe and reusable, add it normally to the canonical manifest; otherwise use `CWZ2`, `CW2`, or a local file.
 
 ## Canonical walkthroughs
 
@@ -130,7 +141,7 @@ From `CW` -> `+` or `...`:
 
 - **Import file** — choose a `.json` / `.walkthrough.json` file from local storage.
 - **Load URL** — load a public HTTPS JSON URL that permits browser CORS.
-- **Paste / code** — use `CWG1`, `CWZ2`, `CW2`, raw JSON, a GitHub blob link, or a public HTTPS URL.
+- **Paste / code** — use `CWZ2`, `CW2`, raw JSON, `CWG1`, a GitHub blob link, or a public HTTPS URL.
 
 Do not paste tokenized temporary raw GitHub URLs or credentials into a walkthrough handoff.
 
@@ -147,6 +158,7 @@ Recommended:
 
 - `version`
 - `description`
+- `handoffExpiresAt` for temporary AI-generated paste handoffs
 
 Each step requires:
 
