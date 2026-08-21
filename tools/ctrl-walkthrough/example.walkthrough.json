@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 2,
+  "id": "example-tool",
+  "version": "1.0.0",
+  "title": "Example Tool",
+  "description": "Minimal custom walkthrough example. Replace the public URLs and control names with the tool you want to guide.",
+  "steps": [
+    {
+      "title": "Open the tool",
+      "body": "Start on the tool's public HTTPS page.",
+      "action": {"type": "open", "label": "Open tool", "url": "https://example.com/"}
+    },
+    {
+      "title": "Find the next control",
+      "body": "CTRL will search the current page and highlight the first matching interactive control.",
+      "action": {"type": "find", "label": "Find sign in"},
+      "target": {"text": ["Sign in", "Log in"]},
+      "humanGate": "Enter credentials yourself. Do not place secrets inside a walkthrough file."
+    },
+    {
+      "title": "Check for the signed-in surface",
+      "body": "This example checks for a generic dashboard label. Real walkthroughs should use stable, non-sensitive page signals.",
+      "action": {"type": "none"},
+      "success": {
+        "text": ["Dashboard"],
+        "successMessage": "A dashboard control is visible.",
+        "failureMessage": "Dashboard not detected yet; finish sign-in manually and check again."
+      }
+    }
+  ]
+}
