@@ -4,7 +4,7 @@ This log tracks material public changes to the Agents of AI repository. It is in
 
 For fast-moving tool/API changes, also see [`tools/CHANGELOG.md`](tools/CHANGELOG.md).
 
-## 2026-08-21 — Public tools and walkthrough expansion
+## 2026-08-21 — Public tools, APIs, walkthroughs, and documentation sync
 
 ### Library state
 
@@ -18,14 +18,20 @@ For fast-moving tool/API changes, also see [`tools/CHANGELOG.md`](tools/CHANGELO
   - 6 failures
 - Corrected README drift: the repository had 16 workflows while the README still reported 14.
 - Added repository snapshot/versioning guidance in [`VERSIONING.md`](VERSIONING.md).
+- Refreshed the root README structure and counts so Failures and the supporting `tools/` shelf are visible.
+- Synchronized both `AoA-QUICK-PROMPT.md` and `AoA-RESEARCH-PROMPT.md` to the seven-layer model and current 16-workflow roster.
+- Replaced the old July roadmap snapshot with a current `2026.08.21` roadmap that separates composable-library gaps from supporting-tools gaps.
 
 ### Tools and software
 
 - Added a public supporting-tools layer without turning tools into an eighth composable AoA layer.
 - Added [`tools/README.md`](tools/README.md) as the public landing page for the tools area.
 - Added [`tools/software-recommendations.md`](tools/software-recommendations.md) with public, reusable software recommendations grouped by use case.
-- Added [`tools/api-catalog.md`](tools/api-catalog.md) with public API and integration surfaces useful to AI workflows.
+- Added [`tools/api-catalog.md`](tools/api-catalog.md) with public API, MCP, webhook, event-stream, and integration surfaces useful to AI workflows.
 - Kept [`tools/free-tool-ledger.md`](tools/free-tool-ledger.md) as the quota/free/student evidence ledger and [`tools/publication-safety.md`](tools/publication-safety.md) as the privacy gate.
+- Added [`tools/CHANGELOG.md`](tools/CHANGELOG.md) so fast-changing tooling history can evolve independently from the core library log.
+- Updated `TOOLS.md` into the routing hub for recommendations, APIs, quotas, walkthroughs, safety, and contribution flow.
+- Expanded `CONTRIBUTING.md` with tool/API/walkthrough evidence rules, privacy rules, versioning, and drift maintenance.
 - Added a GitHub issue template so community members can recommend a tool, API, or walkthrough without publishing personal account data or secrets.
 
 ### CTRL Walkthrough
