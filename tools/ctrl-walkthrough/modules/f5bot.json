@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 2,
+  "id": "f5bot",
+  "version": "2026-08-21.1",
+  "title": "F5Bot",
+  "description": "Set up public-community keyword alerts without storing your alert terms, email address, or account state in the public walkthrough.",
+  "steps": [
+    {
+      "title": "Open F5Bot",
+      "body": "Open F5Bot and sign in or create an account. Your email address and login details remain between you and F5Bot.",
+      "action": {"type": "open", "label": "Open F5Bot", "url": "https://f5bot.com/"},
+      "humanGate": "Email verification, login, CAPTCHA and terms stay under your control."
+    },
+    {
+      "title": "Find the login or alert control",
+      "body": "Use Find on page. If you are logged out, CTRL should find a login/sign-up control. If you are already logged in, it may instead find the alert-creation surface.",
+      "action": {"type": "find", "label": "Find next control"},
+      "target": {"text": ["Login", "Sign in", "Sign up", "Add alert", "Create alert", "New alert"]}
+    },
+    {
+      "title": "Create a narrow alert",
+      "body": "Choose a specific keyword or phrase that matters to your research. The public walkthrough never contains your private research terms; enter them directly in F5Bot.",
+      "action": {"type": "find", "label": "Find alert form"},
+      "target": {"text": ["Keyword", "Add alert", "Create alert", "New alert"]}
+    },
+    {
+      "title": "Use alerts as leads",
+      "body": "Treat incoming community mentions as research leads, not verified evidence. Check important claims against stronger sources before relying on them.",
+      "action": {"type": "open", "label": "Open F5Bot FAQ", "url": "https://f5bot.com/faq"}
+    }
+  ]
+}
