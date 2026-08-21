@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 2,
+  "id": "cloudflare",
+  "version": "2026-08-21.1",
+  "title": "Cloudflare Free",
+  "description": "Open the Cloudflare dashboard, confirm the free plan, and locate Workers, R2 and Queues without exposing account details.",
+  "steps": [
+    {
+      "title": "Open Cloudflare Dashboard",
+      "body": "Open the dashboard. If you are already signed in, continue. Otherwise complete the normal Cloudflare sign-in or account-creation flow yourself.",
+      "action": {"type": "open", "label": "Open Cloudflare", "url": "https://dash.cloudflare.com/"},
+      "humanGate": "Login, account creation, CAPTCHA, passkey/MFA, terms and any billing decision require your confirmation.",
+      "success": {"text": ["Workers & Pages", "Account Home"], "successMessage": "A signed-in Cloudflare surface appears to be visible."}
+    },
+    {
+      "title": "Find Workers & Pages",
+      "body": "Use Find on page. CTRL searches visible controls and highlights the closest match instead of making you hunt through the navigation.",
+      "action": {"type": "find", "label": "Find Workers & Pages"},
+      "target": {"text": ["Workers & Pages", "Workers"]}
+    },
+    {
+      "title": "Confirm the free path",
+      "body": "Stay on the free plan unless you intentionally choose otherwise. If Cloudflare presents a paid plan, card requirement, or trial conversion, stop before accepting it.",
+      "action": {"type": "none"},
+      "humanGate": "CTRL will not accept billing, paid upgrades, trials or final purchase controls for you."
+    },
+    {
+      "title": "Find R2",
+      "body": "Locate R2 in the dashboard. This step only finds the control; it does not create buckets or accept billing-sensitive terms.",
+      "action": {"type": "find", "label": "Find R2"},
+      "target": {"text": ["R2 Object Storage", "R2"]}
+    },
+    {
+      "title": "Find Queues",
+      "body": "Locate Queues if it is available in your account. Use event-driven queues where appropriate rather than unnecessary polling.",
+      "action": {"type": "find", "label": "Find Queues"},
+      "target": {"text": ["Queues"]}
+    }
+  ]
+}
