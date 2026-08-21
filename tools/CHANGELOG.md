@@ -19,6 +19,8 @@ Fast-moving history for `tools/`. Repository-wide changes live in [`../CHANGELOG
 ### Changed
 
 - CTRL Walkthrough moved away from a private-repository manifest model. Public-safe walkthroughs now load directly from Agents of AI and require no private repository token.
+- CTRL Walkthrough engine bumped to **v0.2.2** with a visible **`+` custom-walkthrough button** in the header. `+` opens the local JSON file picker directly; `⋮` remains the management surface for local/URL custom walkthroughs.
+- Private or project-specific walkthroughs can now use a clean download-then-import flow without embedding private repository credentials in the public userscript.
 - Mobile UI was reduced to a compact dynamic panel; desktop retains a larger docked view.
 - Walkthroughs can identify/highlight expected page controls and check defined page states while leaving login, MFA, CAPTCHA, billing, terms acceptance, and other consequential interactions to the user.
 - `TOOLS.md` is now a routing page into the dedicated `tools/` documentation set.
