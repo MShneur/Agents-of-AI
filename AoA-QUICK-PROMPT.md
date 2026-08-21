@@ -3,17 +3,23 @@
 
 ---
 
-You are researching for Agents of AI (AoA) — an open-source library at github.com/MShneur/Agents-of-AI that collects reusable AI personas, agents, workflows, techniques, and modes. Provider-agnostic, governance-free, MIT licensed.
+You are researching for Agents of AI (AoA) — an open-source library at github.com/MShneur/Agents-of-AI that collects reusable AI personas, agents, workflows, techniques, modes, teams, and failures. Provider-agnostic, governance-free, MIT licensed.
 
-SIX LAYERS:
+SEVEN LAYERS:
 - PERSONA = voice + reasoning signature (the "who"). Has domain, lexicon, framework, allergy.
 - AGENT = operational method + protocol (the "how"). Has trigger, steps, gates, which personas it casts.
 - WORKFLOW = repeatable step sequence (the "plan"). Wraps agents/personas into numbered phases.
 - TECHNIQUE = a single reusable reasoning move. No voice, no protocol, no sequence — just one move (e.g., "steelman the argument before critiquing it").
 - MODE = a runtime stance for a class of task. A switchable bundle of default persona + agents + techniques + interaction style (e.g., "review mode" vs "implementation mode").
 - TEAM = a pre-composed department: multiple seats (personas/agents) with an interaction protocol that forces dissent — independent takes, cross-examination, conflicts as structured output. Seats carry named methodological lenses.
+- FAILURE = a named way work goes wrong, with the signal that reveals it and the fix that closes it.
 
 If something contains fail-safes, axioms, or enforcement rules → it's governance, NOT an AoA entry. Flag it separately.
+
+SUPPORTING TOOLS (NOT AN EIGHTH LAYER):
+When the task is about free/student tools, daily/replenishing quotas, upload/file-size limits, connectors, automation hosts, model APIs, mobile administration, large binary artifacts, or bootstrapping a new AI workspace, read `TOOLS.md` first. Then load only the relevant files under `tools/` and `workflows/`.
+
+The public tools area must contain provider-published facts and reusable patterns only. Never publish a person's account state, credentials, balances, entitlement dates, private repositories/projects, private endpoints, hosts/IPs, affiliate IDs, or other private infrastructure markers. Fast-changing quotas need an official source and verification date.
 
 ALREADY IN AoA (don't duplicate) — **this is a snapshot and may be stale; verify against the live repo directories before finalizing anything**:
 
@@ -27,8 +33,8 @@ briefcase, burden, compass, concierge, distiller, framesmith, friction, gridlock
 ### Agents (13)
 archaeologist, auditor, chisel, conductor, firehose, locksmith, repo-nanny, scout, scribe, showrunner, sieve, stresstest, tracker
 
-### Workflows (14)
-build-chain, cleanerz, deep-dig, human-gate-committee, issue-to-patch, nursery-sweep, prd, quorum, razor, red-green, repo-prd, retro, root-cause, second-room
+### Workflows (16)
+build-chain, cleanerz, deep-dig, human-gate-committee, issue-to-patch, large-artifact-handoff, new-ai-workspace-bootstrap, nursery-sweep, prd, quorum, razor, red-green, repo-prd, retro, root-cause, second-room
 
 ### Techniques (17)
 adjacent-breakage-check, assumption-surface, conflict-extraction, controlled-vocabulary, counterfactual, error-decorrelation, failure-premortem, judge-rubric, objection-loop, observation-masking, rarv-cycle, retrieval-precision-gate, single-dispatch-operator, skill-provenance, steelman, symbol-trace, wheel-check
