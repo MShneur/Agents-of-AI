@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 2,
+  "id": "termius",
+  "version": "2026-08-21.1",
+  "title": "Termius Student",
+  "description": "Claim the GitHub Student Termius benefit, install the client, and prepare a host connection without storing credentials in the walkthrough.",
+  "steps": [
+    {
+      "title": "Open GitHub Student Developer Pack",
+      "body": "Sign in to GitHub with the account that has your education eligibility. CTRL never stores your GitHub password, student data, or account identifiers.",
+      "action": {"type": "open", "label": "Open Student Pack", "url": "https://education.github.com/pack/"},
+      "humanGate": "Sign-in, student verification, MFA, CAPTCHA and offer acceptance stay under your control."
+    },
+    {
+      "title": "Find the Termius offer",
+      "body": "Use Find on page to highlight Termius if GitHub currently exposes it on this page. If GitHub changes the layout, search the Student Pack normally and continue.",
+      "action": {"type": "find", "label": "Find Termius"},
+      "target": {"text": ["Termius"]}
+    },
+    {
+      "title": "Open Termius",
+      "body": "Open Termius and sign in or complete the offer claim. Do not paste passwords, recovery codes, API tokens, or SSH private keys into the walkthrough.",
+      "action": {"type": "open", "label": "Open Termius", "url": "https://termius.com/"},
+      "humanGate": "Any login, consent, billing, terms, MFA or CAPTCHA step requires your confirmation."
+    },
+    {
+      "title": "Install the client",
+      "body": "Open the official downloads page and install the appropriate mobile or desktop client.",
+      "action": {"type": "open", "label": "Open downloads", "url": "https://termius.com/download/"}
+    },
+    {
+      "title": "Add a host you control",
+      "body": "Create a host entry using connection details you already own. Keep private keys in your device or approved secret storage. The walkthrough does not need or retain them.",
+      "action": {"type": "none"}
+    }
+  ]
+}
