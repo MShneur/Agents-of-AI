@@ -1,18 +1,71 @@
 # CTRL Walkthrough
 
-CTRL Walkthrough is a public, mobile-first Tampermonkey userscript for guided installation and setup of tools listed in Agents of AI.
+CTRL Walkthrough is a public Tampermonkey userscript for guided setup. It is designed to feel like a tiny navigation system rather than a documentation panel.
 
-Current engine: **v0.3.0**.
+Current engine: **v0.4.0**.
 
-For AI authors, the canonical transport rules are in [`AI_HANDOFF_PROTOCOL.md`](AI_HANDOFF_PROTOCOL.md). A deterministic gzip/Base64URL generator is provided as [`make_handoff.py`](make_handoff.py).
+AI authors should read:
 
-## Privacy model
+- [`AUTHORING_RULES.md`](AUTHORING_RULES.md) — novice-first / tired-user step-writing rules;
+- [`AI_HANDOFF_PROTOCOL.md`](AI_HANDOFF_PROTOCOL.md) — public/private handoff and privacy rules;
+- [`make_handoff.py`](make_handoff.py) — CWZ2/CW2 generator.
 
-This folder is public. Nothing here may contain personal information, credentials, tokens, API keys, private hostnames/IPs, private repository paths, account identifiers, private research terms, billing details, entitlement state, or other user-specific configuration.
+## Core UX
 
-Walkthrough files are **declarative JSON only**. The userscript never evaluates JavaScript from a walkthrough.
+The default view shows:
 
-Private/project-specific walkthroughs should normally be handed to the browser as a self-contained `CWZ2` code or a local `.walkthrough.json` file. CTRL does **not** require a Personal Access Token to be pasted into the tool.
+- **NOW — step n/N**;
+- a short action title;
+- optional `Why:` line;
+- one small block of instruction;
+- **one primary action**;
+- a faint **Next:** preview.
+
+The full route is behind **Steps**. On mobile, the normal panel is intentionally small; `^` expands it and `-` minimizes it back to the tiny `CW n/N` pill.
+
+Progress persists across pages, but the large panel no longer needs to remain open across unrelated browsing.
+
+## Automation boundary
+
+CTRL v0.4 supports:
+
+- direct HTTPS navigation;
+- safe exact-target auto-clicks (`click` with `safe: true`);
+- find/highlight when clicking is not appropriate;
+- copy actions;
+- local text-file downloads;
+- temporary local secret generation/capture/copy for a walkthrough;
+- page-state checks;
+- custom walkthrough import.
+
+If a safe auto-click cannot find the exact expected target, CTRL stops instead of guessing another control.
+
+Login, passkeys, MFA, CAPTCHA, OAuth consent, legal terms, billing, purchases, final deployment/publication/deletion and equivalent consequential controls remain user-gated.
+
+## Temporary local private values
+
+A walkthrough can generate or temporarily capture a secret into Tampermonkey-local storage. This is useful when the same API/token value must be reused during a multi-page setup.
+
+Those values:
+
+- are not written into the walkthrough source;
+- are not uploaded to Agents of AI or Personal Forge;
+- are not sent to an AI;
+- are cleared when that walkthrough ends/completes.
+
+This is convenience storage, **not an encrypted password manager**. Long-term credentials belong in the provider/server secret store.
+
+## Responsive behavior
+
+- Phone / narrow viewport: roughly 30% maximum viewport height in normal mode, smaller typography and controls.
+- `^` expands the current panel only when more room is needed.
+- **Steps** opens a larger scrollable route view.
+- Desktop / wide viewport uses a larger dock.
+- The layout reacts to viewport/orientation changes rather than device-name detection.
+
+## Why not iframe everything?
+
+CTRL uses normal provider pages/tabs plus persistent Tampermonkey state. Iframes are not the default because many dashboards, authentication pages and OAuth/security flows block framing or behave differently inside an iframe.
 
 ## Install
 
@@ -20,179 +73,69 @@ Open the raw version of:
 
 `tools/ctrl-walkthrough/ctrl-walkthrough.user.js`
 
-Tampermonkey should offer to install it. The script contains `@updateURL` and `@downloadURL` entries pointing back to this public copy.
+Tampermonkey should offer to install/update it. `@updateURL` and `@downloadURL` point back to the public Agents of AI copy.
 
-The userscript runs on normal HTTPS pages and shows a small `CW` launcher in the lower-right corner.
+## Public and private walkthroughs
 
-## Interface
+Public reusable walkthroughs live in:
 
-1. Open `CW`.
-2. Choose a walkthrough from the dropdown.
-3. Press **Start walkthrough**.
-4. If the first step has a direct URL, CTRL opens that page.
-5. On provider pages, **Find on page** searches visible buttons, links, fields, labels, ARIA labels, and common interactive controls, scrolls the match into view, and highlights it.
-6. Login, MFA, CAPTCHA, terms, OAuth consent, billing, purchases, publishing, and other consequential controls remain user-gated.
+`tools/ctrl-walkthrough/modules/`
 
-### Header controls
+Private/project-specific walkthrough sources stay outside this public folder. Preferred handoff order:
 
-- `H` — walkthrough list/home.
-- `+` — **Add walkthrough**. Paste an AI handoff code, paste JSON, import a file, or load a URL.
-- `^` — expand/compact the phone panel.
-- `...` — manage custom walkthroughs.
-- `x` — close.
+1. **CWZ2** — compressed self-contained temporary handoff;
+2. **CW2** — uncompressed fallback;
+3. **local `.walkthrough.json` file** — best for larger private walkthroughs;
+4. **CWG1/private GitHub pointer** — best-effort only.
 
-### Responsive behavior
+The live mobile test showed that a signed-in private GitHub page does not guarantee a userscript can fetch the private raw file, so CWG1 is not the primary private transport.
 
-- Phone / narrow viewport: compact panel, small text and buttons, about 44% maximum viewport height by default.
-- The expand control temporarily increases phone height when needed.
-- Desktop / wide viewport: larger right-side panel.
-- The layout reacts live to viewport/orientation changes; it does not rely on a device-name check.
+### Copy/paste hardening in v0.4
 
-## AI handoff priority
+CWZ2/CW2 import now normalizes common copied-code damage such as whitespace, zero-width characters, soft hyphens and Markdown code fences before Base64URL decoding. If another visible invalid character remains, CTRL reports a damaged-code error and recommends **Import file** rather than trying to guess the intended payload.
 
-For a one-off private/project-specific fix, the preferred order is:
+Expired temporary handoffs with `handoffExpiresAt` are purged on startup.
 
-1. **`CWZ2`** — compressed self-contained handoff; default.
-2. **`CW2`** — uncompressed Base64URL fallback when gzip decoding is unavailable.
-3. **Local `.walkthrough.json` file** — preferred when the walkthrough is too large for comfortable copy/paste.
-4. **`CWG1` / private GitHub blob pointer** — best-effort convenience only when signed-in private import has already been proven in that browser.
+## Privacy boundary
 
-A private GitHub page being visible does not guarantee a userscript can fetch its raw private file. If `CWG1` produces a network error, do not ask the user for a PAT as the first workaround; generate a `CWZ2` code instead.
+This public folder must never contain personal information, credentials, tokens, API keys, private hosts/IPs, private repository paths, account identifiers, private research terms, billing details or other user-specific configuration.
 
-### `CWZ2` — compressed self-contained handoff
+CWZ2/CW2 are compression/encoding, **not encryption**. Never encode credentials in them.
 
-`CWZ2:` is gzip-compressed schema-v2 JSON encoded with Base64URL. The entire walkthrough travels inside the pasted code and is decoded in the browser. Pasted handoffs are temporary by default.
+A timed deletion from a public GitHub repo is not a privacy mechanism because committed content can remain in Git history. Public walkthrough content must be safe to remain public permanently.
 
-Generate one with:
+## Schema v2 + v0.4 action extensions
 
-```bash
-python3 tools/ctrl-walkthrough/make_handoff.py my.walkthrough.json
-```
+Required module fields:
 
-The generator defaults to a 24-hour `handoffExpiresAt` value and performs basic secret-pattern checks.
+- `schemaVersion: 2`
+- `id`
+- `title`
+- `steps[]`
 
-### `CW2` — uncompressed fallback
-
-`CW2:` is Base64URL-encoded UTF-8 schema-v2 JSON. It is larger than `CWZ2` but does not require gzip decompression.
-
-```bash
-python3 tools/ctrl-walkthrough/make_handoff.py my.walkthrough.json --format cw2
-```
-
-### `CWG1` — best-effort private GitHub pointer
-
-Format:
-
-```text
-CWG1:OWNER/REPO@REF:path/to/walkthrough.json
-```
-
-CTRL can attempt to open the normal GitHub blob page and import through the signed-in browser session. Mobile/browser privacy, session and fetch behavior can block this even when the page itself is visible, so it is no longer the default private transport.
-
-A normal GitHub `blob` URL can also be pasted. A blob URL ending in `#ctrl-walkthrough-import` asks CTRL to attempt the import automatically.
-
-### Raw JSON
-
-A complete schema-v2 JSON object can be pasted directly into the `+` box. Pasted JSON is temporary by default.
-
-## Compression is not encryption
-
-`CWZ2`, `CW2`, and raw JSON are transport formats, not secrecy mechanisms. Anyone who has the code can decode the instructions.
-
-**Never include passwords, API keys, bearer tokens, SSH keys, recovery codes, cookies, private keys, or other credentials in any walkthrough code/file/URL.** Use placeholders and human gates; the user enters secrets directly into the provider or server-local secret store.
-
-## Temporary local state
-
-Pasted private handoffs live in Tampermonkey storage so they can survive page navigation while the walkthrough is being followed. They are removed automatically when the walkthrough finishes. AI-generated handoffs should normally also carry a short `handoffExpiresAt` value (24 hours by default).
-
-This is browser-local walkthrough state, **not AI long-term memory**.
-
-Local-file and public-URL imports remain persistent until the user removes them.
-
-## Do not use timed public GitHub files for private handoffs
-
-A public file that is deleted later is still present in Git history. Therefore a deletion timer does not make a public GitHub commit safe for personal, project-private or sensitive walkthrough content.
-
-Public GitHub should contain only content that is safe to remain public permanently. If a walkthrough is public-safe and reusable, add it normally to the canonical manifest; otherwise use `CWZ2`, `CW2`, or a local file.
-
-## Canonical walkthroughs
-
-`manifest.json` is the public index. Canonical walkthroughs live under `modules/`.
-
-Adding or editing an ordinary public walkthrough does **not** require users to reinstall the userscript. They can press **Reload walkthroughs**. Reinstall/update the script only when the engine itself changes.
-
-## Walkthrough key
-
-Every walkthrough has a stable key in its `id` field, for example:
-
-```json
-{
-  "schemaVersion": 2,
-  "id": "example-tool",
-  "title": "Example Tool"
-}
-```
-
-Importing another custom walkthrough with the same `id` replaces the previous custom copy on that browser.
-
-## Other custom import paths
-
-From `CW` -> `+` or `...`:
-
-- **Import file** — choose a `.json` / `.walkthrough.json` file from local storage.
-- **Load URL** — load a public HTTPS JSON URL that permits browser CORS.
-- **Paste / code** — use `CWZ2`, `CW2`, raw JSON, `CWG1`, a GitHub blob link, or a public HTTPS URL.
-
-Do not paste tokenized temporary raw GitHub URLs or credentials into a walkthrough handoff.
-
-## Schema v2
-
-Required fields:
-
-- `schemaVersion`: `2`
-- `id`: lowercase letters/numbers/hyphens, max 64 characters
-- `title`: display name
-- `steps`: 1-100 steps
-
-Recommended:
-
-- `version`
-- `description`
-- `handoffExpiresAt` for temporary AI-generated paste handoffs
-
-Each step requires:
+Recommended step fields:
 
 - `title`
+- `why` — one short reason when useful
 - `body`
+- `action`
+- `humanGate` when the user must make the consequential decision
+- `manualLabel` for the single manual-continue action
 
-Supported `action.type` values:
+Supported action types:
 
 - `none`
-- `open` — HTTPS URL only
-- `copy` — copy non-secret text
-- `find` — search/highlight a page control
+- `open`
+- `copy`
+- `find`
+- `click` — requires `safe: true`
+- `download`
+- `generate` — create temporary local random value
+- `capture` — temporarily store a user-entered local value
+- `copySaved` — copy a previously stored temporary local value
 
-Optional `target` fields:
+Locator candidates may use CSS selectors and/or visible/ARIA/title/value text.
 
-- `selectors`: CSS selector candidates
-- `text`: visible/ARIA/title/value text candidates
+## Publishing rule
 
-Optional `success` fields:
-
-- `urlIncludes`
-- `selectors`
-- `text`
-- `successMessage`
-- `failureMessage`
-
-Optional `humanGate` is displayed as a warning that the named user-controlled action must not be silently automated.
-
-See `example.walkthrough.json` for a minimal custom file.
-
-## Safety boundary
-
-CTRL may navigate, copy non-secret values, locate controls, scroll, highlight, check defined page state, and import declarative walkthrough data.
-
-It should not silently accept legal terms, OAuth grants, billing, purchases, account deletion, publishing, releases, MFA, CAPTCHA, or equivalent consequential actions.
-
-Provider interfaces change. If a locator no longer works, the walkthrough should degrade to manual navigation rather than guessing or clicking a nearby control.
+Before shipping any walkthrough, apply [`AUTHORING_RULES.md`](AUTHORING_RULES.md): **one current task, one obvious action, one short reason, and direct navigation/automation whenever it is reliably safe.**
