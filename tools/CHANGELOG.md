@@ -2,6 +2,23 @@
 
 Fast-moving history for `tools/`. Repository-wide changes live in [`../CHANGELOG.md`](../CHANGELOG.md).
 
+## 2026-08-22
+
+### Control Walkthrough v0.5.0
+
+- Renamed the visible product surface to **Control Walkthrough** and moved the ordinary mobile UI from a bottom sheet to a compact left/right edge rail.
+- Header now keeps the product name, version/guide count, route counter, menu, and minimize control on one line.
+- Added smart docking away from highlighted targets so the guide is less likely to cover the field/button the user needs.
+- Added persistent pending-action state across full page navigation.
+- Added `action.auto: true` for safe autonomous steps and verification through `step.success` / `action.verify` before advancing.
+- Added dynamic target waits using DOM observation plus bounded timeout instead of treating a still-loading SPA/mobile page as immediately missing.
+- Added exact/visible locator scoring and ambiguity fail-closed behavior.
+- Added `fill` for safe static field values and `fillSaved` for values held only in temporary Tampermonkey walkthrough memory. Filling never submits the form.
+- Added `advanceOn` so a real user click/change/input/submit can be observed, verified, and advanced without a redundant second "I've done this" button.
+- Safe auto-clicks now persist verification state before clicking, then verify the destination/result before continuing; ambiguous, disabled, consequential, or unverifiable targets stop instead of being retried blindly.
+- Updated authoring rules: stable deep-link first, safe automation second, human action only when genuinely required, and verification before progression.
+- Preserved v0.4 privacy rules, temporary-local secret handling, CWZ2/CW2 hardening, and human gates for consequential actions.
+
 ## 2026-08-21
 
 ### Added
