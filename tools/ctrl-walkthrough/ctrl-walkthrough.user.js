@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Control Walkthrough
 // @namespace    https://github.com/MShneur/Agents-of-AI
-// @version      0.5.0
+// @version      0.5.1
 // @description  Autonomous, novice-first step-by-step navigation rail for public and private setup walkthroughs.
 // @match        https://*/*
 // @match        http://localhost/*
@@ -12,15 +12,15 @@
 // @grant        GM_setClipboard
 // @grant        GM_registerMenuCommand
 // @run-at       document-idle
-// @downloadURL  https://raw.githubusercontent.com/MShneur/Agents-of-AI/main/tools/ctrl-walkthrough/ctrl-walkthrough.user.js
-// @updateURL    https://raw.githubusercontent.com/MShneur/Agents-of-AI/main/tools/ctrl-walkthrough/ctrl-walkthrough.user.js
+// @downloadURL  https://raw.githubusercontent.com/MShneur/Ctrl-Walkthrough/main/ctrl-walkthrough.user.js
+// @updateURL    https://raw.githubusercontent.com/MShneur/Ctrl-Walkthrough/main/ctrl-walkthrough.user.js
 // ==/UserScript==
 
 (() => {
   'use strict';
 
-  const VERSION = '0.5.0';
-  const CANONICAL_MANIFEST = 'https://raw.githubusercontent.com/MShneur/Agents-of-AI/main/tools/ctrl-walkthrough/manifest.json';
+  const VERSION = '0.5.1';
+  const CANONICAL_MANIFEST = 'https://raw.githubusercontent.com/MShneur/Ctrl-Walkthrough/main/manifest.json';
   const STATE_KEY = 'ctrlw:v3:state';
   const CACHE_KEY = 'ctrlw:v3:canonical-cache';
   const CUSTOM_KEY = 'ctrlw:v3:custom-modules';
