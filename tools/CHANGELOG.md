@@ -10,7 +10,7 @@ Fast-moving history for `tools/`. Repository-wide changes live in [`../CHANGELOG
 - `software-recommendations.md` — curated software recommendations grouped by operational job rather than by vendor marketing category.
 - `api-catalog.md` — public API/MCP/webhook/event-stream catalog for repository, cloud, research, messaging, AI, and commerce workflows.
 - `free-tool-ledger.md` — public free/student capability evidence and quota notes.
-- `publication-safety.md` — privacy and public-release gate for tools content.
+- `publication-safety.md` — privacy and public-release gate for anything added under `tools/`.
 - `ctrl-walkthrough/` — public responsive Tampermonkey setup runner with data-only walkthrough modules.
 - Public walkthroughs for Termius, Cloudflare, F5Bot, Zyte, Firecrawl -> ChatGPT, and CTRL custom/private handoff guidance.
 - Custom walkthrough import from local JSON or public HTTPS JSON.
@@ -18,25 +18,30 @@ Fast-moving history for `tools/`. Repository-wide changes live in [`../CHANGELOG
 - `ctrl-walkthrough/AI_HANDOFF_PROTOCOL.md` — canonical decision tree for public modules, compressed private handoffs, local files, private GitHub pointers, expiry, and secret handling.
 - `ctrl-walkthrough/make_handoff.py` — stdlib generator for deterministic `CWZ2` gzip+Base64URL and `CW2` Base64URL handoff codes; defaults to a 24-hour expiry and basic secret-pattern rejection.
 - `ctrl-walkthrough/modules/ctrl-custom-handoffs.json` — public in-runner walkthrough explaining when to use canonical modules, CWZ2/CW2, local files, and why secrets/timed public files are not valid handoff mechanisms.
+- `ctrl-walkthrough/AUTHORING_RULES.md` — novice-first rule set: one current task, one obvious action, one short reason, direct navigation first, safe auto-click when exact, and no architecture knowledge required from the user.
 
 ### Changed
 
 - CTRL Walkthrough moved away from a private-repository manifest model. Public-safe walkthroughs load directly from Agents of AI and require no private repository token.
-- CTRL Walkthrough engine is **v0.3.0**. The visible `+` button opens a compact Add Walkthrough surface rather than forcing a file picker.
-- Added AI-to-browser handoff formats: `CWG1` private GitHub pointers, `CWZ2` compressed self-contained handoffs, `CW2` Base64URL handoffs, and direct pasted schema-v2 JSON.
-- **Handoff priority changed after live mobile validation:** `CWZ2` is now the default for private/project-specific one-off walkthroughs; `CW2` is the fallback; local file import is preferred for oversized handoffs; `CWG1` is best-effort only because a signed-in private GitHub page does not guarantee userscript/raw fetch access.
-- Private handoffs loaded from code/JSON are temporary by default: they persist across navigation while the walkthrough is active and are automatically removed after completion.
-- AI-generated handoffs should normally carry `handoffExpiresAt` (24 hours by default from the generator).
+- CTRL Walkthrough engine is now **v0.4.0** and uses a small **navigation-HUD** model instead of a mini application panel.
+- Mobile normal mode is reduced to roughly 30% of viewport height with smaller typography. `Steps` opens the full scrollable route, `^` expands temporarily, and `-` minimizes to the tiny `CW n/N` pill.
+- The normal step view shows only **NOW**, optional **Why**, one primary action, and a faint **Next** preview.
+- Added safe exact-target `click` actions. Auto-click is allowed only when the walkthrough explicitly marks the action `safe: true`; failure to find the exact target stops without guessing.
+- Added local `download`, `generate`, `capture`, and `copySaved` actions. Temporary generated/captured private values live only in Tampermonkey walkthrough storage and are cleared when that walkthrough ends/completes.
+- Consequential actions remain user-gated: login/MFA/CAPTCHA, OAuth/legal consent, billing, purchases, final deployment/publication/deletion, and equivalent account changes.
+- Added startup purge of expired temporary handoffs carrying `handoffExpiresAt`.
+- Hardened CWZ2/CW2 paste handling against whitespace, zero-width characters, soft hyphens and Markdown code fences. Remaining visible invalid characters produce a clear damaged-code error and recommend file import rather than guessing.
+- Added a standing authoring rule that helper scripts/files appear only when the user actually needs them, not as early architecture/setup homework.
+- **Handoff priority changed after live mobile validation:** `CWZ2` is the default for private/project-specific one-off walkthroughs; `CW2` is the fallback; local file import is preferred for oversized handoffs; `CWG1` is best-effort only because a signed-in private GitHub page does not guarantee userscript/raw fetch access.
+- Private handoffs loaded from code/JSON are temporary by default and survive navigation while active.
 - Timed deletion from a public Git repository is explicitly **not** a privacy mechanism. Public modules must be safe to remain public permanently because deleted committed content remains in Git history.
-- File and public-URL custom imports remain persistent until manually removed.
-- Mobile UI remains compact/dynamic; desktop retains the larger docked view.
-- Walkthroughs can identify/highlight expected page controls and check defined page states while leaving login, MFA, CAPTCHA, billing, terms acceptance, and other consequential interactions to the user.
-- `TOOLS.md` is the routing page into the dedicated `tools/` documentation set.
+- `TOOLS.md` remains the routing page into the dedicated `tools/` documentation set.
 
 ### Safety boundary
 
 - No personal account state, credentials, tokens, private infrastructure, private repository paths, private research terms, affiliate IDs, or billing details belong in public walkthroughs or catalogs.
 - `CWZ2`/`CW2` are compression/encoding transports, **not encryption**. Never put credentials or secret values in them.
+- Tampermonkey temporary private-value storage is convenience storage, not an encrypted password manager; long-term secrets belong in provider/server secret stores.
 - Private GitHub imports use the user's existing GitHub web session when supported; CTRL does not require or persist a GitHub PAT for that flow.
 - Do not distribute temporary signed raw-GitHub URLs as walkthrough codes.
 - Quotas and free/student offers must carry an official source and verification date; stale claims are rechecked rather than repeated from memory.
