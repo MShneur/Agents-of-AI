@@ -57,7 +57,7 @@ Your governance framework handles the loading. This library just holds the files
 - [`tools/software-recommendations.md`](tools/software-recommendations.md) — curated software by real use case.
 - [`tools/api-catalog.md`](tools/api-catalog.md) — APIs, MCP, webhooks, event streams, and integrations.
 - [`tools/free-tool-ledger.md`](tools/free-tool-ledger.md) — public free/student quotas and caveats.
-- [`tools/ctrl-walkthrough/`](tools/ctrl-walkthrough/) — responsive Tampermonkey runner with reusable public setup walkthroughs and custom walkthrough import.
+- **[Control Walkthrough](https://github.com/MShneur/Ctrl-Walkthrough)** — standalone novice-first setup automation; the old [`tools/ctrl-walkthrough/`](tools/ctrl-walkthrough/) folder remains as a migration bridge for existing installs.
 
 ### In CTRL-AI or R-Duck
 Both frameworks can reference this library. Personas and agents load on-demand through the composition engine. See each framework's documentation for integration details.
@@ -208,10 +208,10 @@ The supporting tools shelf is meant to be **visibly current** rather than a one-
 - [`tools/software-recommendations.md`](tools/software-recommendations.md) — recommended software by job.
 - [`tools/api-catalog.md`](tools/api-catalog.md) — API/MCP/webhook/event-stream catalog.
 - [`tools/free-tool-ledger.md`](tools/free-tool-ledger.md) — verified free/student capability notes.
-- [`tools/ctrl-walkthrough/`](tools/ctrl-walkthrough/) — public responsive setup runner and walkthrough library.
+- **[Control Walkthrough](https://github.com/MShneur/Ctrl-Walkthrough)** — standalone public setup runner and walkthrough library; [`tools/ctrl-walkthrough/`](tools/ctrl-walkthrough/) is the compatibility/migration bridge.
 - [`tools/CHANGELOG.md`](tools/CHANGELOG.md) — fast-moving tool/API/walkthrough history.
 
-The public CTRL Walkthrough currently includes guides for **Termius, Cloudflare, F5Bot, Zyte, and Firecrawl → ChatGPT**, and supports user-supplied local JSON or public HTTPS custom walkthroughs.
+Control Walkthrough currently includes public guides for **Termius, Cloudflare Workers Free, F5Bot, Zyte, and Firecrawl → ChatGPT**, plus local/custom/private handoff support.
 
 ### Recommend something new
 
@@ -272,6 +272,7 @@ They work on their own. Use one, or tape a few together:
 - **[R-Duck](https://github.com/MShneur/R-Duck)** — Autopilot. You mumble an idea, it hands back a plan with a straight face.
 - **[Agents of AI](https://github.com/MShneur/Agents-of-AI)** *(this repo)* — A cast of specialists. No coffee, no PTO, no LinkedIn updates.
 - **[Ghost in the Loop](https://github.com/MShneur/ghost-in-the-loop)** — Moves work between AIs without dropping it down the stairs. Full chat export, handoffs.
+- **[Control Walkthrough](https://github.com/MShneur/Ctrl-Walkthrough)** — The hands. It finds the page, clicks the safe buttons, fills the boring fields, verifies the result, and gets out of the way.
 
 Each keeps its own license — don't assume they match.
 
