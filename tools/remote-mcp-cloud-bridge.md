@@ -1,230 +1,453 @@
 # Remote MCP + Cloud Bridge Setup Roadmap
 
-**Status:** validated public guide extracted from a live end-to-end setup  
+**Status:** validated public guide extracted from live end-to-end setup and failure recovery  
 **Last updated:** 2026-08-24
 
 This guide documents a reusable pattern for giving an AI assistant controlled access to a self-hosted machine through MCP, then adding a separate authenticated upload bridge for large artifacts. It intentionally removes all personal infrastructure details.
 
-## What this pattern solves
-
-A common setup problem is having all of these at once:
-
-- a private VM or home/server host that should not expose SSH or an admin port publicly;
-- an MCP server that an AI client can call safely;
-- a need to move ZIPs or other binary artifacts to the host and then into a repository;
-- mobile-first administration where repeated terminal copy/paste is painful;
-- secrets that must stay on the server/provider, not in chat or Git history.
-
-The pattern separates **AI control** from **file ingress** rather than forcing one tunnel or token to do everything.
-
-## Architecture
+The design goal is simple:
 
 ```text
-AI client
-  -> secure MCP connection
-  -> restricted MCP service on processor host
-
-Browser / uploader
-  -> authenticated edge ingress
-  -> authenticated private tunnel
-  -> local upload bridge on processor host
-  -> validated unpack / bounded repository commit
+AI control path:   AI client -> secure MCP transport -> restricted host tools
+File ingest path:  browser/client -> edge Worker -> private HTTPS tunnel -> loopback bridge -> repository
 ```
 
-Key rule: the upload bridge remains bound to loopback/private access. The public edge never forwards directly to an unauthenticated admin port.
+The two paths are deliberately separate. The MCP service should not become an unrestricted root shell, and the file-ingest path should not expose the host's upload port directly to the Internet.
 
-## Domain-free fallback architecture
+---
 
-A custom domain is convenient but not mandatory for initial validation.
+## First question: do you already control a domain in this Cloudflare account?
 
-When the edge provider supports temporary/quick tunnels, a useful no-domain test path is:
+Ask this **before** creating the upload tunnel.
+
+### YES — use Route A: named tunnel + your domain
+
+Choose this when the Cloudflare account that will own the tunnel also contains the DNS zone you want to publish.
 
 ```text
-trusted client
-  -> stable edge Worker / serverless ingress hostname
-  -> temporary HTTPS quick-tunnel hostname
-  -> local bridge on 127.0.0.1
+client
+  -> stable Worker or application hostname
+  -> https://bridge.example.com
+  -> named Cloudflare Tunnel
+  -> http://127.0.0.1:<bridge-port>
+  -> authenticated local bridge
   -> repository
 ```
 
-Important limits:
+This is the preferred long-term route because the backend hostname is stable.
 
-- quick-tunnel hostnames are temporary and can change when the tunnel process is recreated;
-- treat them as a validation/development transport, not a permanent production hostname;
-- keep the stable public client-facing hostname at the edge layer, not on the temporary tunnel itself;
-- automate propagation of the new backend URL if you choose to keep this pattern beyond a short-lived test.
+### NO — use Route B: domain-free Quick Tunnel
 
-## Validation roadmap
+Choose this when you do not own a domain, the domain lives in another Cloudflare account, or you only need a free validation/development path.
 
-Do not skip ahead. A green status page is not enough; each segment must be proven independently.
+```text
+client
+  -> stable *.workers.dev Worker hostname
+  -> https://random-words.trycloudflare.com
+  -> Quick Tunnel
+  -> http://127.0.0.1:<bridge-port>
+  -> authenticated local bridge
+  -> repository
+```
 
-### Stage 1 — Host is reachable and stable
+A Quick Tunnel does **not** require a custom domain or DNS zone. Its random hostname can change when the tunnel process is recreated, so keep the stable client-facing URL at the Worker layer and treat the Quick Tunnel URL as a replaceable backend variable.
 
-- Confirm the intended machine is running.
-- Confirm architecture (`amd64` vs `arm64`) before selecting downloads.
-- Install only the minimum runtime/tooling required.
-- Keep the host on a known free/hard-capped plan if that is a project requirement; provider billing rules change, so verify current official docs.
+### Important account rule
 
-**Pass condition:** normal SSH/admin access works and the intended services survive restart.
+A named Cloudflare Tunnel and the DNS hostname routed to it must be managed in the appropriate Cloudflare account/zone. If the domain is in a different account from the tunnel, do not keep fighting the greyed-out domain selector. Either:
 
-### Stage 2 — Local MCP service
+1. create/manage the named tunnel in the account that owns the zone, **or**
+2. use the domain-free Quick Tunnel route.
 
-- Run the MCP server as an unprivileged service account.
-- Bind it to loopback unless the secure MCP transport explicitly requires otherwise.
-- Expose purpose-built tools rather than unrestricted root shell access.
-- Use bounded timeouts, output limits, allowed roots, and blocked destructive operations.
+Do not assume a tunnel in one account gives you a generic public IP that can be attached to another account's zone.
 
-**Pass condition:** local MCP health/tools respond under the restricted account.
+---
 
-### Stage 3 — Secure MCP transport + AI app
+## Prerequisites
 
-- Create the provider-supported secure MCP tunnel/transport.
-- Store tunnel/runtime credentials only in the host/provider secret store.
-- Connect the custom AI app to the tunnel.
-- Test a harmless read-only tool first, such as host status.
+Before either route:
 
-**Pass condition:** the AI can invoke a real tool on the host and receive current output without a human copying terminal commands.
+- a Linux host or VM that can reach the Internet outbound;
+- a repository credential stored only on the host/provider secret store;
+- a local upload bridge bound to loopback, for example `127.0.0.1:8787`;
+- a separate bearer token for the local bridge;
+- a separate ingress token for the public Worker;
+- allowlists for repositories, branches, and destination folder prefixes;
+- the host's real CPU architecture (`uname -m` or package-manager equivalent);
+- no dependency on GitHub-hosted Actions if the bridge itself already performs commits.
 
-### Stage 4 — Local upload bridge
+### Architecture check matters
 
-- Run the upload bridge as its own service.
-- Bind to `127.0.0.1` or equivalent loopback/private interface.
-- Require a bearer token or equivalent application-layer authentication.
-- Validate destination repository/folder against an allowlist.
-- Require an idempotency key and content checksum.
-- Safely unpack archives: reject path traversal, symlinks when not required, oversized extraction, and unsupported types.
+Do not translate "64-bit" automatically to `amd64`. An ARM VM commonly reports `aarch64`/`arm64`; select/download the ARM64 tunnel client for that host.
 
-**Pass condition:** an authenticated tiny synthetic ZIP is accepted, unpacked, and produces a real repository commit. Record the resulting commit SHA; a `202 Accepted` response alone is not completion proof.
+---
 
-### Stage 5 — Private HTTPS tunnel for the upload bridge
+# Stage 1 — local bridge
 
-- Create a tunnel from the processor host to the edge provider.
-- Select the host's real CPU architecture when downloading the tunnel client.
-- Install the tunnel client as a service.
-- Route only the required hostname/path to the loopback upload bridge.
-- Keep the bridge's own bearer token enabled even behind the tunnel.
+Run the bridge as a service and bind it to loopback.
 
-**Pass condition:** the tunnel is connected and the private bridge health endpoint is reachable only through the intended authenticated path.
+Recommended properties:
 
-### Stage 6 — Edge ingress
+- `127.0.0.1` bind by default;
+- bearer-token authentication;
+- repository/folder/branch allowlists;
+- idempotency key per upload;
+- SHA-256 verification while streaming;
+- durable on-disk queue before returning acceptance;
+- safe ZIP extraction (no absolute paths, `..`, symlinks unless explicitly supported, or archive bombs);
+- bounded worker pool and queue size;
+- non-force Git push/commit behavior;
+- no secrets in logs or result payloads.
 
-- Put the public uploader behind a separate ingress token.
-- Keep non-secret routing values as ordinary variables and secret values in provider secret storage.
-- Use narrow repository/folder allowlists for the first test.
-- Enforce request-size limits before forwarding.
-- If the Worker/serverless app is Git-connected, make sure deployments preserve dashboard-managed variables/secrets that are not represented in the checked-in config.
+**Pass condition:** an authenticated synthetic ZIP sent directly to the loopback bridge reaches `completed` and creates a real repository commit. A `202 Accepted` response alone is not proof.
 
-**Pass condition:** an external tiny synthetic ZIP reaches the local bridge and produces a verified repository commit.
+---
 
-### Stage 7 — Large artifact handling
+# Stage 2A — Route A: named tunnel with a domain
 
-Do not design around the largest file you have today. Provider request limits change.
+Use this route when the Cloudflare account contains the domain/zone.
 
-Preferred pattern:
+## 2A.1 Create the tunnel
 
-1. set a conservative per-upload target below the provider's documented limit;
-2. split large archives into numbered batches or stage them in object storage;
-3. include a manifest with checksums and expected paths;
-4. retry only failed chunks;
-5. make the downstream commit idempotent;
-6. verify the final manifest after reassembly/unpack.
+In Cloudflare:
 
-This is safer than raising every limit until a single giant upload happens to fit.
+1. Open **Tunnels**.
+2. Create a named tunnel, for example `upload-bridge`.
+3. Select the host operating system and the host's actual architecture.
+4. Copy the provider-generated **Install as service** command/token.
 
-## Failure lessons worth preserving
+For a remote/mobile workflow, it is useful to make the host installer accept the entire provider command and extract the token itself, so the human only pastes once.
 
-### 1. Wrong terminal / wrong machine
+If the installer deliberately uses hidden input (`read -s` or equivalent), a blank/pulsating prompt is expected: the pasted token is not echoed. Paste once, press Enter, and wait for service output.
 
-**Symptom:** a valid path or repository suddenly "does not exist."  
-**Cause:** the user is in a provider Cloud Shell rather than the actual VM.  
-**Fix:** make instructions say explicitly whether the next action happens in the dashboard, provider Cloud Shell, or target VM.
+## 2A.2 Publish only the loopback bridge
 
-### 2. Wrong CPU architecture
+In the tunnel's route configuration:
 
-**Symptom:** installer package will not run or the wrong binary is selected.  
-**Cause:** choosing generic `64-bit`/`amd64` for an ARM host.  
-**Fix:** verify with `uname -m` first, then choose `arm64`/`aarch64` when appropriate.
+- **Subdomain:** choose a dedicated name such as `bridge`;
+- **Domain:** select the zone already in this account;
+- **Path:** normally blank;
+- **Service URL:** `http://localhost:<bridge-port>`.
 
-### 3. "Service is active" mistaken for end-to-end success
+The result is a stable HTTPS backend such as:
 
-**Symptom:** health checks are green but uploads never create a repository commit.  
-**Cause:** only the local process was tested.  
-**Fix:** require a tiny synthetic archive to traverse the complete path and verify the resulting commit SHA.
+```text
+https://bridge.example.com
+```
 
-### 4. Restricted MCP account cannot read operational secrets
+Keep the bridge's own bearer-token authentication enabled even though Cloudflare is in front of it.
 
-**Symptom:** the AI can inspect services but cannot run a protected smoke test.  
-**Cause:** correct least-privilege separation: MCP user cannot read another account's secret file.  
-**Fix:** add a narrow server-side helper/tool that can run the approved test using protected credentials and returns only sanitized PASS/FAIL, job ID, and commit evidence. Do not weaken file permissions just to make the AI convenient.
+## 2A.3 Configure the Worker
 
-### 5. Secrets copied through chat
+Set the Worker/backend variables:
 
-**Symptom:** tunnel/API tokens appear in screenshots, messages, shell history, or docs.  
-**Fix:** secret values are pasted directly into provider/server prompts. Public docs show placeholders only. Avoid command-line arguments when a prompt or secret store is available.
+```text
+ORIGIN_BRIDGE_URL=https://bridge.example.com     # non-secret
+ORIGIN_BRIDGE_TOKEN=<secret>                     # secret
+INGRESS_TOKEN=<different secret>                 # secret
+ALLOWED_REPOS=<allowlist>                        # non-secret
+ALLOWED_FOLDER_PREFIXES=<allowlist>               # non-secret
+```
 
-### 6. Dashboard guidance jumps contexts without saying so
+The Worker accepts the public `INGRESS_TOKEN`, then supplies `ORIGIN_BRIDGE_TOKEN` privately when forwarding to the host.
 
-**Symptom:** the user does not know whether to stay on the current provider screen or return to a terminal.  
-**Fix:** every step begins with a location label: `Stay on this page`, `Open Cloud Shell`, `On the target VM`, or `Return to the AI app`.
+**Pass condition:** Worker `/health` with the ingress token returns the local bridge's authenticated health result.
 
-### 7. Large ZIP treated as a special-case emergency
+---
 
-**Symptom:** a file barely exceeds an ingress limit and the architecture becomes a sequence of limit increases.  
-**Fix:** make chunked/staged uploads a first-class feature from the beginning.
+# Stage 2B — Route B: no domain / Quick Tunnel
 
-### 8. Git-connected deploy silently removes runtime configuration
+Use this route when no usable domain is available in the tunnel's Cloudflare account.
 
-**Symptom:** dashboard variables look correct, but the deployed Worker suddenly reports that backend configuration is missing after an unrelated repository commit.  
-**Cause:** an automatic Git deployment used checked-in configuration that did not preserve provider-managed runtime variables/secrets.  
-**Fix:** use the provider's preserve/keep-runtime-vars option (for Cloudflare Wrangler this is `keep_vars`) and keep stable non-secret routing values in checked-in configuration when appropriate. Then re-run the health check after every deployment path change.
+## 2B.1 Start a Quick Tunnel on the host
 
-### 9. Programmatic smoke test gets a provider security 403 before Worker code runs
+After installing `cloudflared`, run the equivalent of:
 
-**Symptom:** GET health succeeds, but a Python/CLI POST is rejected with a provider-generated browser-signature/security error.  
-**Cause:** browser-integrity protection classified the default HTTP client signature as suspicious before the request reached application code.  
-**Fix:** first confirm the error is provider-generated rather than from your Worker. For a controlled smoke client, send a conventional `User-Agent` and `Accept` header, or explicitly tune the provider security rule for the dedicated API endpoint. Do not weaken the bridge's bearer-token authentication.
+```bash
+cloudflared tunnel --no-autoupdate --url http://127.0.0.1:<bridge-port>
+```
 
-### 10. Temporary quick-tunnel URL changes
+For persistence, put it behind a service manager and restart it automatically. A typical systemd unit should:
 
-**Symptom:** the stable edge endpoint starts returning backend-unreachable even though the local bridge is healthy.  
-**Cause:** the quick tunnel restarted and received a new temporary hostname.  
-**Fix:** either move to a named/custom-domain tunnel for long-term use or automate detection and propagation of the current temporary backend URL. Never hard-code a temporary hostname and assume it is permanent.
+- start after the local bridge;
+- run as an unprivileged host user;
+- use `Restart=always`;
+- expose only the loopback bridge;
+- avoid opening inbound firewall ports.
 
-## Public-safe secret/config template
+Cloudflare prints a random URL similar to:
 
-Use placeholders only:
+```text
+https://random-words.trycloudflare.com
+```
+
+## 2B.2 Keep the Worker as the stable front door
+
+Do **not** give clients the random Quick Tunnel URL as the primary endpoint. Keep a stable Worker hostname, for example:
+
+```text
+https://your-worker.your-subdomain.workers.dev
+```
+
+Then configure:
+
+```text
+ORIGIN_BRIDGE_URL=https://random-words.trycloudflare.com
+ORIGIN_BRIDGE_TOKEN=<secret>
+INGRESS_TOKEN=<different secret>
+```
+
+If the Quick Tunnel restarts and gets a new hostname, only `ORIGIN_BRIDGE_URL` needs to change.
+
+## 2B.3 Preserve runtime secrets across Git-connected deploys
+
+A Git-triggered Worker deployment can overwrite runtime configuration if checked-in config is treated as authoritative.
+
+For Cloudflare Wrangler, use the runtime-variable preservation behavior (`keep_vars: true`) when dashboard-managed secrets/variables must survive repository deployments. Stable non-secret values may also be represented in checked-in config.
+
+After **every deployment-path change**, re-test Worker `/health` before attempting a large upload.
+
+**Pass condition:** Worker `/health` authenticates and returns the bridge's health response through the Quick Tunnel.
+
+---
+
+# Stage 3 — end-to-end small ZIP smoke test
+
+Always prove the small path before large-file work.
+
+The smoke client should:
+
+1. generate a tiny ZIP in memory;
+2. compute its SHA-256;
+3. create a unique idempotency key;
+4. `POST /upload` to the stable Worker URL;
+5. send the ingress token plus target headers;
+6. receive a job ID;
+7. poll `/status/<job-id>`;
+8. require `status=completed`;
+9. verify the returned repository commit SHA exists.
+
+Suggested request headers:
+
+```text
+Authorization: Bearer <INGRESS_TOKEN>
+Content-Type: application/zip
+Content-Length: <exact bytes>
+X-Target-Repo: <allowlisted repo>          # use your implementation's actual header name
+X-Target-Folder: <allowlisted folder>
+X-Target-Branch: <branch>
+X-Idempotency-Key: <unique safe value>
+X-Content-SHA256: <64 hex characters>
+```
+
+**Never** call the bridge proven because health is green or because upload returned `202`. The commit is the proof.
+
+---
+
+# Stage 4 — large ZIPs: chunk instead of raising every limit
+
+A file that barely exceeds an edge request limit should not force a new architecture.
+
+A robust browser/client flow is:
+
+```text
+large ZIP
+  -> split locally into conservative chunks
+  -> POST /chunk for each part
+  -> verify per-chunk SHA-256
+  -> POST /chunk-complete
+  -> host reassembles ZIP
+  -> validate archive
+  -> optionally strip known archive prefix
+  -> normalize ZIP
+  -> enqueue through the same durable bridge
+  -> poll normal job status
+  -> verify repository commit
+```
+
+A practical example is **48 MiB browser chunks** when the edge's single-request cap is materially higher than that. The server can allow a somewhat larger per-chunk ceiling while keeping the client below the edge limit. Treat every numeric limit as configurable and re-check provider limits rather than baking them into the architecture.
+
+Recommended chunk metadata:
+
+```text
+X-Upload-Id
+X-Chunk-Index
+X-Chunk-Count
+X-Chunk-Length
+X-Chunk-SHA256
+X-Strip-Prefix            # optional, normalized relative archive prefix
+```
+
+Server rules:
+
+- persist chunks under an isolated upload-session directory;
+- reject duplicate chunk metadata conflicts;
+- accept idempotent re-sends only when the stored hash matches;
+- reject missing chunks at completion;
+- bound chunk count and total assembled size;
+- verify the reassembled payload is a real ZIP;
+- reject ZIP-slip paths and symlinks;
+- strip an archive prefix only when explicitly requested and normalized;
+- reject a completion that leaves zero valid files;
+- hand the normalized result to the same durable queue used by normal uploads;
+- delete the temporary chunk session after successful enqueue.
+
+## Mobile-friendly browser uploader
+
+For users working only from a phone, a small protected upload page can do the chunking in the browser:
+
+1. enter the ingress token;
+2. choose the ZIP file;
+3. enter/select repository, branch, target folder, and optional strip prefix;
+4. hash and upload each chunk sequentially;
+5. request completion/reassembly;
+6. poll status;
+7. display commit SHA and file count.
+
+The token should remain in page memory only unless the user intentionally stores it elsewhere. The page must not embed a real secret in source code.
+
+**Large-file pass condition:** a file larger than one chunk crosses the Worker/tunnel, is reassembled and validated, and ends with a verified repository commit.
+
+---
+
+# Stage 5 — MCP control lane
+
+The upload bridge solves binary transport; MCP solves safe remote administration.
+
+Recommended MCP controls:
+
+- run the MCP server as an unprivileged service account;
+- bind locally/private unless the supported secure transport requires otherwise;
+- expose purpose-built tools such as status, file reads in approved roots, service status, and bounded shell operations;
+- no general `sudo` from the AI tool;
+- block destructive command fragments;
+- enforce timeouts and output caps;
+- keep server-owned secrets unreadable to the MCP account;
+- when a protected smoke test needs secrets, create a narrow server-side helper that returns only sanitized PASS/FAIL/job/commit evidence.
+
+**Pass condition:** the AI can execute a harmless live status tool remotely without the user copying terminal output back and forth.
+
+---
+
+# Mobile administration shortcuts
+
+These conventions eliminated much of the setup friction during live validation.
+
+## Always label the location
+
+Every human instruction should begin with one of:
+
+- **STAY ON THIS PAGE**
+- **GO TO CLOUDFLARE**
+- **GO TO PROVIDER CLOUD SHELL**
+- **ON THE TARGET VM**
+- **RETURN TO THE AI APP**
+
+Do not assume the user knows which shell or dashboard is active.
+
+## Prefer one "super-command"
+
+When a user has a provider Cloud Shell and an SSH key, prefer one remote command such as:
+
+```bash
+ssh -t -i ~/YOUR_KEY -o StrictHostKeyChecking=accept-new USER@HOST \
+  'cd ~/YOUR_REPO && git pull --ff-only && sudo bash path/to/installer.sh'
+```
+
+This is better than asking a phone user to SSH, `cd`, pull, then run several separate commands.
+
+## Hidden input is not a hang
+
+If a script says a secret will not be echoed and shows `>` with a blinking/pulsating cursor, paste the value and press Enter. Nothing visible appearing is expected.
+
+## Wrong-shell protection
+
+Provider Cloud Shell and the target VM are different machines. A path that exists on the VM may not exist in Cloud Shell. Use the SSH super-command rather than making the user manually reason about both environments.
+
+## Phone recovery
+
+Do not rely on `Ctrl+C`, function keys, or precise terminal selection. If a mobile terminal session is genuinely wedged, opening a fresh Cloud Shell session is often safer than key-chord troubleshooting.
+
+---
+
+# Failure catalog from live validation
+
+| Symptom | Root cause | Fix |
+|---|---|---|
+| Repo/path suddenly "does not exist" | command ran in provider Cloud Shell instead of target VM | label the location; use one SSH super-command |
+| Tunnel installer package will not run | `amd64`/generic 64-bit selected for ARM host | verify architecture first; choose ARM64/aarch64 when appropriate |
+| Blank prompt appears frozen | installer intentionally disabled echo for a secret | paste once and press Enter; do not restart merely because text is invisible |
+| Domain dropdown is grey/empty | tunnel account has no DNS zone | switch to account that owns the zone or use Quick Tunnel |
+| Tunnel creation fails in domain account | current login lacks required tunnel/account permissions | use an owner/admin role or use a different permitted route |
+| Named tunnel exists but cannot publish the other account's domain | tunnel and DNS zone are split across Cloudflare accounts | colocate tunnel with zone or use domain-free route |
+| Worker says backend not configured after Git deploy | checked-in deployment dropped dashboard variables/secrets | preserve runtime vars (`keep_vars`) and re-check health after deploy |
+| Worker health succeeds but upload POST gets provider error 1010/403 | browser-integrity/security layer rejected default programmatic client before Worker code | use a conventional `User-Agent` + `Accept` for controlled smoke tests, or narrowly tune the provider rule; keep bearer auth |
+| Worker returns unauthorized after adding secrets | public ingress token and origin bridge token were mixed up | use two distinct roles; Worker validates ingress token and forwards origin token |
+| Direct host smoke works but public smoke fails | failure is Worker/tunnel config, not bridge/GitHub | isolate each segment: local -> tunnel -> Worker -> commit |
+| Service is active but no repository change | only process health was tested | require status `completed` + real commit SHA |
+| Large ZIP is slightly over edge limit | single-request design is too brittle | use chunked upload, not repeated limit increases |
+| Quick Tunnel suddenly becomes unreachable | random hostname changed after service recreation | update backend URL or automate propagation; named tunnel is long-term option |
+| MCP cannot read bridge secret file | intentional least-privilege boundary | use secret-preserving server helper; do not loosen permissions |
+
+---
+
+# Configuration template
+
+Use placeholders only in public docs:
 
 ```text
 PROCESSOR_HOST=<your host>
+BRIDGE_BIND=127.0.0.1
+BRIDGE_PORT=<local port>
 MCP_TUNNEL_ID=<provider tunnel id>
 MCP_RUNTIME_TOKEN=<secret>
-UPLOAD_INGRESS_TOKEN=<secret>
-UPLOAD_BRIDGE_TOKEN=<secret>
-UPLOAD_BRIDGE_URL=https://<your authenticated private tunnel hostname>
-ALLOWED_REPOSITORIES=<your allowlist>
-ALLOWED_FOLDER_PREFIXES=<your allowlist>
+INGRESS_TOKEN=<secret>
+ORIGIN_BRIDGE_TOKEN=<secret>
+ORIGIN_BRIDGE_URL=https://<named-or-quick-tunnel-hostname>
+ALLOWED_REPOSITORIES=<allowlist>
+ALLOWED_FOLDER_PREFIXES=<allowlist>
+ALLOWED_BRANCHES=<allowlist>
+MAX_DIRECT_UPLOAD_BYTES=<implementation limit>
+MAX_CHUNK_BYTES=<implementation limit>
+MAX_ASSEMBLED_BYTES=<implementation limit>
 ```
 
-Never publish real values, account IDs, hostnames, IPs, repository names, branch names from private deployments, tunnel UUIDs, bucket names, or copied provider install tokens.
+Never publish real tokens, account IDs, IPs, personal names, private repository/folder names, tunnel UUIDs, private hostnames, bucket names, or copied provider install tokens.
 
-## Completion checklist
+---
 
-The setup is complete only when all of these are true:
+# Completion checklist
 
-- [ ] AI can call a harmless MCP status tool remotely.
-- [ ] MCP service runs unprivileged and cannot read unrelated secrets.
-- [ ] Local upload bridge requires authentication and stays non-public.
-- [ ] Direct bridge synthetic ZIP creates a verified repository commit.
-- [ ] Private HTTPS tunnel to the bridge is connected.
-- [ ] Edge ingress has its own authentication and narrow allowlists.
-- [ ] External synthetic ZIP creates a verified repository commit.
-- [ ] Git-triggered redeploys preserve required runtime variables/secrets.
-- [ ] Programmatic smoke client is not blocked before application code runs.
-- [ ] Large-file strategy is chunked/staged rather than dependent on a single provider request limit.
-- [ ] Temporary tunnel URL rotation has a migration or automation plan.
-- [ ] No secret appears in public docs, public walkthrough JSON, public issues, or public examples.
+The setup is complete only when all relevant boxes are true:
+
+- [ ] Host/VM is reachable and correct CPU architecture is known.
+- [ ] MCP server runs unprivileged and the AI can call a harmless live status tool.
+- [ ] Local upload bridge stays on loopback and requires authentication.
+- [ ] Direct local synthetic ZIP reaches `completed` and produces a verified commit.
+- [ ] **Route A users:** named tunnel is connected and domain route resolves to the bridge.
+- [ ] **Route B users:** Quick Tunnel is active and its current URL is stored as the Worker backend.
+- [ ] Worker has separate ingress and origin tokens.
+- [ ] Worker deployment preserves dashboard-managed runtime secrets/variables.
+- [ ] Authenticated Worker `/health` reaches the local bridge.
+- [ ] External small ZIP reaches `completed` and produces a verified commit.
+- [ ] Programmatic smoke client is not blocked before Worker code runs.
+- [ ] Large-file path uses chunking/staging rather than depending on one giant edge request.
+- [ ] A multi-chunk ZIP has been reassembled, validated, and committed successfully.
+- [ ] Temporary Quick Tunnel URL rotation has a manual or automated refresh plan.
 - [ ] Reboot/restart persistence has been tested.
+- [ ] Public documentation contains placeholders only, never live credentials or private infrastructure fingerprints.
 
-## Future-proofing rule
+---
 
-Provider UI labels, plan limits, product availability, and security defaults change. Keep the architecture and pass/fail conditions stable, and treat provider-specific button names, quotas, exact dashboard paths, and temporary tunnel products as replaceable adapters. When a provider changes its UI or deployment behavior, update only the adapter/walkthrough rather than rewriting the security model.
+# Future-proofing rule
+
+Provider UI labels, limits, security defaults, free tiers, and tunnel products will change. Keep these parts stable:
+
+1. **decision first:** domain available in the same account? named route; otherwise domain-free route;
+2. **security:** edge token != origin token; bridge stays authenticated and loopback-bound;
+3. **proof:** health is not completion; require a real downstream commit;
+4. **large files:** chunk before you hit the edge limit;
+5. **mobile UX:** one location, one action, one super-command where possible;
+6. **adapters:** treat dashboard button names, quotas, exact URLs, and provider-specific tunnel commands as replaceable implementation details.
+
+When a provider changes its UI or deployment behavior, update the adapter/walkthrough rather than rewriting the architecture.
