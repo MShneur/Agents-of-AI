@@ -1,6 +1,6 @@
 # Remote MCP + Cloud Bridge Setup Roadmap
 
-**Status:** working public guide extracted from a live validation process  
+**Status:** validated public guide extracted from a live end-to-end setup  
 **Last updated:** 2026-08-24
 
 This guide documents a reusable pattern for giving an AI assistant controlled access to a self-hosted machine through MCP, then adding a separate authenticated upload bridge for large artifacts. It intentionally removes all personal infrastructure details.
@@ -32,6 +32,27 @@ Browser / uploader
 ```
 
 Key rule: the upload bridge remains bound to loopback/private access. The public edge never forwards directly to an unauthenticated admin port.
+
+## Domain-free fallback architecture
+
+A custom domain is convenient but not mandatory for initial validation.
+
+When the edge provider supports temporary/quick tunnels, a useful no-domain test path is:
+
+```text
+trusted client
+  -> stable edge Worker / serverless ingress hostname
+  -> temporary HTTPS quick-tunnel hostname
+  -> local bridge on 127.0.0.1
+  -> repository
+```
+
+Important limits:
+
+- quick-tunnel hostnames are temporary and can change when the tunnel process is recreated;
+- treat them as a validation/development transport, not a permanent production hostname;
+- keep the stable public client-facing hostname at the edge layer, not on the temporary tunnel itself;
+- automate propagation of the new backend URL if you choose to keep this pattern beyond a short-lived test.
 
 ## Validation roadmap
 
@@ -91,6 +112,7 @@ Do not skip ahead. A green status page is not enough; each segment must be prove
 - Keep non-secret routing values as ordinary variables and secret values in provider secret storage.
 - Use narrow repository/folder allowlists for the first test.
 - Enforce request-size limits before forwarding.
+- If the Worker/serverless app is Git-connected, make sure deployments preserve dashboard-managed variables/secrets that are not represented in the checked-in config.
 
 **Pass condition:** an external tiny synthetic ZIP reaches the local bridge and produces a verified repository commit.
 
@@ -150,6 +172,24 @@ This is safer than raising every limit until a single giant upload happens to fi
 **Symptom:** a file barely exceeds an ingress limit and the architecture becomes a sequence of limit increases.  
 **Fix:** make chunked/staged uploads a first-class feature from the beginning.
 
+### 8. Git-connected deploy silently removes runtime configuration
+
+**Symptom:** dashboard variables look correct, but the deployed Worker suddenly reports that backend configuration is missing after an unrelated repository commit.  
+**Cause:** an automatic Git deployment used checked-in configuration that did not preserve provider-managed runtime variables/secrets.  
+**Fix:** use the provider's preserve/keep-runtime-vars option (for Cloudflare Wrangler this is `keep_vars`) and keep stable non-secret routing values in checked-in configuration when appropriate. Then re-run the health check after every deployment path change.
+
+### 9. Programmatic smoke test gets a provider security 403 before Worker code runs
+
+**Symptom:** GET health succeeds, but a Python/CLI POST is rejected with a provider-generated browser-signature/security error.  
+**Cause:** browser-integrity protection classified the default HTTP client signature as suspicious before the request reached application code.  
+**Fix:** first confirm the error is provider-generated rather than from your Worker. For a controlled smoke client, send a conventional `User-Agent` and `Accept` header, or explicitly tune the provider security rule for the dedicated API endpoint. Do not weaken the bridge's bearer-token authentication.
+
+### 10. Temporary quick-tunnel URL changes
+
+**Symptom:** the stable edge endpoint starts returning backend-unreachable even though the local bridge is healthy.  
+**Cause:** the quick tunnel restarted and received a new temporary hostname.  
+**Fix:** either move to a named/custom-domain tunnel for long-term use or automate detection and propagation of the current temporary backend URL. Never hard-code a temporary hostname and assume it is permanent.
+
 ## Public-safe secret/config template
 
 Use placeholders only:
@@ -178,10 +218,13 @@ The setup is complete only when all of these are true:
 - [ ] Private HTTPS tunnel to the bridge is connected.
 - [ ] Edge ingress has its own authentication and narrow allowlists.
 - [ ] External synthetic ZIP creates a verified repository commit.
+- [ ] Git-triggered redeploys preserve required runtime variables/secrets.
+- [ ] Programmatic smoke client is not blocked before application code runs.
 - [ ] Large-file strategy is chunked/staged rather than dependent on a single provider request limit.
-- [ ] No secret appears in chat, screenshots, Git history, public walkthrough JSON, or shell history.
+- [ ] Temporary tunnel URL rotation has a migration or automation plan.
+- [ ] No secret appears in public docs, public walkthrough JSON, public issues, or public examples.
 - [ ] Reboot/restart persistence has been tested.
 
 ## Future-proofing rule
 
-Provider UI labels, plan limits, and product availability change. Keep the architecture and pass/fail conditions stable, and treat provider-specific button names, quotas, and exact dashboard paths as replaceable adapters. When a provider changes its UI, update only the adapter/walkthrough rather than rewriting the security model.
+Provider UI labels, plan limits, product availability, and security defaults change. Keep the architecture and pass/fail conditions stable, and treat provider-specific button names, quotas, exact dashboard paths, and temporary tunnel products as replaceable adapters. When a provider changes its UI or deployment behavior, update only the adapter/walkthrough rather than rewriting the security model.
