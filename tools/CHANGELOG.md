@@ -8,9 +8,15 @@ Fast-moving history for `tools/`. Repository-wide changes live in [`../CHANGELOG
 
 - Added `remote-mcp-cloud-bridge.md`, a public-safe roadmap extracted from live setup validation.
 - Captured the reusable architecture: restricted MCP control path separated from authenticated large-file ingress.
-- Added explicit validation gates so a running service or `202 Accepted` response is not mistaken for end-to-end completion.
-- Added failure lessons for wrong terminal context, wrong CPU architecture, restricted-service secret boundaries, unsafe secret handling, context-switch confusion, and oversized single-request uploads.
-- Added a provider-neutral completion checklist and large-artifact chunking/staging guidance.
+- Added a first-question decision tree: **domain in the same Cloudflare account -> named tunnel route; no usable domain -> domain-free Quick Tunnel route**.
+- Documented why a tunnel in one Cloudflare account cannot simply publish a DNS zone from another account, and when to stop fighting a greyed-out domain selector.
+- Added concrete named-tunnel and Quick-Tunnel setup stages, stable Worker-front-door pattern, loopback origin routing, and separate ingress/origin-token roles.
+- Added Git-connected deployment hardening with runtime-variable preservation (`keep_vars`) and mandatory health re-checks after deploy-path changes.
+- Added a browser/mobile-first chunked ZIP pattern: conservative client chunks, per-chunk SHA-256, resumable/idempotent upload sessions, reassembly, safe ZIP normalization/prefix stripping, durable queue handoff, and final commit verification.
+- Added mobile administration shortcuts: explicit location labels, one SSH super-command, hidden-input explanation, wrong-shell protection, and no dependency on desktop key chords.
+- Added failure lessons for wrong terminal context, wrong CPU architecture, hidden secret prompts, missing domain zones, tunnel permissions, cross-account domain mismatch, dropped runtime vars, provider error 1010/browser-integrity rejection, token-role mixups, temporary Quick-Tunnel URL rotation, and oversized single-request uploads.
+- Added explicit validation gates so a running service, green health check, or `202 Accepted` response is not mistaken for end-to-end completion.
+- Added provider-neutral completion gates for both small and multi-chunk uploads.
 - Scrubbed all live infrastructure fingerprints: no personal names, account IDs, IPs, private repository/folder names, tunnel IDs, tokens, hostnames, bucket names, or environment-variable values are published.
 
 ## 2026-08-22
