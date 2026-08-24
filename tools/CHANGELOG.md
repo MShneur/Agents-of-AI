@@ -2,6 +2,17 @@
 
 Fast-moving history for `tools/`. Repository-wide changes live in [`../CHANGELOG.md`](../CHANGELOG.md).
 
+## 2026-08-24
+
+### Remote MCP + Cloud Bridge roadmap
+
+- Added `remote-mcp-cloud-bridge.md`, a public-safe roadmap extracted from live setup validation.
+- Captured the reusable architecture: restricted MCP control path separated from authenticated large-file ingress.
+- Added explicit validation gates so a running service or `202 Accepted` response is not mistaken for end-to-end completion.
+- Added failure lessons for wrong terminal context, wrong CPU architecture, restricted-service secret boundaries, unsafe secret handling, context-switch confusion, and oversized single-request uploads.
+- Added a provider-neutral completion checklist and large-artifact chunking/staging guidance.
+- Scrubbed all live infrastructure fingerprints: no personal names, account IDs, IPs, private repository/folder names, tunnel IDs, tokens, hostnames, bucket names, or environment-variable values are published.
+
 ## 2026-08-22
 
 ### Control Walkthrough v0.5.0
