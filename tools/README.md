@@ -14,7 +14,7 @@ It is **not an eighth AoA composable layer**. Personas, agents, workflows, techn
 | [`software-recommendations.md`](software-recommendations.md) | Curated software choices by job: automation, research, hosting, mobile admin, testing, secrets, AI, and more |
 | [`api-catalog.md`](api-catalog.md) | Public API/MCP/integration surfaces that can be wired into AI workflows |
 | [`free-tool-ledger.md`](free-tool-ledger.md) | Publicly verified free/student quotas, limits, and caveats |
-| [`remote-mcp-cloud-bridge.md`](remote-mcp-cloud-bridge.md) | Scrubbed, reusable roadmap for restricted remote MCP control plus authenticated large-file ingress, including failure lessons and completion gates |
+| [`remote-mcp-cloud-bridge.md`](remote-mcp-cloud-bridge.md) | Scrubbed remote-MCP + binary-ingress roadmap with a **domain? yes -> named tunnel / no -> Quick Tunnel** decision tree, mobile shortcuts, chunked large-file flow, failure lessons, and completion gates |
 | [`ctrl-walkthrough/`](ctrl-walkthrough/) | Responsive Tampermonkey setup runner and reusable public walkthrough JSON |
 | [`ctrl-walkthrough/AI_HANDOFF_PROTOCOL.md`](ctrl-walkthrough/AI_HANDOFF_PROTOCOL.md) | How an AI should choose public module vs `CWZ2`/`CW2` paste code vs local file vs best-effort private GitHub pointer |
 | [`ctrl-walkthrough/make_handoff.py`](ctrl-walkthrough/make_handoff.py) | Deterministic gzip+Base64URL `CWZ2` / Base64URL `CW2` generator with expiry and basic secret guards |
