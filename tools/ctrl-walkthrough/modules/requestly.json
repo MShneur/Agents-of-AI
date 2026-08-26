@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 2,
+  "id": "requestly",
+  "version": "2026-08-26.1",
+  "title": "Requestly Student / Free",
+  "description": "Set up Requestly on a $0 path, including the Firefox-for-Android signed-XPI installation route for HTTP interception, without exposing credentials or project-specific information.",
+  "steps": [
+    {
+      "title": "Open the Requestly student offer",
+      "body": "Start with Requestly's student program. Sign in with GitHub only if you want to claim the student Professional entitlement. If GitHub does not confirm eligibility, do not purchase anything; the regular Requestly Free plan remains usable.",
+      "action": {"type": "open", "label": "Open Requestly Student", "url": "https://requestly.com/student-program/"},
+      "humanGate": "GitHub login/OAuth approval, account creation, CAPTCHA/MFA, terms, and any billing decision require your confirmation. Never paste tokens or credentials into CTRL.",
+      "success": {"text": ["Student", "Requestly", "Professional"], "successMessage": "The Requestly student or account surface appears to be visible."}
+    },
+    {
+      "title": "Confirm a $0 entitlement",
+      "body": "If the student entitlement does not activate, remain on Requestly Free. Do not enter payment information or start a paid trial just to continue this walkthrough.",
+      "action": {"type": "none"},
+      "humanGate": "If the page asks for payment, starts a paid trial, or shows a nonzero charge, stop before accepting it."
+    },
+    {
+      "title": "Android: use Firefox for interception",
+      "body": "Requestly's browser HTTP interception requires its browser extension. On Android, use Firefox. Requestly may download a signed .xpi instead of installing it automatically. Firefox can expose Install Extension from File through its hidden developer menu: Settings -> About Firefox -> tap the Firefox logo five times quickly -> return to Settings -> Install Extension from File -> select the downloaded Requestly .xpi -> Add. The extension should then appear in Firefox's Extensions list.",
+      "action": {"type": "none"},
+      "humanGate": "Review the extension permissions before tapping Add. Only install the Requestly XPI obtained from Requestly's own download flow; do not install an unknown or modified XPI."
+    },
+    {
+      "title": "Reload Requestly in Firefox",
+      "body": "After Requestly is installed, open app.requestly.io in Firefox and reload it. If Requestly still says to install the browser extension, confirm Requestly is enabled in Firefox Extensions and that the current tab permits the extension.",
+      "action": {"type": "open", "label": "Open Requestly App", "url": "https://app.requestly.io/home"},
+      "success": {"text": ["HTTP Interceptor", "New rule"], "successMessage": "Requestly's HTTP Interceptor surface appears to be available."}
+    },
+    {
+      "title": "Do not use the desktop API Client migration prompt on Android",
+      "body": "Requestly's API Client uses a dedicated desktop application. The Android browser can display the API Client page, but the migration prompt is for Linux, macOS, or Windows. For a phone-first setup, use Requestly Rules/HTTP Interceptor instead.",
+      "action": {"type": "none"}
+    },
+    {
+      "title": "Open HTTP Interceptor rules",
+      "body": "From Requestly Home, choose New rule under HTTP Interceptor. Available rule types may include Redirect Request, Replace String, Query Param, Modify Request Body, Modify API Response, Modify Headers, User-Agent, Insert Scripts, Cancel Request, and Delay Network Requests. Do not create a credential-bearing shared rule.",
+      "action": {"type": "find", "label": "Find New rule"},
+      "target": {"text": ["New rule", "HTTP Interceptor"]}
+    },
+    {
+      "title": "Return for bounded integration",
+      "body": "Once the rule picker is visible, return to your project operator before enabling a rule. Choose the first rule from an actual debugging need, keep matching narrow to the intended host/path, and never place project names, private repository paths, account identifiers, API credentials, affiliate identifiers, private hosts, or other project-specific values in shared/public walkthrough data.",
+      "action": {"type": "none"}
+    }
+  ]
+}

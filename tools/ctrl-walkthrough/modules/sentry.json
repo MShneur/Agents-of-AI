@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 2,
+  "id": "sentry",
+  "version": "2026-08-26.2",
+  "title": "Sentry Student / Free",
+  "description": "Claim Sentry through GitHub Education when eligible, keep on-demand billing disabled, create a generic project, and stop before exposing any DSN or auth token in public walkthrough data.",
+  "steps": [
+    {
+      "title": "Open GitHub Student Pack",
+      "body": "Open the GitHub Student Developer Pack and locate Sentry. Confirm the current student entitlement and quotas on the provider page before relying on them.",
+      "action": {"type": "open", "label": "Open GitHub Student Pack", "url": "https://education.github.com/pack"},
+      "humanGate": "GitHub login, student verification, OAuth, CAPTCHA/MFA, terms, or any billing decision require your confirmation. Do not enable paid on-demand usage."
+    },
+    {
+      "title": "Find Sentry",
+      "body": "Use the page search or CTRL Find on page to locate Sentry, then open the Sentry student offer.",
+      "action": {"type": "find", "label": "Find Sentry"},
+      "target": {"text": ["Sentry"]}
+    },
+    {
+      "title": "Redeem or sign in",
+      "body": "Redeem the student entitlement or sign into an existing Sentry account. If the student offer is not granted, stop before purchasing anything; the regular free path can be evaluated separately.",
+      "action": {"type": "none"},
+      "humanGate": "Account creation, OAuth consent, email verification, MFA and terms acceptance are user-controlled."
+    },
+    {
+      "title": "Confirm zero-cost guard",
+      "body": "Confirm the account shows the student entitlement or another explicitly $0 plan and that on-demand billing is disabled. Do not add a payment method for this setup.",
+      "action": {"type": "none"},
+      "humanGate": "If Sentry requests payment or enabling on-demand usage, stop and return to your project operator."
+    },
+    {
+      "title": "Create a project",
+      "body": "Create a Sentry project for the application you are monitoring. Choose the platform that matches the application, such as JavaScript/browser for a public website or React Native for a native mobile app. Use a generic project name in any public walkthrough; project-specific naming belongs in private state or a local handoff.",
+      "action": {"type": "find", "label": "Find Create Project"},
+      "target": {"text": ["Create Project", "Create a Project", "Projects"]}
+    },
+    {
+      "title": "Stop at SDK setup",
+      "body": "When Sentry shows the SDK installation/setup page, stop and return to your project operator. Do not paste DSNs, auth tokens, private repository paths, account identifiers, private hostnames, or project-specific configuration into a public walkthrough, issue, screenshot, or public repository file.",
+      "action": {"type": "none"}
+    }
+  ]
+}
