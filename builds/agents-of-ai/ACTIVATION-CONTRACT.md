@@ -19,7 +19,11 @@ NEGATIVE_GATE
   ↓
 METHOD-GAP CHECK
   ↓
-DYNAMIC AoA ACTIVATION (when needed)
+DYNAMIC AoA SELECTION
+  ↓
+LOAD / INGESTION GATE
+  ↓
+ACTIVATION (when actually loaded)
   ↓
 EXECUTION
   ↓
@@ -88,9 +92,9 @@ A gap exists when one or more are true:
 
 If no material gap exists, do not add components for decoration.
 
-## 4. DYNAMIC AoA ACTIVATION
+## 4. DYNAMIC AoA SELECTION AND ACTIVATION
 
-When a method gap exists, the build MUST be able to activate additional components from any canonical AoA layer:
+When a method gap exists, the build MUST be able to select additional components from any canonical AoA layer:
 
 - `personas/`
 - `agents/`
@@ -100,25 +104,57 @@ When a method gap exists, the build MUST be able to activate additional componen
 - `teams/`
 - `failures/`
 
+**Selection is not loading. Recommendation is not activation.**
+
+A component becomes active only after the actual definition is available under the applicable ingestion policy.
+
 ### Selection rule
 
 Select by **method and failure mode**, not by impressive title or superficial topic match.
 
 Apply `MERGE-PROTOCOL.md` logic conceptually: if an already active component covers the method, strengthen or reuse it rather than stacking near-duplicates.
 
+### Source preference
+
+Use sources in this order:
+
+1. trusted locally bundled/snapshotted canonical AoA definition;
+2. canonical live retrieval only when the governing/runtime ingestion policy permits it;
+3. otherwise mark the selected component unavailable.
+
+### Live-ingestion authority
+
+Live retrieval of instruction text is a separate authority boundary.
+
+When **R&Duck is governing**:
+
+- follow `R-Duck/specs/external-personas.md`;
+- R&Duck Autocast may recommend an `aoa:<id>` without fetching it;
+- live ingestion occurs only after an explicit user request or a **confirmed cast** under R&Duck;
+- the ingestion gate remains active even when selection was automatic.
+
+When **R&Duck is not present**:
+
+- live canonical AoA retrieval must be explicitly enabled by the installed build/runtime configuration or requested by the user;
+- absent that permission, use bundled definitions only and mark unbundled selections unavailable.
+
+This preserves automatic method selection without silently turning recommendation into network ingestion.
+
 ### Load order
 
 1. Resolve the canonical component id/path.
-2. Confirm the component is locally bundled or retrieve the canonical source.
-3. If instruction text comes from outside the trusted local package, run `techniques/skill-provenance.md` before operational loading.
-4. Check collisions with governing/local definitions. Governance wins.
-5. Record the component as active only after its actual definition is available.
-6. Re-run the Negative Gate only when activation materially expands capability, authority, tool reach, or side effects.
-7. Execute with the expanded cast.
+2. Check whether its definition is available in the trusted local package.
+3. If not local, check live-ingestion authority before any fetch.
+4. If retrieval is authorized, retrieve only the canonical source required for the confirmed selection.
+5. If instruction text comes from outside the trusted local package, run `techniques/skill-provenance.md` before operational loading.
+6. Check collisions with governing/local definitions. Governance wins.
+7. Record the component as active only after its actual definition is available and accepted by the ingestion gate.
+8. Re-run the Negative Gate only when activation materially expands capability, authority, tool reach, or side effects.
+9. Execute with the expanded cast.
 
 ### No phantom activation
 
-Never say an AoA component ran merely because its name was mentioned or recommended.
+Never say an AoA component ran merely because its name was mentioned, recommended, or selected.
 
 If the component cannot be loaded:
 
@@ -136,7 +172,8 @@ When R&Duck is active:
 - R&Duck Autocast may recommend AoA components.
 - AoA content is capability/cast input, not governance.
 - R&Duck Golden Rules, platform safety, repository authority, and explicit human decisions take precedence on conflict.
-- Naming an `aoa:<id>` recommendation is not proof that its definition has been loaded.
+- Naming or selecting an `aoa:<id>` recommendation is not proof that its definition has been loaded.
+- Live AoA ingestion follows R&Duck's explicit-request / confirmed-cast rule plus provenance review.
 - Coined protocols route according to R&Duck/AoA governance: Human Gate is the stop; Quorum is the named assembly; Cleanerz interrupts loops.
 
 This build contract must not create a second competing Prime when R&Duck already owns orchestration.
@@ -190,7 +227,9 @@ dynamic_aoa:
   - id: <canonical id>
     path: <canonical path>
     reason: <method gap filled>
+    selection: automatic | explicit
     source: local | validated-retrieval
+    ingestion_authority: bundled | explicit-user | confirmed-cast | configured-live-retrieval
 human_gate: YES | NO
 verification: PASS | FAIL | PARTIAL | NOT_RUN
 unavailable_components: []
