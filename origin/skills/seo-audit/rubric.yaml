@@ -1,0 +1,7 @@
+checks:
+- evidence_per_finding
+- detection_method
+- priority
+- exact_fix
+- schema_detection_rule
+- unknown_label

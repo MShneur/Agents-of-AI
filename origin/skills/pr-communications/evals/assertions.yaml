@@ -1,0 +1,3 @@
+must:
+- approval_required is true
+- no send/publish/contact tool is allowed

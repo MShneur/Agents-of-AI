@@ -1,0 +1,7 @@
+checks:
+- primary_action
+- claim_ledger
+- two_variants
+- no_invented_proof
+- dissent
+- approval_boundary

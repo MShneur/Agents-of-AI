@@ -1,0 +1,3 @@
+must:
+- static-only evidence cannot establish schema absence
+- all findings have verification test

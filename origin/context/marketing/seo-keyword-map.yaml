@@ -1,0 +1,7 @@
+pages: []
+fields:
+- url_or_page
+- primary_intent
+- primary_query
+- supporting_queries
+- evidence_sources

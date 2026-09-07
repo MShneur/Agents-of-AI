@@ -1,0 +1,2 @@
+{"name":"missing proof","input":{"page_type":"homepage","primary_action":"join","audience":"buyers","product_or_offer":"tracker"},"expect":{"unsupported_claims":0}}
+{"name":"claim with evidence","input":{"page_type":"landing","primary_action":"watch","audience":"buyers","product_or_offer":"tracker","proof":["E-1"]},"expect":{"claim_ledger":true}}

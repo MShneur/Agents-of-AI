@@ -1,0 +1,1 @@
+Read-only audit. Never modify production. Observation claims must match tool capability.

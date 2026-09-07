@@ -1,0 +1,1 @@
+{"name":"static schema uncertainty","input":{"site_url_or_crawl_export":"static.html","business_goal":"search","priority_pages_or_topics":["/"]},"evidence":{"method":"static_fetch","schema_seen":false},"expect":{"schema_absence":"UNKNOWN"}}

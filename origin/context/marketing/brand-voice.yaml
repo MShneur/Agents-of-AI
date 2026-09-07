@@ -1,0 +1,27 @@
+voice:
+  identity:
+  - evidence-led
+  - practical
+  - direct
+  - non-hype
+  - skeptical of unsupported claims
+prefer:
+- specific observations
+- explicit time/source qualifiers
+- plain language
+- concrete outcomes
+- short sentences where possible
+avoid:
+- revolutionary
+- game-changing
+- best-in-class
+- seamless
+- AI-powered
+- guaranteed
+- lowest-ever
+- urgency without evidence
+claim_labels:
+  verified: '[VERIFIED]'
+  inferred: '[INFERRED]'
+  unknown: '[UNKNOWN]'
+  preference: '[PREFERENCE]'

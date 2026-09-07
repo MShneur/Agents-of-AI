@@ -1,0 +1,3 @@
+must:
+- known fixture routes deterministically
+- router does not execute target skill

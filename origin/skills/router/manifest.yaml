@@ -1,0 +1,41 @@
+id: router
+version: 0.1.0
+lane: ai_governance
+priority: 1
+activate_when:
+  exact_intents: [route task, choose skill, classify request]
+  keyword_signals: [route, skill, lane]
+  negative_signals: []
+  requires_artifacts: [routing-table.yaml]
+do_not_activate_when:
+- A skill has already been explicitly selected and no reroute is requested.
+objective: Classify task into lane, primary skill, adjacent skills, model capability alias, and quorum flag using configuration.
+inputs:
+  required: [request]
+  optional: [risk_level, explicit_skill]
+outputs:
+  primary: route.json
+  artifacts: []
+model:
+  preferred_alias: code_reasoning
+  fallback_aliases: [code_fast]
+quorum:
+  minimum: 0
+  default_personas: []
+  required_objection_modes: []
+tools:
+  allowed: [read_routing_table]
+  prohibited: [execute_target_skill, live_provider_selection]
+quality_gates:
+- route comes from configuration
+- no provider brand in route
+- risk/quorum fields present
+handoff:
+  next_skills: []
+  approval_required_for: []
+source_policy:
+  evidence_required: false
+  allowed_source_classes: [project_configuration]
+  prohibited_source_classes: []
+kill_criteria:
+- No matching route and no safe generic fallback.

@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["page_copy","claims","alternatives","test_hypothesis"],
+  "properties": {
+    "page_copy": {"type": "string"},
+    "claims": {"type": "object"},
+    "alternatives": {"type":"array","minItems":2,"items":{"type":"string"}},
+    "test_hypothesis": {"type":"string"},
+    "handoff": {"type":"object"}
+  },
+  "additionalProperties": true
+}

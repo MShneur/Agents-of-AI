@@ -1,0 +1,1 @@
+{"$schema":"https://json-schema.org/draft/2020-12/schema","type":"object","required":["request"],"properties":{"request":{"type":"string","minLength":1},"risk_level":{"type":["string","null"]},"explicit_skill":{"type":["string","null"]}},"additionalProperties":false}

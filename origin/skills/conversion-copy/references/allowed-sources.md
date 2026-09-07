@@ -1,0 +1,1 @@
+Approved project context, user-provided proof, verified analytics only.

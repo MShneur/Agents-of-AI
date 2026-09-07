@@ -1,0 +1,1 @@
+Historical B02 intentionally defines only a minimum-safe PR skill; deep PR extraction is deferred.

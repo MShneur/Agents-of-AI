@@ -1,0 +1,37 @@
+routes:
+- match:
+    intents: [build feature, architecture, choose stack, deploy, database, API]
+  primary_skill: system-architecture
+  secondary_skills: [repo-engineering, security-governance]
+  lane: architecture
+  model_alias: code_reasoning
+- match:
+    intents: [write code, refactor, fix bug, review PR, tests]
+  primary_skill: repo-engineering
+  secondary_skills: [debug-triage, security-governance]
+  lane: coding
+  model_alias: code_reasoning
+- match:
+    intents: [website design, UX, wireframe, component, CSS, responsive]
+  primary_skill: ux-design
+  secondary_skills: [design-system, accessibility-audit]
+  lane: ux_design
+  model_alias: design_reasoning
+- match:
+    intents: [homepage copy, landing page, CTA, headline, product description, value proposition]
+  primary_skill: conversion-copy
+  secondary_skills: [positioning, claim-review]
+  lane: marketing
+  model_alias: copy_critical
+- match:
+    intents: [SEO audit, ranking, metadata, schema, sitemap, indexing, crawl]
+  primary_skill: seo-audit
+  secondary_skills: [technical-seo, structured-data]
+  lane: marketing
+  model_alias: research_long
+- match:
+    intents: [press release, launch announcement, media pitch, public statement, community announcement]
+  primary_skill: pr-communications
+  secondary_skills: [claim-review, conversion-copy]
+  lane: pr
+  model_alias: copy_critical

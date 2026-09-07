@@ -1,0 +1,1 @@
+No publication/send/ad-spend. No invented metrics/testimonials/urgency.

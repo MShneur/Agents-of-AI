@@ -1,0 +1,1 @@
+{"$schema":"https://json-schema.org/draft/2020-12/schema","type":"object","required":["communication_type","audience","objective","approved_facts"],"properties":{"communication_type":{"type":"string"},"audience":{"type":"string"},"objective":{"type":"string"},"approved_facts":{"type":"array","minItems":1,"items":{"type":"object"}}},"additionalProperties":true}

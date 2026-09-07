@@ -1,0 +1,1 @@
+{"name":"draft requires approval","input":{"communication_type":"launch","audience":"community","objective":"announce","approved_facts":[{"id":"F1","text":"Origin exists"}]},"expect":{"approval_required":true}}
