@@ -1,0 +1,49 @@
+version: "0.1.0"
+
+states:
+  intake:
+    next: [needs_input, preflight]
+  needs_input:
+    next: [preflight, rejected]
+  preflight:
+    required: [prebuilt_cast_status, negative_gate]
+    next: [classified, human_gate, rejected]
+  classified:
+    required: [lane, risk_level, deliverable_type]
+    next: [aoa_method_gap]
+  aoa_method_gap:
+    next: [ingestion_gate, capability_routed, human_gate]
+  ingestion_gate:
+    next: [capability_routed, component_unavailable, human_gate]
+  component_unavailable:
+    next: [capability_routed, human_gate, rejected]
+  capability_routed:
+    required: [capability_id]
+    next: [quorum_selected, execution_plan]
+  quorum_selected:
+    next: [dissent_review]
+  dissent_review:
+    next: [evidence_gap, execution_plan, human_gate, rejected]
+  evidence_gap:
+    next: [research_task, needs_input, execution_plan, human_gate]
+  research_task:
+    next: [evidence_gap, execution_plan, blocked]
+  execution_plan:
+    required: [acceptance_checks, kill_criteria]
+    next: [execution, human_gate]
+  execution:
+    next: [validation, blocked, human_gate]
+  validation:
+    next: [accepted, revision_needed, rejected]
+  revision_needed:
+    next: [execution_plan, execution, rejected]
+  blocked:
+    next: [execution_plan, needs_input, human_gate, rejected]
+  human_gate:
+    next: [execution_plan, accepted, rejected]
+  accepted:
+    next: [archived]
+  rejected:
+    next: [archived]
+  archived:
+    next: []

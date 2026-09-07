@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Origin Model Request",
+  "type": "object",
+  "required": ["task_id", "capability_id", "risk_level", "data_classes"],
+  "properties": {
+    "task_id": {"type": "string", "minLength": 1},
+    "capability_id": {"type": "string", "minLength": 1},
+    "risk_level": {"enum": ["R0", "R1", "R2", "R3", "R4"]},
+    "data_classes": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "required_properties": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "semantic_sensitivity": {"type": "boolean", "default": false}
+  },
+  "additionalProperties": false
+}

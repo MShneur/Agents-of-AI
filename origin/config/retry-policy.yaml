@@ -1,0 +1,18 @@
+version: "0.1.0"
+
+retry:
+  max_attempts: 2
+  allowed_reasons:
+    - provider_timeout
+    - provider_rate_limit
+    - transient_network_failure
+    - provider_unavailable
+  never_retry_without_new_review:
+    - public_factual_claim_semantic_change
+    - pricing_or_availability_semantic_change
+    - legal_or_compliance_semantic_change
+    - security_sensitive_code_change
+
+structured_output:
+  repair_attempts: 1
+  after_failure: quarantine

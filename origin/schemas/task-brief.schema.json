@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Origin Task Brief",
+  "type": "object",
+  "required": ["task_id", "objective", "deliverable", "risk_level", "external_action_requested"],
+  "properties": {
+    "task_id": {"type": "string", "minLength": 1},
+    "objective": {"type": "string", "minLength": 1},
+    "deliverable": {"type": "string", "minLength": 1},
+    "lane": {"type": ["string", "null"]},
+    "risk_level": {"enum": ["R0", "R1", "R2", "R3", "R4"]},
+    "external_action_requested": {"type": "boolean"},
+    "constraints": {"type": "array", "items": {"type": "string"}},
+    "provided_artifacts": {"type": "array", "items": {"type": "string"}},
+    "missing_inputs": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": false
+}

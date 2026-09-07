@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Origin Task Trace",
+  "type": "object",
+  "required": ["trace_id", "task_id", "timestamp", "routing", "execution", "quality", "outcome"],
+  "properties": {
+    "trace_id": {"type": "string"},
+    "task_id": {"type": "string"},
+    "project_id": {"type": ["string", "null"]},
+    "timestamp": {"type": "string", "format": "date-time"},
+    "routing": {"type": "object"},
+    "quorum": {"type": "object"},
+    "inputs": {"type": "object"},
+    "execution": {"type": "object"},
+    "quality": {"type": "object"},
+    "outcome": {"type": "object"},
+    "redactions": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Origin Task State",
+  "type": "object",
+  "required": ["task_id", "state", "updated_at"],
+  "properties": {
+    "task_id": {"type": "string"},
+    "state": {"type": "string"},
+    "updated_at": {"type": "string", "format": "date-time"},
+    "state_data": {"type": "object"},
+    "history": {"type": "array", "items": {"type": "object"}}
+  },
+  "additionalProperties": false
+}
