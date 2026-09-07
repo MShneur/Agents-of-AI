@@ -21,7 +21,7 @@ The canonical library remains:
 
 1. **Custom GPT build** — a ChatGPT GPT configuration package for eligible surfaces.
 2. **Agent build** — a runtime-oriented agent package, with OpenAI Agents SDK as the first concrete implementation target while keeping the behavioral contract portable.
-3. **Skills** — reusable `SKILL.md` workflows that expose Agents-of-AI behaviors without turning skills into a new AoA library layer.
+3. **Skills** — reusable deployment workflows that expose Agents-of-AI behaviors without turning skills into a new AoA library layer.
 
 ## Governing relationship
 
@@ -122,26 +122,32 @@ These people did **not** participate in or endorse this project. Their published
 | Adversary | Simon Willison | Johann Rehberger | Prompt-injection/tool-risk boundaries, confused-deputy and side-effect controls |
 | Affected-user fit | Indi Young | Erika Hall | Start from user purpose/problem space and research questions, not tool-first implementation |
 
-Foundation sources were re-retrieved on 2026-09-07. The final line-by-line build should re-source any practitioner method that becomes load-bearing to a consequential decision.
+Foundation sources were re-retrieved on 2026-09-07 and are recorded in `EXPERT-METHOD-SOURCES.md`. The final line-by-line build must re-source any practitioner method that becomes load-bearing to a consequential decision rather than treating this foundation list as a permanent quorum.
 
 ## Current OpenAI surface notes
 
 Verified 2026-09-07 against current OpenAI documentation:
 
-- GPTs combine instructions, knowledge, and capabilities; new GPT creation is currently limited by account/workspace eligibility.
+- GPTs combine instructions, knowledge, conversation starters, and selected capabilities/integrations; new GPT creation/publishing is currently unavailable on personal Free, Go, Plus, and Pro accounts and depends on permissions in eligible managed workspaces.
 - GPT Actions connect a GPT to external APIs; a GPT can use apps or actions, but not both simultaneously.
 - OpenAI Agents SDK agents combine instructions, tools, optional handoffs, guardrails, and structured output.
 - Manager-style agents-as-tools and handoffs are distinct orchestration patterns.
-- Agent input/output guardrails do not automatically protect every downstream tool call; tool guardrails are the right boundary for custom function tools.
-- Skills are reusable workflows commonly packaged around a `SKILL.md` file plus supporting resources, and are supported across eligible ChatGPT surfaces, Codex, and the API with surface-dependent availability.
+- Agent input/output guardrails are not a substitute for checking side-effectful custom tools at their own call boundary.
+- Skills are reusable workflows that may include instructions, examples, code, and supporting resources; availability and installation behavior vary by product/workspace.
 
-Implementation docs in this directory must keep these product facts dated because they can change independently of the AoA library.
+Implementation docs in this directory keep these product facts dated because they can change independently of the AoA library.
 
 ## Files
 
-- `ADR-0001-build-surface-not-eighth-layer.md` — architecture decision and dissent.
-- `ACTIVATION-CONTRACT.md` — pre-built cast + Negative Gate + dynamic AoA activation contract.
+- `ADR-0001-build-surface-not-eighth-layer.md` — architecture decision, alternatives, dissent, and revisit triggers.
+- `ACTIVATION-CONTRACT.md` — pre-built cast + Negative Gate + method-gap detection + dynamic AoA activation.
 - `SOURCE-OUTLINE-BATCH-PROTOCOL.md` — line-by-line batch review method.
-- `custom-gpt/BUILD.md` — Custom GPT package.
-- `agent/BUILD.md` — agent runtime package.
-- `skills/` — deployment skills, not an AoA composable layer.
+- `EXPERT-METHOD-SOURCES.md` — retrieved foundation practitioner-method sources and non-endorsement boundary.
+- `EVALS.md` — shared acceptance matrix and decorrelated-verification contract.
+- `batches/B00-FOUNDATION.md` — foundation decisions, dissent, verification, and explicit NOT RUN items.
+- `custom-gpt/BUILD.md` — Custom GPT target architecture.
+- `agent/BUILD.md` — agent runtime target architecture.
+- `skills/README.md` — deployment-skill boundary and packaging rules.
+- `skills/aoa-autocast/SKILL.md` — dynamic AoA activation beyond the pre-built cast.
+- `skills/negative-gate/SKILL.md` — provisional Negative Gate behavior contract pending historical wording.
+- `skills/source-outline-batcher/SKILL.md` — bounded line-by-line reconciliation workflow.
