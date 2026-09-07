@@ -1,19 +1,30 @@
 # Agents of AI
 
-**The open library of personas, agents, workflows, techniques, modes, teams, and failures for any AI.**
+**The open AI substrate: personas, agents, workflows, techniques, modes, teams, failures, skills, protocols, and reusable runtime primitives for any AI.**
 
-> You don't need a new framework. You need the right cast.
+> You don't need another monolith. You need the right capability, loaded at the right boundary.
 
-**Current public snapshot:** `2026.08.21` · **85 composable entries** across seven layers · actively maintained supporting tools/API shelf.  
+**Current public snapshot:** `2026.08.21` · **85 composable entries** across seven reasoning layers · actively maintained supporting tools/API shelf.  
 See [`VERSIONING.md`](VERSIONING.md) for snapshot rules and [`CHANGELOG.md`](CHANGELOG.md) for material changes.
+
+### Ecosystem router
+
+```text
+CTRL-AI       = GOVERNOR  — policy, evidence standards, choices, gates
+R&Duck        = AUTOPILOT — project Prime, dispatch, execution, continuation, completion
+Agents of AI  = SUBSTRATE — reusable expertise, methods, skills, protocols, adapters, runtime primitives
+Origin        = R&D LAB   — a section inside Agents of AI; detailed build waits for its source outline
+```
+
+AI agents should start at [`AGENTS.md`](AGENTS.md). Cross-repo responsibility rules live in [`ECOSYSTEM.md`](ECOSYSTEM.md).
 
 ---
 
 ## What This Is
 
-Agents of AI is a community-driven library of reusable AI components. Not a governance framework. Not an agent runtime. Not another "awesome list" of links. It's the actual files — drop them into any AI system and they work.
+Agents of AI is a community-driven **capability substrate** for AI systems. It is not the top-level governance authority and it is not the project autopilot. Its job is to hold the reusable expertise, methods, packaging, protocol knowledge, adapters, and technical primitives that those systems can load.
 
-Seven layers, kept separate:
+The reasoning library has seven composable layers, kept separate:
 
 | Layer | What it is | Example |
 |---|---|---|
@@ -25,9 +36,12 @@ Seven layers, kept separate:
 | **Teams** | *Pre-composed departments* — multiple seats with a disagreement protocol. | Buildhouse: implementation, debugging, verification, security, and structure seats. |
 | **Failures** | *What goes wrong* — a named failure mode with the signal that reveals it and the fix that closes it. | Silent completion: the step failed, the run continued, the report is confident. |
 
-**None of this is governance.** Governance belongs in your own system (like [CTRL-AI](https://github.com/MShneur/CTRL-AI) or [R-Duck](https://github.com/MShneur/R-Duck)). This library is what governance systems *load* — the cast, not the constitution.
+**Governance belongs to CTRL-AI when CTRL-AI is active. Project autopilot belongs to R&Duck when R&Duck is active.** Agents of AI supplies what they load rather than competing to become another Prime or constitution.
 
-The repo also has a **supporting tools shelf** for public software recommendations, APIs, free/student capability notes, setup walkthroughs, and reusable infrastructure patterns. It is not an eighth composable layer. Start at [`TOOLS.md`](TOOLS.md) or [`tools/README.md`](tools/README.md).
+The repo also has two non-composable supporting surfaces:
+
+- [`substrate/`](SUBSTRATE.md) — context, memory, execution, protocols, sensors, adapters, skills, evaluation, research, and other reusable runtime/capability contracts. It is **not an eighth reasoning layer**.
+- [`tools/`](TOOLS.md) — public software recommendations, APIs, setup walkthroughs, and reusable infrastructure notes.
 
 ## Why It Exists
 
@@ -35,14 +49,16 @@ Every "AI workflow" product is the same thing: a PRD wrapped around some persona
 
 Every custom GPT has a persona inside it. Most are never shared. The good ones stay locked in one person's ChatGPT account.
 
-This library extracts them, makes them portable, and makes them free. Use them with ChatGPT, Claude, Gemini, DeepSeek, Grok, LLaMA, Mistral — anything that reads text.
+The same problem now exists below the prompt: useful agent skills, protocol mappings, context strategies, execution boundaries, adapters, and evaluation patterns get trapped inside one product or harness. Agents of AI extracts the reusable method and contract, keeps provenance, and makes it portable.
+
+Use it with ChatGPT, Claude, Gemini, DeepSeek, Grok, LLaMA, Mistral — anything that can consume the relevant text, skill, protocol, or adapter contract.
 
 ## How to Use
 
 ### Quickest path
-1. Browse `personas/`, `agents/`, `workflows/`, or another layer.
-2. Copy the file content.
-3. Paste it into your AI's system prompt, custom instructions, or project knowledge.
+1. Browse `personas/`, `agents/`, `workflows/`, or another reasoning layer.
+2. Copy/load the entry your task needs.
+3. Paste it into your AI's system prompt, custom instructions, or project knowledge — or let a compatible orchestrator load it.
 4. Done.
 
 ### As a reference in your own system
@@ -50,7 +66,11 @@ This library extracts them, makes them portable, and makes them free. Use them w
 Load persona: personas/framesmith.md
 Load agent: agents/auditor.md
 ```
-Your governance framework handles the loading. This library just holds the files.
+Your governance/orchestration system handles the loading. This library holds the reusable capability.
+
+### For runtime / agent-system foundations
+
+Start at [`SUBSTRATE.md`](SUBSTRATE.md). It routes to provider-neutral contracts for capability seams, durable event history, context/memory, safe execution, protocols, sensors, adapters, trajectory evals, skills, and source distillation.
 
 ### For software, APIs, or setup help
 
@@ -59,13 +79,20 @@ Your governance framework handles the loading. This library just holds the files
 - [`tools/free-tool-ledger.md`](tools/free-tool-ledger.md) — public free/student quotas and caveats.
 - **[Control Walkthrough](https://github.com/MShneur/Ctrl-Walkthrough)** — standalone novice-first setup automation; the old [`tools/ctrl-walkthrough/`](tools/ctrl-walkthrough/) folder remains as a migration bridge for existing installs.
 
-### In CTRL-AI or R-Duck
-Both frameworks can reference this library. Personas and agents load on-demand through the composition engine. See each framework's documentation for integration details.
+### In CTRL-AI or R&Duck
+
+- CTRL-AI may load AoA reviewers/methods while retaining governance responsibility.
+- R&Duck may load AoA workers, workflows, skills, and substrate capabilities while retaining Prime/project responsibility.
+- Neither should copy AoA definitions into a competing local canon when a reference/load will do.
+
+See [`ECOSYSTEM.md`](ECOSYSTEM.md) for the collision rule.
 
 ## Structure
 
 ```text
 Agents-of-AI/
+├── AGENTS.md          # AI entrypoint + routing boundary
+├── ECOSYSTEM.md       # CTRL-AI / R&Duck / AoA ownership map
 ├── personas/          # Voice + reasoning signatures (who)
 ├── agents/            # Operational methods + protocols (how)
 ├── workflows/         # Repeatable step sequences (the plan)
@@ -73,8 +100,10 @@ Agents-of-AI/
 ├── modes/             # Runtime stances for task classes (switched on/off)
 ├── teams/             # Pre-composed departments with built-in dissent
 ├── failures/          # Named failure modes, signals, and closing fixes
+├── substrate/         # Non-composable runtime/capability contracts + R&D foundations
 ├── tools/             # Public software/API/setup supporting shelf
 ├── schema/            # Entry format specifications
+├── SUBSTRATE.md       # Substrate router
 ├── TOOLS.md           # Tools shelf router
 ├── CHANGELOG.md       # Material public changes
 ├── VERSIONING.md      # Snapshot + component version rules
@@ -223,9 +252,9 @@ Never submit credentials, personal account state, private repositories/infrastru
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for the full guide. The short version:
 
-1. **Fork and add.** One file per composable entry, or contribute to the supporting tools shelf.
-2. **Use the right shape.** Composable entries use `schema/`; tools use the formats in `TOOLS.md` and `tools/README.md`.
-3. **Tag confidence / verify freshness.** Be honest about what is tested; date time-sensitive tool claims.
+1. **Fork and add.** One file per composable entry, or contribute to the supporting substrate/tools shelves.
+2. **Use the right shape.** Composable entries use `schema/`; substrate contracts start at `SUBSTRATE.md`; tools use the formats in `TOOLS.md` and `tools/README.md`.
+3. **Tag confidence / verify freshness.** Be honest about what is tested; date time-sensitive protocol/tool claims.
 4. **Run drift checks.** When entries change, run `python3 scripts/sync-roster.py --check` locally when possible and update the curated README if needed.
 5. **PR it.** Community contributions are reviewed before becoming trusted library content.
 
@@ -234,14 +263,17 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for the full guide. The short version:
 - An agent protocol you've refined through real usage
 - A workflow that replaces something people currently pay for
 - A distinctive technique, mode, team, or failure pattern
+- A provider-neutral substrate contract that improves how agents run without duplicating governance/autopilot
 - A software/API recommendation with official evidence and a clear use case
 - A public-safe setup walkthrough that saves people from rediscovering the same provider UI path
 
 ### What we don't want
-- Governance rules inside the seven composable layers (those belong in CTRL-AI or your own system)
-- Prompt injection payloads disguised as personas
+- Governance rules inside the seven composable layers or substrate (policy belongs in CTRL-AI or the consuming system)
+- Project-autopilot duplication that belongs in R&Duck
+- Prompt injection payloads disguised as personas/skills
 - Low-effort "You are a helpful X" one-liners
 - Copies of other people's paid products
+- Renamed copies of open-source implementations presented as independent work
 - Secrets, personal account state, private infrastructure, or stale/guessed quotas in public tooling docs
 
 ## Community
@@ -249,16 +281,18 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for the full guide. The short version:
 We're building a community around this. Places to connect:
 
 - **GitHub Issues** — bug reports, feature requests, discussions, and tool/API recommendations
-- **Pull Requests** — contribute library entries, tools documentation, APIs, and walkthroughs
+- **Pull Requests** — contribute library entries, substrate contracts, tools documentation, APIs, and walkthroughs
 - *(Reddit community coming soon)*
 
 ## Philosophy
 
 - **Agreement is not success.** The best personas include what they're *allergic to* — what they refuse to do.
 - **Named inspirations are references, not costumes.** Extract the reasoning pattern; the AI never pretends to be that person.
+- **Method before branding.** Origin and substrate work preserve the underlying mechanism and provenance rather than cloning a product's surface.
 - **Portable over powerful.** A component that works in one AI and breaks in another is a poor library component.
+- **Replaceability over lock-in.** Depend on capability contracts when a provider can change.
 - **Evidence tags matter.** `[VERIFIED]`, `[PRACTICE]`, `[SPECULATIVE]` — know what you're getting.
-- **Current beats remembered.** Live files beat hand-maintained counts; current provider docs beat remembered quotas.
+- **Current beats remembered.** Live files beat hand-maintained counts; current provider/protocol docs beat remembered APIs.
 - **Community contributions don't smuggle governance or private state.** Public reusable components stay portable and safe to share.
 
 ## The AI Duct Tape Collection
@@ -268,9 +302,9 @@ The future showed up early and forgot the manual. Everything's brilliant, nothin
 They work on their own. Use one, or tape a few together:
 
 - **[CTRL-FORGE](https://github.com/MShneur/ctrl-forge)** — Your AI forgot everything. Again. This is the repo that didn't.
-- **[CTRL-AI](https://github.com/MShneur/CTRL-AI)** — Teaches your AI to say "I'm not sure" instead of confidently inventing a citation.
-- **[R-Duck](https://github.com/MShneur/R-Duck)** — Autopilot. You mumble an idea, it hands back a plan with a straight face.
-- **[Agents of AI](https://github.com/MShneur/Agents-of-AI)** *(this repo)* — A cast of specialists. No coffee, no PTO, no LinkedIn updates.
+- **[CTRL-AI](https://github.com/MShneur/CTRL-AI)** — Governor: evidence, uncertainty, choices, and consequence gates.
+- **[R-Duck](https://github.com/MShneur/R-Duck)** — Autopilot: you describe the project; it plans, dispatches, executes, verifies, and continues.
+- **[Agents of AI](https://github.com/MShneur/Agents-of-AI)** *(this repo)* — Substrate: the reusable cast, methods, skills, protocols, adapters, and runtime primitives underneath the work.
 - **[Ghost in the Loop](https://github.com/MShneur/ghost-in-the-loop)** — Moves work between AIs without dropping it down the stairs. Full chat export, handoffs.
 - **[Control Walkthrough](https://github.com/MShneur/Ctrl-Walkthrough)** — The hands. It finds the page, clicks the safe buttons, fills the boring fields, verifies the result, and gets out of the way.
 
