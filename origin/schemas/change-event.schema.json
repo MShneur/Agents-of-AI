@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "event_id",
+    "event_type",
+    "offer_id",
+    "observed_at",
+    "previous_evidence_id",
+    "current_evidence_id",
+    "before",
+    "after",
+    "dedupe_key"
+  ],
+  "properties": {
+    "event_id": {
+      "type": "string"
+    },
+    "event_type": {
+      "enum": [
+        "price_drop",
+        "price_increase",
+        "restock",
+        "out_of_stock",
+        "availability_change",
+        "content_change",
+        "conflict",
+        "stale"
+      ]
+    },
+    "offer_id": {
+      "type": "string"
+    },
+    "observed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "previous_evidence_id": {
+      "type": "string"
+    },
+    "current_evidence_id": {
+      "type": "string"
+    },
+    "before": {},
+    "after": {},
+    "dedupe_key": {
+      "type": "string"
+    }
+  }
+}

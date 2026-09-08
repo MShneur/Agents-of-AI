@@ -18,6 +18,24 @@ routes:
   lane: ux_design
   model_alias: design_reasoning
 - match:
+    intents: [monitor product, price history, price drop, restock, change alert, watch URL]
+  primary_skill: change-monitoring
+  secondary_skills: [source-extraction, evidence-research]
+  lane: data_scraping
+  model_alias: extract_json
+- match:
+    intents: [scrape source, extract product data, build scraper, parse retailer page, source onboarding, retailer product data]
+  primary_skill: source-extraction
+  secondary_skills: [evidence-research, entity-resolution]
+  lane: data_scraping
+  model_alias: extract_json
+- match:
+    intents: [research source, investigate claim, verify evidence, source check, investigate and verify]
+  primary_skill: evidence-research
+  secondary_skills: [claim-review, source-extraction]
+  lane: research
+  model_alias: research_long
+- match:
     intents: [homepage copy, landing page, CTA, headline, product description, value proposition]
   primary_skill: conversion-copy
   secondary_skills: [positioning, claim-review]

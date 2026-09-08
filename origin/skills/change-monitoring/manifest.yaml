@@ -1,0 +1,28 @@
+id: change-monitoring
+version: 0.1.0
+lane: data_scraping
+priority: 1
+activate_when:
+  exact_intents: [monitor product, price history, price drop, restock, change alert, watch URL]
+  keyword_signals: [change, history, monitor, drop, watch, price, product, alert, restock]
+objective: Operate bounded repeated observations with snapshot-per-check, semantic change events, freshness SLOs, dedupe, suppression rules, and user preference gates.
+inputs:
+  required: [approved_source_id, target_url_or_offer_id, semantic_fields_to_watch, check_schedule]
+  optional: [alert_thresholds, user_preferences, known_variants, comparison_window]
+outputs:
+  primary: watch-config.yaml
+  artifacts: [observation-series.jsonl, change-event.json, alert-decision.json, price-history.json, suppression-log.json]
+model:
+  preferred_alias: extract_json
+  fallback_aliases: [code_reasoning]
+quorum:
+  minimum: 5
+  method_quorum_doc: origin/EXPERT-METHOD-SOURCES-B05.md
+  historical_personas_are_provenance_only: true
+tools:
+  allowed: [inspect_source_policy, fetch_public_page, extract_json_ld, extract_microdata, parse_semantic_html, browser_render_if_approved, validate_schema, store_snapshot, query_evidence_store, run_fixture_test]
+  prohibited: [credential_use, captcha_bypass, access_control_bypass, proxy_evasion, automated_checkout, account_creation, unrestricted_crawl]
+quality_gates: [semantic_field_defined, snapshot_per_observation, variant_bound, duplicate_event_protection, freshness_slo_defined, alert_policy_defined, stale_state_defined]
+handoff:
+  approval_required_for: [source_activation, rate_policy_change, public_claim_from_new_source]
+kill_criteria: [parser_confidence_below_threshold, source_policy_change, repeated_challenge_or_login, semantic_field_unstable, observation_identity_conflict]

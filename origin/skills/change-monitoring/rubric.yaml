@@ -1,0 +1,14 @@
+pass_requires:
+- semantic_field_defined
+- snapshot_per_observation
+- variant_bound
+- duplicate_event_protection
+- freshness_slo_defined
+- alert_policy_defined
+- stale_state_defined
+fail_if:
+- parser_confidence_below_threshold
+- source_policy_change
+- repeated_challenge_or_login
+- semantic_field_unstable
+- observation_identity_conflict

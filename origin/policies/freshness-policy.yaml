@@ -1,0 +1,12 @@
+states:
+- fresh
+- aging
+- stale
+- unknown
+default_slo_minutes: 120
+aging_fraction: 0.75
+rules:
+- observed_at is event time
+- retrieved_at is processing time
+- missing observed_at => unknown
+- stale observations cannot be labeled current

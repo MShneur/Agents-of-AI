@@ -1,0 +1,3 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema","type":"object","required":["snapshot_id","source_id","source_url","retrieved_at","content_hash","content_bytes","content_type","storage_ref"],"properties":{"snapshot_id":{"type":"string"},"source_id":{"type":"string"},"source_url":{"type":"string","format":"uri"},"retrieved_at":{"type":"string","format":"date-time"},"content_hash":{"type":"string","pattern":"^[0-9a-f]{64}$"},"content_bytes":{"type":"integer","minimum":0},"content_type":{"type":"string"},"storage_ref":{"type":"string"},"redactions":{"type":"array","items":{"type":"string"}}}
+}

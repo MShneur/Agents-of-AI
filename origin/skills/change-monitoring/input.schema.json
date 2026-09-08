@@ -1,0 +1,3 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema","type":"object","required":["approved_source_id","target_url_or_offer_id","semantic_fields_to_watch","check_schedule"],"properties":{"approved_source_id":{},"target_url_or_offer_id":{},"semantic_fields_to_watch":{},"check_schedule":{},"alert_thresholds":{},"user_preferences":{},"known_variants":{},"comparison_window":{}}
+}

@@ -1,0 +1,28 @@
+id: evidence-research
+version: 0.1.0
+lane: research
+priority: 1
+activate_when:
+  exact_intents: [research source, investigate claim, verify evidence, source check]
+  keyword_signals: [investigate, verify, research, evidence, check, claim, source]
+objective: Answer factual questions from stored/admitted evidence, not model memory; every supported claim points to evidence IDs and unresolved conflicts stay unresolved.
+inputs:
+  required: [question]
+  optional: [candidate_sources, time_range, prior_evidence_ids]
+outputs:
+  primary: research-brief.json
+  artifacts: [claim-ledger.json, evidence-index.json, dissent-ledger.json]
+model:
+  preferred_alias: research_long
+  fallback_aliases: [extract_json]
+quorum:
+  minimum: 5
+  method_quorum_doc: origin/EXPERT-METHOD-SOURCES-B05.md
+  historical_personas_are_provenance_only: true
+tools:
+  allowed: [inspect_source_policy, fetch_public_page, extract_json_ld, extract_microdata, parse_semantic_html, browser_render_if_approved, validate_schema, store_snapshot, query_evidence_store, run_fixture_test]
+  prohibited: [credential_use, captcha_bypass, access_control_bypass, proxy_evasion, automated_checkout, account_creation, unrestricted_crawl]
+quality_gates: [every_claim_has_evidence_id, unknowns_explicit, conflicts_preserved, source_policy_respected, evidence_replay_passes]
+handoff:
+  approval_required_for: [source_activation, rate_policy_change, public_claim_from_new_source]
+kill_criteria: [all_sources_blocked, evidence_integrity_failure, claim_cannot_be_replayed]

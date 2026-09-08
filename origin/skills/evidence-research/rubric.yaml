@@ -1,0 +1,10 @@
+pass_requires:
+- every_claim_has_evidence_id
+- unknowns_explicit
+- conflicts_preserved
+- source_policy_respected
+- evidence_replay_passes
+fail_if:
+- all_sources_blocked
+- evidence_integrity_failure
+- claim_cannot_be_replayed

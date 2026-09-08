@@ -1,0 +1,28 @@
+id: source-extraction
+version: 0.1.0
+lane: data_scraping
+priority: 1
+activate_when:
+  exact_intents: [extract product data, scrape source, build scraper, parse retailer page, source onboarding]
+  keyword_signals: [page, extract, product, data, retailer, scraper, onboarding, source, parse, scrape, build]
+objective: Produce a permitted, reproducible, schema-validated extraction plan/result with source-policy state, snapshot, field provenance, identity risk and bounded failure handling.
+inputs:
+  required: [source_url_or_source_id, extraction_goal]
+  optional: [required_fields, sample_pages, source_policy_record, canonical_schema, rate_constraints]
+outputs:
+  primary: extraction-plan.yaml
+  artifacts: [source-admission-report.yaml, field-mapping.yaml, evidence-record.json, parser-fixtures.jsonl, extraction-test-report.json]
+model:
+  preferred_alias: extract_json
+  fallback_aliases: [code_reasoning]
+quorum:
+  minimum: 5
+  method_quorum_doc: origin/EXPERT-METHOD-SOURCES-B05.md
+  historical_personas_are_provenance_only: true
+tools:
+  allowed: [inspect_source_policy, fetch_public_page, extract_json_ld, extract_microdata, parse_semantic_html, browser_render_if_approved, validate_schema, store_snapshot, query_evidence_store, run_fixture_test]
+  prohibited: [credential_use, captcha_bypass, access_control_bypass, proxy_evasion, automated_checkout, account_creation, unrestricted_crawl]
+quality_gates: [source_admitted, extraction_method_ranked, evidence_snapshot_stored, field_provenance_present, schema_validation_passes, product_variant_rule_defined, source_rate_policy_defined, parser_fixture_exists, failure_classification_defined]
+handoff:
+  approval_required_for: [source_activation, rate_policy_change, public_claim_from_new_source]
+kill_criteria: [source_policy_rejected, access_challenge_or_login, identity_unresolved, schema_below_threshold, source_health_slo_failed]

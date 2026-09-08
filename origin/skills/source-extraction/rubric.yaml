@@ -1,0 +1,16 @@
+pass_requires:
+- source_admitted
+- extraction_method_ranked
+- evidence_snapshot_stored
+- field_provenance_present
+- schema_validation_passes
+- product_variant_rule_defined
+- source_rate_policy_defined
+- parser_fixture_exists
+- failure_classification_defined
+fail_if:
+- source_policy_rejected
+- access_challenge_or_login
+- identity_unresolved
+- schema_below_threshold
+- source_health_slo_failed

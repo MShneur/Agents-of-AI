@@ -1,0 +1,23 @@
+default:
+  max_concurrency_per_source: 2
+  timeout_seconds: 30
+  max_attempts: 3
+  backoff: exponential_jitter
+  dead_letter_queue: true
+  idempotency_required: true
+  circuit_breaker:
+    failure_threshold: 5
+    cooldown_seconds: 900
+kills:
+- login_required
+- captcha_or_access_challenge
+- policy_rejected
+- repeated_403_or_429
+- identity_conflict
+- parser_confidence_below_threshold
+prohibited:
+- unbounded_crawl
+- proxy_evasion
+- credential_use
+- captcha_bypass
+- retry_forever
