@@ -1,0 +1,8 @@
+id: growth-lifecycle
+version: 0.8.0
+status: draft
+lane: marketing_seo
+objective: Design user-triggered lifecycle messaging with frequency caps and holdout tests.
+model: {preferred_alias: copy_critical}
+permissions: {external_actions_require_approval: true}
+quality_gates: [user_trigger_defined, frequency_cap_defined, holdout_test_defined]

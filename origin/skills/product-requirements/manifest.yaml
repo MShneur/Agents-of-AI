@@ -1,0 +1,8 @@
+id: product-requirements
+version: 0.8.0
+status: draft
+lane: strategy
+objective: Convert a bounded product problem into PRD, user stories and acceptance criteria.
+model: {preferred_alias: research_long}
+permissions: {external_actions_require_approval: true}
+quality_gates: [user_job_defined, acceptance_criteria_defined, unknowns_preserved]

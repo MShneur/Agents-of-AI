@@ -1,0 +1,82 @@
+version: 0.8.0
+provider_names_are_runtime_data: true
+aliases:
+  code_reasoning:
+    required_capabilities:
+    - repository_reasoning
+    - structured_output
+    - long_context
+    quality_gates:
+    - code_eval_pass
+    - scope_eval_pass
+    - no_secret_leak
+    forbidden_for:
+    - direct_production_deploy
+    - raw_secret_context
+  code_fast:
+    required_capabilities:
+    - fast_instruction_following
+    - test_generation
+    allowed_tasks:
+    - boilerplate
+    - small_refactor
+    - test_draft
+    forbidden_for:
+    - security_architecture
+    - unreviewed_database_migration
+  extract_json:
+    required_capabilities:
+    - strict_json
+    - schema_adherence
+    - extraction
+    quality_gates:
+    - schema_validity_ge_0_98
+    - evidence_fidelity_ge_0_99
+    failure_action: quarantine_record
+  research_long:
+    required_capabilities:
+    - multi_source_synthesis
+    - source_separation
+    - long_context
+    quality_gates:
+    - claim_ledger_valid
+    - unknowns_preserved
+  copy_critical:
+    required_capabilities:
+    - controlled_copy
+    - claim_restraint
+    - rewrite
+    quality_gates:
+    - no_invented_fact
+    - claim_ledger_valid
+    - clarity_pass
+  copy_fast:
+    required_capabilities:
+    - fast_variation_generation
+    restrictions:
+    - output_is_draft_only
+    - claim_review_required
+  design_reasoning:
+    required_capabilities:
+    - ui_specification
+    - component_reasoning
+    - state_modeling
+    quality_gates:
+    - state_matrix_complete
+    - data_contract_present
+    - accessibility_requirements_present
+  security_review:
+    required_capabilities:
+    - threat_modeling
+    - adversarial_reasoning
+    - policy_compliance
+    quality_gates:
+    - injection_fixture_pass
+    - tool_scope_fixture_pass
+  vision_review:
+    required_capabilities:
+    - screenshot_analysis
+    - visual_diff_review
+    restrictions:
+    - cannot_approve_accessibility_alone
+canonical_policy: origin/policies/model-routing.yaml

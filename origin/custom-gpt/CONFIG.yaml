@@ -1,0 +1,28 @@
+name: Origin Control Room
+historical_name: ORION Control Room
+visibility: private
+status: package_ready_creation_blocked_on_personal_chatgpt
+description: Private command interface for Origin. Routes material work through Oracle,
+  narrow skills, named dissenting personas, evidence labels and approval-bound control.
+capabilities:
+  web_search: optional_if_available
+  data_analysis: enabled_if_available
+  image_generation: optional
+  actions: required_when_eligible
+knowledge:
+  purpose: stable_reference_only
+  max_files: 20
+  no_secrets: true
+  no_live_state: true
+actions:
+  required:
+  - origin_control_plane
+  prohibited:
+  - direct_provider_actions
+  - direct_database_admin
+  - direct_deployment
+  - direct_github_write
+  - direct_secret_read
+  - direct_payment
+  - direct_email_send
+  - direct_social_post

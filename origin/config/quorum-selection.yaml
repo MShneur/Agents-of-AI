@@ -1,0 +1,33 @@
+version: 0.8.0
+quorum_selection:
+  build_feature:
+    risk_R1:
+      required: [product, architecture, reliability]
+      select: [elias_venn, mara_kade, anton_reyes]
+    risk_R2_plus:
+      required: [product, architecture, data_or_security, reliability]
+      select: [elias_venn, mara_kade, priya_nwosu, anton_reyes, june_park]
+  code_change:
+    select: [mara_kade, priya_nwosu, anton_reyes, june_park]
+    add_for_high_risk: [noah_strake]
+  public_deal:
+    select: [dante_wu, bea_moreno, avery_quinn, mina_sloane, helena_moss]
+  source_onboarding:
+    select: [ishan_vale, ravi_sethi, bea_moreno, anton_reyes, tomas_ilyan]
+  ui_design:
+    select: [sora_bell, lucian_hart, nia_calder, owen_rhee, iris_laurent]
+  marketing_page:
+    select: [rowan_vale, elena_maris, samir_holt, tessa_rowan, malik_ortez]
+  pr_outreach:
+    select: [rowan_vale, malik_ortez, tessa_rowan, avery_quinn, noah_strake]
+  model_provider_change:
+    select: [anika_rao, theo_mercer, maya_chen, kieran_sol, lydia_farrow]
+  security_audit:
+    select: [kieran_sol, lydia_farrow, maya_chen, anika_rao, theo_mercer]
+  ship_decision:
+    select: [mara_kade, anton_reyes, nia_calder, rowan_vale, kieran_sol]
+  evidence_research:
+    select: [bea_moreno, dante_wu, ravi_sethi, mira_sato, noah_strake]
+rotating:
+  contrarian: [noah_strake]
+  evidence_referee: [mira_sato]

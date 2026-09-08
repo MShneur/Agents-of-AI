@@ -1,0 +1,28 @@
+version: 0.8.0
+primary_count: 20
+control_skills: [security-governance, adversarial-audit, ship-operate, corrections]
+skills:
+- {id: vision-to-roadmap, lane: strategy, model_alias: research_long, primary_artifact: roadmap.md, manifest: origin/skills/vision-to-roadmap/manifest.yaml}
+- {id: product-requirements, lane: strategy, model_alias: research_long, primary_artifact: prd.md, manifest: origin/skills/product-requirements/manifest.yaml}
+- {id: system-architecture, lane: architecture, model_alias: code_reasoning, primary_artifact: architecture-decision.md, manifest: origin/skills/system-architecture/manifest.yaml}
+- {id: repo-engineering, lane: coding, model_alias: code_reasoning, primary_artifact: review-packet.md, manifest: origin/skills/repo-engineering/manifest.yaml}
+- {id: debug-triage, lane: coding, model_alias: code_reasoning, primary_artifact: debug-triage.md, manifest: origin/skills/debug-triage/manifest.yaml}
+- {id: database-schema, lane: architecture, model_alias: code_reasoning, primary_artifact: schema-plan.md, manifest: origin/skills/database-schema/manifest.yaml}
+- {id: api-integration, lane: architecture, model_alias: code_reasoning, primary_artifact: api-contract.md, manifest: origin/skills/api-integration/manifest.yaml}
+- {id: source-extraction, lane: data_scraping, model_alias: extract_json, primary_artifact: extraction-plan.yaml, manifest: origin/skills/source-extraction/manifest.yaml}
+- {id: change-monitoring, lane: data_scraping, model_alias: extract_json, primary_artifact: watch-config.yaml, manifest: origin/skills/change-monitoring/manifest.yaml}
+- {id: entity-resolution, lane: data_scraping, model_alias: extract_json, primary_artifact: entity-resolution.json, manifest: origin/skills/entity-resolution/manifest.yaml}
+- {id: evidence-research, lane: research, model_alias: research_long, primary_artifact: evidence-brief.md, manifest: origin/skills/evidence-research/manifest.yaml}
+- {id: deal-evaluation, lane: product_ecommerce, model_alias: research_long, primary_artifact: deal-evaluation.json, manifest: origin/skills/deal-evaluation/manifest.yaml}
+- {id: ux-design, lane: ux_design, model_alias: design_reasoning, primary_artifact: page-spec.json, manifest: origin/skills/ux-design/manifest.yaml}
+- {id: design-system, lane: ux_design, model_alias: design_reasoning, primary_artifact: design-system-plan.md, manifest: origin/skills/design-system/manifest.yaml}
+- {id: browser-verification, lane: operations, model_alias: code_reasoning, primary_artifact: browser-verification.json, manifest: origin/skills/browser-verification/manifest.yaml}
+- {id: conversion-copy, lane: marketing_seo, model_alias: copy_critical, primary_artifact: copy-draft.md, manifest: origin/skills/conversion-copy/manifest.yaml}
+- {id: seo-audit, lane: marketing_seo, model_alias: research_long, primary_artifact: seo-audit.md, manifest: origin/skills/seo-audit/manifest.yaml}
+- {id: pr-communications, lane: pr_communications, model_alias: copy_critical, primary_artifact: pr-draft.md, manifest: origin/skills/pr-communications/manifest.yaml}
+- {id: growth-lifecycle, lane: marketing_seo, model_alias: copy_critical, primary_artifact: lifecycle-plan.md, manifest: origin/skills/growth-lifecycle/manifest.yaml}
+- {id: ai-routing, lane: ai_routing, model_alias: code_reasoning, primary_artifact: routing-decision.json, manifest: origin/skills/ai-routing/manifest.yaml}
+- {id: security-governance, lane: governance, model_alias: security_review, primary_artifact: security-review.md, manifest: origin/skills/security-governance/manifest.yaml}
+- {id: adversarial-audit, lane: governance, model_alias: security_review, primary_artifact: dissent-ledger.json, manifest: origin/skills/adversarial-audit/manifest.yaml}
+- {id: ship-operate, lane: operations, model_alias: code_reasoning, primary_artifact: ship-plan.md, manifest: origin/skills/ship-operate/manifest.yaml}
+- {id: corrections, lane: product_ecommerce, model_alias: research_long, primary_artifact: correction.json, manifest: origin/skills/corrections/manifest.yaml}

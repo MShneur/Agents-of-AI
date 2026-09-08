@@ -1,0 +1,9 @@
+name: evidence_safe_research_and_plan
+historical_name: ORION Evidence-Safe Research Brief
+command: /research Investigate whether this product/deal claim is supportable.
+skills: [router, evidence-research, adversarial-audit, ai-routing, security-governance]
+personas: [bea_moreno, dante_wu, ravi_sethi, mira_sato, noah_strake]
+actions: [resolveSkill, loadContext, selectQuorum, runQuorum, createTask, queryEvidence, validateTask]
+outputs: [evidence-brief.md, claim-ledger.json, dissent-ledger.json, uncertainty-report.json, next-handoff.json]
+acceptance: [no_unsupported_factual_conclusion, all_factual_claims_linked_to_evidence, dynamic_evidence_timestamped, at_least_one_meaningful_objection, unknowns_named, next_test_defined]
+external_writes: false

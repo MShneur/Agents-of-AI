@@ -1,0 +1,124 @@
+version: 0.8.0
+historical_source: origin.md Batch 9
+count: 30
+personas:
+- id: mara_kade
+  title: Chief Systems Master
+  lane: architecture
+  path: origin/personas/architecture/mara_kade.yaml
+- id: bea_moreno
+  title: Chief Evidence Master
+  lane: research
+  path: origin/personas/research/bea_moreno.yaml
+- id: nia_calder
+  title: Chief Product Master
+  lane: ux_design
+  path: origin/personas/ux_design/nia_calder.yaml
+- id: rowan_vale
+  title: Chief Narrative Master
+  lane: marketing_seo
+  path: origin/personas/marketing_seo/rowan_vale.yaml
+- id: kieran_sol
+  title: Chief Boundary Master
+  lane: governance
+  path: origin/personas/governance/kieran_sol.yaml
+- id: elias_venn
+  title: Product Engineer
+  lane: architecture
+  path: origin/personas/architecture/elias_venn.yaml
+- id: priya_nwosu
+  title: Data Contract Engineer
+  lane: architecture
+  path: origin/personas/architecture/priya_nwosu.yaml
+- id: anton_reyes
+  title: Reliability Engineer
+  lane: operations
+  path: origin/personas/operations/anton_reyes.yaml
+- id: june_park
+  title: Security Boundary Engineer
+  lane: governance
+  path: origin/personas/governance/june_park.yaml
+- id: noah_strake
+  title: Contrarian Chair
+  lane: rotating
+  path: origin/personas/rotating/noah_strake.yaml
+- id: ishan_vale
+  title: Extraction Engineer
+  lane: data_scraping
+  path: origin/personas/data_scraping/ishan_vale.yaml
+- id: tomas_ilyan
+  title: Entity Resolution Specialist
+  lane: data_scraping
+  path: origin/personas/data_scraping/tomas_ilyan.yaml
+- id: ravi_sethi
+  title: Source Compliance Steward
+  lane: data_scraping
+  path: origin/personas/data_scraping/ravi_sethi.yaml
+- id: helena_moss
+  title: Commerce Strategist
+  lane: product_ecommerce
+  path: origin/personas/product_ecommerce/helena_moss.yaml
+- id: dante_wu
+  title: Deal Quality Analyst
+  lane: product_ecommerce
+  path: origin/personas/product_ecommerce/dante_wu.yaml
+- id: mina_sloane
+  title: Merchandising Taxonomist
+  lane: product_ecommerce
+  path: origin/personas/product_ecommerce/mina_sloane.yaml
+- id: avery_quinn
+  title: Consumer Trust Counsel
+  lane: product_ecommerce
+  path: origin/personas/product_ecommerce/avery_quinn.yaml
+- id: sora_bell
+  title: Information Architect
+  lane: ux_design
+  path: origin/personas/ux_design/sora_bell.yaml
+- id: lucian_hart
+  title: Interface Systems Designer
+  lane: ux_design
+  path: origin/personas/ux_design/lucian_hart.yaml
+- id: owen_rhee
+  title: Accessibility Advocate
+  lane: ux_design
+  path: origin/personas/ux_design/owen_rhee.yaml
+- id: iris_laurent
+  title: Trust Evidence Designer
+  lane: ux_design
+  path: origin/personas/ux_design/iris_laurent.yaml
+- id: elena_maris
+  title: Direct Response Copywriter
+  lane: marketing_seo
+  path: origin/personas/marketing_seo/elena_maris.yaml
+- id: samir_holt
+  title: SEO Information Gain Editor
+  lane: marketing_seo
+  path: origin/personas/marketing_seo/samir_holt.yaml
+- id: tessa_rowan
+  title: Consumer Clarity Editor
+  lane: marketing_seo
+  path: origin/personas/marketing_seo/tessa_rowan.yaml
+- id: malik_ortez
+  title: Brand Story Director
+  lane: marketing_seo
+  path: origin/personas/marketing_seo/malik_ortez.yaml
+- id: lydia_farrow
+  title: Governance Auditor
+  lane: governance
+  path: origin/personas/governance/lydia_farrow.yaml
+- id: maya_chen
+  title: Prompt Systems Engineer
+  lane: ai_routing
+  path: origin/personas/ai_routing/maya_chen.yaml
+- id: anika_rao
+  title: Model Evaluation Scientist
+  lane: ai_routing
+  path: origin/personas/ai_routing/anika_rao.yaml
+- id: theo_mercer
+  title: Routing Economist
+  lane: ai_routing
+  path: origin/personas/ai_routing/theo_mercer.yaml
+- id: mira_sato
+  title: Evidence Referee
+  lane: rotating
+  path: origin/personas/rotating/mira_sato.yaml

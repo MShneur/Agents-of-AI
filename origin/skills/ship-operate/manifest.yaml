@@ -1,0 +1,8 @@
+id: ship-operate
+version: 0.8.0
+status: draft
+lane: operations
+objective: Produce release readiness, runbook, rollback and post-action verification plan.
+model: {preferred_alias: code_reasoning}
+permissions: {external_actions_require_approval: true}
+quality_gates: [rollback_present, verification_plan_present, human_gate_present]
