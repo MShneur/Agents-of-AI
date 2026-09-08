@@ -1,0 +1,12 @@
+required:
+- page_goal_defined
+- one_primary_action
+- required_states_defined
+- no_color_only_signal
+- data_contracts_referenced
+- responsive_rules_for_all_targets
+- accessibility_checks_defined
+- storybook_states_defined
+- playwright_flow_defined
+- trust_requirements_satisfied
+- implementation_handoff_valid

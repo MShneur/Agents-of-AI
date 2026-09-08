@@ -1,0 +1,22 @@
+component:
+  - story_for_every_required_state
+  - interaction_test_for_primary_and_secondary_actions
+  - axe_scan_for_each_exposed_state
+  - forced_colors_check
+  - reduced_motion_check
+route:
+  - rendered_happy_path
+  - loading_state
+  - network_error_state
+  - stale_or_conflict_fixture
+  - narrow_viewport
+  - keyboard_only_flow
+  - disclosure_visibility
+manual:
+  - screen_reader_announcement_review
+  - content_clarity_review
+  - trust_claim_visual_review
+rules:
+  - screenshot_alone_never_passes
+  - storybook_component_pass_does_not_prove_route_pass
+  - static_html_does_not_prove_accessibility

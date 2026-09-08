@@ -1,0 +1,54 @@
+id: design-system
+version: 0.1.0
+lane: ux_design
+activate_when:
+- Create or evolve project-owned design tokens and component contracts with accessibility
+  and migration rules.
+objective: Create or evolve a versioned internal design system using primitive, semantic,
+  component, and state tokens plus governed components and testable usage rules.
+inputs:
+  required:
+  - token_registry
+  - component_registry
+  - implementation_stack
+  optional: []
+outputs:
+  primary: design_system_change
+  artifacts:
+  - token_diff
+  - component_contract
+  - migration_plan
+  - visual_regression_plan
+model:
+  preferred_alias: design_reasoning
+  fallback_aliases:
+  - code_reasoning
+tools:
+  allowed:
+  - read_design_context
+  - read_component_registry
+  - read_token_registry
+  - inspect_existing_component
+  - inspect_screenshot
+  prohibited:
+  - modify_production_ui
+  - invent_data_fields
+  - declare_accessibility_complete
+quality_gates:
+- token_layer_defined
+- component_state_model_defined
+- accessibility_impacts_reviewed
+- migration_path_defined
+- no_global_breaking_change_without_flag
+- visual_regression_plan_defined
+handoff:
+  next_skills:
+  - repo-engineering
+  approval_required_for:
+  - global_token_change
+  - component_registry_install
+  - brand_change
+kill_criteria:
+- New token duplicates existing semantic intent.
+- Component has no clear ownership.
+- System change requires broad unexplained refactor.

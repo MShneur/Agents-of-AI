@@ -1,0 +1,59 @@
+id: ux-design
+version: 0.1.0
+lane: ux_design
+activate_when:
+- Produce a buildable UI specification from actual project context, not an aesthetic-only
+  mockup.
+objective: Produce an implementable evidence-aware page specification with hierarchy,
+  components, states, data contracts, responsiveness, accessibility, trust, and tests.
+inputs:
+  required:
+  - design_context_packet
+  optional: []
+outputs:
+  primary: page_spec
+  artifacts:
+  - component_state_matrix
+  - wireframe
+  - token_changes
+  - storybook_plan
+  - playwright_plan
+  - accessibility_checklist
+  - implementation_handoff
+model:
+  preferred_alias: design_reasoning
+  fallback_aliases:
+  - code_reasoning
+tools:
+  allowed:
+  - read_design_context
+  - read_component_registry
+  - read_token_registry
+  - inspect_existing_component
+  - inspect_screenshot
+  prohibited:
+  - modify_production_ui
+  - invent_data_fields
+  - declare_accessibility_complete
+quality_gates:
+- page_goal_defined
+- one_primary_action
+- required_states_defined
+- no_color_only_signal
+- data_contracts_referenced
+- responsive_rules_for_all_targets
+- accessibility_checks_defined
+- storybook_states_defined
+- playwright_flow_defined
+- trust_requirements_satisfied
+- implementation_handoff_valid
+handoff:
+  next_skills:
+  - repo-engineering
+  approval_required_for:
+  - production_ui_change
+  - brand_change
+kill_criteria:
+- No primary user goal.
+- Required data cannot support proposed UI.
+- Critical state not modeled.

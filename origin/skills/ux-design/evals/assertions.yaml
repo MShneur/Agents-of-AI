@@ -1,0 +1,4 @@
+assertions:
+- missing context blocks
+- no production mutation
+- required gates are explicit

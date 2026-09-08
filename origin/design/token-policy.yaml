@@ -1,0 +1,7 @@
+layers: [primitive, semantic, component, state]
+rules:
+  - components_use_semantic_or_component_tokens
+  - repeated_arbitrary_values_must_be_promoted
+  - raw_color_cannot_encode_state_alone
+  - token_changes_are_versioned
+  - global_breaking_token_change_requires_approval

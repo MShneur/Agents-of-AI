@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "id",
+    "version",
+    "type",
+    "owner",
+    "activate_when",
+    "requires",
+    "outputs",
+    "quality_gates",
+    "source"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "type": {
+      "enum": [
+        "workflow",
+        "design_system",
+        "component_recipe",
+        "page_recipe",
+        "visual_audit",
+        "content_layout"
+      ]
+    },
+    "owner": {
+      "type": "string",
+      "minLength": 1
+    },
+    "activate_when": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "requires": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "outputs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "quality_gates": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "source": {
+      "type": "object",
+      "required": [
+        "origin",
+        "license_status",
+        "security_review"
+      ],
+      "properties": {
+        "origin": {
+          "type": "string"
+        },
+        "license_status": {
+          "enum": [
+            "approved",
+            "review_required",
+            "rejected"
+          ]
+        },
+        "security_review": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

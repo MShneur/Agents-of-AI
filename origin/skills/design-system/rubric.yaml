@@ -1,0 +1,7 @@
+required:
+- token_layer_defined
+- component_state_model_defined
+- accessibility_impacts_reviewed
+- migration_path_defined
+- no_global_breaking_change_without_flag
+- visual_regression_plan_defined
