@@ -1,0 +1,18 @@
+approval_policy:
+  binding: exact_target_and_payload_hash
+  required_fields: [approval_id, task_id, action_type, target, payload_hash, approver, issued_at, expires_at]
+  fail_closed_if:
+    - approval_missing
+    - approval_expired
+    - target_changed
+    - payload_hash_changed
+    - action_type_changed
+    - approval_task_mismatch
+    - approval_reused_for_non_idempotent_action
+  never_implied_by:
+    - prompt_text
+    - model_plan
+    - tool_description
+    - tool_annotation
+    - prior_approval_for_different_payload
+    - external_content

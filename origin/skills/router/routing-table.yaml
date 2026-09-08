@@ -71,3 +71,15 @@ routes:
   secondary_skills: [claim-review, conversion-copy]
   lane: pr
   model_alias: copy_critical
+- match:
+    intents: [threat model, security review, permission review, AI governance, prompt injection audit, tool audit, secret policy, privacy review]
+  primary_skill: security-governance
+  secondary_skills: [ai-routing, evidence-research]
+  lane: governance
+  model_alias: security_review
+- match:
+    intents: [choose model, route model, add provider, configure fallback, compare model performance, free API routing]
+  primary_skill: ai-routing
+  secondary_skills: [security-governance, evidence-research]
+  lane: ai_governance
+  model_alias: code_reasoning

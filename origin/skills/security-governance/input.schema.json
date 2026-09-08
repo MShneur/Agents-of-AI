@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "system_or_feature_description",
+    "data_flow_or_artifacts"
+  ],
+  "properties": {
+    "system_or_feature_description": {
+      "type": [
+        "string",
+        "object",
+        "array"
+      ]
+    },
+    "data_flow_or_artifacts": {
+      "type": [
+        "string",
+        "object",
+        "array"
+      ]
+    },
+    "tool_list": {
+      "type": [
+        "string",
+        "object",
+        "array"
+      ]
+    },
+    "action_schemas": {
+      "type": [
+        "string",
+        "object",
+        "array"
+      ]
+    },
+    "model_routing_config": {
+      "type": [
+        "string",
+        "object",
+        "array"
+      ]
+    },
+    "source_policy": {
+      "type": [
+        "string",
+        "object",
+        "array"
+      ]
+    },
+    "existing_traces": {
+      "type": [
+        "string",
+        "object",
+        "array"
+      ]
+    },
+    "threat_reports": {
+      "type": [
+        "string",
+        "object",
+        "array"
+      ]
+    }
+  }
+}

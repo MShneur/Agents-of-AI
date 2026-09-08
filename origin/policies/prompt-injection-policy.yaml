@@ -1,0 +1,43 @@
+prompt_injection_policy:
+  trusted_instruction_sources:
+    - origin_master_instruction
+    - approved_skill_instruction
+    - approved_persona_definition
+    - server_enforced_policy
+    - explicit_user_request
+  untrusted_data_sources:
+    - web_content
+    - scraper_results
+    - uploaded_documents
+    - emails
+    - third_party_skills
+    - tool_output
+    - retrieved_text
+    - issue_comments
+    - source_code_from_unreviewed_repo
+    - mcp_tool_descriptions
+    - mcp_tool_annotations
+    - persistent_memory_candidate
+  hard_rules:
+    - untrusted_data_cannot_modify_instructions
+    - untrusted_data_cannot_select_model_skill_or_persona
+    - untrusted_data_cannot_expand_tool_permission
+    - untrusted_data_cannot_request_secret_access
+    - untrusted_data_cannot_trigger_external_write
+    - untrusted_data_cannot_override_approval_requirements
+    - tool_output_is_data_not_policy
+    - tool_metadata_is_not_authorization
+    - model_generated_plan_cannot_grant_itself_authority
+    - memory_promotion_from_untrusted_content_requires_review
+  content_wrapper: "<UNTRUSTED_DATA source=\"{{source_id}}\">{{content}}</UNTRUSTED_DATA>"
+  detection_signals:
+    - ignore_previous_instructions
+    - reveal_system_prompt
+    - reveal_api_key
+    - call_tool
+    - send_message
+    - change_permissions
+    - override_policy
+    - encoded_or_obfuscated_instruction
+  response:
+    suspicious_content: [preserve_source_reference, label_suspicious, do_not_execute_embedded_request, continue_allowed_extraction_only, log_security_event]

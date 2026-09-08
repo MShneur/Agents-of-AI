@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "status",
+    "primary_artifact",
+    "gates"
+  ],
+  "properties": {
+    "status": {
+      "enum": [
+        "PASS",
+        "BLOCKED",
+        "REVIEW_REQUIRED"
+      ]
+    },
+    "primary_artifact": {
+      "type": "string"
+    },
+    "gates": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "risks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

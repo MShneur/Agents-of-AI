@@ -1,0 +1,2 @@
+canonical_policy: origin/policies/circuit-breaker.yaml
+forking_or_weakening_prohibited: true

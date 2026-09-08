@@ -1,0 +1,2 @@
+canonical_policy: origin/policies/tool-permissions.yaml
+forking_or_weakening_prohibited: true

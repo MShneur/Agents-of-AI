@@ -1,0 +1,6 @@
+policy_exceptions:
+  default: deny
+  required_fields: [exception_id, rule_id, owner, rationale, scope, approved_by, created_at, expires_at, review_record]
+  max_without_reapproval_days: 30
+  invalid_if: [no_owner, no_expiry, no_review_record, scope_wildcard, secret_boundary_override]
+  on_expiry: deny_and_reopen_review

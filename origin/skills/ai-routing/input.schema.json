@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "target_skill",
+    "task_requirements"
+  ],
+  "properties": {
+    "target_skill": {
+      "type": [
+        "string",
+        "object",
+        "array"
+      ]
+    },
+    "task_requirements": {
+      "type": [
+        "string",
+        "object",
+        "array"
+      ]
+    },
+    "candidate_providers": {
+      "type": [
+        "string",
+        "object",
+        "array"
+      ]
+    },
+    "benchmark_results": {
+      "type": [
+        "string",
+        "object",
+        "array"
+      ]
+    },
+    "quota_status": {
+      "type": [
+        "string",
+        "object",
+        "array"
+      ]
+    },
+    "latency_target": {
+      "type": [
+        "string",
+        "object",
+        "array"
+      ]
+    },
+    "data_classification": {
+      "type": [
+        "string",
+        "object",
+        "array"
+      ]
+    },
+    "cost_ceiling": {
+      "type": [
+        "string",
+        "object",
+        "array"
+      ]
+    }
+  }
+}

@@ -1,0 +1,2 @@
+canonical_policy: origin/policies/approval-policy.yaml
+forking_or_weakening_prohibited: true

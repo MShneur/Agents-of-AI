@@ -1,0 +1,85 @@
+id: security-governance
+version: 0.1.0
+lane: governance
+activate_when:
+  exact_intents:
+  - threat model
+  - security review
+  - permission review
+  - AI governance
+  - prompt injection audit
+  - tool audit
+  - secret policy
+  - privacy review
+  keyword_signals:
+  - security
+  - API key
+  - secret
+  - OAuth
+  - permissions
+  - prompt injection
+  - MCP
+  - policy
+  - compliance
+  - data retention
+objective: Identify and control AI-system security, privacy, data, tool, provider,
+  approval, and accountability risks. Produce enforceable policy and validation artifacts,
+  not generic security advice.
+inputs:
+  required:
+  - system_or_feature_description
+  - data_flow_or_artifacts
+  optional:
+  - tool_list
+  - action_schemas
+  - model_routing_config
+  - source_policy
+  - existing_traces
+  - threat_reports
+outputs:
+  primary: security-review.md
+  artifacts:
+  - threat-model.yaml
+  - permission-diff.yaml
+  - policy-changes.yaml
+  - attack-tests.jsonl
+  - risk-register.json
+  - dissent-ledger.json
+  - handoff.json
+model:
+  preferred_alias: security_review
+  fallback_aliases:
+  - code_reasoning
+quorum:
+  minimum: 5
+  method_quorum_doc: origin/EXPERT-METHOD-SOURCES-B07.md
+  historical_personas_are_provenance_only: true
+tools:
+  allowed:
+  - read_policy
+  - read_tool_schemas
+  - read_redacted_trace
+  - inspect_repo_scope
+  - run_security_fixture
+  - run_secret_scan
+  prohibited:
+  - read_raw_secret
+  - modify_production_permissions
+  - enable_tool
+  - rotate_credentials
+  - deploy_policy_change
+quality_gates:
+- data_classification_complete
+- trust_boundaries_mapped
+- tool_permissions_mapped
+- external_writes_identified
+- prompt_injection_cases_tested
+- secret_exposure_checked
+- provider_policy_checked
+- approval_gates_checked
+- risk_owner_assigned
+kill_criteria:
+- No server-enforced authorization for sensitive tool.
+- Secret could enter model or trace context.
+- Untrusted content can alter instruction/tool authority.
+- External write has no bound approval mechanism.

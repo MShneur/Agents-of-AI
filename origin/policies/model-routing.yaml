@@ -1,0 +1,31 @@
+model_aliases:
+  code_reasoning:
+    purpose: [architecture, complex_code, debugging, code_review]
+    requirements: [repository_context, test_plan, diff_validation]
+  code_fast:
+    purpose: [boilerplate, unit_tests, mechanical_refactors, small_fixes]
+    restrictions: [no_unreviewed_security_change, no_architecture_decision]
+  extract_json:
+    purpose: [source_normalization, schema_filling, field_mapping]
+    requirements: [json_schema, field_provenance, deterministic_source_context]
+    restrictions: [no_source_of_fact]
+  research_long:
+    purpose: [multi_source_research, strategy, evidence_synthesis]
+    requirements: [source_ledger, claim_labeling]
+  copy_critical:
+    purpose: [public_copy, SEO, PR, disclosures]
+    requirements: [proof_inventory, claim_ledger]
+    restrictions: [no_invented_metrics_or_testimonials]
+  design_reasoning:
+    purpose: [UX, component_specs, information_architecture]
+    requirements: [design_context_packet, state_matrix]
+  security_review:
+    purpose: [threat_model, permission_review, adversarial_audit]
+    requirements: [tool_policy, data_classification, system_boundary_map]
+  vision_review:
+    purpose: [screenshot_review, design_comparison, UI_regression_triage]
+    requirements: [screenshot_artifact, expected_spec]
+  batch_enrichment:
+    purpose: [batch_classification, tagging, enrichment]
+    requirements: [schema_validation, queue_rate_policy, failure_sampling]
+    restrictions: [no_public_claim_generation]

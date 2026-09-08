@@ -1,0 +1,31 @@
+data_classes:
+  public:
+    examples: [public_documentation, public_page_metadata, published_product_page]
+    model_use:
+      allowed_with_source_label: true
+  internal:
+    examples: [project_roadmap, non_secret_repository_files, private_drafts, non_sensitive_analytics]
+    model_use:
+      allowed_if_project_scope: true
+  restricted:
+    examples: [customer_email, user_behavior_event_detail, internal_source_policies, unpublished_launch_plans, private_issue_content]
+    model_use:
+      allowed_if_minimized_and_authorized: true
+      trace_redaction_required: true
+  regulated_or_high_risk:
+    examples: [payment_data, health_data, government_identifiers, precise_location_linked_to_identity]
+    model_use:
+      prohibited_by_default: true
+      requires: [specific_policy, minimization, explicit_user_authorization]
+  secret:
+    examples: [api_key, bearer_token, oauth_refresh_token, cookie, session_id, password, private_key, full_connection_string]
+    model_use:
+      prohibited: true
+    retention: vault_only
+    traces: never
+    prompts: never
+    logs: never
+secret_rules:
+  never_send_to_model: [api_key, bearer_token, oauth_refresh_token, cookie, session_id, password, private_key, full_connection_string]
+  never_store_in: [prompt, agent_memory, trace_input, trace_output, evaluation_fixture, screenshot, public_issue, generated_code_example]
+  replacement: [server_side_secret_reference, vault_handle, redacted_placeholder]

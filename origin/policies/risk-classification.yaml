@@ -1,0 +1,26 @@
+risk_levels:
+  R0:
+    name: internal_draft
+    examples: [brainstorm, private_copy_draft, local_schema_draft, code_plan]
+    allowed: [read_context, draft_output, local_eval]
+    approval: false
+  R1:
+    name: internal_execution
+    examples: [create_branch_local_file, run_unit_tests, run_sandbox_analysis, generate_source_snapshot]
+    allowed: [scoped_repo_write, allowlisted_commands, approved_source_read]
+    approval: false
+    trace_required: true
+  R2:
+    name: external_read_or_sensitive_internal
+    examples: [browse_approved_public_page, access_user_analytics_export, invoke_provider_api, use_stored_source_evidence]
+    allowed: [approved_external_read, model_call]
+    requirements: [source_policy, data_classification, trace]
+    approval: false
+  R3:
+    name: external_write_or_public_claim
+    examples: [create_github_pr, publish_deal, send_outreach, post_social_content, alter_user_notification, activate_scraper_source]
+    requirements: [quorum, evidence_gate, exact_payload, explicit_approval, audit_record]
+  R4:
+    name: irreversible_or_high_impact
+    examples: [deploy_production, delete_data, modify_secrets, change_money_or_ranking_logic, broad_database_migration, purchase_or_checkout]
+    requirements: [executive_quorum, risk_assessment, rollback_or_recovery_plan, exact_payload, explicit_approval, post_action_verification]

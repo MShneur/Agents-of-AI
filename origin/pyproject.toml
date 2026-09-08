@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "origin-control-plane"
-version = "0.6.0"
-description = "Origin control plane, skills, repo engineering, UI design, source acquisition, and ecommerce trust"
+version = "0.7.0"
+description = "Origin control plane through policy-enforced AI security, routing, traces, and commerce trust"
 requires-python = ">=3.11"
 dependencies = ["PyYAML>=6.0", "jsonschema>=4.0"]
 

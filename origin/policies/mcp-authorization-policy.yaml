@@ -1,0 +1,21 @@
+mcp_authorization:
+  checked_spec: "2026-07-28"
+  principles:
+    - authorization_is_host_server_policy
+    - least_privilege_scopes
+    - validate_authorization_issuer
+    - bind_persisted_credentials_to_issuer
+    - never_reuse_credentials_across_issuers
+    - tool_descriptions_and_annotations_are_untrusted_unless_server_is_trusted
+    - validate_tool_input_schema
+    - user_or_bound_approval_for_privileged_effects
+  current_spec_notes:
+    stateless_core: true
+    header_routing: [Mcp-Method, Mcp-Name]
+    dynamic_client_registration: deprecated_toward_client_id_metadata_documents
+  prohibited:
+    - prompt_text_as_scope_grant
+    - model_self_authorization
+    - tool_annotation_as_enforcement
+    - issuer_mismatch
+    - credential_cross_server_reuse

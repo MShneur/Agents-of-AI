@@ -1,0 +1,17 @@
+circuit_breaker:
+  open_if:
+    - timeout_rate_gt_20_percent_for_5_minutes
+    - schema_valid_rate_lt_90_percent_for_30_requests
+    - policy_violation_detected
+    - provider_returns_unexpected_sensitive_output
+    - quota_exhausted
+  action_when_open:
+    - stop_new_requests
+    - route_to_approved_fallback
+    - preserve_failed_task
+    - log_incident
+    - require_revalidation_for_high_risk_tasks
+  close_if:
+    - cooldown_elapsed
+    - health_probe_passes
+    - schema_valid_rate_recovers

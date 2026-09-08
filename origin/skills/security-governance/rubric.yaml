@@ -1,0 +1,15 @@
+pass_requires:
+- data_classification_complete
+- trust_boundaries_mapped
+- tool_permissions_mapped
+- external_writes_identified
+- prompt_injection_cases_tested
+- secret_exposure_checked
+- provider_policy_checked
+- approval_gates_checked
+- risk_owner_assigned
+block_on:
+- No server-enforced authorization for sensitive tool.
+- Secret could enter model or trace context.
+- Untrusted content can alter instruction/tool authority.
+- External write has no bound approval mechanism.

@@ -1,0 +1,47 @@
+policy_engine:
+  mode: deny_by_default
+  decision_order:
+    - classify_task
+    - classify_data
+    - identify_requested_action
+    - resolve_skill
+    - resolve_persona_quorum
+    - resolve_tool_permissions
+    - check_risk_threshold
+    - check_evidence_requirements
+    - require_approval_if_needed
+    - execute_or_block
+    - validate_output
+    - trace_result
+  defaults:
+    external_write: deny
+    secret_access: deny
+    production_access: deny
+    arbitrary_shell: deny
+    arbitrary_url_navigation: deny
+    source_content_instruction_authority: deny
+    llm_output_as_source_fact: deny
+    model_self_escalation: deny
+    unlimited_retry: deny
+  allowed_without_approval:
+    - read_project_context
+    - read_approved_repository_scope
+    - analyze_user_provided_content
+    - run_schema_validation
+    - run_local_evaluations
+    - create_draft_artifacts
+    - read_approved_public_source
+  requires_explicit_approval:
+    - repository_write
+    - commit
+    - merge
+    - deploy
+    - publish
+    - send_message
+    - post_social
+    - create_external_account
+    - purchase
+    - delete
+    - production_data_write
+    - provider_key_rotation
+    - source_activation

@@ -1,0 +1,30 @@
+provider_route:
+  selection_order:
+    - required_capability
+    - evaluation_pass_rate
+    - schema_compliance_rate
+    - safety_policy_compatibility
+    - latency_target
+    - quota_health
+    - cost_ceiling
+    - provider_availability
+  never_select_by:
+    - model_brand_reputation_only
+    - latest_release_only
+    - lowest_cost_only
+    - highest_context_window_only
+  fallback_allowed_if:
+    - primary_timeout
+    - primary_rate_limited
+    - primary_unavailable
+    - primary_schema_failure_after_one_repair
+    - policy_allows_fallback
+  fallback_forbidden_if:
+    - provider_data_policy_conflict
+    - high_risk_external_action
+    - security_review
+    - public_claim_generation_without_revalidation
+    - model_output_changes_semantic_result_without_new_review
+provider_admission:
+  required: [provider_id, data_policy_review, allowed_data_classes, task_specific_benchmarks, schema_eval, safety_eval, quota_policy, circuit_breaker]
+  default: deny
