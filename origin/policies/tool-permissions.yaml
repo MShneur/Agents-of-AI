@@ -1,0 +1,49 @@
+tools:
+  read_project_context:
+    risk: R0
+    default: allow
+    allowed_lanes: [all]
+  read_repository_scope:
+    risk: R1
+    default: allow_if_task_scope_exists
+    allowed_lanes: [architecture, coding, ux_design, operations, governance, ai_governance]
+  write_branch_file:
+    risk: R1
+    default: allow_if_task_contract_valid
+    allowed_lanes: [coding]
+    constraints: [allowed_paths_required, worktree_required, diff_budget_required]
+  run_allowlisted_command:
+    risk: R1
+    default: allow_if_sandboxed
+    allowed_lanes: [coding, operations]
+    constraints: [no_host_shell, command_allowlist, timeout_required, output_capture_required]
+  fetch_public_source:
+    risk: R2
+    default: allow_if_source_admitted
+    allowed_lanes: [research, data_scraping, product_ecommerce, governance, ai_governance]
+    constraints: [domain_allowlist, rate_policy, no_auth, snapshot_required]
+  browser_read_only:
+    risk: R2
+    default: allow_if_source_admitted
+    allowed_lanes: [data_scraping, research]
+    constraints: [read_only, max_steps, no_login, no_checkout, no_form_submit, trace_required]
+  create_github_pr:
+    risk: R3
+    default: deny_until_approved
+    allowed_lanes: [coding]
+    constraints: [exact_branch, exact_title, exact_body, payload_hash, approval_token]
+  publish_deal:
+    risk: R3
+    default: deny_until_approved
+    allowed_lanes: [product_ecommerce]
+    constraints: [evidence_gate, claim_ledger, affiliate_disclosure, exact_payload, payload_hash, approval_token]
+  send_message:
+    risk: R3
+    default: deny_until_approved
+    allowed_lanes: [pr, marketing, operations]
+    constraints: [exact_recipient, exact_payload, payload_hash, approval_token]
+  deploy_production:
+    risk: R4
+    default: deny_until_approved
+    allowed_lanes: [operations]
+    constraints: [release_checklist, rollback_plan, exact_target, exact_payload, payload_hash, approval_token, post_deploy_verification]

@@ -1,0 +1,8 @@
+id: vision-to-roadmap
+version: 0.8.0
+status: draft
+lane: strategy
+objective: Turn a product vision into an evidence-aware roadmap, priorities and risk register.
+model: {preferred_alias: research_long}
+permissions: {external_actions_require_approval: true}
+quality_gates: [priorities_ranked, evidence_gaps_named, risk_register_present]

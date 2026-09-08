@@ -1,0 +1,1 @@
+Historical B02 SEO extraction + current marketingskills detection limitation.

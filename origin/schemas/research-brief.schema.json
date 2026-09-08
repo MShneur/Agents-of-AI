@@ -1,0 +1,3 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema","type":"object","required":["question","claims","unknowns","conflicts","sources"],"properties":{"question":{"type":"string"},"claims":{"type":"array","items":{"type":"object","required":["claim","status","evidence_ids"],"properties":{"claim":{"type":"string"},"status":{"enum":["VERIFIED","LIKELY","UNKNOWN","CONFLICTING"]},"evidence_ids":{"type":"array","items":{"type":"string"}}}}},"unknowns":{"type":"array","items":{"type":"string"}},"conflicts":{"type":"array","items":{"type":"string"}},"sources":{"type":"array","items":{"type":"string"}}}
+}

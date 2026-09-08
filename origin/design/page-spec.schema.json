@@ -1,0 +1,102 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "task_id",
+    "page_goal",
+    "primary_action",
+    "information_hierarchy",
+    "component_inventory",
+    "state_matrix",
+    "responsive_rules",
+    "accessibility_rules",
+    "trust_rules",
+    "tests",
+    "handoff"
+  ],
+  "properties": {
+    "task_id": {
+      "type": "string"
+    },
+    "page_goal": {
+      "type": "string",
+      "minLength": 1
+    },
+    "primary_action": {
+      "type": "string",
+      "minLength": 1
+    },
+    "information_hierarchy": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "rank",
+          "element",
+          "purpose"
+        ]
+      }
+    },
+    "component_inventory": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "component",
+          "reuse_or_new",
+          "states",
+          "data_requirements"
+        ],
+        "properties": {
+          "component": {
+            "type": "string"
+          },
+          "reuse_or_new": {
+            "enum": [
+              "reuse",
+              "new",
+              "extend"
+            ]
+          },
+          "states": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string"
+            }
+          },
+          "data_requirements": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "state_matrix": {
+      "type": "array",
+      "minItems": 1
+    },
+    "responsive_rules": {
+      "type": "array",
+      "minItems": 1
+    },
+    "accessibility_rules": {
+      "type": "array",
+      "minItems": 1
+    },
+    "trust_rules": {
+      "type": "array"
+    },
+    "tests": {
+      "type": "array",
+      "minItems": 1
+    },
+    "handoff": {
+      "type": "object"
+    }
+  }
+}

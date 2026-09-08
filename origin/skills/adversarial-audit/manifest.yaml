@@ -1,0 +1,16 @@
+id: adversarial-audit
+version: 0.8.0
+lane: governance
+priority: 2
+activate_when: {exact_intents: [adversarial audit, governance task], keyword_signals: [adversarial, audit]}
+objective: Run objection-first independent review and preserve dissent/reversal tests.
+inputs: {required: [task_objective], optional: [project_context, evidence_refs, constraints]}
+outputs: {primary: dissent-ledger.json, artifacts: [dissent-ledger.json, next-handoff.json]}
+model: {preferred_alias: security_review, fallback_aliases: []}
+quorum: {minimum: 3, selector: origin/config/quorum-selection.yaml}
+tools:
+  allowed: [load_context, validate_schema, query_evidence, write_draft_artifact]
+  prohibited: [raw_shell, direct_production_deploy, direct_external_publish, direct_secret_read]
+quality_gates: [required_inputs_present, output_schema_valid, policy_valid, dissent_preserved_if_material]
+handoff: {approval_required_for: [external_write, production_change]}
+kill_criteria: [critical_input_missing, policy_rejected, repair_budget_exhausted]

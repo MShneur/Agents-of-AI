@@ -1,0 +1,22 @@
+version: "0.1.0"
+
+states: [healthy, degraded, open]
+
+open_if:
+  - timeout_rate_gt_20_percent_for_5_minutes
+  - schema_validity_below_task_gate
+  - policy_violation_detected
+  - unexpected_sensitive_output
+  - quota_exhausted
+
+when_open:
+  - stop_new_requests_to_provider
+  - preserve_failed_task
+  - choose_only_policy_approved_fallback
+  - require_revalidation_for_sensitive_tasks
+  - emit_incident_trace
+
+close_if:
+  - cooldown_elapsed
+  - health_probe_passes
+  - task_specific_quality_gate_recovers

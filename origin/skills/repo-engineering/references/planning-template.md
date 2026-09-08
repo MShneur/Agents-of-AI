@@ -1,0 +1,11 @@
+# Plan
+- Task ID:
+- Objective:
+- Non-goals:
+- Base commit:
+- Files to read:
+- Files proposed to change:
+- Risks:
+- Test plan:
+- Browser verification:
+- Rollback:

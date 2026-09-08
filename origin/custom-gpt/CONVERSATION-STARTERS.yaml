@@ -1,0 +1,12 @@
+conversation_starters:
+- /build Turn this idea into a scoped product requirement and implementation plan.
+- /code Create a task contract and safe code-change plan for this repository feature.
+- /design Create a buildable mobile-first UI specification with states and accessibility.
+- /market Create evidence-safe homepage, landing-page, and CTA copy.
+- /pr Draft a public announcement or outreach pitch using approved facts only.
+- /research Investigate this topic and return verified evidence, unknowns, and next
+  tests.
+- /scrape Create a permitted source-admission and extraction plan for this URL.
+- /deal Evaluate this product offer without overstating the discount.
+- /audit Run an objection-first adversarial review of this proposal.
+- /route Choose the model alias and fallback policy for this task.

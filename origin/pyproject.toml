@@ -1,0 +1,14 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "origin-control-plane"
+version = "0.8.0"
+description = "Origin master blueprint: command surface, Oracle control plane, skills, personas, evidence, policy and eval contracts"
+requires-python = ">=3.11"
+dependencies = ["PyYAML>=6.0", "jsonschema>=4.0"]
+
+[tool.pytest.ini_options]
+testpaths = ["runtime/tests"]
+pythonpath = ["runtime"]

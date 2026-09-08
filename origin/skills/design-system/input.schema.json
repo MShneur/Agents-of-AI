@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "token_registry",
+    "component_registry",
+    "implementation_stack"
+  ],
+  "properties": {
+    "token_registry": {},
+    "component_registry": {},
+    "implementation_stack": {}
+  }
+}

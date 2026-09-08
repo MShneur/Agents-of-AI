@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["task_id", "repository", "objective", "affected_area", "acceptance_criteria"],
+  "properties": {
+    "task_id": {"type": "string", "minLength": 1},
+    "repository": {"type": "string", "minLength": 1},
+    "objective": {"type": "string", "minLength": 1},
+    "affected_area": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+    "acceptance_criteria": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+    "constraints": {"type": "array", "items": {"type": "string"}},
+    "non_goals": {"type": "array", "items": {"type": "string"}},
+    "base_commit": {"type": "string"},
+    "risk_level": {"type": "string"}
+  }
+}

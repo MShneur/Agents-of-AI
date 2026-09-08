@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Origin Model Result",
+  "type": "object",
+  "required": ["task_id", "capability_id", "status", "provider_ref", "validation"],
+  "properties": {
+    "task_id": {"type": "string"},
+    "capability_id": {"type": "string"},
+    "status": {"enum": ["ok", "failed", "quarantined", "blocked"]},
+    "provider_ref": {"type": ["string", "null"]},
+    "fallback_used": {"type": "boolean", "default": false},
+    "validation": {
+      "type": "object",
+      "required": ["schema_valid", "policy_valid"],
+      "properties": {
+        "schema_valid": {"type": "boolean"},
+        "policy_valid": {"type": "boolean"},
+        "evidence_valid": {"type": ["boolean", "null"]}
+      },
+      "additionalProperties": true
+    },
+    "errors": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": false
+}

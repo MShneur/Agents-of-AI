@@ -1,0 +1,85 @@
+routes:
+- match:
+    intents: [build feature, architecture, choose stack, deploy, database, API]
+  primary_skill: system-architecture
+  secondary_skills: [repo-engineering, security-governance]
+  lane: architecture
+  model_alias: code_reasoning
+- match:
+    intents: [write code, refactor, fix bug, review PR, tests]
+  primary_skill: repo-engineering
+  secondary_skills: [debug-triage, security-governance]
+  lane: coding
+  model_alias: code_reasoning
+- match:
+    intents: [website design, UX, wireframe, component, CSS, responsive]
+  primary_skill: ux-design
+  secondary_skills: [design-system, accessibility-audit]
+  lane: ux_design
+  model_alias: design_reasoning
+- match:
+    intents: [evaluate deal, is this a good deal, score this offer, compare prices, clearance assessment, penny item assessment]
+  primary_skill: deal-evaluation
+  secondary_skills: [product-ecommerce, evidence-research]
+  lane: product_ecommerce
+  model_alias: research_long
+- match:
+    intents: [model product, normalize product, resolve variant, model retailer offer, build product catalog, channel listing]
+  primary_skill: product-ecommerce
+  secondary_skills: [evidence-research, deal-evaluation]
+  lane: product_ecommerce
+  model_alias: extract_json
+- match:
+    intents: [correct deal, report wrong price, retract claim, wrong variant, missing disclosure]
+  primary_skill: corrections
+  secondary_skills: [evidence-research, deal-evaluation]
+  lane: product_ecommerce
+  model_alias: research_long
+- match:
+    intents: [monitor product, price history, price drop, restock, change alert, watch URL]
+  primary_skill: change-monitoring
+  secondary_skills: [source-extraction, evidence-research]
+  lane: data_scraping
+  model_alias: extract_json
+- match:
+    intents: [scrape source, extract product data, build scraper, parse retailer page, source onboarding, retailer product data]
+  primary_skill: source-extraction
+  secondary_skills: [evidence-research, entity-resolution]
+  lane: data_scraping
+  model_alias: extract_json
+- match:
+    intents: [research source, investigate claim, verify evidence, source check, investigate and verify]
+  primary_skill: evidence-research
+  secondary_skills: [claim-review, source-extraction]
+  lane: research
+  model_alias: research_long
+- match:
+    intents: [homepage copy, landing page, CTA, headline, product description, value proposition]
+  primary_skill: conversion-copy
+  secondary_skills: [positioning, claim-review]
+  lane: marketing
+  model_alias: copy_critical
+- match:
+    intents: [SEO audit, ranking, metadata, schema, sitemap, indexing, crawl]
+  primary_skill: seo-audit
+  secondary_skills: [technical-seo, structured-data]
+  lane: marketing
+  model_alias: research_long
+- match:
+    intents: [press release, launch announcement, media pitch, public statement, community announcement]
+  primary_skill: pr-communications
+  secondary_skills: [claim-review, conversion-copy]
+  lane: pr
+  model_alias: copy_critical
+- match:
+    intents: [threat model, security review, permission review, AI governance, prompt injection audit, tool audit, secret policy, privacy review]
+  primary_skill: security-governance
+  secondary_skills: [ai-routing, evidence-research]
+  lane: governance
+  model_alias: security_review
+- match:
+    intents: [choose model, route model, add provider, configure fallback, compare model performance, free API routing]
+  primary_skill: ai-routing
+  secondary_skills: [security-governance, evidence-research]
+  lane: ai_governance
+  model_alias: code_reasoning

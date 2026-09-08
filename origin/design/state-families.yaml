@@ -1,0 +1,13 @@
+state_families:
+  data: [populated, partial, unknown, stale, conflicting, unavailable]
+  lifecycle: [initial, loading, refreshing, success, empty, error]
+  interaction: [default, hover, focus_visible, active, disabled, selected]
+  accessibility: [keyboard, screen_reader, forced_colors, reduced_motion, zoomed, narrow_viewport]
+  trust: [verified, inferred, community_reported, needs_review, retracted]
+invalid_if:
+  - only_default_and_hover
+  - error_unspecified
+  - loading_unspecified
+  - unknown_treated_as_false_certainty
+  - stale_indistinguishable_from_current
+  - visual_state_without_text_or_semantics

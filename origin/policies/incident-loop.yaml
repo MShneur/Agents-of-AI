@@ -1,0 +1,24 @@
+incident_loop:
+  sequence:
+    - detect
+    - contain
+    - preserve_evidence
+    - classify
+    - assign_owner
+    - recover_or_rollback
+    - verify_recovery
+    - root_cause_review
+    - add_regression_fixture
+    - update_policy_or_guardrail
+    - close_with_residual_risk
+  incident_triggers:
+    - prompt_injection_reached_privileged_path
+    - unauthorized_or_unbound_tool_attempt
+    - secret_exposure_or_trace_capture
+    - provider_policy_violation
+    - repeated_schema_or_safety_failure
+    - circuit_breaker_open
+    - stale_or_invalid_approval_used
+    - memory_or_context_poisoning
+    - cascading_agent_failure
+  required_artifacts: [incident_record, evidence_refs, containment_actions, owner, regression_fixture_ref, policy_change_ref]

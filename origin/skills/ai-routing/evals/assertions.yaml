@@ -1,0 +1,5 @@
+assertions:
+- quality_gates_enforced
+- kill_criteria_fail_closed
+- no_secret_output
+- no_unbound_external_write

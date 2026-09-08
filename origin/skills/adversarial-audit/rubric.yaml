@@ -1,0 +1,2 @@
+required: [objective_met, schema_valid, policy_valid, dissent_preserved]
+fail_if: [invented_fact, scope_violation, unapproved_external_action]

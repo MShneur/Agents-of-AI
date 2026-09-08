@@ -1,0 +1,3 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema","type":"object","required":["status","artifacts","unknowns","conflicts"],"properties":{"status":{"enum":["PASS","PARTIAL","BLOCKED","CONFLICT"]},"artifacts":{"type":"array","items":{"type":"string"}},"unknowns":{"type":"array","items":{"type":"string"}},"conflicts":{"type":"array","items":{"type":"string"}}}
+}

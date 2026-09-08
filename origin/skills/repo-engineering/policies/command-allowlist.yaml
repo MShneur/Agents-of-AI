@@ -1,0 +1,16 @@
+default: deny
+allowed_prefixes:
+  - "pytest"
+  - "python -m pytest"
+  - "npm test"
+  - "npm run test"
+  - "npm run lint"
+  - "npm run typecheck"
+  - "pnpm test"
+  - "pnpm lint"
+  - "pnpm typecheck"
+  - "npx playwright test"
+  - "git diff"
+  - "git status"
+  - "git show"
+prohibited_tokens: ["sudo", "rm -rf /", "git push --force", "git reset --hard", "curl | sh", "wget | sh"]

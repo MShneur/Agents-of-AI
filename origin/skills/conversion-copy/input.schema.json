@@ -1,0 +1,7 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "type":"object",
+  "required":["page_type","primary_action","audience","product_or_offer"],
+  "properties":{"page_type":{"type":"string","minLength":1},"primary_action":{"type":"string","minLength":1},"audience":{"type":"string","minLength":1},"product_or_offer":{"type":"string","minLength":1}},
+  "additionalProperties":true
+}

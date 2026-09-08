@@ -1,0 +1,1 @@
+{"$schema":"https://json-schema.org/draft/2020-12/schema","type":"object","required":["source_url_or_source_id","extraction_goal"],"properties":{"source_url_or_source_id":{},"extraction_goal":{},"required_fields":{},"sample_pages":{},"source_policy_record":{},"canonical_schema":{},"rate_constraints":{}}}

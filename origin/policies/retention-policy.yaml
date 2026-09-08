@@ -1,0 +1,28 @@
+retention_policy:
+  task_metadata:
+    retention: 24_months
+    reason: auditability_and_learning
+  prompt_templates:
+    retention: versioned_indefinitely
+    reason: reproducibility
+  redacted_traces:
+    retention: 12_months
+    reason: debugging_and_evaluation
+  source_snapshots:
+    retention: 90_days_default
+    exceptions:
+      published_claim_evidence: 24_months
+      correction_or_dispute: until_resolved_plus_24_months
+    reason: provenance_and_correction
+  raw_user_content:
+    retention: minimum_required
+    default: 30_days
+    deletion_on_request: evaluate_under_applicable_policy
+  secret_data:
+    retention: vault_only
+    traces: never
+    prompts: never
+    logs: never
+  evaluation_fixtures:
+    retention: versioned
+    requirement: [redact_personal_data, remove_secrets, label_source_license]

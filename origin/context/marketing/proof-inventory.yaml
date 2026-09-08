@@ -1,0 +1,7 @@
+items: []
+required_fields:
+- id
+- claim
+- source
+- observed_at
+- status

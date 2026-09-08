@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["id", "task_id", "repo", "base_commit", "include", "exclude", "limits"],
+  "properties": {
+    "id": {"type": "string"},
+    "task_id": {"type": "string"},
+    "repo": {"type": "string"},
+    "base_commit": {"type": "string", "minLength": 1},
+    "include": {"type": "array", "items": {"type": "object", "required": ["path", "reason"], "properties": {"path": {"type": "string"}, "reason": {"type": "string"}}}},
+    "exclude": {"type": "array", "items": {"type": "string"}},
+    "limits": {"type": "object", "required": ["max_files", "max_chars", "max_tokens_estimate"]}
+  }
+}

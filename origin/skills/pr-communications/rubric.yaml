@@ -1,0 +1,6 @@
+checks:
+- approved_facts_only
+- claim_ledger
+- no_invented_quote
+- approval_required
+- no_distribution

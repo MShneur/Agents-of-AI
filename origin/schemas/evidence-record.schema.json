@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["evidence_id","source_id","source_url","observed_at","retrieved_at","content_hash","acquisition_method","parser_version","fields","integrity"],
+  "properties": {
+    "evidence_id":{"type":"string"},"source_id":{"type":"string"},"source_url":{"type":"string","format":"uri"},"canonical_url":{"type":"string","format":"uri"},"observed_at":{"type":"string","format":"date-time"},"retrieved_at":{"type":"string","format":"date-time"},"content_hash":{"type":"string","pattern":"^[0-9a-f]{64}$"},
+    "acquisition_method":{"enum":["official_api","official_feed","json_ld","microdata","rdfa","opengraph","server_html","rendered_dom","manual_report","manual_receipt","archive","llm_normalization"]},"parser_version":{"type":"string"},
+    "fields":{"type":"object","additionalProperties":{"type":"object","required":["raw_value","normalized_value","field_confidence","evidence_path","normalization_method"],"properties":{"raw_value":{},"normalized_value":{},"field_confidence":{"type":"number","minimum":0,"maximum":1},"evidence_path":{"type":"string"},"normalization_method":{"enum":["deterministic","llm_assisted","manual"]}}}},
+    "integrity":{"type":"object","required":["snapshot_stored","source_policy_status","schema_valid"],"properties":{"snapshot_stored":{"type":"boolean"},"source_policy_status":{"enum":["approved","limited","review_required","rejected"]},"schema_valid":{"type":"boolean"},"signature_or_receipt_reference":{"type":"string"}}}
+  }
+}

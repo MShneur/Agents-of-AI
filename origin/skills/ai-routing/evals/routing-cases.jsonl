@@ -1,0 +1,3 @@
+{"id": "timeout_safe_fallback", "risk": "R2", "expected": "fallback_if_evaluated"}
+{"id": "public_claim_timeout", "risk": "R3", "expected": "no_silent_fallback"}
+{"id": "provider_data_policy_conflict", "expected": "reject_provider"}

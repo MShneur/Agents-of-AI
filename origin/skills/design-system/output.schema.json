@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "design_system_change"
+  ],
+  "properties": {
+    "design_system_change": {}
+  }
+}

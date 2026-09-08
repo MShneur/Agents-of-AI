@@ -1,0 +1,8 @@
+id: debug-triage
+version: 0.8.0
+status: draft
+lane: coding
+objective: Reproduce a failure, rank hypotheses and produce the smallest evidence-backed fix plan.
+model: {preferred_alias: code_reasoning}
+permissions: {external_actions_require_approval: true}
+quality_gates: [reproduction_or_blocker_recorded, hypotheses_ranked, smallest_test_defined]

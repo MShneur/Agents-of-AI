@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "event_id",
+    "decision",
+    "reason",
+    "dedupe_key"
+  ],
+  "properties": {
+    "event_id": {
+      "type": "string"
+    },
+    "decision": {
+      "enum": [
+        "notify",
+        "suppress",
+        "review"
+      ]
+    },
+    "reason": {
+      "type": "string"
+    },
+    "dedupe_key": {
+      "type": "string"
+    },
+    "preference_match": {
+      "type": "boolean"
+    }
+  }
+}

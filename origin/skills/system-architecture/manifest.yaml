@@ -1,0 +1,8 @@
+id: system-architecture
+version: 0.8.0
+status: draft
+lane: architecture
+objective: Produce reversible architecture boundaries, ADRs, failure modes and rollback.
+model: {preferred_alias: code_reasoning}
+permissions: {external_actions_require_approval: true}
+quality_gates: [boundaries_explicit, simpler_alternative_considered, rollback_present]

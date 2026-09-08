@@ -1,0 +1,17 @@
+deal_score:
+  purpose: "Rank investigation priority or explain a qualified value assessment; never objective truth or guaranteed saving."
+  components:
+    exact_identity_confidence: {max_points: 25}
+    current_price_evidence: {max_points: 15}
+    historical_price_context: {max_points: 20}
+    cross_retailer_context: {max_points: 15}
+    all_in_price_clarity: {max_points: 10}
+    availability_confidence: {max_points: 5}
+    source_reliability: {max_points: 10}
+  automatic_caps:
+    community_report_only: 45
+    variant_ambiguous: 35
+    price_stale: 40
+    conflicting_price: 20
+    coupon_or_membership_unknown: 60
+  prohibited_labels_without_defined_coverage: [lowest_ever, best_price_anywhere, guaranteed_savings, universally_available]

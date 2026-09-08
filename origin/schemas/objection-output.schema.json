@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ObjectionOutput",
+  "type": "object",
+  "required": ["objections"],
+  "properties": {"objections": {"type": "array", "items": {"type": "object",
+    "required": ["what_i_reject","failure_mechanism","evidence_that_changes_my_mind","smallest_discriminating_test","kill_criterion","residual_risk","classification"],
+    "properties": {
+      "what_i_reject":{"type":"string","minLength":1},
+      "failure_mechanism":{"type":"string","minLength":1},
+      "evidence_that_changes_my_mind":{"type":"string","minLength":1},
+      "smallest_discriminating_test":{"type":"string","minLength":1},
+      "kill_criterion":{"type":"string","minLength":1},
+      "residual_risk":{"type":"string","minLength":1},
+      "classification":{"enum":["fatal","material","testable","tradeoff","preference","unsupported"]}
+    }, "additionalProperties": false
+  }}}, "additionalProperties": false
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Origin Approval Request",
+  "type": "object",
+  "required": ["task_id", "action_id", "target", "exact_payload", "reason", "requested_by"],
+  "properties": {
+    "task_id": {"type": "string"},
+    "action_id": {"type": "string", "minLength": 1},
+    "target": {"type": "string", "minLength": 1},
+    "exact_payload": {"type": "object"},
+    "reason": {"type": "string"},
+    "requested_by": {"type": "string"},
+    "idempotency_key": {"type": "string"},
+    "ttl_seconds": {"type": "integer", "minimum": 60, "maximum": 86400}
+  },
+  "additionalProperties": false
+}

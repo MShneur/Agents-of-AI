@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["product_id","title","product_type","identity_confidence","created_at"],
+  "properties": {"product_id":{"type":"string"},"title":{"type":"string","minLength":1},"brand":{"type":"string"},"manufacturer":{"type":"string"},"product_type":{"type":"string","minLength":1},"category_path":{"type":"array","items":{"type":"string"}},"identifiers":{"type":"object","properties":{"gtin":{"type":"string"},"upc":{"type":"string"},"ean":{"type":"string"},"mpn":{"type":"string"},"manufacturer_model":{"type":"string"}}},"identity_confidence":{"type":"object","required":["state","score","reasons"],"properties":{"state":{"enum":["exact_identifier","manufacturer_confirmed","likely_match","ambiguous","unresolved"]},"score":{"type":"number","minimum":0,"maximum":1},"reasons":{"type":"array","items":{"type":"string"}}}},"created_at":{"type":"string","format":"date-time"}},
+  "not":{"anyOf":[{"required":["price"]},{"required":["current_price"]},{"required":["availability"]},{"required":["inventory"]}]}
+}

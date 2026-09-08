@@ -1,0 +1,10 @@
+automated:
+  required: [no_critical_violations, no_serious_violations, no_unlabeled_interactive_controls, no_invalid_aria, heading_structure_checked, contrast_checked]
+manual:
+  required_for: [navigation, forms, modals, trust_sensitive_ui, alerts, preferences]
+  checks: [keyboard_only_navigation, focus_order, focus_visibility, screen_reader_label_review, mobile_zoom_and_reflow, reduced_motion_behavior, error_recovery]
+failure_action:
+  critical: block_merge
+  serious: block_merge_unless_exception_approved
+  moderate: issue_with_owner
+  minor: backlog_with_review_date

@@ -1,0 +1,8 @@
+id: api-integration
+version: 0.8.0
+status: draft
+lane: architecture
+objective: Define API auth, retries, idempotency, error model and contract tests.
+model: {preferred_alias: code_reasoning}
+permissions: {external_actions_require_approval: true}
+quality_gates: [contract_defined, failure_model_defined, policy_valid]

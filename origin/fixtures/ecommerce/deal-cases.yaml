@@ -1,0 +1,19 @@
+fixtures:
+- id: retailer_list_price_only
+  input: {current_price: 49.99, list_price: 99.99}
+  expected: {classification: price_drop_observed, required_copy: "50% below displayed list price"}
+- id: exact_variant_historical_low
+  input: {current_price: 49.99, identity: exact_identifier, days: 90, observed_min: 49.99, records: 30}
+  expected: {classification: strong_value, wording_scope_days: 90}
+- id: local_penny_report
+  input: {channel: community_report, store_id: "123", price: 0.01}
+  expected: {classification: community_reported, max_score: 45, nationwide: false}
+- id: coupon_unknown
+  input: {current_price: 20, coupon_required: true}
+  expected: {max_score: 60}
+- id: affiliate_offer
+  input: {affiliate_eligible: true, disclosure_required: true}
+  expected: {commercial_rank_separate: true}
+- id: conflicting_offer_observations
+  input: {visible_price: 49.99, json_ld_price: 79.99}
+  expected: {publication_status: suppressed, classification: conflicting}

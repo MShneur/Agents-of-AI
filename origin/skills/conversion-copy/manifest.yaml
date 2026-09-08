@@ -1,0 +1,104 @@
+id: conversion-copy
+version: 0.1.0
+lane: marketing
+priority: 1
+activate_when:
+  exact_intents:
+  - write homepage
+  - write landing page
+  - improve copy
+  - rewrite page
+  - headline
+  - CTA
+  - value proposition
+  - product description
+  keyword_signals:
+  - copy
+  - marketing
+  - hero
+  - subheadline
+  - conversion
+  - tagline
+  negative_signals:
+  - legal opinion
+  - price verification
+  requires_artifacts:
+  - product-marketing.yaml
+  - brand-voice.yaml
+do_not_activate_when:
+- The task is email, popup, or SEO-only and no page-copy work is requested.
+objective: Create evidence-bounded conversion copy with one primary action, claim
+  review, alternatives, and test hypothesis.
+inputs:
+  required:
+  - page_type
+  - primary_action
+  - audience
+  - product_or_offer
+  optional:
+  - traffic_source
+  - proof
+  - objections
+  - existing_copy
+  - page_layout
+  - competitor_examples
+outputs:
+  primary: page-copy.md
+  artifacts:
+  - claim-ledger.json
+  - copy-test-plan.yaml
+  - dissent-ledger.json
+  - handoff.json
+model:
+  preferred_alias: copy_critical
+  fallback_aliases:
+  - copy_fast
+quorum:
+  minimum: 3
+  default_personas:
+  - rowan_vale
+  - elena_maris
+  - tessa_rowan
+  required_objection_modes:
+  - falsification
+  - user_reality
+  - boundary_protection
+tools:
+  allowed:
+  - read_project_context
+  - retrieve_approved_proof
+  prohibited:
+  - publish
+  - send_message
+  - invent_testimonial
+  - invent_metric
+quality_gates:
+- one primary action
+- every factual claim exists in claim ledger
+- forbidden terms require evidence override
+- two headline/CTA variants
+- clarity check passes
+- material objections addressed
+handoff:
+  next_skills:
+  - claim-review
+  - seo-audit
+  - ab-test-design
+  approval_required_for:
+  - public_publish
+  - ad_spend
+  - email_send
+source_policy:
+  evidence_required: true
+  allowed_source_classes:
+  - approved_project_context
+  - user_provided_proof
+  - verified_analytics
+  prohibited_source_classes:
+  - invented_statistics
+  - invented_testimonials
+  - unsupported_competitor_claims
+kill_criteria:
+- No proof inventory for a factual headline.
+- Primary action is undefined.
+- Draft requires unsupported urgency or guarantee.

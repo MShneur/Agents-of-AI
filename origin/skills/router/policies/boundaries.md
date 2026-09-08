@@ -1,0 +1,1 @@
+Router may read configuration. It may not call the target skill, choose a live provider, or perform external actions.

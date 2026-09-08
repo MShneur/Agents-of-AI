@@ -1,0 +1,5 @@
+checks:
+- configured_match
+- provider_neutral
+- no_execution
+- unknown_on_no_match

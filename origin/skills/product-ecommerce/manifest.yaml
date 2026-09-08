@@ -1,0 +1,28 @@
+id: product-ecommerce
+version: 0.1.0
+lane: product_ecommerce
+priority: 2
+activate_when:
+  exact_intents: [model product, normalize product, resolve variant, model retailer offer, build product catalog, channel listing]
+  keyword_signals: [product, variant, offer, retailer sku, gtin, upc, mpn, channel, catalog, taxonomy]
+objective: Build canonical product, exact variant, retailer offer and channel-listing records without merging time-bound price or availability into product identity.
+inputs:
+  required: [product_evidence]
+  optional: [existing_product, variant_candidates, retailer_offer, channel_context]
+outputs:
+  primary: product-ecommerce.json
+  artifacts: [canonical-product.json, product-variant.json, retailer-offer.json, channel-listing.json, identity-review.yaml]
+model:
+  preferred_alias: extract_json
+  fallback_aliases: [research_long]
+quorum:
+  minimum: 5
+  method_quorum_doc: origin/EXPERT-METHOD-SOURCES-B06.md
+  historical_personas_are_provenance_only: true
+tools:
+  allowed: [read_source_evidence, compare_variant_attributes, validate_schema, read_existing_catalog]
+  prohibited: [title_only_auto_merge, write_global_price, write_global_inventory, create_checkout, purchase_item]
+quality_gates: [domain_entities_separate, variant_identity_explicit, retailer_offer_scoped, channel_location_explicit, taxonomy_user_meaning_checked]
+handoff:
+  approval_required_for: [ambiguous_variant_merge, taxonomy_public_change]
+kill_criteria: ["Exact variant conflict unresolved.", "Source evidence absent.", "Requested action is checkout/purchase."]

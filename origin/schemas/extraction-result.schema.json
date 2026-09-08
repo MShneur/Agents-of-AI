@@ -1,0 +1,3 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema","type":"object","required":["source_id","method","fields","conflicts","status"],"properties":{"source_id":{"type":"string"},"method":{"enum":["official_api","official_feed","json_ld","microdata","rdfa","opengraph","server_html","rendered_dom","manual_report","llm_normalization"]},"fields":{"type":"object"},"conflicts":{"type":"array","items":{"type":"string"}},"status":{"enum":["PASS","PARTIAL","CONFLICT","BLOCKED"]}}
+}

@@ -1,0 +1,111 @@
+openapi: 3.1.0
+info:
+  title: Origin Control Plane Actions
+  version: 0.8.0
+  description: Read-only/control-plane API for Origin Control Room. No external-write executor is exposed.
+servers:
+- url: https://origin.example.invalid
+paths:
+  /v1/skills/resolve:
+    post:
+      operationId: resolveSkill
+      summary: Resolve the narrow Origin skill and lane.
+      security: [{ApiKeyAuth: []}]
+      requestBody: {required: true, content: {application/json: {schema: {$ref: '#/components/schemas/SimpleRequest'}}}}
+      responses: {'200': {description: OK}}
+  /v1/context/load:
+    post:
+      operationId: loadContext
+      summary: Load bounded project context.
+      security: [{ApiKeyAuth: []}]
+      requestBody: {required: true, content: {application/json: {schema: {$ref: '#/components/schemas/SimpleRequest'}}}}
+      responses: {'200': {description: OK}}
+  /v1/quorum/select:
+    post:
+      operationId: selectQuorum
+      summary: Select independent named objection personas.
+      security: [{ApiKeyAuth: []}]
+      requestBody: {required: true, content: {application/json: {schema: {$ref: '#/components/schemas/QuorumRequest'}}}}
+      responses: {'200': {description: OK}}
+  /v1/quorum/run:
+    post:
+      operationId: runQuorum
+      summary: Run selected personas independently and return dissent.
+      security: [{ApiKeyAuth: []}]
+      requestBody: {required: true, content: {application/json: {schema: {$ref: '#/components/schemas/QuorumRequest'}}}}
+      responses: {'200': {description: OK}}
+  /v1/tasks:
+    post:
+      operationId: createTask
+      summary: Create an internal task record.
+      security: [{ApiKeyAuth: []}]
+      requestBody: {required: true, content: {application/json: {schema: {$ref: '#/components/schemas/TaskRequest'}}}}
+      responses: {'200': {description: OK}}
+  /v1/evidence/query:
+    post:
+      operationId: queryEvidence
+      summary: Evaluate supplied evidence for a claim.
+      security: [{ApiKeyAuth: []}]
+      requestBody: {required: true, content: {application/json: {schema: {$ref: '#/components/schemas/EvidenceQuery'}}}}
+      responses: {'200': {description: OK}}
+  /v1/tasks/validate:
+    post:
+      operationId: validateTask
+      summary: Validate task artifact/policy/evidence gates.
+      security: [{ApiKeyAuth: []}]
+      requestBody: {required: true, content: {application/json: {schema: {$ref: '#/components/schemas/SimpleRequest'}}}}
+      responses: {'200': {description: OK}}
+  /v1/evaluations/run:
+    post:
+      operationId: runEvaluation
+      summary: Run a configured evaluation fixture.
+      security: [{ApiKeyAuth: []}]
+      requestBody: {required: true, content: {application/json: {schema: {$ref: '#/components/schemas/SimpleRequest'}}}}
+      responses: {'200': {description: OK}}
+  /v1/tasks/{task_id}:
+    get:
+      operationId: getTask
+      summary: Read task state.
+      security: [{ApiKeyAuth: []}]
+      parameters: [{name: task_id, in: path, required: true, schema: {type: string}}]
+      responses: {'200': {description: Task}}
+  /v1/artifacts/{artifact_id}:
+    get:
+      operationId: getArtifact
+      summary: Read an artifact.
+      security: [{ApiKeyAuth: []}]
+      parameters: [{name: artifact_id, in: path, required: true, schema: {type: string}}]
+      responses: {'200': {description: Artifact}}
+  /v1/provider-health:
+    get:
+      operationId: getProviderHealth
+      summary: Read provider health/evaluation state.
+      security: [{ApiKeyAuth: []}]
+      responses: {'200': {description: Provider health}}
+  /v1/approvals/request:
+    post:
+      operationId: requestApproval
+      summary: Create an internal approval request record only; does not execute any external action.
+      security: [{ApiKeyAuth: []}]
+      requestBody: {required: true, content: {application/json: {schema: {$ref: '#/components/schemas/TaskRequest'}}}}
+      responses: {'200': {description: OK}}
+components:
+  securitySchemes:
+    ApiKeyAuth: {type: apiKey, in: header, name: Authorization}
+  schemas:
+    SimpleRequest:
+      type: object
+      properties: {request: {type: string}, project_id: {type: string}}
+      required: [request]
+    TaskRequest:
+      type: object
+      properties: {objective: {type: string}, project_id: {type: string}}
+      required: [objective]
+    EvidenceQuery:
+      type: object
+      properties: {claim: {type: string}, evidence: {type: array, items: {type: object}}}
+      required: [claim]
+    QuorumRequest:
+      type: object
+      properties: {task_type: {type: string}, risk_level: {type: string}, skill_id: {type: string}}
+      required: [task_type]

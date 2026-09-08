@@ -1,0 +1,44 @@
+id: pr-communications
+version: 0.1.0
+lane: pr
+priority: 1
+activate_when:
+  exact_intents: [press release, launch announcement, media pitch, public statement, community announcement]
+  keyword_signals: [press, launch, media, outreach, public statement, crisis response, community announcement]
+  negative_signals: []
+  requires_artifacts: [approved_facts]
+do_not_activate_when:
+- The request is to actually send/publish/contact rather than draft and review.
+objective: Draft factual audience-specific public communications with claim ledger and approval packet.
+inputs:
+  required: [communication_type, audience, objective, approved_facts]
+  optional: [spokesperson, embargo, target_outlets, quote, CTA, risk_context]
+outputs:
+  primary: communication-draft.md
+  artifacts: [claim-ledger.json, target-angle-matrix.yaml, approval-checklist.yaml]
+model:
+  preferred_alias: copy_critical
+  fallback_aliases: [copy_fast]
+quorum:
+  minimum: 4
+  default_personas: [rowan_vale, malik_ortez, tessa_rowan, avery_quinn, noah_strake]
+  required_objection_modes: [falsification, boundary_protection, contrarian]
+tools:
+  allowed: [read_approved_facts]
+  prohibited: [send_email, publish, contact_media, invent_quote, invent_metric, claim_partnership_without_approval]
+quality_gates:
+- every material fact in claim ledger
+- no invented quote/testimonial/metric
+- audience angle defined
+- public claim review complete
+- approval required before distribution
+handoff:
+  next_skills: [claim-review, conversion-copy]
+  approval_required_for: [send, publish, post]
+source_policy:
+  evidence_required: true
+  allowed_source_classes: [approved_facts, approved_quotes, approved_project_context]
+  prohibited_source_classes: [invented_quote, invented_metric]
+kill_criteria:
+- No approved facts.
+- Distribution requested without approval.

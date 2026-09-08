@@ -1,0 +1,3 @@
+assertions:
+- missing required objective blocks execution
+- external action never executes from this skill package

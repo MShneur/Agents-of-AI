@@ -1,0 +1,33 @@
+product:
+  name: ''
+  category: ''
+  one_sentence_description: ''
+  primary_user: ''
+  secondary_users: []
+problems:
+  primary: []
+  secondary: []
+outcomes:
+  promised: []
+  supported_by_evidence: []
+differentiators:
+  verified: []
+  inferred: []
+  unknown: []
+alternatives:
+  direct: []
+  indirect: []
+  do_nothing: []
+conversion:
+  primary_action: ''
+  secondary_actions: []
+  traffic_contexts: []
+proof:
+  metrics: []
+  testimonials: []
+  source_backed_claims: []
+  demos: []
+constraints:
+  regulated_claims: []
+  forbidden_claims: []
+  required_disclosures: []

@@ -1,0 +1,1 @@
+{"$schema":"https://json-schema.org/draft/2020-12/schema","type":"object","required":["site_url_or_crawl_export","business_goal","priority_pages_or_topics"],"properties":{"site_url_or_crawl_export":{"type":"string"},"business_goal":{"type":"string"},"priority_pages_or_topics":{"type":"array","items":{"type":"string"}}},"additionalProperties":true}

@@ -1,0 +1,44 @@
+id: seo-audit
+version: 0.1.0
+lane: marketing
+priority: 1
+activate_when:
+  exact_intents: [SEO audit, technical SEO, why am I not ranking, crawl audit, indexing issue, metadata review]
+  keyword_signals: [SEO, rankings, traffic dropped, crawl, sitemap, robots, canonical, schema, core web vitals]
+  negative_signals: []
+  requires_artifacts: [site_url_or_export]
+do_not_activate_when:
+- No site URL, crawl export, or source artifact is available.
+objective: Produce evidence-based prioritized SEO findings; do not assert what the observation method cannot see.
+inputs:
+  required: [site_url_or_crawl_export, business_goal, priority_pages_or_topics]
+  optional: [search_console_export, analytics_export, sitemap, robots_txt, framework, recent_migrations]
+outputs:
+  primary: seo-audit-report.md
+  artifacts: [findings.json, prioritized-backlog.yaml, evidence-log.json]
+model:
+  preferred_alias: research_long
+  fallback_aliases: [code_reasoning]
+quorum:
+  minimum: 3
+  default_personas: [samir_holt, sora_bell, tessa_rowan]
+  required_objection_modes: [falsification, user_reality, evidence_provenance]
+tools:
+  allowed: [fetch_url, browser_render, inspect_dom, parse_sitemap, parse_robots, read_search_console_export]
+  prohibited: [claim_no_schema_from_static_fetch_only, modify_production_site]
+quality_gates:
+- every finding has evidence and detection method
+- finding has impact and exact fix
+- findings prioritized
+- schema absence requires render-capable evidence
+- unknowns labeled unknown
+handoff:
+  next_skills: [technical-seo, structured-data, programmatic-seo, conversion-copy]
+  approval_required_for: [production_changes]
+source_policy:
+  evidence_required: true
+  allowed_source_classes: [site_artifact, search_console, analytics, rendered_dom, official_docs]
+  prohibited_source_classes: [static_only_schema_absence_claim]
+kill_criteria:
+- No site URL, crawl export, or valid source artifact.
+- Static fetch used as sole evidence for JS-injected schema absence.

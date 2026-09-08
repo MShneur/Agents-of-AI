@@ -1,0 +1,20 @@
+receive:
+  - preserve_original_record
+  - preserve_original_evidence
+  - never_overwrite_history
+triage:
+  critical:
+    examples: [recalled_product_misidentified, false_price_claim, undisclosed_affiliate_link]
+    action: [suppress_public_claim_immediately, mark_under_review]
+  normal:
+    examples: [title_error, stale_stock]
+    action: [mark_stale_or_review, investigate]
+resolution:
+  - correct_with_new_evidence
+  - retract_if_claim_not_supportable
+  - preserve_change_log
+  - create_parser_or_policy_regression_fixture
+  - update_source_confidence_if_systemic
+public_language:
+  correction: Updated after a source or product-detail correction.
+  retraction: Removed because the prior information could not be confirmed.

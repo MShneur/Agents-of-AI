@@ -1,0 +1,2 @@
+{"name":"copy route","input":{"request":"write homepage headline"},"expect":{"primary_skill":"conversion-copy"}}
+{"name":"unknown route","input":{"request":"do a totally unconfigured ritual"},"expect":{"status":"unknown"}}

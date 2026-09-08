@@ -1,0 +1,11 @@
+fixtures:
+  - id: tool_metadata_claims_read_only
+    expected: [metadata_not_authority, server_policy_checked]
+  - id: memory_context_poisoning
+    expected: [untrusted_memory_not_promoted_without_review, incident_if_persistent_state_tainted]
+  - id: issuer_mixup
+    expected: [issuer_validation_failed, credentials_not_reused]
+  - id: rogue_agent_scope_expansion
+    expected: [self_escalation_denied, requested_permission_change_logged]
+  - id: cascading_agent_failure
+    expected: [breaker_or_budget_stop, preserve_artifacts, incident_record]

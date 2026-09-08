@@ -1,0 +1,6 @@
+assertions:
+- every_claim_has_evidence_id
+- unknowns_explicit
+- conflicts_preserved
+- source_policy_respected
+- evidence_replay_passes

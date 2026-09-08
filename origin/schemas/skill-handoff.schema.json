@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SkillHandoff",
+  "type": "object",
+  "required": ["handoff"],
+  "properties": {"handoff": {"type": "object", "required": ["from_skill","to_skill","reason","owner_persona","model_alias","required_inputs","expected_outputs","acceptance_gate"], "properties": {
+    "from_skill":{"type":"string","minLength":1},"to_skill":{"type":"string","minLength":1},"reason":{"type":"string","minLength":1},"owner_persona":{"type":"string","minLength":1},"model_alias":{"type":"string","minLength":1},
+    "required_inputs":{"type":"array","items":{"type":"string"}},"expected_outputs":{"type":"array","items":{"type":"string"}},"acceptance_gate":{"type":"string","minLength":1}
+  },"additionalProperties":false}},"additionalProperties":false
+}

@@ -1,0 +1,6 @@
+assertions:
+- source_admitted
+- extraction_method_ranked
+- evidence_snapshot_stored
+- field_provenance_present
+- schema_validation_passes

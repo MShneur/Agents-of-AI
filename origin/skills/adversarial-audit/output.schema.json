@@ -1,0 +1,1 @@
+{"$schema":"https://json-schema.org/draft/2020-12/schema","type":"object","required":["status","primary_artifact","unknowns","next_handoff"],"properties":{"status":{"enum":["PASS","HOLD","REJECTED"]},"primary_artifact":{"type":"string"},"unknowns":{"type":"array","items":{"type":"string"}},"next_handoff":{"type":["object","null"]}},"additionalProperties":true}

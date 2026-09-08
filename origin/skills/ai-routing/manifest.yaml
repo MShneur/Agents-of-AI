@@ -1,0 +1,77 @@
+id: ai-routing
+version: 0.1.0
+lane: ai_governance
+activate_when:
+  exact_intents:
+  - choose model
+  - route model
+  - add provider
+  - configure fallback
+  - compare model performance
+  - free API routing
+  keyword_signals:
+  - model
+  - provider
+  - API
+  - fallback
+  - quota
+  - latency
+  - OpenRouter
+  - Gemini
+  - Groq
+  - Cerebras
+  - LiteLLM
+objective: Select and maintain model aliases from task-specific evaluation evidence,
+  provider health, quota, latency, policy compatibility, and structured-output requirements.
+inputs:
+  required:
+  - target_skill
+  - task_requirements
+  optional:
+  - candidate_providers
+  - benchmark_results
+  - quota_status
+  - latency_target
+  - data_classification
+  - cost_ceiling
+outputs:
+  primary: routing-decision.yaml
+  artifacts:
+  - model-evaluation-report.json
+  - fallback-chain.yaml
+  - circuit-breaker-policy.yaml
+  - provider-risk-report.yaml
+  - dissent-ledger.json
+model:
+  preferred_alias: code_reasoning
+  fallback_aliases:
+  - research_long
+quorum:
+  minimum: 5
+  method_quorum_doc: origin/EXPERT-METHOD-SOURCES-B07.md
+  historical_personas_are_provenance_only: true
+tools:
+  allowed:
+  - read_benchmark
+  - read_provider_health
+  - read_quota_status
+  - run_eval
+  - validate_routing_config
+  prohibited:
+  - expose_provider_key
+  - auto_enable_new_provider
+  - change_production_route_without_approval
+  - route_secret_data_to_unapproved_provider
+quality_gates:
+- task_specific_benchmark_exists
+- schema_requirement_tested
+- safety_requirement_tested
+- provider_data_policy_compatible
+- fallback_chain_tested
+- circuit_breaker_defined
+- trace_fields_defined
+kill_criteria:
+- No benchmark for intended task.
+- Provider policy incompatible with data class.
+- Schema-valid rate below threshold.
+- Fallback changes semantics without revalidation.

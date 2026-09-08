@@ -1,0 +1,8 @@
+id: database-schema
+version: 0.8.0
+status: draft
+lane: architecture
+objective: Design typed data schema, migration and fixture validation with rollback.
+model: {preferred_alias: code_reasoning}
+permissions: {external_actions_require_approval: true}
+quality_gates: [schema_typed, migration_plan_present, rollback_present]

@@ -1,0 +1,37 @@
+version: "0.1.0"
+
+# Capability IDs are open configuration data.
+# Runtime code must not branch on these literal names.
+capabilities:
+  - id: code_reasoning
+    description: architecture, difficult debugging, scoped code review
+    required_properties: [structured_output, repository_reasoning]
+  - id: extract_json
+    description: strict structured extraction and normalization
+    required_properties: [structured_output, schema_adherence]
+  - id: copy_critical
+    description: public copy where factual restraint and claim review matter
+    required_properties: [controlled_generation, claim_restraint]
+  - id: research_long
+    description: multi-source synthesis with source separation and preserved unknowns
+    required_properties: [long_context, source_separation]
+
+providers: []
+# Providers are added only after current capability, privacy, quota,
+# and evaluation evidence is recorded. No provider is trusted by default.
+
+selection_order:
+  - capability_match
+  - own_eval_pass_rate
+  - schema_compliance
+  - data_policy_compatibility
+  - latency_target
+  - quota_health
+  - cost_ceiling
+  - availability
+
+never_select_by:
+  - brand_reputation_only
+  - latest_release_only
+  - lowest_cost_only
+  - context_window_size_only

@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ClaimLedger",
+  "type": "object",
+  "required": ["claims", "unsupported_removed", "required_disclosures"],
+  "properties": {
+    "claims": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["text", "type", "allowed"],
+        "properties": {
+          "claim_id": {"type": "string"},
+          "text": {"type": "string", "minLength": 1},
+          "type": {"enum": ["verified_observation", "inferred", "unknown", "preference"]},
+          "classification": {"enum": ["verified_observation", "qualified_inference", "unknown"]},
+          "evidence_id": {"type": ["string", "null"]},
+          "evidence_refs": {"type": "array", "items": {"type": "string"}},
+          "source": {"type": ["string", "null"]},
+          "observed_at": {"type": ["string", "null"]},
+          "scope": {"type": "string"},
+          "allowed": {"type": "boolean"},
+          "caveat": {"type": "string"},
+          "caveats": {"type": "array", "items": {"type": "string"}}
+        }
+      }
+    },
+    "unsupported_removed": {"type": "array", "items": {"type": "string"}},
+    "required_disclosures": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": false
+}

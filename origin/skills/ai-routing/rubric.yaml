@@ -1,0 +1,13 @@
+pass_requires:
+- task_specific_benchmark_exists
+- schema_requirement_tested
+- safety_requirement_tested
+- provider_data_policy_compatible
+- fallback_chain_tested
+- circuit_breaker_defined
+- trace_fields_defined
+block_on:
+- No benchmark for intended task.
+- Provider policy incompatible with data class.
+- Schema-valid rate below threshold.
+- Fallback changes semantics without revalidation.

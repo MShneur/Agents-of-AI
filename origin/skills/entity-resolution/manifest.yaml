@@ -1,0 +1,8 @@
+id: entity-resolution
+version: 0.8.0
+status: draft
+lane: data_scraping
+objective: Resolve cross-source product identity with deterministic IDs then calibrated review.
+model: {preferred_alias: extract_json}
+permissions: {external_actions_require_approval: true}
+quality_gates: [identity_evidence_present, variant_ambiguity_preserved, threshold_defined]

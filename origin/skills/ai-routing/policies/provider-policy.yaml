@@ -1,0 +1,2 @@
+canonical_policy: origin/policies/provider-policy.yaml
+forking_or_weakening_prohibited: true

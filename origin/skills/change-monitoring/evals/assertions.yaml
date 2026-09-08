@@ -1,0 +1,6 @@
+assertions:
+- semantic_field_defined
+- snapshot_per_observation
+- variant_bound
+- duplicate_event_protection
+- freshness_slo_defined

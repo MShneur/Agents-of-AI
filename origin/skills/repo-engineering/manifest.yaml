@@ -1,0 +1,22 @@
+id: repo-engineering
+version: 0.3.0
+lane: engineering
+model_alias: code_reasoning
+inputs:
+  required: [task_id, repository, objective, affected_area, acceptance_criteria]
+  optional: [constraints, non_goals, base_commit, risk_level]
+outputs:
+  - context_pack
+  - change_set
+  - validation_result
+  - review_result
+  - approval_request_if_needed
+tools:
+  allowed: [read_repo_scoped, write_branch_scoped, run_allowlisted_command, run_tests, inspect_git_diff, browser_test]
+  prohibited: [read_secrets, write_main, force_push, history_rewrite, deploy, production_shell]
+budgets:
+  max_changed_files: 12
+  max_changed_lines: 800
+  max_repair_cycles: 3
+  max_tool_calls: 40
+approval_required_for: [merge, push, deploy, dependency_upgrade, database_migration, secret_change, external_write]

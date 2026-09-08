@@ -1,0 +1,8 @@
+id: browser-verification
+version: 0.8.0
+status: draft
+lane: operations
+objective: Verify rendered user flows and capture traceable browser-test artifacts.
+model: {preferred_alias: code_reasoning}
+permissions: {external_actions_require_approval: true}
+quality_gates: [rendered_flow_checked, evidence_artifact_present, policy_valid]

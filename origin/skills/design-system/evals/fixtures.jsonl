@@ -1,0 +1,2 @@
+{"id":"missing-context","input":{},"expected":"BLOCKED"}
+{"id":"happy-path","input":{"provided":true},"expected":"SPEC_ONLY"}
