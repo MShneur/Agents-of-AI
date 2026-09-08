@@ -1,9 +1,13 @@
 name: Validate
 
+# Owner conservation rule: routine validation runs on Oracle or an approved isolated runtime.
+# GitHub-hosted Actions is emergency/manual fallback only and requires an explicit decision.
 on:
-  pull_request:
-  push:
-    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 permissions:
   contents: read
