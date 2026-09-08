@@ -1,0 +1,3 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema","type":"object","required":["variant_id","product_id","identity","condition"],"properties":{"variant_id":{"type":"string"},"product_id":{"type":"string"},"identity":{"type":"object","properties":{"gtin":{"type":"string"},"upc":{"type":"string"},"ean":{"type":"string"},"mpn":{"type":"string"},"manufacturer_model":{"type":"string"},"size":{"type":"string"},"color":{"type":"string"},"capacity":{"type":"string"},"pack_count":{"type":"integer"},"generation":{"type":"string"}}},"condition":{"enum":["new","open_box","refurbished","used","damaged_packaging","unknown"]},"attributes":{"type":"object"}}
+}

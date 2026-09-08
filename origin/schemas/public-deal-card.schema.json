@@ -1,0 +1,3 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema","type":"object","required":["observation_id","evidence_time","channel","condition","deal_assessment","caveats","claim_ledger_id"],"properties":{"observation_id":{"type":"string"},"evidence_time":{"type":"string","format":"date-time"},"channel":{"type":"string"},"condition":{"type":"string"},"deal_assessment":{"type":"string"},"caveats":{"type":"array","items":{"type":"string"}},"affiliate_disclosure":{"type":["string","null"]},"claim_ledger_id":{"type":"string"}}
+}

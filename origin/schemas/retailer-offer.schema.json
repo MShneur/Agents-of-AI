@@ -1,0 +1,3 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema","type":"object","required":["offer_id","variant_id","retailer","retailer_url","condition","source_policy_status"],"properties":{"offer_id":{"type":"string"},"variant_id":{"type":"string"},"retailer":{"type":"string"},"retailer_sku":{"type":"string"},"retailer_url":{"type":"string"},"seller":{"type":"string"},"condition":{"type":"string"},"affiliate_eligible":{"type":"boolean"},"source_policy_status":{"enum":["approved","limited","review_required","rejected"]}},"not":{"anyOf":[{"required":["current_price"]},{"required":["availability"]},{"required":["inventory"]}]}
+}

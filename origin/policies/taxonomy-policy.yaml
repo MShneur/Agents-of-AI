@@ -1,0 +1,20 @@
+facets:
+  product_type: {purpose: "What is it?"}
+  use_case: {purpose: "What problem does it solve?"}
+  retailer: {purpose: "Where can it be sourced?", source: retailer_offer.retailer}
+  channel: {purpose: "How can it be acquired?", source: channel_listing.channel}
+  condition: {purpose: "What state is the item in?", source: variant.condition}
+  deal_status:
+    purpose: "What is known about the offer?"
+    values: [price_drop_observed, clearance_observed, community_reported, needs_validation, unavailable]
+  evidence_confidence:
+    purpose: "How well supported is the claim?"
+    values: [confirmed, likely, community_reported, stale, conflicting]
+  price_range: {purpose: "What is current observed price?", source: observation.pricing.current_price}
+admission_rules:
+  - users_can_predict_meaning
+  - changes_discovery_or_comparison
+  - extractable_with_acceptable_reliability
+  - does_not_duplicate_existing_facet
+prohibited_facets: [best_deal, guaranteed_savings, trending_without_defined_metric, limited_time_without_expiration_evidence]
+retailer_categories_are_source_metadata: true

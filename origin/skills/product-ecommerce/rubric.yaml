@@ -1,0 +1,3 @@
+{
+  "checks": ["product/offer split","variant identity","channel scope","taxonomy value","no checkout"]
+}

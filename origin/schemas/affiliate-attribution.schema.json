@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "link_id",
+    "offer_id",
+    "merchant",
+    "disclosure_required",
+    "created_at"
+  ],
+  "properties": {
+    "link_id": {
+      "type": "string"
+    },
+    "offer_id": {
+      "type": "string"
+    },
+    "merchant": {
+      "type": "string"
+    },
+    "affiliate_network": {
+      "type": "string"
+    },
+    "campaign_id": {
+      "type": "string"
+    },
+    "disclosure_required": {
+      "type": "boolean"
+    },
+    "disclosure_variant_id": {
+      "type": "string"
+    },
+    "commercial_data_access": {
+      "enum": [
+        "restricted_finance_only",
+        "aggregated_analytics",
+        "none"
+      ]
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+id: corrections
+version: 0.1.0
+lane: product_ecommerce
+priority: 3
+activate_when:
+  exact_intents: [correct deal, report wrong price, retract claim, wrong variant, missing disclosure]
+  keyword_signals: [correction, wrong price, wrong variant, stale, retract, dispute, missing disclosure]
+objective: Correct or retract unsupported commerce claims while preserving the original record/evidence and generating a regression fixture.
+inputs:
+  required: [target_id, report_reason, original_evidence_refs]
+  optional: [correction_evidence_refs, reporter_context]
+outputs:
+  primary: correction.json
+  artifacts: [public-notice.md, regression-fixture.json, source-confidence-review.yaml]
+model:
+  preferred_alias: research_long
+  fallback_aliases: [copy_critical]
+quorum:
+  minimum: 5
+  method_quorum_doc: origin/EXPERT-METHOD-SOURCES-B06.md
+  historical_personas_are_provenance_only: true
+tools:
+  allowed: [read_original_record, read_source_evidence, suppress_public_claim, create_regression_fixture]
+  prohibited: [overwrite_history, delete_original_evidence, republish_without_validation]
+quality_gates: [original_preserved, evidence_preserved, claim_suppressed_if_critical, resolution_supported, regression_fixture_created]
+handoff:
+  approval_required_for: [republish_corrected_claim, change_ranking_policy]
+kill_criteria: ["Original evidence unavailable.", "Correction conflicts unresolved."]

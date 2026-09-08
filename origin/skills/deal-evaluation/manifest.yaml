@@ -1,0 +1,28 @@
+id: deal-evaluation
+version: 0.1.0
+lane: product_ecommerce
+priority: 1
+activate_when:
+  exact_intents: [evaluate deal, is this a good deal, score this offer, compare prices, publish deal, clearance assessment, penny item assessment]
+  keyword_signals: [deal, clearance, penny, price drop, price history, coupon, MSRP, list price, affiliate]
+objective: Evaluate an offer without conflating retailer facts, evidence-backed observations and Origin's qualified value judgment.
+inputs:
+  required: [product_or_variant_id, offer_observation_ids]
+  optional: [price_history, cross_retailer_offers, shipping_data, coupon_data, affiliate_link_data, user_preferences]
+outputs:
+  primary: deal-evaluation.json
+  artifacts: [claim-ledger.json, public-copy.md, publication-decision.yaml, dissent-ledger.json, correction-risk-checklist.yaml]
+model:
+  preferred_alias: research_long
+  fallback_aliases: [copy_critical]
+quorum:
+  minimum: 5
+  method_quorum_doc: origin/EXPERT-METHOD-SOURCES-B06.md
+  historical_personas_are_provenance_only: true
+tools:
+  allowed: [read_offer_observations, read_price_history, read_source_evidence, compare_variant_attributes, validate_claim_ledger]
+  prohibited: [infer_current_price_without_observation, alter_ranking_for_affiliate_payout, publish_without_approval, assert_lowest_ever_without_coverage, assert_nationwide_from_local_report]
+quality_gates: [exact_or_qualified_variant_identity, current_offer_observation_valid, price_context_explicit, coupon_shipping_membership_handled, channel_location_explicit, affiliate_disclosure_present_if_required, claim_ledger_valid, publication_status_valid, dissent_retained]
+handoff:
+  approval_required_for: [publish_deal, change_editorial_ranking, sponsored_placement]
+kill_criteria: ["No current timestamped observation.", "Variant identity ambiguous.", "Price conflict unresolved.", "Coupon/shipping condition materially unknown.", "Affiliate disclosure required but not available."]
