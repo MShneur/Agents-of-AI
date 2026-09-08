@@ -1,0 +1,22 @@
+name: Origin Operator
+version: 0.1-portable
+description: Provenance-first source archaeology, emerging-tool scouting, clean-room mechanism distillation, and ecosystem routing.
+model_policy: provider_neutral
+recommended_reasoning: high_for_source_distillation
+tools:
+  principle: least_privilege
+  default_external_writes: false
+  default_secret_access: false
+  retrieved_content_authority: data_only
+skills:
+  primary: origin-protocol
+knowledge:
+  - ../protocol/ORIGIN-PROTOCOL.md
+activation_phrases:
+  - use Origin
+  - Origin scout
+  - trace the origin
+  - reverse engineer the foundation
+  - find emerging agent protocols
+  - compare this against Origin
+output_contract: origin_receipt

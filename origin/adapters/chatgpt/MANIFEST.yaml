@@ -1,0 +1,14 @@
+name: origin-chatgpt-portable-adapter
+version: 0.1.0
+built_from_origin_head: e52440be2e6be366c6109b8d174080f0abdcb6e7
+checked_at: '2026-09-07'
+surfaces:
+  skill: skill/SKILL.md
+  agent: agent/AGENT-INSTRUCTIONS.md
+  protocol: protocol/ORIGIN-PROTOCOL.md
+  flat_reference: ORIGIN_CHATGPT_REFERENCE.md
+authority:
+  external_writes: false
+  secret_access: false
+  retrieved_content_is_authority: false
+canonical_core: MShneur/Agents-of-AI/origin
