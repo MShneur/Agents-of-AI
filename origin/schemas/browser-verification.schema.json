@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["required", "tests", "viewport_matrix", "status"],
+  "properties": {
+    "required": {"type": "boolean"},
+    "tests": {"type": "array", "items": {"type": "string"}},
+    "viewport_matrix": {"type": "array", "items": {"type": "string"}},
+    "screenshot_or_video_on_failure": {"type": ["string", "null"]},
+    "trace_on_failure": {"type": ["string", "null"]},
+    "accessibility_result": {"type": ["string", "null"]},
+    "status": {"enum": ["PASS", "FAIL", "NOT_RUN"]}
+  }
+}

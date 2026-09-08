@@ -1,0 +1,7 @@
+default: deny
+allow_if:
+  - path_within_declared_scope
+  - not_secret_like
+  - not_generated_or_vendor_unless_task_requires
+secret_patterns: [".env", ".env.*", "*.pem", "*.key", "id_rsa", "secrets.*", "credentials.*"]
+noise_patterns: ["node_modules/", ".next/", "dist/", "build/", "coverage/"]

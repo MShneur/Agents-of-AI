@@ -1,0 +1,9 @@
+branch_per_task: true
+direct_main_write: false
+direct_production_write: false
+commit_conditions: [plan_present, required_tests_recorded, diff_summary_present, independent_review_complete, no_secrets_detected]
+prohibited: [force_push, history_rewrite, auto_merge, unrelated_file_deletion, generated_secret_commit, unexplained_lockfile_change]
+max_scope:
+  default_files_changed: 12
+  default_lines_changed: 800
+  escalation_if_exceeded: true

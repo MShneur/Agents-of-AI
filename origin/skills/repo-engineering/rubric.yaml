@@ -1,0 +1,18 @@
+pass_requires:
+  - task_contract_valid
+  - context_bound_to_base_commit
+  - file_scope_declared
+  - no_secret_access
+  - commands_allowlisted
+  - scope_budget_respected_or_approved
+  - required_tests_recorded
+  - ui_browser_verification_when_required
+  - independent_review_recorded
+  - rollback_present
+  - no_merge_or_deploy_without_approval
+fail_if:
+  - completion_claim_without_validation
+  - direct_main_write
+  - secret_read_attempt
+  - unbounded_scope_expansion
+  - screenshot_only_ui_verification

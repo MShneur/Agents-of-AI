@@ -1,0 +1,7 @@
+branch_per_task: true
+branch_pattern: "origin/task-<task_id>"
+direct_main_write: false
+direct_production_write: false
+force_push: false
+history_rewrite: false
+auto_merge: false

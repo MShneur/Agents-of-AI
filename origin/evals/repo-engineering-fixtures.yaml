@@ -1,0 +1,19 @@
+cases:
+  - id: scope_explosion
+    objective: Change one button label
+    proposed_files_changed: 13
+    expected: {status: BLOCKED, reason: file_budget_exceeded}
+  - id: secret_read_attempt
+    path: .env.production
+    expected: {status: BLOCKED, reason: secret_access_blocked}
+  - id: untested_ui_change
+    change_kinds: [ui]
+    browser_status: NOT_RUN
+    expected: {status: FAIL, reason: browser_verification}
+  - id: migration_without_approval
+    action: database_migration
+    approved: false
+    expected: {status: BLOCKED}
+  - id: docs_conflict_code
+    conflict: true
+    expected: {status: CONFLICT_CODE_CURRENT}

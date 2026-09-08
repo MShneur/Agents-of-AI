@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["task_id", "branch", "base_commit", "files_read", "files_changed", "plan", "validation", "review", "rollback"],
+  "properties": {
+    "task_id": {"type": "string"},
+    "branch": {"type": "string"},
+    "base_commit": {"type": "string"},
+    "files_read": {"type": "array", "items": {"type": "string"}},
+    "files_changed": {"type": "array", "items": {"type": "string"}},
+    "plan": {"type": "object"},
+    "validation": {"type": "object"},
+    "review": {"type": "object"},
+    "rollback": {"type": "object"}
+  }
+}
