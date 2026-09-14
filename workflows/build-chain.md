@@ -27,6 +27,18 @@ Structured workflow for AI-assisted development that prevents the common failure
 - Single-line fixes you can verify by reading
 - Exploratory prototyping where correctness doesn't matter yet
 
+## Bounded Worker Continuity Contract
+
+Use this section for any domain; the coding stages below apply only when the assignment is a code change.
+
+1. Resolve the project’s existing canonical handoff/control record and project-specific approved manifest. Do not make a new handoff because a chat is new.
+2. Issue one bounded packet: objective, owner, method/persona, baseline revision, allowed files, forbidden surfaces, acceptance evidence, rollback/reversal condition, midpoint, completion gate, and return path.
+3. Keep concurrent ownership disjoint. A worker may not stage, overwrite, or reformat unowned files. New files require a manifest entry and owner before implementation.
+4. At midpoint, re-read the same handoff and manifest; report changed files, evidence, blockers, and the smallest next diff. Preserve NOT RUN, HOLD, and UNKNOWN honestly.
+5. At completion, the coordinator independently re-reads the diff and runs the narrow relevant verification, then updates the same handoff/ledger. No competing “final” handoff.
+6. Named experts are bounded method lenses unless independently activated. Never fabricate quorum, tool access, or endorsement.
+7. Batch related changes and commits; never use automatic hosted Actions as a substitute for the handoff or verification contract.
+
 ## Steps
 
 ### Step 0: RECONCILE (agent-driven, required on existing projects)
