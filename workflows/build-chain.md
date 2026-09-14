@@ -1,32 +1,57 @@
 ---
 id: build-chain
 type: workflow
-purpose: Structured development workflow for AI coding agents — from PRD through implementation to verified merge. Prevents agent drift, context corruption, and untested merges.
-steps: 6
+purpose: Structured development workflow for AI coding agents — reconcile current state first, then move from PRD through implementation to verified merge without rebuilding completed work.
+steps: 7
 agents_used: [tracker, stresstest, locksmith]
 personas_used: [mirror, wireframe]
 confidence: PRACTICED
-version: "1.0"
-tags: [development, coding, agentic, PRD, TDD, code-review, workflow]
+version: "1.1"
+tags: [development, coding, agentic, PRD, TDD, code-review, workflow, continuity, anti-drift]
 compatible_with: [any-ai]
-source: Synthesized from obra/superpowers (85k stars), murataslan1/cursor-ai-tips, DVC2/cursor-agent-configs, PatrickJS/awesome-cursorrules (40k stars)
+source: Synthesized from obra/superpowers (85k stars), murataslan1/cursor-ai-tips, DVC2/cursor-agent-configs, PatrickJS/awesome-cursorrules (40k stars); v1.1 adds live-state reconciliation from repeated multi-session agent drift failures.
 ---
 
 # Agentic Dev Cycle
 
 ## Purpose
-Structured workflow for AI-assisted development that prevents the common failure modes: agent drift (losing context), untested merges, hallucinated APIs, and "looks done" without verification. Works with any AI coding tool (Cursor, Claude Code, Codex, Copilot, etc.).
+Structured workflow for AI-assisted development that prevents the common failure modes: agent drift (losing context), duplicate rebuilds after a session transfer, untested merges, hallucinated APIs, and "looks done" without verification. Works with any AI coding tool (Cursor, Claude Code, Codex, Copilot, etc.).
 
 ## When to Use
 - Any feature or change that touches more than one file
 - Bug fixes where the root cause isn't obvious
 - Refactoring where behavior must be preserved
+- Continuing implementation from another chat, agent, branch, handoff, or interrupted session
 
 ## When NOT to Use
 - Single-line fixes you can verify by reading
 - Exploratory prototyping where correctness doesn't matter yet
 
 ## Steps
+
+### Step 0: RECONCILE (agent-driven, required on existing projects)
+Before planning, establish what is true **now**.
+
+1. Identify the project's canonical state surfaces: current branch/repo, runtime, ledger/state file, tests, accepted decision record, or equivalent.
+2. Read those current sources directly. Treat handoffs and chat summaries as locators/compression, not executable truth.
+3. Compare any prior plan/handoff against current state.
+4. Classify relevant work:
+
+```text
+BUILT      exists and is verified in the current source
+MISSING    required but not present
+BROKEN     exists but fails its contract/test
+OBSOLETE   intentionally superseded or no longer owned
+UNKNOWN    cannot be established from available evidence
+```
+
+5. Preserve BUILT work. Do not recreate it merely because the current session lacks the old conversation.
+6. Name branch drift, stale docs, unmerged work, or conflicting authorities before planning.
+7. If required canonical state cannot be read, mark the task DEGRADED/BLOCKED instead of reconstructing it from chat memory.
+
+**Anti-pattern:** A fresh agent reads a handoff, assumes it is current, scaffolds replacements for code that already exists, and creates a second architecture.
+
+**Done when:** the current baseline and the true delta are explicit.
 
 ### Step 1: SCOPE (human-driven)
 Define what "done" looks like before the agent touches code.
@@ -73,6 +98,7 @@ Agent implements the plan in small, verifiable increments.
 3. If the agent needs to deviate from the plan, stop and explain why before proceeding
 4. Run tests after each meaningful change — don't batch
 5. If tests fail, fix before moving on (don't accumulate broken state)
+6. If implementation reveals an existing canonical component/workflow already owns the behavior, extend it instead of creating a parallel replacement
 
 **Anti-pattern:** Agent writes everything, then runs tests at the end. By then, the bug is buried in 200 lines of changes.
 
@@ -84,6 +110,7 @@ Before merge, run adversarial verification. This is where the `stresstest` agent
 3. Run at least one adversarial probe (boundary values, concurrent requests, malformed input)
 4. Check for regressions in adjacent functionality
 5. Security scan if the change touches auth, input handling, or external data
+6. Compare the final state against the Step 0 baseline: confirm the patch changed only the intended delta and did not replace preserved BUILT work
 
 **Anti-pattern:** "Tests pass, ship it." Tests written by the same agent that wrote the code may have circular assertions. Independent verification required.
 
@@ -94,12 +121,15 @@ Human reviews the diff before merge.
 2. Are there changes to files not in the plan? (red flag)
 3. Are there new dependencies that weren't discussed?
 4. Is the code readable by a human who didn't write it?
-5. Merge and clean up the checkpoint commit if desired
+5. Did any parallel framework/component/state file get created where an existing canonical owner could have been extended?
+6. Merge and clean up the checkpoint commit if desired
 
 **Done when:** code is merged, tests pass on main, checkpoint cleaned up.
 
 ## Agent Discipline Rules (apply throughout)
 
+- **Current state first** — repo/runtime/ledger evidence outranks handoff/chat memory for implementation state
+- **No duplicate rebuilds** — preserve verified BUILT work across session transfers
 - **No invented APIs** — verify library functions exist in the installed version before using them
 - **No unrequested changes** — don't modify files outside the scope
 - **Honest status** — "I wrote the code but didn't run tests" is the truthful answer when that's what happened
@@ -110,13 +140,15 @@ Human reviews the diff before merge.
 
 | Anti-pattern | How it's prevented |
 |---|---|
+| Fresh-session rebuild / stale handoff | Step 0 live-state reconciliation + BUILT/MISSING/BROKEN/OBSOLETE/UNKNOWN classification |
 | Agent drift (loses context over long sessions) | Checkpoint + incremental commits + re-index |
 | "Looks done" without verification | Step 5 adversarial verification required |
 | Hallucinated API calls | Anti-sycophant discipline: verify before using |
 | Scope creep during implementation | Plan approval in Step 2, no unrequested changes |
 | Untested merges | Tests run after each change, not batched at end |
 | Corrupted codebase | Git checkpoint before any work begins |
+| Parallel architecture proliferation | Existing canonical owner checked at reconcile, implement, and review stages |
 
 ---
 
-*Synthesized from obra/superpowers (85k stars), community-validated Cursor/Claude Code practices, and the agentic engineering consensus of 2026.*
+*Synthesized from obra/superpowers (85k stars), community-validated Cursor/Claude Code practices, and agentic engineering consensus. v1.1 adds reconcile-first continuity for multi-session work.*
