@@ -14,3 +14,16 @@ GitHub Actions is a scarce, last-resort execution surface.
 8. Any change that relaxes this policy requires explicit human approval.
 
 This rule is cost/reliability governance and applies to every agent and workflow operating in this repository.
+
+## Origin design boot — mandatory for Designer/product UI work
+
+When a task creates, redesigns, restyles, or continues a website/product UI, component system, design system, or screenshot-to-spec workflow:
+
+1. Load `origin/adapters/chatgpt/skill/SKILL.md` before Designer/build execution.
+2. Origin is the **primary pre-design/design-authority protocol**. Establish current implementation truth, approved visual-intent truth, canonical token/component owners, and the actual delta before any Designer/build tool generates or rebuilds screens.
+3. Current repo/runtime/tests/ledger state outranks handoff/chat claims about what is implemented. Approved/locked visual references and accepted design decisions may outrank an incomplete current render for intended visual direction.
+4. Emit an `ORIGIN PACKET` before visual generation. Preserve verified `BUILT` work; classify the rest as `MISSING`, `BROKEN`, `OBSOLETE`, or `UNKNOWN`.
+5. Historical Origin branches/PRs are provenance until reconciled with current main; never bulk-import them or their design assumptions as current truth.
+6. After the Origin Packet, route only to the tools the task actually needs. Figma is preferred for canonical editable design-system work; visual generators are optional exploration; builders implement; browser QA verifies rendered behavior.
+
+If load-bearing authority conflicts remain unresolved, hold Designer execution and surface the conflict instead of inventing a new direction.
