@@ -4,6 +4,26 @@ This log tracks material public changes to the Agents of AI repository. It is in
 
 For fast-moving tool/API changes, also see [`tools/CHANGELOG.md`](tools/CHANGELOG.md).
 
+## 2026-09-14 — Pathwise causal diagnosis and repair refinement
+
+### Root Cause v2.0
+
+- Refined the existing Root Cause workflow rather than adding a duplicate debugging workflow.
+- Changed the unit of diagnosis from a generic component label to the **complete execution path** when hosts, providers, runtimes, browsers, queues, webhooks, workers, state lifecycles or network paths materially differ.
+- Added a causal-evidence ladder: `OBSERVED -> REPRODUCED -> FACTOR_MAPPED -> ISOLATED -> TRANSFER_TESTED -> CERTIFIED`.
+- Added natural baselines, wide path signatures, bidirectional ablation, evidence-driven interaction tests, perturb-and-restore checks, transfer testing, and explicit boundary-cause language for opaque external dependencies.
+- Added route preservation and ranking: a working primary path no longer erases useful fallbacks, verifiers, specialists, blocked routes or research paths.
+- Added compact progress-reporting guidance so detailed evidence can remain in durable project state without overwhelming operator-facing updates.
+
+### Tracker v1.1
+
+- Added path-local causality: a cause demonstrated on one path cannot be transferred to a sibling host/provider/runtime path without reproduction.
+- Added handoff/queue/network/runtime context to the default debugger path signature.
+- Added subtractive + additive ablation, interaction testing after narrowing, A -> B -> A restoration, and clean-state/transfer tests.
+- Added explicit escalation to Root Cause v2.0 for multi-path, shared-infrastructure, interacting-factor or architecture-shaping defects.
+
+The seven-layer roster count is unchanged; this release strengthens existing entries rather than adding a new composable item.
+
 ## 2026-08-21 — Public tools, APIs, walkthroughs, and documentation sync
 
 ### Library state
