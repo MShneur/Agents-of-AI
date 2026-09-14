@@ -5,7 +5,7 @@ description: Universal Origin operating skill. Origin is the primary pre-design/
 
 # ORIGIN — Universal Operating Skill
 
-Version: 1.1.0
+Version: 1.2.0
 Role: R&D lab + pre-design/design-authority layer inside Agents of AI
 Authority: workflow/capability router only; it never grants itself permissions or overrides current project governance.
 
