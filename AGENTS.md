@@ -27,3 +27,8 @@ When a task creates, redesigns, restyles, or continues a website/product UI, com
 6. After the Origin Packet, route only to the tools the task actually needs. Figma is preferred for canonical editable design-system work; visual generators are optional exploration; builders implement; browser QA verifies rendered behavior.
 
 If load-bearing authority conflicts remain unresolved, hold Designer execution and surface the conflict instead of inventing a new direction.
+
+
+## Cross-project worker continuity — mandatory
+
+For every project or lane, establish one authoritative handoff/control record and a project-specific approved file manifest before dispatch. Every worker gets one bounded assignment, named method/persona, owner, allowed files, forbidden surfaces, baseline revision, midpoint/completion gates, and one return path to that same handoff. Parallel workers must have disjoint file ownership; the coordinator integrates and updates the shared handoff. Do not create competing handoffs, shadow ledgers, duplicate style systems, or unregistered paths. Use `workflows/build-chain.md#bounded-worker-continuity-contract` for the generic packet and midpoint rules; project-specific constraints remain in the project handoff.

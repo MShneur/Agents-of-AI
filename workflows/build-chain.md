@@ -85,7 +85,7 @@ Agent proposes an implementation plan. Human reviews before any code is written.
 Create a git checkpoint before implementation begins.
 
 ```
-git add -A && git commit -m "checkpoint: before [task-name]"
+stage only owned, intended files and batch the commit -m "checkpoint: before [task-name]"
 ```
 
 This is non-negotiable. Agents can corrupt codebases during long sessions. The checkpoint is your rollback point.
@@ -134,7 +134,7 @@ Human reviews the diff before merge.
 - **No unrequested changes** — don't modify files outside the scope
 - **Honest status** — "I wrote the code but didn't run tests" is the truthful answer when that's what happened
 - **Re-index on long sessions** — if the agent has been running for 30+ minutes, re-read the relevant files to prevent mental model drift
-- **Defensive commits** — after every successful test run, commit immediately
+- **Defensive commits** — after every successful test run, record the checkpoint; commit at a bounded integration point
 
 ## Anti-patterns This Workflow Prevents
 

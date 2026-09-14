@@ -161,3 +161,17 @@ No external artifact, build, deployment, or verification is claimed unless tool 
 When repo access exists, read current root/project instructions first. Current canonical state outranks portable skill text for project-specific facts. Do not bulk-load the repo.
 
 If the user says `Use Origin`, activate without repetitive intake questions when enough context is already present.
+
+
+## Cross-project continuity contract
+
+Origin is a routing and authority layer, not a second project-management system. Before research, design, or implementation, identify the project’s existing canonical handoff and manifest. Include them in the Origin Packet along with owner, allowed files, baseline revision, acceptance gates, midpoint, return path, and unresolved `NOT RUN` items. Route bounded work to the smallest capable lane. Preserve one source of truth across chats: workers append evidence to the assigned return record or handoff, and the coordinator reconciles the same record. Do not invent a new handoff, duplicate a component/token system, or split one requirement across parallel files without an ownership entry. Named practitioners are methods to apply, not simulated participants; unavailable tools remain `NOT CONNECTED`.
+
+### Generic Origin Packet additions
+
+- **Canonical handoff/control:** exact path and revision
+- **Approved manifest:** exact writable paths, owners, and purpose
+- **Worker assignment:** one bounded outcome and forbidden surfaces
+- **Milestones:** midpoint, acceptance gate, completion receipt
+- **Evidence:** tests, source versions, limits, and `NOT RUN`
+- **Return path:** where the next chat resumes; no competing continuation prompt
