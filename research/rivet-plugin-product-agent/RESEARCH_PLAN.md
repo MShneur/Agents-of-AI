@@ -1,7 +1,8 @@
 # Universal Plugin/Product Agent — Research Plan
 
-Status: Research pass 1 of 5
-Working name: **Rivet** (provisional until pass 5)
+Status: **Research complete — 5 of 5 passes finished**
+Final name: **Alt-ssembly Required**
+Planned AoA id: `alt-ssembly-required`
 Target: a reusable Agents-of-AI agent plus workflow for browser extensions, plugins, userscripts, integrations, adapters, small product tools, and similar software.
 
 ## Why this exists
@@ -31,7 +32,7 @@ Use Origin's authority/provenance discipline before implementation:
 - identify the actual delta before editing;
 - use an Origin-style packet before build work.
 
-For this agent, the packet must expand from visual design into **product behavior authority**:
+For this agent, the packet expands from visual design into full **product behavior authority**:
 - current working features;
 - accepted user journeys;
 - transport/runtime boundaries;
@@ -54,84 +55,138 @@ Cleanerz owns the replan. The new agent must not imitate Cleanerz internally.
 ### Root Cause
 Use complete-path diagnosis, not single visible symptoms. Separate host/browser/runtime, DOM/API/data path, transport, state lifecycle, and user interaction paths until evidence proves they are equivalent.
 
-### Buildhouse
+### Buildhouse / Build Chain
 Reuse implementation, debugging, adversarial verification, security, and safe-refactor disciplines. The new agent adds the missing product-preservation, novice-UX, browser-extension, analytics, and cross-surface integration responsibilities.
 
+### Repo Nanny
+Reuse repository ecosystem maintenance, issue/PR/check sweeps, adjacent breakage, and wheel checks. The new agent is a product/build operator, not a replacement for repo maintenance.
+
 ### Quorum / Human Gate
-For consequential architecture, release, data-access, privacy, or irreversible UX changes, source real practitioners live at run time. Never use a frozen expert roster as authority.
+For consequential architecture, release, data-access, privacy, permission, or irreversible UX changes, source real practitioners live at run time. Never use a frozen expert roster as authority.
 
-## Research question
+### Single Dispatch Operator
+The new agent is the chief operator for one product/build assignment. Specialists get bounded work and return to it; no recursive supervisor chains.
 
-What operating protocol would have allowed one agent to take the original Ghost idea and reliably produce the rich product that evolved later — Play, flows, personas, workflows, settings, skins, notifications, export, diagnostics, mobile behavior, cross-platform adapters — without either underbuilding the product or overengineering the controller?
+## Research conclusion
 
-## Required professional-method seats
+Five research passes support one universal **whole-product assembly agent**, not a new monolithic framework.
 
-The eventual agent should source named practitioners live for these method families:
+The final operating model is built around four scalable contracts:
 
-1. **Product / human-centered systems** — solve the real user problem, preserve conceptual model, prevent feature confusion.
-2. **Novice usability / cognitive load** — labels, discoverability, status, recovery, explanations, progressive disclosure.
-3. **Software architecture / simplicity** — isolate complexity, deep interfaces, prevent change amplification and over-specialization.
-4. **Browser extension / platform engineering** — WebExtensions, host differences, permissions, lifecycle, content-script boundaries, mobile/browser compatibility.
-5. **Testing / exploratory QA** — real-device behavior, unscripted failure discovery, boundary cases, regressions.
-6. **Observability / diagnostics** — enough structured context to diagnose unknown failures without exposing conversation content unnecessarily.
-7. **Product analytics / experimentation** — define success metrics and detect unintended consequences before declaring a redesign better.
-8. **Accessibility / responsive interaction** — keyboard/touch/assistive tech/mobile constraints and semantic state.
-9. **Security / privacy** — least privilege, host permissions, content-script trust boundaries, data minimization.
-10. **Maintenance / rollback operator** — upgrade path, compatibility, reversible changes, support burden.
+1. **Product Packet** — what the product is, what is built/broken/missing, and what must survive.
+2. **Runtime Envelope** — where it runs, lifecycle/permission boundaries, compatibility targets, fallbacks, and field paths.
+3. **Novice Contract** — first successful action, progressive disclosure, plain-language status/recovery, advanced capability preservation, mobile/accessibility.
+4. **Evidence Contract** — exact artifact/path evidence required before a claim can be made.
 
-A psychiatrist is not the default fit for the human-behavior seat. The more directly relevant disciplines are cognitive psychology, human factors, HCI, behavioral design, and usability research. A clinical specialist is added only when the product domain actually requires clinical expertise.
+And one anti-overcorrection mechanism:
 
-## First live practitioner-method findings
+- **Preservation Ledger** — product surfaces, layer owners, status, and explicit change authority.
 
-These are method candidates, not permanent seats and not endorsements.
+Binding rule:
 
-- **Don Norman** — human-centered design: solve root issues, focus on people, take a systems view, continually test/refine. Especially relevant to the Ghost pattern of treating a symptom as the whole product problem.
-- **Jakob Nielsen / NN/g** — visibility of system status, user control/freedom, consistency, match to real-world language. Directly applicable to novice labels such as replacing `DOM partial` with plain-language backup status.
-- **John Ousterhout** — manage complexity through deep/general-purpose modules, minimize dependencies, reduce cognitive load/change amplification, make common behavior obvious. Strong lens against over-specialized controller branches.
-- **Martin Fowler / Kent Beck tradition** — behavior-preserving small changes and tests as the safety net. Strong lens against deleting unrelated working behavior during a transport repair.
-- **Luke Wroblewski** — mobile-first constraints force prioritization; test on real devices, not just desktop/simulators. Directly applicable to Firefox Android and compact Ghost UI.
-- **Adrian Roselli** — cross-browser/accessibility reality and assistive-tech/browser combinations. Useful for semantic controls and interaction states, not screenshot-only acceptance.
-- **Charity Majors** — observability for unknown-unknowns using rich structured context rather than shallow green dashboards. Strong fit for Ghost's historical “script says ready but field user says broken” problem.
-- **Cindy Sridharan** — code and test for observability/failure, including operational semantics and dependency behavior.
-- **Ronny Kohavi / Microsoft Experimentation** — trustworthy experimentation, checklists, guardrail metrics, and unintended-consequence detection before product decisions are accepted.
-- **James Bach / exploratory testing tradition** — scripted checks do not replace skilled exploration; useful for browser/site variation, lifecycle transitions, and interaction failure discovery.
+> A repair may not delete a working accepted product surface unless the deletion appears explicitly in the Product Packet `KILL` section and receives the required human decision.
 
-## Agent behavior hypotheses to test in passes 2–5
+## Required professional-method seats for consequential live Quorum
 
-- The agent needs an **Origin-style Product Packet** before implementation, not merely a coding plan.
-- Every requested fix needs a **preservation ledger**: what must not change, what may change, and what is explicitly being killed.
-- Each feature should be classified as one of: `CORE TRANSPORT | PROMPT/PROTOCOL | UI/PREFERENCE | DATA/EXPORT | PLATFORM ADAPTER | DIAGNOSTIC | OPTIONAL INTEGRATION` so a transport repair cannot accidentally delete unrelated layers.
-- A release gate should verify the **full novice journey**, not only unit tests or source inspection.
-- “Works” requires at least one representative real path per supported class plus explicit `NOT TESTED` labels elsewhere.
-- Product language should pass a **novice translation gate**: no internal implementation term is user-facing unless necessary.
-- The agent should use Quorum for consequential forks but should not become a permanent committee. One chief operator remains accountable.
-- Cleanerz should auto-fire on overcorrection and repair loops, then retire after one pass.
+At run time, re-source current practitioners/methods for the roles that matter. Research anchors from the five passes include:
 
-## Five research passes
+1. **Human-centered product / systems** — root problem, whole activity, affected users, iterative testing.
+2. **Software architecture / behavior preservation** — complexity control, deep boundaries, behavior-preserving changes.
+3. **Browser/plugin platform engineering** — WebExtensions common core, permissions, lifecycle, vendor deltas, mobile/browser compatibility.
+4. **Verification / exploratory QA / experimentation** — falsification, scripted vs exploratory evidence, outcome metrics, guardrails.
+5. **Observability / operator** — debuggability, coding/testing for failure, bounded structured diagnostics.
+6. **Security / adversary** — threat modeling, least privilege, hostile/failure paths.
+7. **Affected user** — actual representative human where load-bearing; never replaced by a fake expert persona.
 
-### Pass 1 — failure archaeology + AoA fit
-Map Ghost failure patterns against Origin, Cleanerz, Root Cause, Buildhouse, Quorum, Human Gate, Repo Nanny, and existing AoA failure vocabulary. Identify what is missing. **Current pass.**
+Research anchors are documented in Pass 5 and must not be frozen into a permanent Quorum roster.
 
-### Pass 2 — plugin/extension engineering practice
-Research Chrome/Firefox/WebExtensions architecture, permissions, content-script boundaries, service-worker lifecycle, cross-browser/mobile compatibility, packaging, updates, and extension review constraints. Identify practitioners and official platform guidance.
+## Completed research passes
 
-### Pass 3 — product/human factors + novice usability
-Research cognitive psychology, HCI, progressive disclosure, error recovery, status communication, mobile-first interaction, accessibility, and how novice products expose advanced power without overwhelming users.
+### Pass 1 — failure archaeology + AoA fit — COMPLETE
+Mapped Ghost failure patterns against Origin, Cleanerz, Root Cause, Buildhouse, Quorum, Human Gate, Repo Nanny, and existing AoA vocabulary. Identified the whole-product preservation gap.
 
-### Pass 4 — verification/observability/analytics
-Research exploratory testing, reliability, observability, support diagnostics, privacy-preserving telemetry, real-device matrices, experimentation/guardrail metrics, and rollback evidence.
+### Pass 2 — plugin/extension engineering practice — COMPLETE
+Established the **Runtime Envelope**, environment-collapse failure, cross-browser/runtime capability discipline, userscript/WebExtension distinction, lifecycle testing, permission boundaries, and installed-artifact verification.
 
-### Pass 5 — synthesis + quorum design
-Compare competing schools, source live named practitioners for each critical seat, run dissent, define the agent's scope/anti-goals/kill conditions, choose final name, and produce the build specification for two development passes.
+Durable file:
+- `PASS_2_PLUGIN_EXTENSION_ENGINEERING.md`
 
-## Two development passes after research
+### Pass 3 — product/human factors + novice usability — COMPLETE
+Established the **Novice Contract**, progressive disclosure instead of feature deletion, novice-path + expert-path paired gates, plain-language diagnostics, mobile/touch/accessibility requirements, and cognitive-load discipline.
+
+Durable file:
+- `PASS_3_HUMAN_FACTORS_NOVICE_UX.md`
+
+### Pass 4 — verification/observability/analytics — COMPLETE
+Established the **Evidence Contract**, evidence ladder E0–E5, exact artifact identity, exploratory charter, metadata-first diagnostics, privacy minimization, user-outcome/guardrail metrics, canary/rollback discipline, and formal `works` claim boundaries.
+
+Durable file:
+- `PASS_4_VERIFICATION_OBSERVABILITY_ANALYTICS.md`
+
+### Pass 5 — synthesis + quorum design — COMPLETE
+Selected **Alt-ssembly Required** as the final human-chosen name, synthesized the unique scope vs existing AoA components, defined the four contracts + Preservation Ledger, live Quorum role structure, genuine method conflicts, Human Gate conditions, Cleanerz triggers, canonical agent protocol, reusable workflow, Assembly Receipt, anti-goals, kill conditions, and exact Development A/B specifications.
+
+Durable file:
+- `PASS_5_SYNTHESIS_QUORUM_BUILD_SPEC.md`
+
+## Naming
+
+The final name was selected using the M-Step / Michael S. pattern: a joke on first read with a real technical operating principle underneath it.
+
+Final display name:
+
+# **Alt-ssembly Required**
+
+Tagline:
+
+**Because “the code runs” is not the same thing as “the product is built.”**
+
+Naming exploration:
+- `MSTEP_NAME_CANDIDATES.md`
+
+## Parallel Perplexity research lane
+
+Research prompt:
+- `PERPLEXITY_RESEARCH_PROMPT.md`
+
+This remains a parallel research dossier input. It does not override current AoA/repo evidence.
+
+## Development phase — next
 
 ### Development A
-Create the provider-agnostic AoA **agent** and its reusable **workflow**, with metadata, triggers, scope, Product Packet, preservation ledger, routing rules, Cleanerz auto-fire, Quorum/Human Gate gates, and completion receipt.
+Create the provider-agnostic AoA **agent** and reusable **workflow**:
+- `agents/alt-ssembly-required.md`
+- `workflows/alt-ssembly.md`
+- roster/docs updates required by AoA conventions
+
+Requirements:
+- four scalable contracts;
+- Preservation Ledger;
+- bounded specialist routing;
+- Cleanerz auto-fire;
+- Quorum/Human Gate conditions;
+- Assembly Receipt;
+- no Ghost-specific logic;
+- no duplicated implementations of existing AoA workflows.
 
 ### Development B
-Adversarial review against Ghost's historical failures, simplify, add a portable install/activation artifact for ChatGPT/other hosts, update AoA roster/docs, and prepare the Ghost-specific invocation that will repair Ghost without hardcoding Ghost logic into the universal agent.
+Adversarial review and portable installation:
+- red-team against Ghost historical failures;
+- run Cleanerz once on the new agent and remove redundant ceremony;
+- create a portable ChatGPT/skill-surface install artifact;
+- prepare a Ghost-specific activation prompt without hardcoding Ghost into the universal agent;
+- update AoA documentation/roster as needed;
+- prepare bounded merge-ready PR.
 
-## Kill condition for this project
+## Kill condition for the project
 
-If the new agent becomes another giant controller that tries to perform every specialist role itself, it has repeated the Ghost mistake. The agent must remain one accountable product/build operator that routes existing AoA methods and live practitioner lenses, preserves accepted work, and verifies evidence before claiming completion.
+If Alt-ssembly Required becomes another giant controller that tries to perform every specialist role itself, it has repeated the Ghost mistake.
+
+It must remain one accountable product/build operator that:
+- establishes product/runtime/human/evidence truth;
+- preserves accepted work;
+- controls blast radius;
+- routes existing AoA methods;
+- and verifies evidence before claiming completion.
+
+Research phase complete. Proceed to **Development A only**.
