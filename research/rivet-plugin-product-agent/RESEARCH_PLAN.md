@@ -1,8 +1,8 @@
 # Universal Plugin/Product Agent — Research Plan
 
-Status: **Research complete — 5 of 5 passes finished**
+Status: **Research 5/5 complete · Development A complete · Development B next**
 Final name: **Alt-ssembly Required**
-Planned AoA id: `alt-ssembly-required`
+AoA id: `alt-ssembly-required`
 Target: a reusable Agents-of-AI agent plus workflow for browser extensions, plugins, userscripts, integrations, adapters, small product tools, and similar software.
 
 ## Why this exists
@@ -32,7 +32,7 @@ Use Origin's authority/provenance discipline before implementation:
 - identify the actual delta before editing;
 - use an Origin-style packet before build work.
 
-For this agent, the packet expands from visual design into full **product behavior authority**:
+For this agent, the packet expands from visual design into **product behavior authority**:
 - current working features;
 - accepted user journeys;
 - transport/runtime boundaries;
@@ -50,143 +50,82 @@ Auto-route Cleanerz when:
 - a repair removes known-good features without an explicit kill decision;
 - a version is revised repeatedly without a real user-path proof.
 
-Cleanerz owns the replan. The new agent must not imitate Cleanerz internally.
+Cleanerz owns the replan. Alt-ssembly must not imitate Cleanerz internally.
 
 ### Root Cause
 Use complete-path diagnosis, not single visible symptoms. Separate host/browser/runtime, DOM/API/data path, transport, state lifecycle, and user interaction paths until evidence proves they are equivalent.
 
-### Buildhouse / Build Chain
-Reuse implementation, debugging, adversarial verification, security, and safe-refactor disciplines. The new agent adds the missing product-preservation, novice-UX, browser-extension, analytics, and cross-surface integration responsibilities.
-
-### Repo Nanny
-Reuse repository ecosystem maintenance, issue/PR/check sweeps, adjacent breakage, and wheel checks. The new agent is a product/build operator, not a replacement for repo maintenance.
+### Buildhouse
+Reuse implementation, debugging, adversarial verification, security, and safe-refactor disciplines. Alt-ssembly adds the missing product-preservation, novice-UX, browser-extension, analytics, and cross-surface integration responsibilities.
 
 ### Quorum / Human Gate
-For consequential architecture, release, data-access, privacy, permission, or irreversible UX changes, source real practitioners live at run time. Never use a frozen expert roster as authority.
-
-### Single Dispatch Operator
-The new agent is the chief operator for one product/build assignment. Specialists get bounded work and return to it; no recursive supervisor chains.
+For consequential architecture, release, data-access, privacy, or irreversible UX changes, source real practitioners live at run time. Never use a frozen expert roster as authority.
 
 ## Research conclusion
 
-Five research passes support one universal **whole-product assembly agent**, not a new monolithic framework.
+Alt-ssembly Required is the accountable whole-product assembly operator.
 
-The final operating model is built around four scalable contracts:
+It keeps four kinds of truth aligned:
 
-1. **Product Packet** — what the product is, what is built/broken/missing, and what must survive.
-2. **Runtime Envelope** — where it runs, lifecycle/permission boundaries, compatibility targets, fallbacks, and field paths.
-3. **Novice Contract** — first successful action, progressive disclosure, plain-language status/recovery, advanced capability preservation, mobile/accessibility.
-4. **Evidence Contract** — exact artifact/path evidence required before a claim can be made.
+1. **Product Packet** — what the product is and what must survive.
+2. **Runtime Envelope** — where it runs and which lifecycle/platform boundaries matter.
+3. **Novice Contract** — how a first-time user understands and recovers while expert capability remains available.
+4. **Evidence Contract** — what exact evidence is required before completion claims are allowed.
 
-And one anti-overcorrection mechanism:
+A **Preservation Ledger** binds the requested delta to explicit product-surface authority before implementation.
 
-- **Preservation Ledger** — product surfaces, layer owners, status, and explicit change authority.
+## Research passes — complete
 
-Binding rule:
+### Pass 1 — failure archaeology + AoA fit
+Mapped Ghost failure patterns against Origin, Cleanerz, Root Cause, Buildhouse, Quorum, Human Gate, Repo Nanny, and existing AoA failure vocabulary.
 
-> A repair may not delete a working accepted product surface unless the deletion appears explicitly in the Product Packet `KILL` section and receives the required human decision.
+### Pass 2 — plugin/extension engineering practice
+Researched WebExtensions architecture, permissions, content-script boundaries, service-worker lifecycle, cross-browser/mobile compatibility, packaging, updates, and runtime divergence. Produced the Runtime Envelope.
 
-## Required professional-method seats for consequential live Quorum
+### Pass 3 — product/human factors + novice usability
+Researched cognitive psychology, HCI, progressive disclosure, error recovery, status communication, mobile-first interaction, and accessibility. Produced the Novice Contract and the novice-path/expert-preservation paired gate.
 
-At run time, re-source current practitioners/methods for the roles that matter. Research anchors from the five passes include:
+### Pass 4 — verification/observability/analytics
+Researched exploratory testing, reliability, observability, privacy-preserving diagnostics, real-device matrices, experimentation/guardrail metrics, canaries, and rollback. Produced the Evidence Contract and Diagnostic Packet concepts.
 
-1. **Human-centered product / systems** — root problem, whole activity, affected users, iterative testing.
-2. **Software architecture / behavior preservation** — complexity control, deep boundaries, behavior-preserving changes.
-3. **Browser/plugin platform engineering** — WebExtensions common core, permissions, lifecycle, vendor deltas, mobile/browser compatibility.
-4. **Verification / exploratory QA / experimentation** — falsification, scripted vs exploratory evidence, outcome metrics, guardrails.
-5. **Observability / operator** — debuggability, coding/testing for failure, bounded structured diagnostics.
-6. **Security / adversary** — threat modeling, least privilege, hostile/failure paths.
-7. **Affected user** — actual representative human where load-bearing; never replaced by a fake expert persona.
+### Pass 5 — synthesis + quorum design
+Synthesized the unique Alt-ssembly scope, live Quorum roles, Human Gate conditions, Cleanerz triggers, genuine method conflicts, and the two-pass development specification. Final name selected by the human owner: **Alt-ssembly Required**.
 
-Research anchors are documented in Pass 5 and must not be frozen into a permanent Quorum roster.
+## Development A — complete
 
-## Completed research passes
+Created:
 
-### Pass 1 — failure archaeology + AoA fit — COMPLETE
-Mapped Ghost failure patterns against Origin, Cleanerz, Root Cause, Buildhouse, Quorum, Human Gate, Repo Nanny, and existing AoA vocabulary. Identified the whole-product preservation gap.
-
-### Pass 2 — plugin/extension engineering practice — COMPLETE
-Established the **Runtime Envelope**, environment-collapse failure, cross-browser/runtime capability discipline, userscript/WebExtension distinction, lifecycle testing, permission boundaries, and installed-artifact verification.
-
-Durable file:
-- `PASS_2_PLUGIN_EXTENSION_ENGINEERING.md`
-
-### Pass 3 — product/human factors + novice usability — COMPLETE
-Established the **Novice Contract**, progressive disclosure instead of feature deletion, novice-path + expert-path paired gates, plain-language diagnostics, mobile/touch/accessibility requirements, and cognitive-load discipline.
-
-Durable file:
-- `PASS_3_HUMAN_FACTORS_NOVICE_UX.md`
-
-### Pass 4 — verification/observability/analytics — COMPLETE
-Established the **Evidence Contract**, evidence ladder E0–E5, exact artifact identity, exploratory charter, metadata-first diagnostics, privacy minimization, user-outcome/guardrail metrics, canary/rollback discipline, and formal `works` claim boundaries.
-
-Durable file:
-- `PASS_4_VERIFICATION_OBSERVABILITY_ANALYTICS.md`
-
-### Pass 5 — synthesis + quorum design — COMPLETE
-Selected **Alt-ssembly Required** as the final human-chosen name, synthesized the unique scope vs existing AoA components, defined the four contracts + Preservation Ledger, live Quorum role structure, genuine method conflicts, Human Gate conditions, Cleanerz triggers, canonical agent protocol, reusable workflow, Assembly Receipt, anti-goals, kill conditions, and exact Development A/B specifications.
-
-Durable file:
-- `PASS_5_SYNTHESIS_QUORUM_BUILD_SPEC.md`
-
-## Naming
-
-The final name was selected using the M-Step / Michael S. pattern: a joke on first read with a real technical operating principle underneath it.
-
-Final display name:
-
-# **Alt-ssembly Required**
-
-Tagline:
-
-**Because “the code runs” is not the same thing as “the product is built.”**
-
-Naming exploration:
-- `MSTEP_NAME_CANDIDATES.md`
-
-## Parallel Perplexity research lane
-
-Research prompt:
-- `PERPLEXITY_RESEARCH_PROMPT.md`
-
-This remains a parallel research dossier input. It does not override current AoA/repo evidence.
-
-## Development phase — next
-
-### Development A
-Create the provider-agnostic AoA **agent** and reusable **workflow**:
 - `agents/alt-ssembly-required.md`
 - `workflows/alt-ssembly.md`
-- roster/docs updates required by AoA conventions
+- `research/rivet-plugin-product-agent/DEVELOPMENT_A_IMPLEMENTATION.md`
+- `CHANGELOG.md` entry for the new composable entries
 
-Requirements:
+Development A encodes:
+
 - four scalable contracts;
 - Preservation Ledger;
-- bounded specialist routing;
+- Single Dispatch Operator routing;
 - Cleanerz auto-fire;
-- Quorum/Human Gate conditions;
-- Assembly Receipt;
-- no Ghost-specific logic;
-- no duplicated implementations of existing AoA workflows.
+- Human Gate conditions;
+- live-practitioner sourcing through Quorum;
+- plain-language novice requirements;
+- evidence-class discipline;
+- Lite Variant for small reversible changes;
+- Assembly Receipt completion format.
 
-### Development B
-Adversarial review and portable installation:
-- red-team against Ghost historical failures;
-- run Cleanerz once on the new agent and remove redundant ceremony;
-- create a portable ChatGPT/skill-surface install artifact;
-- prepare a Ghost-specific activation prompt without hardcoding Ghost into the universal agent;
-- update AoA documentation/roster as needed;
-- prepare bounded merge-ready PR.
+The public/root discovery roster remains intentionally unsynchronized on this branch until Development B runs the repository's canonical roster-sync path; the development record names this openly rather than pretending publication is complete.
 
-## Kill condition for the project
+## Development B — next
 
-If Alt-ssembly Required becomes another giant controller that tries to perform every specialist role itself, it has repeated the Ghost mistake.
+1. Red-team Alt-ssembly against Ghost in the Loop historical failures.
+2. Run Cleanerz on Alt-ssembly itself and kill duplicated/ceremonial process.
+3. Create a portable ChatGPT/skill activation artifact.
+4. Create a Ghost-specific invocation that uses Alt-ssembly without hardcoding Ghost behavior into the universal agent.
+5. Run canonical roster/documentation synchronization and verify the resulting counts.
+6. Prepare the branch for human review/merge.
 
-It must remain one accountable product/build operator that:
-- establishes product/runtime/human/evidence truth;
-- preserves accepted work;
-- controls blast radius;
-- routes existing AoA methods;
-- and verifies evidence before claiming completion.
+## Kill condition for this project
 
-Research phase complete. Proceed to **Development A only**.
+If Alt-ssembly becomes another giant controller that tries to perform every specialist role itself, it has repeated the Ghost mistake.
+
+Alt-ssembly must remain one accountable product/build operator that routes existing AoA methods, preserves accepted work, and verifies evidence before claiming completion.
