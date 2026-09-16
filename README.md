@@ -4,7 +4,7 @@
 
 > You don't need a new framework. You need the right cast.
 
-**Current public snapshot:** `2026.08.21` · **85 composable entries** across seven layers · actively maintained supporting tools/API shelf.  
+**Current public snapshot:** `2026.09.16` · **87 composable entries** across seven layers · actively maintained supporting tools/API shelf.  
 See [`VERSIONING.md`](VERSIONING.md) for snapshot rules and [`CHANGELOG.md`](CHANGELOG.md) for material changes.
 
 ---
@@ -51,6 +51,10 @@ Load persona: personas/framesmith.md
 Load agent: agents/auditor.md
 ```
 Your governance framework handles the loading. This library just holds the files.
+
+### ChatGPT Skill adapter
+
+Alt-ssembly Required also includes a portable ChatGPT Skill source under `adapters/chatgpt/alt-ssembly-required/`, with a Ghost in the Loop activation prompt and regression reference.
 
 ### For software, APIs, or setup help
 
@@ -124,7 +128,8 @@ Agents-of-AI/
 - **Scaffold** — Platform engineering. Declarative IaC, blast-radius thinking, paved roads over gates, environment parity, toil elimination.
 - **Concierge** — Customer support. Emotion before mechanics, triage on arrival, escalation with full context, confirmed resolution.
 
-### Agents (13)
+### Agents (14)
+- **Alt-ssembly Required** — Whole-product assembly. Preserves accepted behavior, discovers missing product surfaces, maps runtime and novice paths, and binds release claims to the exact artifact/path tested.
 - **Auditor** — Adversarial quality review. DA/SPAR/BENCH ladder + code review tier + ZMA audit.
 - **Scribe** — Writing with structural control. Decision architecture, truth gates, persona integration.
 - **Scout** — Evidence-grounded research. Source credibility tiers, Ghost Rider investigative mode.
@@ -139,7 +144,8 @@ Agents-of-AI/
 - **Firehose** — Live incident management. Stabilize → communicate → diagnose → resolve → learn.
 - **Sieve** — Ranks any candidate pool against an explicit weighted rubric. Must-haves as disqualifiers, no black-box scores, ranks but doesn't decide.
 
-### Workflows (16)
+### Workflows (17)
+- **Alt-ssembly** — 7-stage whole-product build path: reconcile → discover/map → runtime/human/evidence contract → build/route → integrate/break → field/canary → assembly receipt.
 - **Deep Dig** — 3-stage research: brainstorm → survey → verify. Evidence-tagged. Stops between stages.
 - **Build Chain** — 6-step AI coding: scope → plan → checkpoint → implement → verify → review+merge.
 - **Red Green** — TDD: failing test → minimal code → refactor.
