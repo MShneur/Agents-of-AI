@@ -4,6 +4,26 @@ This log tracks material public changes to the Agents of AI repository. It is in
 
 For fast-moving tool/API changes, also see [`tools/CHANGELOG.md`](tools/CHANGELOG.md).
 
+## 2026-09-16 — Alt-ssembly Required Development A
+
+### New agent: Alt-ssembly Required
+
+- Added `agents/alt-ssembly-required.md`, a whole-product assembly operator for plugins, browser extensions, userscripts, adapters, integrations, and small software products.
+- Added four scalable product contracts: **Product Packet**, **Runtime Envelope**, **Novice Contract**, and **Evidence Contract**.
+- Added a **Preservation Ledger** so repairing one product layer cannot silently authorize deletion or redesign of unrelated accepted features.
+- Added explicit routing to existing AoA methods rather than duplicating them: Origin, Build Chain/Buildhouse, Tracker, Root Cause, Repo Nanny, Stresstest, Locksmith, Chisel, Cleanerz, Quorum/Human Gate, and Single Dispatch Operator.
+- Added live-practitioner rules: named professionals are sourced from current public work at consequential decisions; they are method sources, not simulated participants.
+- Added explicit human gates for working-feature deletion, core product-job changes, permission/privacy expansion, supported-platform removal, expensive architecture replacement, and weakening fail-closed/safety boundaries.
+
+### New workflow: Alt-ssembly
+
+- Added `workflows/alt-ssembly.md`, an eight-stage reusable product-build path: `RECONCILE -> PRODUCT MAP -> RUNTIME + HUMAN ENVELOPE -> EVIDENCE + BUILD PLAN -> BUILD/ROUTE -> INTEGRATE/REGRESSION -> FIELD/CANARY -> ASSEMBLY RECEIPT`.
+- Added a Lite Variant for small reversible changes so the method scales down instead of turning into ceremonial process.
+- Added explicit Cleanerz escape conditions for repair loops, feature-deletion-by-simplification, duplicate specialist work, and contracts that grow while operator clarity falls.
+- Added field-evidence discipline: `SOURCE / UNIT / INTEGRATION / BROWSER E2E / REAL FIELD / LONGITUDINAL` are distinct evidence classes, and lower-class test volume cannot substitute for a missing real-path proof.
+
+This branch now contains **86 composable entries** if merged: 23 personas, 14 agents, 17 workflows, 17 techniques, 4 modes, 6 teams, and 6 failures. Root README roster/count synchronization remains part of the pre-merge documentation sync so the public snapshot cannot drift from the live directories.
+
 ## 2026-09-14 — Pathwise causal diagnosis and repair refinement
 
 ### Root Cause v2.0
