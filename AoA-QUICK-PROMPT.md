@@ -35,11 +35,11 @@ ALREADY IN AoA (don't duplicate) — **this is a snapshot; verify against the li
 ### Personas (23)
 briefcase, burden, compass, concierge, distiller, framesmith, friction, gridlock, guardrail, ledger, megaphone, midwife, mirror, pipeline, provenance, prover, raw-cut, redline, scaffold, signal, verdict, wargame, wireframe
 
-### Agents (13)
-archaeologist, auditor, chisel, conductor, firehose, locksmith, repo-nanny, scout, scribe, showrunner, sieve, stresstest, tracker
+### Agents (14)
+alt-ssembly-required, archaeologist, auditor, chisel, conductor, firehose, locksmith, repo-nanny, scout, scribe, showrunner, sieve, stresstest, tracker
 
-### Workflows (16)
-build-chain, cleanerz, deep-dig, human-gate-committee, issue-to-patch, large-artifact-handoff, new-ai-workspace-bootstrap, nursery-sweep, prd, quorum, razor, red-green, repo-prd, retro, root-cause, second-room
+### Workflows (17)
+alt-ssembly, build-chain, cleanerz, deep-dig, human-gate-committee, issue-to-patch, large-artifact-handoff, new-ai-workspace-bootstrap, nursery-sweep, prd, quorum, razor, red-green, repo-prd, retro, root-cause, second-room
 
 ### Techniques (17)
 adjacent-breakage-check, assumption-surface, conflict-extraction, controlled-vocabulary, counterfactual, error-decorrelation, failure-premortem, judge-rubric, objection-loop, observation-masking, rarv-cycle, retrieval-precision-gate, single-dispatch-operator, skill-provenance, steelman, symbol-trace, wheel-check
