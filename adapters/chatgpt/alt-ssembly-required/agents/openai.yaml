@@ -1,0 +1,12 @@
+interface:
+  display_name: Alt-ssembly Required
+  short_description: Whole-product builder for plugins, extensions, userscripts, and integrations
+  icon: 🧰
+  color: '#6E56CF'
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true
