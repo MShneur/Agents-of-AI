@@ -1,6 +1,6 @@
 # Agents of AI Roadmap
 
-**Snapshot:** `2026.08.21`  
+**Snapshot:** `2026.09.19`  
 **Purpose:** current gaps and next public targets. Historical changes belong in [`CHANGELOG.md`](CHANGELOG.md); version rules live in [`VERSIONING.md`](VERSIONING.md).
 
 ---
@@ -11,12 +11,12 @@
 |---|---:|---|
 | Personas | 23 | Writing, epistemology, product, finance, platform, support, legal, ML, brand, process |
 | Agents | 13 | Research, audit, debugging, verification, security, refactoring, orchestration, incident response, repo maintenance |
-| Workflows | 16 | Research, implementation, TDD, requirements, root cause, repo maintenance, review, large-file handoff, workspace bootstrap |
+| Workflows | 17 | Research, implementation, TDD, requirements, root cause, repo maintenance, review, easy operator handoff, large-file handoff, workspace bootstrap |
 | Techniques | 17 | Dissent, assumptions, evidence precision, context control, verification, terminology, provenance |
 | Modes | 4 | Inspect, Forge, Probe, Draft |
 | Teams | 6 | Engineering, research, strategy/product, communications, operations, legal/risk |
 | Failures | 6 | Process/reliability drift patterns with shared names and fixes |
-| **Total** | **85** | Broad reusable operating library |
+| **Total** | **86** | Broad reusable operating library |
 
 The live directories are source truth. If this table disagrees with the repository, fix this file; do not rationalize the drift.
 
@@ -37,6 +37,7 @@ Several July targets are now implemented rather than future work:
 - six cross-functional Teams with mandatory disagreement protocols
 - a Failures layer with shared incident vocabulary
 - Repo Nanny and repository-maintenance workflows
+- Easy Handoff / Zero Handoff for machine-complete continuity with one-screen operator status
 - large-artifact handoff and AI-workspace bootstrap workflows
 - roster drift detection via `scripts/sync-roster.py`
 - public software recommendations, API catalog, free-tool ledger, and publication-safety rules
@@ -44,7 +45,7 @@ Several July targets are now implemented rather than future work:
 - project/tool changelogs and explicit snapshot/component versioning rules
 - community issue intake for software, API, and walkthrough recommendations
 
-The old roadmap's note that research prompts were stale is also closed: both research prompts now describe all seven layers, carry the current 16-workflow roster, and route tool/API research into the supporting tools shelf.
+The old roadmap's note that research prompts were stale is also closed: both research prompts now describe all seven layers, carry the current 17-workflow roster, and route tool/API research into the supporting tools shelf.
 
 ---
 
