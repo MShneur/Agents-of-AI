@@ -4,6 +4,17 @@ This log tracks material public changes to the Agents of AI repository. It is in
 
 For fast-moving tool/API changes, also see [`tools/CHANGELOG.md`](tools/CHANGELOG.md).
 
+## 2026-09-19 — Easy Handoff / Zero Handoff
+
+- Added `workflows/easy-handoff.md` as the default AoA reporting/continuity layer for substantial work.
+- Split long-task reporting into a compact AI-readable execution/state trace and a one-screen operator handoff.
+- Added evidence-backed progress rules: fixed denominators, explicit scope deltas, nested milestones, and no progress credit for failed attempts.
+- Added compact status semantics for success, failure, halt, recommendation, defer, and next action.
+- Added a Human Gate bridge so consequential forks are resolved through Human Gate/Quorum before interrupting the operator when existing authority permits.
+- Made Easy Handoff the first mandatory repository-agent boot rule in `AGENTS.md`.
+- Added design provenance from a live named-practitioner Quorum-style review; practitioners are method references only and did not participate or endorse.
+- Library roster is now **86 entries**: 23 personas, 13 agents, 17 workflows, 17 techniques, 4 modes, 6 teams, 6 failures.
+
 ## 2026-09-14 — Pathwise causal diagnosis and repair refinement
 
 ### Root Cause v2.0
