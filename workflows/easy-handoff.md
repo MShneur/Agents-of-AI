@@ -1,7 +1,7 @@
 ---
 id: easy-handoff
 type: workflow
-purpose: Keep long AI work machine-complete while making operator-facing handoffs glanceable, monotonic, and impossible to confuse with progress theater.
+purpose: Keep long AI work machine-complete while making operator-facing handoffs glanceable, evidence-backed, and impossible to confuse with progress theater.
 steps: 5
 agents_used: [scribe, conductor]
 personas_used: [distiller, mirror]
@@ -17,116 +17,102 @@ compatible_with: [any-ai]
 
 ## Purpose
 
-Easy Handoff separates two audiences that should not be forced to read the same record:
+Use two surfaces for substantial AoA work:
 
-1. **AI continuity record** — dense, structured, portable state another AI can resume from.
-2. **Human operator handoff** — only the current progress, what happened, and what comes next.
-
-The workflow changes the reporting layer, not project authority. It does not replace a canonical ledger, project handoff, Quorum, Human Gate, or acceptance test.
-
-## When to Use
-
-Use on every substantial multi-step AoA task, especially long chats, parallel lanes, handoffs between models, or work the human is not reading line-by-line.
-
-For a trivial one-turn answer, use only the short human handoff if reporting is useful.
+- **AI record:** compact actions, evidence, decisions, errors, files, state, and next action.
+- **Human handoff:** progress, current result, next step.
+- **Authority:** unchanged. This workflow never replaces the project ledger, Human Gate, Quorum, or acceptance tests.
 
 ## Step 1 — Select and declare the cast
 
-Before substantial work, search the current AoA library and choose the smallest capable method set for the exact task. Do not default to generic execution when Origin, Cleanerz, Quorum, a team, workflow, agent, or named practitioner-method lens materially changes the work.
+Before substantial work, search current AoA and choose the smallest capable method set for the exact task. Do not fall back to generic execution when a relevant Origin, Cleanerz, workflow, team, agent, persona, Quorum, or practitioner-method lens would materially improve the work.
 
 - Use Quorum / Human Gate for consequential forks, not routine reversible actions.
-- When Quorum is used, follow its live-sourcing rule: two real practitioners per required seat, grounded in published methods, never simulated participation.
-- Record only capabilities actually used.
+- A Quorum uses two live-sourced real practitioners per required seat, grounded in published methods. Never simulate participation or endorsement.
+- Report only methods actually used.
 
-At the first material update:
+First material update:
 
 ```text
 AOA=<methods actually used>
-MODEL=<model actually executing>
+MODEL=<executing model>
 ```
 
-**Done when:** the task has a deliberate AoA route and the next AI can tell which capabilities actually produced the work.
+**Done:** the task has an explicit AoA route and the executing model is known.
 
 ## Step 2 — Lock progress to real state
 
-Progress numbers come from the canonical roadmap, ledger, checklist, or explicit scoped plan.
+Progress comes only from the canonical roadmap, ledger, checklist, or explicit scoped plan.
 
-Rules:
+- Use `A/B`; if no real denominator exists, use `0/?`.
+- Increment `A` only after acceptance evidence passes.
+- Failed attempts do not advance progress.
+- Keep `B` stable. Scope change: `6/10 -> 6/12 (+2 scope)`.
+- Nested work: `Step 7/10 · Milestone 1/4`.
+- Do not erase verified progress unless regression evidence invalidates it.
 
-- Use `A/B`, where `B` is a real scoped denominator.
-- If no denominator exists yet, use `0/?`. Never invent one to make progress look measurable.
-- Increment `A` only when the step's acceptance evidence passes.
-- Keep the denominator stable. If scope changes, show the delta explicitly: `6/10 -> 6/12 (+2 scope)`.
-- Nested work uses: `Step 7/10 · Milestone 1/4`.
-- A failed attempt does not increase progress.
-- Rework does not reset progress already verified unless evidence proves a completed step regressed.
+**Done:** progress is evidence-backed and traceable to real scoped state.
 
-**Done when:** progress is monotonic, evidence-backed, and traceable to a fixed plan.
+## Step 3 — Keep the AI record actionable
 
-## Step 3 — Write AI trace, not human narration
-
-During long work, prefer compact event records over explanatory paragraphs.
+For long work, emit a trace only on material state change:
 
 ```text
 [AoA TRACE]
-TASK=<stable task/lane id>
+TASK=<stable id>
 ROADMAP=<A/B>
-MILESTONE=<x/y or NONE>
+MILESTONE=<x/y|NONE>
 ACTION=<bounded action>
 RESULT=PASS|FAIL|PARTIAL|NOT_RUN
 EVIDENCE=<artifact/path/test/source>
 STATE_CHANGE=<what is now true>
-ERROR=<NONE or exact failure>
-DECISION=<accepted change or NONE>
+ERROR=<NONE|exact failure>
+DECISION=<accepted decision|NONE>
 NEXT=<next bounded action>
 ```
 
 Rules:
 
-- Record actions, evidence, decisions, errors, codes, files, and state transitions.
-- Omit conversational filler and repeated context.
-- Preserve `UNKNOWN`, `NOT_RUN`, dissent, and authority state.
-- Do not expose private chain-of-thought. The trace is an execution/state record, not hidden reasoning.
-- If a canonical durable record exists, update it and reference it; do not create a competing master state.
+- Preserve `UNKNOWN`, `NOT_RUN`, dissent, authority, and provenance.
+- Omit filler, repeated context, and tool-by-tool narration.
+- Never expose private chain-of-thought; this is an execution/state record.
+- If a canonical durable record exists, update/reference it instead of creating a competing master state.
 
-**Done when:** another AI can resume the work without reconstructing it from prose.
+**Done:** another AI can resume without reconstructing the work from prose.
 
-## Step 4 — Route serious forks before interrupting the operator
+## Step 4 — Resolve serious forks before interrupting the operator
 
-When existing project governance calls for Human Gate or a consequential decision reaches a genuine fork:
+Run Human Gate / Quorum first when project policy or a consequential fork requires it and existing evidence/authority allow resolution.
 
-1. Run Human Gate / Quorum when the decision can be resolved from available evidence and existing authority.
-2. Apply the safest reversible next step when authority permits.
-3. Interrupt the human only when one of these is true:
-   - explicit human permission or release authority is required;
-   - the choice is materially irreversible;
-   - the decision depends on a preference only the human can supply;
-   - required evidence exists only with the human;
-   - Quorum remains `DISPUTED` and no safe reversible step survives.
+Ask the human only when at least one is true:
 
-The operator-facing handoff reports only the effect of the gate unless more detail is requested.
+- explicit permission or release authority is required;
+- the choice is materially irreversible;
+- only the human can supply the preference or evidence;
+- Quorum remains `DISPUTED` and no safe reversible step survives.
 
-**Done when:** serious questions are not bounced to the human merely because the AI can ask.
+Otherwise take the safest authorized reversible step and report the effect, not the deliberation.
+
+**Done:** the operator is interrupted only at a genuine human gate.
 
 ## Step 5 — Render the Easy Handoff
 
-Default operator-facing output:
+Default:
 
 ```text
 - ✓ Agents of AI — <methods actually used> — <model>
 - Progress — <A/B> [· Milestone <x/y>]
-
-- ✓ Done — <what was just completed and whether it passed>
-- → Next — <the next bounded step>
+- ✓ Done — <current result>
+- → Next — <next bounded step>
 ```
 
-Use only when applicable:
+Only when applicable:
 
 ```text
-- ✗ Fail — <what failed and where>
-- ! HALT — <why the current path must stop; what human action/authority is required>
-- △ Recommend — <minor pathway alteration and why>
-- + Defer — <useful later item; stable delta/id if one exists>
+- ✗ Fail — <failure + location>
+- ! HALT — <why work must stop + required human action>
+- △ Recommend — <minor pathway change + reason>
+- + Defer — <later item + stable id/delta when one exists>
 ```
 
 Rules:
@@ -134,37 +120,37 @@ Rules:
 - Bullets, not paragraphs.
 - One fact/action per bullet.
 - Lead with outcome, not method.
-- Do not dump the audit, Quorum deliberation, tool log, or implementation detail unless asked.
+- Do not dump audits, Quorum deliberation, tool logs, or implementation detail unless asked.
 - If nothing changed, do not manufacture an update.
-- The final handoff should normally fit on one phone screen.
+- Keep the human handoff to one phone screen when practical.
 
-**Done when:** the operator can answer three questions at a glance: Where are we? What happened? What happens next?
+**Done:** the operator can answer: Where are we? What happened? What happens next?
 
 ## Done Condition
 
-Easy Handoff passes when all are true:
+Pass only when:
 
-- AoA methods and executing model are stated accurately.
-- Progress is tied to a real denominator or honestly marked `?`.
-- Current result is marked success/failure/partial without ambiguity.
-- The next step is one bounded action.
-- Any required human intervention is explicit.
-- Detailed continuity exists in structured AI-readable form without exposing private reasoning.
-- No suggestion was laundered into a decision during compression.
+- AoA methods and model are accurate;
+- progress is real or honestly `?`;
+- result status is unambiguous;
+- next step is bounded;
+- required human action is explicit;
+- machine continuity is preserved without private reasoning;
+- recommendations have not been laundered into decisions.
 
 ## Failure Signals
 
-- progress numbers rise without acceptance evidence;
-- denominator silently changes;
-- output returns to long paragraphs;
-- a failed attempt is reported as progress;
-- a Human Gate is dumped on the operator instead of reduced to its decision impact;
-- a recommendation becomes a decision after compression;
-- the human must reread the chat to learn the next step;
-- the AI trace becomes chain-of-thought instead of an evidence/state record.
+- invented or silently changing progress;
+- a failed attempt counted as completion;
+- long operator-facing paragraphs;
+- hidden `FAIL`, `UNKNOWN`, authority, or regression state;
+- Human Gate deliberation dumped on the operator;
+- recommendation compressed into a decision;
+- trace records emitted without material state change;
+- the human must reread the chat to find the next step.
 
 ## Design Provenance
 
-The v1 design was reviewed through a live-sourced five-seat Quorum method pass with two practitioners per seat. The detailed method record, cross-examination, dissent, and sources live in [the Origin provenance record](../origin/easy-handoff-quorum-2026-09-19.md). Those practitioners did not participate in or endorse Agents of AI; their published methods were used as analytical lenses.
+The v1 design passed a live-sourced five-seat Quorum method review with two practitioners per seat. See [the Origin provenance record](../origin/easy-handoff-quorum-2026-09-19.md) for sources, cross-examination, Spike, and dispositions.
 
-The runtime rule is simpler: re-source any future Quorum live. Never turn this provenance record into a frozen expert roster.
+Those practitioners did not participate in or endorse Agents of AI. Future Quorums re-source live; this record is provenance, not a frozen roster.
