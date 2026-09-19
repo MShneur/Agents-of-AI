@@ -30,18 +30,22 @@ Use on every substantial multi-step AoA task, especially long chats, parallel la
 
 For a trivial one-turn answer, use only the short human handoff if reporting is useful.
 
-## Step 1 — Declare the cast
+## Step 1 — Select and declare the cast
 
-At the first material update, record:
+Before substantial work, search the current AoA library and choose the smallest capable method set for the exact task. Do not default to generic execution when Origin, Cleanerz, Quorum, a team, workflow, agent, or named practitioner-method lens materially changes the work.
+
+- Use Quorum / Human Gate for consequential forks, not routine reversible actions.
+- When Quorum is used, follow its live-sourcing rule: two real practitioners per required seat, grounded in published methods, never simulated participation.
+- Record only capabilities actually used.
+
+At the first material update:
 
 ```text
 AOA=<methods actually used>
 MODEL=<model actually executing>
 ```
 
-Do not claim a method, model, expert, tool, or verifier that was not actually used.
-
-**Done when:** the next AI can tell which AoA capabilities produced the work.
+**Done when:** the task has a deliberate AoA route and the next AI can tell which capabilities actually produced the work.
 
 ## Step 2 — Lock progress to real state
 
@@ -159,40 +163,8 @@ Easy Handoff passes when all are true:
 - the human must reread the chat to learn the next step;
 - the AI trace becomes chain-of-thought instead of an evidence/state record.
 
-## Design Provenance — not a runtime roster
+## Design Provenance
 
-This v1 was shaped by a live Quorum-style review on 2026-09-19. The names below are method references only; none participated in or endorsed Agents of AI. Future Quorums must re-source seats live per `workflows/quorum.md`.
+The v1 design was reviewed through a live-sourced five-seat Quorum method pass with two practitioners per seat. The detailed method record, cross-examination, dissent, and sources live in [the Origin provenance record](../origin/easy-handoff-quorum-2026-09-19.md). Those practitioners did not participate in or endorse Agents of AI; their published methods were used as analytical lenses.
 
-### Method seat
-- **Barbara Minto** — Pyramid Principle / SCQ: lead with the governing point and organize support beneath it. Source: https://www.barbaraminto.com/
-- **Steve Krug** — *Don't Make Me Think*: optimize for scanning and remove unnecessary cognitive work. Source: https://sensible.com/dont-make-me-think/
-
-Decision applied: human status is outcome-first, scan-first, and paragraph-free.
-
-### Evidence seat
-- **Amy J. Starmer** — I-PASS standardized handoff research. Source: https://pubmed.ncbi.nlm.nih.gov/22232313/
-- **Christopher P. Landrigan** — multicenter I-PASS handoff/error research. Source: https://www.nejm.org/doi/full/10.1056/NEJMsa1405556
-
-Decision applied: fixed handoff fields beat free-form summaries; action and contingency state must survive transfer.
-
-### Operator seat
-- **Jez Humble** — Continuous Delivery: small, low-risk increments with rapid feedback. Source: https://continuousdelivery.com/about/
-- **Gene Kim** — Three Ways: system flow, fast feedback, continual learning. Source: https://itrevolution.com/articles/the-three-ways-principles-underpinning-devops/
-
-Decision applied: progress advances only on verified bounded increments; the next step stays small and reversible.
-
-### Adversary seat
-- **Nancy Leveson** — STAMP / systems-theoretic safety: failures emerge from unsafe interactions and weak control, not only isolated component faults. Source: https://mitpress.mit.edu/9780262297301/engineering-a-safer-world/
-- **Richard I. Cook** — *How Complex Systems Fail*: defended systems still fail through interacting conditions and latent weaknesses. Source: https://www.researchgate.net/publication/228797158_How_complex_systems_fail
-
-Decision applied: compression may never hide `FAIL`, `UNKNOWN`, authority boundaries, or a required halt.
-
-### Affected-user seat
-- **Janice (Ginny) Redish** — user-centered web content as conversation serving the reader's task. Source: https://www.sciencedirect.com/book/monograph/9780123859303/letting-go-of-the-words
-- **Jakob Nielsen** — visibility of system status and usability heuristics. Source: https://www.nngroup.com/articles/ten-usability-heuristics/
-
-Decision applied: the operator must always see current system status and next action without reading the implementation record.
-
-## Spike / dissent
-
-The strongest objection was that an AI-dense trace can become a second wall of text. The mitigation is structural: emit trace records only on material state change, keep them fielded and compact, and use the canonical durable record when one already exists. Easy Handoff is not permission to narrate every tool call.
+The runtime rule is simpler: re-source any future Quorum live. Never turn this provenance record into a frozen expert roster.
