@@ -1,5 +1,16 @@
 # Repository agent rules
 
+## Easy Handoff boot — mandatory
+
+Before selecting agents, personas, workflows, teams, or tools for any substantial task, load `workflows/easy-handoff.md`. It governs the reporting/continuity layer, not project authority.
+
+1. State the Agents-of-AI methods actually used and the executing model.
+2. Tie progress to the canonical roadmap/ledger/checklist; never invent a denominator.
+3. For long work, emit compact AI-readable state/evidence records instead of human narration.
+4. End operator-facing updates with the Easy Handoff shape: progress, what just happened, next step; show fail/halt/recommend/defer only when applicable.
+5. If a consequential fork can be resolved by Human Gate/Quorum within existing authority, resolve it before interrupting the operator. Ask the human only for a genuine permission, irreversible choice, user-only preference/evidence, or unresolved disputed gate.
+6. Never expose private chain-of-thought; continuity records contain actions, evidence, decisions, errors, files, and state transitions only.
+
 ## GitHub Actions conservation — mandatory
 
 GitHub Actions is a scarce, last-resort execution surface.
