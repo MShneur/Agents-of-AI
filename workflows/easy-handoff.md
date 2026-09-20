@@ -6,7 +6,7 @@ steps: 5
 agents_used: [scribe, conductor]
 personas_used: [distiller, mirror]
 confidence: EXPERIMENTAL
-version: "1.0"
+version: "1.1"
 tags: [handoff, continuity, progress, compression, operator, long-session, ai-readable]
 compatible_with: [any-ai]
 ---
@@ -80,20 +80,52 @@ Rules:
 
 **Done:** another AI can resume without reconstructing the work from prose.
 
-## Step 4 — Resolve serious forks before interrupting the operator
+## Step 4 — Exhaust tools before interrupting the operator
 
 Run Human Gate / Quorum first when project policy or a consequential fork requires it and existing evidence/authority allow resolution.
 
-Ask the human only when at least one is true:
+Before asking the human to click, log in, capture a screenshot, copy data, run a command, upload a file, inspect a page, or perform any other operational step, run a **tool-exhaustion pass**:
+
+1. Inventory the safe capabilities actually exposed to the current session.
+2. Try the strongest relevant autonomous path first: existing authenticated browser/profile/vault, connected app, repo/runtime tool, nonproduction execution surface, or another already-authorized reversible capability.
+3. If one tool fails, check the materially different available paths before concluding the human is required.
+4. Never invent credentials, bypass access controls, create unauthorized sessions, weaken safety/release gates, or mutate production merely to avoid a human gate.
+5. Record the exact blocker and why the surviving action is genuinely user-only.
+
+Ask the human only when at least one is true **after** that pass:
 
 - explicit permission or release authority is required;
 - the choice is materially irreversible;
 - only the human can supply the preference or evidence;
+- credentials, 2FA, a physical device, or another user-presence interaction is required and no authorized session/tool can provide it;
+- the needed capability is not exposed/connected and no safe equivalent exists;
 - Quorum remains `DISPUTED` and no safe reversible step survives.
 
 Otherwise take the safest authorized reversible step and report the effect, not the deliberation.
 
-**Done:** the operator is interrupted only at a genuine human gate.
+### Human-action presentation contract
+
+When user action is genuinely required:
+
+- **Stop all further requests in that turn.** The human-action request is the final operator-facing message.
+- First line: render **`HOLD — USER ACTION REQUIRED` in red** when the client supports text color. Portable fallback: `🔴 **HOLD — USER ACTION REQUIRED**`.
+- After that line, use normal text only.
+- Give **1–3 baby steps**, one action per step.
+- State exactly what the human should send back, when applicable (for example: `Reply “done”` or `send the screenshot`).
+- Do not include Quorum deliberation, failed-tool narration, alternative workflows, or another recommendation after the steps.
+- Do not ask the human to diagnose tool failures; translate the blocker into the smallest action only they can perform.
+
+Example:
+
+```text
+🔴 HOLD — USER ACTION REQUIRED
+
+1. Open Penny and sign in normally.
+2. Open Me/Profile and take one screenshot showing the avatar/rank ring.
+3. Send that screenshot here.
+```
+
+**Done:** the operator is interrupted only after automation is genuinely exhausted, and the remaining human task is unmistakable and easy to execute.
 
 ## Step 5 — Render the Easy Handoff
 
@@ -110,10 +142,12 @@ Only when applicable:
 
 ```text
 - ✗ Fail — <failure + location>
-- ! HALT — <why work must stop + required human action>
+- ! HALT — <non-human blocker; why work must stop>
 - △ Recommend — <minor pathway change + reason>
 - + Defer — <later item + stable id/delta when one exists>
 ```
+
+For a genuine human-only blocker, **do not use the ordinary HALT bullet**. Use the Step-4 Human-action presentation contract as the final message instead.
 
 Rules:
 
