@@ -38,6 +38,7 @@ Use this section for any domain; the coding stages below apply only when the ass
 5. At completion, the coordinator independently re-reads the diff and runs the narrow relevant verification, then updates the same handoff/ledger. No competing “final” handoff.
 6. Named experts are bounded method lenses unless independently activated. Never fabricate quorum, tool access, or endorsement.
 7. Batch related changes and commits; never use automatic hosted Actions as a substitute for the handoff or verification contract.
+8. Before returning a blocker that asks the human to perform an operational step, exhaust the safe tools/actions exposed to the current session. If the residual step is genuinely user-only, use the mandatory Easy Handoff `HOLD — USER ACTION REQUIRED` final-message format with 1–3 baby steps. Do not convert agent/tool inconvenience into human work.
 
 ## Steps
 
