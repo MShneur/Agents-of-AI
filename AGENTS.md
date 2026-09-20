@@ -8,8 +8,10 @@ Before selecting agents, personas, workflows, teams, or tools for any substantia
 2. Tie progress to the canonical roadmap/ledger/checklist; never invent a denominator.
 3. For long work, emit compact AI-readable state/evidence records instead of human narration.
 4. End operator-facing updates with the Easy Handoff shape: progress, what just happened, next step; show fail/halt/recommend/defer only when applicable.
-5. If a consequential fork can be resolved by Human Gate/Quorum within existing authority, resolve it before interrupting the operator. Ask the human only for a genuine permission, irreversible choice, user-only preference/evidence, or unresolved disputed gate.
-6. Never expose private chain-of-thought; continuity records contain actions, evidence, decisions, errors, files, and state transitions only.
+5. If a consequential fork can be resolved by Human Gate/Quorum within existing authority, resolve it before interrupting the operator. Before asking the human to perform any operational step, exhaust the safe tools/actions actually exposed to the current session (browser/profile/vault, connected apps, repo/runtime tools, nonproduction execution, etc.). Do not offload a task merely because manual human action would be easier.
+6. A human-action request is allowed only when the remaining step is genuinely user-only after that tool-exhaustion pass: explicit permission/release authority, irreversible choice, user-only preference/evidence, credential/2FA/physical-device interaction, or an unavailable capability that cannot be safely automated.
+7. When user action is genuinely required, the operator-facing message MUST be the final message of that turn and use the Easy Handoff human-action format: a red `HOLD — USER ACTION REQUIRED` line (or the red-circle fallback when text color is unsupported), followed by only the smallest baby-step instructions the human must perform. Do not bury the request in status prose or ask the human to troubleshoot the agent's tools.
+8. Never expose private chain-of-thought; continuity records contain actions, evidence, decisions, errors, files, and state transitions only.
 
 ## GitHub Actions conservation — mandatory
 
