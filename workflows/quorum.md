@@ -15,7 +15,7 @@ anti-goal: >
   endorsed, or said anything they did not publish. Will not fill seats from memory
   when retrieval is available. Will not return unanimous. Will not run more than
   three cycles without rotating its own leads.
-steps: 7
+steps: 8
 agents_used: [scout, auditor, conductor]
 personas_used: [mirror, burden, provenance, verdict]
 confidence: EXPERIMENTAL
@@ -83,6 +83,46 @@ LIGHT   supports it. Their method tests the frame and covers its blind spot.
 Minimum five seats. The Specialist slot is filled only when a distinct expertise
 or constituency is genuinely missing, never to make the body look impressive.
 
+
+## EXPANSION GATE [BINDING]
+
+Before seats are assigned, the assembler must test whether the **literal prompt is
+narrower than the real decision**. The purpose is to catch missing system effects,
+not to rewrite the user's goal.
+
+For every material product/system decision, answer these questions before seating:
+
+1. **Power-user maximization:** what happens if the most active 1% uses this feature
+   as hard as the rules allow? Does the design still work, or does it create load,
+   spam, starvation, or an unintended shortcut?
+2. **Fleet multiplication:** does one user's choice multiply downstream work across
+   stores, items, models, providers, regions, or accounts? Can shared state, caching,
+   coalescing, batching, or dedupe turn N user actions into one system action?
+3. **Abuse/farm path:** what is the cheapest way to game this mechanic with many
+   accounts, duplicated submissions, cheap evidence, referrals, or automation?
+4. **Expert/returning-user path:** does a highly skilled or previously proven user
+   still have a reason to stay? Are we slowing them merely because they progress
+   quickly instead of giving them deeper mastery, prestige, or responsibility?
+5. **Novice/casual path:** is the system still useful before mastery, or does it look
+   broken/empty unless the user grinds?
+6. **Adjacent-system reuse:** is there already a canonical table, scheduler, support
+   thread, entitlement system, cache, or workflow that should absorb this feature
+   instead of creating a parallel subsystem?
+7. **Performance/cost path:** what does this add to initial page weight, requests,
+   compute, storage, external-provider cost, operator burden, and failure surface?
+8. **Future-generalization:** does the decision still make sense for the next
+   retailer/category/user role, or is it accidentally hard-coded to today's example?
+9. **Support/feedback path:** when the feature confuses or fails for a real user,
+   what evidence will support collect, how will it be triaged, and how does that
+   feed the next iteration?
+10. **Missing-seat test:** after answering 1–9, name the practitioner/domain that
+    would be most likely to reject the current framing. If that expertise is not
+    represented, add/re-source a Specialist seat before proceeding.
+
+If any answer changes the decision boundary, rewrite the **Frame** before research.
+If the answer is unknown and materially load-bearing, mark it UNKNOWN and make the
+reversible step measure it rather than guessing.
+
 ## ROLE ROTATION [ANTI-FOSSILIZATION]
 
 After three cycles on the same project with the same heavy-weight configuration,
@@ -122,16 +162,19 @@ actually needed.
 ## PROTOCOL
 
 1. **Frame** — decision, options, constraints, reversibility, who is affected.
-2. **Research** — what are the strongest competing methods practitioners actually
+2. **Expansion Gate** — run the power-user, fleet, abuse, expert, novice, reuse,
+   performance, generalization, support, and missing-seat tests above. Rewrite the
+   frame if any of them materially changes the decision.
+3. **Research** — what are the strongest competing methods practitioners actually
    use here, and which failure mode does each optimize against?
-3. **Seat** — assign heavy/light pairs from that research. Name the sourcing.
-4. **Independent pass** — each seat returns position, strongest support, one
+4. **Seat** — assign heavy/light pairs from that research. Name the sourcing.
+5. **Independent pass** — each seat returns position, strongest support, one
    objection, confidence, and what would change their view. No seat sees another
    first where independence is achievable.
-5. **Cross-examine** — seats challenge each other's assumptions directly.
+6. **Cross-examine** — seats challenge each other's assumptions directly.
    Operator and Affected may reject technically correct options on cost grounds.
-6. **Spike** — mandatory per trigger above.
-7. **Dispose and decide** — every objection gets a disposition, then the
+7. **Spike** — mandatory per trigger above.
+8. **Dispose and decide** — every objection gets a disposition, then the
    risk-adjusted recommendation, the safest reversible next step, and whether
    human choice is required.
 
