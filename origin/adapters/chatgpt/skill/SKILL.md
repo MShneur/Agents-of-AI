@@ -73,6 +73,23 @@ support/feedback loop. If any of these changes the scope, record it in
 implementation. Do not silently optimize the user's example while ignoring the
 system it sits inside.
 
+## Signal-before-verdict interpretation rule
+
+For material research/product/system work, apply
+`workflows/signal-before-verdict.md` before narrowing evidence.
+
+Do not equate:
+- not confirmed -> irrelevant;
+- missing -> false/zero;
+- source failure -> business-state failure;
+- fast progress -> abuse;
+- model agreement -> verification;
+- visual blur -> authorization.
+
+When a user supplies shorthand/pattern language, operationalize it with positive
+and negative examples before searching, filtering, or coding. Preserve precursor
+signals until an explicit exclusion rule justifies removal.
+
 ## Origin Packet
 ```text
 [ORIGIN PACKET]
