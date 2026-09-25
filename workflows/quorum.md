@@ -123,6 +123,27 @@ If any answer changes the decision boundary, rewrite the **Frame** before resear
 If the answer is unknown and materially load-bearing, mark it UNKNOWN and make the
 reversible step measure it rather than guessing.
 
+## SIGNAL-BEFORE-VERDICT GATE [BINDING]
+
+Before research narrows a candidate set or declares "not relevant", apply
+`workflows/signal-before-verdict.md`.
+
+At minimum distinguish:
+- observed fact;
+- precursor signal;
+- candidate/hypothesis;
+- confirmation rule;
+- explicit exclusion rule;
+- UNKNOWN.
+
+A terminal outcome threshold must not be used as the discovery predicate unless the
+owner explicitly requested terminal-only retrieval or the recall-loss tradeoff has
+been evaluated and accepted.
+
+This gate is especially mandatory when the owner's language contains shorthand,
+patterns, lifecycle states, ranking thresholds, support statuses, inferred trust,
+or missing-data semantics.
+
 ## ROLE ROTATION [ANTI-FOSSILIZATION]
 
 After three cycles on the same project with the same heavy-weight configuration,
