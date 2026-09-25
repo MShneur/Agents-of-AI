@@ -61,6 +61,18 @@ If implementation truth and visual intent conflict, record the conflict rather t
 
 If canonical state cannot be read, return `ORIGIN: DEGRADED/BLOCKED`. Do not reconstruct from memory.
 
+## Prompt-expansion check for material product/system work
+
+Before emitting the Origin Packet for a material product, economy, support, scaling,
+or capability decision, verify that the literal request has not hidden a larger
+system boundary. At minimum inspect: power-user maximization, N-user/downstream
+multiplication, abuse/farm paths, novice and returning-expert paths, existing-system
+reuse, initial-load/runtime cost, future-category/retailer generalization, and the
+support/feedback loop. If any of these changes the scope, record it in
+`Actual delta`, `Unknown`, or `Authority conflicts` and route to Quorum before
+implementation. Do not silently optimize the user's example while ignoring the
+system it sits inside.
+
 ## Origin Packet
 ```text
 [ORIGIN PACKET]
