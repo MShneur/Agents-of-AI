@@ -8,6 +8,7 @@ For fast-moving tool/API changes, also see [`tools/CHANGELOG.md`](tools/CHANGELO
 
 - Added a public-safe capability-routing/Doctor contract under `tools/` with semantic health probes, path-aware fallback, cost/auth gates, and clean-room fingerprint quarantine.
 - Updated `deep-dig` to distinguish a dated lineage witness from proven origin and to backtrace late artifacts through independently dated predecessors before ending genealogy research.
+- Reconciled pre-existing roster drift: the already-present `signal-before-verdict` workflow is now reflected in README/versioning and both generated research prompts (18 workflows / 87 total entries).
 
 ## 2026-09-19 — Easy Handoff / Zero Handoff
 
