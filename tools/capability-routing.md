@@ -1,6 +1,6 @@
 # Capability Routing & Doctor Contract
 
-**Status:** reusable public infrastructure pattern  
+**Status:** reusable public infrastructure pattern
 **Scope:** supporting tools layer — not an eighth composable AoA layer
 
 ## Purpose
