@@ -4,6 +4,11 @@ This log tracks material public changes to the Agents of AI repository. It is in
 
 For fast-moving tool/API changes, also see [`tools/CHANGELOG.md`](tools/CHANGELOG.md).
 
+## 2026-10-03 — Capability routing and genealogy backtrace
+
+- Added a public-safe capability-routing/Doctor contract under `tools/` with semantic health probes, path-aware fallback, cost/auth gates, and clean-room fingerprint quarantine.
+- Updated `deep-dig` to distinguish a dated lineage witness from proven origin and to backtrace late artifacts through independently dated predecessors before ending genealogy research.
+
 ## 2026-09-19 — Easy Handoff / Zero Handoff
 
 - Added `workflows/easy-handoff.md` as the default AoA reporting/continuity layer for substantial work.
