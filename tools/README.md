@@ -1,6 +1,6 @@
 # Agents of AI — Tools
 
-**Last public review:** 2026-10-03  
+**Last public review:** 2026-10-03
 **Status:** actively maintained supporting layer
 
 This folder is the public tools shelf for Agents of AI: software recommendations, APIs, free/student capability notes, setup walkthroughs, and reusable infrastructure patterns that help AI workflows actually run.
