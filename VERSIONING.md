@@ -12,12 +12,12 @@ Live composable roster at this snapshot:
 |---|---:|
 | Personas | 23 |
 | Agents | 13 |
-| Workflows | 17 |
+| Workflows | 18 |
 | Techniques | 17 |
 | Modes | 4 |
 | Teams | 6 |
 | Failures | 6 |
-| **Total** | **86** |
+| **Total** | **87** |
 
 Supporting tools, software recommendations, APIs, and walkthroughs are **not an eighth composable layer** and are versioned separately.
 
@@ -27,7 +27,7 @@ Supporting tools, software recommendations, APIs, and walkthroughs are **not an 
 
 Files under `personas/`, `agents/`, `workflows/`, `techniques/`, `modes/`, `teams/`, and `failures/` keep their own frontmatter `version` when their schema supports it.
 
-**Bump an entry version only when that entry changes.** Do not mass-bump 86 unrelated files because a new tool, README, or workflow was added elsewhere.
+**Bump an entry version only when that entry changes.** Do not mass-bump 87 unrelated files because a new tool, README, or workflow was added elsewhere.
 
 ### Repository snapshot
 
