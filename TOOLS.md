@@ -11,6 +11,7 @@ The goal is simple: when a workflow needs an external service, API, free quota, 
 - [`tools/api-catalog.md`](tools/api-catalog.md) — public API, MCP, webhook, event-stream, and integration surfaces.
 - [`tools/free-tool-ledger.md`](tools/free-tool-ledger.md) — publicly verifiable free/student tools, quotas, and caveats.
 - [`tools/publication-safety.md`](tools/publication-safety.md) — privacy and red-team gate for anything added here.
+- [`tools/capability-routing.md`](tools/capability-routing.md) — provider-neutral route/health contract with semantic probes, safe fallback, cost/auth gates, and fingerprint quarantine.
 - [`tools/ctrl-walkthrough/`](tools/ctrl-walkthrough/) — public responsive Tampermonkey setup runner plus reusable data-only walkthroughs.
 - [`tools/CHANGELOG.md`](tools/CHANGELOG.md) — fast-moving history for tools/APIs/walkthroughs.
 - [`workflows/large-artifact-handoff.md`](workflows/large-artifact-handoff.md) — provider-neutral pattern for moving large binary artifacts without stuffing them through an AI context window.
