@@ -1,6 +1,6 @@
 # Agents of AI — Tools
 
-**Last public review:** 2026-08-24  
+**Last public review:** 2026-10-03
 **Status:** actively maintained supporting layer
 
 This folder is the public tools shelf for Agents of AI: software recommendations, APIs, free/student capability notes, setup walkthroughs, and reusable infrastructure patterns that help AI workflows actually run.
@@ -19,6 +19,7 @@ It is **not an eighth AoA composable layer**. Personas, agents, workflows, techn
 | [`ctrl-walkthrough/AI_HANDOFF_PROTOCOL.md`](ctrl-walkthrough/AI_HANDOFF_PROTOCOL.md) | How an AI should choose public module vs `CWZ2`/`CW2` paste code vs local file vs best-effort private GitHub pointer |
 | [`ctrl-walkthrough/make_handoff.py`](ctrl-walkthrough/make_handoff.py) | Deterministic gzip+Base64URL `CWZ2` / Base64URL `CW2` generator with expiry and basic secret guards |
 | [`publication-safety.md`](publication-safety.md) | Privacy and publication gate for anything added under `tools/` |
+| [`capability-routing.md`](capability-routing.md) | Provider-neutral capability routing, semantic health checks, safe fallback, cost/auth gates, and clean-room fingerprint quarantine |
 | [`CHANGELOG.md`](CHANGELOG.md) | Fast-moving history for tool/API/walkthrough additions and changes |
 
 Repository-wide history lives in [`../CHANGELOG.md`](../CHANGELOG.md), and version/snapshot rules live in [`../VERSIONING.md`](../VERSIONING.md).
