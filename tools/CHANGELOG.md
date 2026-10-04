@@ -2,6 +2,15 @@
 
 Fast-moving history for `tools/`. Repository-wide changes live in [`../CHANGELOG.md`](../CHANGELOG.md).
 
+## 2026-10-03
+
+### Capability routing / semantic Doctor contract
+
+- Added `capability-routing.md` as a provider-neutral supporting-tools contract; it does not add an eighth AoA layer.
+- A route is healthy only after a small side-effect-free **semantic** probe demonstrates the capability the caller actually needs; transport success alone is not green.
+- Added explicit path-aware states (`READY`, `DEGRADED`, `AUTH_REQUIRED`, `BLOCKED`, `UNAVAILABLE`, `UNKNOWN`), semantically constrained fallback, and cost/auth gates that prohibit silent paid or credential-backed fallback.
+- Added clean-room fingerprint quarantine: reusable architecture may be re-derived, but source-specific evasion/fingerprint code, credentials, challenge bypass, brittle constants, and unclear-license implementation details do not graduate into the public contract.
+
 ## 2026-08-24
 
 ### Remote MCP + Cloud Bridge roadmap
