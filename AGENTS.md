@@ -15,7 +15,7 @@ Before selecting agents, personas, workflows, teams, or tools for any substantia
 
 ## Backstitch continuity boot — mandatory for resumed durable work
 
-Before substantial work that resumes prior project state, crosses chats/models/agents, or touches a repository with ledgers, handoffs, lanes, claims or durable memory, load `agents/backstitch.md`.
+Before substantial work that may depend on prior project state, run the **Stitch Gate** from `agents/backstitch.md`. **S0 BYPASS performs zero Backstitch/project-memory reads.** Load deeper Backstitch context only at S1-S3 when the answer actually depends on durable state.
 
 1. Resolve the project's explicit authority order before broad retrieval; never assume the longest or most recent-looking handoff is canonical.
 2. Resolve the active owner/claim/write surface before execution. Do not become a competing writer.
