@@ -13,7 +13,8 @@ For fast-moving tool/API changes, also see [`tools/CHANGELOG.md`](tools/CHANGELO
 - Kept **Easy Handoff** as the operator/reporting layer; Backstitch is the context/recall layer underneath it.
 - Added Origin provenance at `origin/backstitch-context-continuity-2026-10-05.md`, comparing current memory/context approaches and transferring only their reusable mechanisms.
 - The default runtime direction is deliberately modular: canonical Git/project authority + one shared recall backend + semantic code navigation + on-demand long-document hierarchy; memory never outranks project truth.
-- Library roster is now **87 entries**: 23 personas, 14 agents, 17 workflows, 17 techniques, 4 modes, 6 teams, 6 failures.
+- Library roster is now **88 entries**: 23 personas, 14 agents, 18 workflows, 17 techniques, 4 modes, 6 teams, 6 failures.
+- Repaired pre-existing roster drift: `signal-before-verdict.md` already existed as the 18th workflow but the curated README still reported 17.
 
 ## 2026-09-19 — Easy Handoff / Zero Handoff
 
