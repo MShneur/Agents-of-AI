@@ -86,7 +86,7 @@ These are design-fit scores, not vendor benchmarks.
 | Honcho | **70** | evolving peer/project representations | background inference can blur evidence vs interpretation |
 | Letta | **66** | strong stateful-agent memory architecture | replaces too much of the existing runtime model |
 
-**Decision:** start with a lightweight shared recall backend pattern closest to MCP Memory Service. Keep Cognee as the first richer alternative if graph/ontology needs outgrow it. Do not run two competing memory brains.
+**Decision update (2026-10-05):** deployment depends on available compute. If no always-on approved host exists, use **Cognee Cloud Free** as the recall pilot: its official current plan is $0/month/free forever with one workspace, 1M included tokens, unlimited API calls and MCP/Codex integrations, no card required. If approved private compute exists, MCP Memory Service remains the preferred lightweight self-hosted recall candidate. Do not run two competing memory brains.
 
 ## Transfer — two-part architecture
 
@@ -118,9 +118,11 @@ Backstitch
     |
     +-- Authority Router ---- Git / ledger / lane / runtime
     |
-    +-- Shared Recall ------- MCP Memory Service (v1 candidate)
+    +-- Shared Recall ------- Cognee Cloud Free (no-host pilot)
     |                           \
-    |                            -> Cognee (richer alternative)
+    |                            -> MCP Memory Service (private/self-hosted)
+    |                           \
+    |                            -> Cognee self-hosted (richer graph)
     |
     +-- Code Structure ------ Serena
     |                           \
