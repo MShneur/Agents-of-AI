@@ -178,6 +178,45 @@ It is orchestration, not memory, authority, or retrieval policy.
 
 Official: https://github.com/n8n-io/n8n
 
+## Deployment profiles
+
+### No always-on computer / no spare server
+
+Use **Cognee Cloud Free** as the first recall pilot instead of creating new infrastructure.
+
+Verified 2026-10-05 from Cognee's official pricing page:
+- $0/month, described as free forever;
+- 1 workspace;
+- 1M included memory-processing tokens;
+- unlimited users;
+- unlimited API calls;
+- Claude Code / Codex / MCP integrations;
+- no card required.
+
+Official: https://www.cognee.ai/pricing
+
+For private projects, prefer **pointer-rich continuity records** over uploading raw repositories:
+- project/lane/task ID;
+- concise decision/correction/outcome;
+- source commit/file pointers;
+- status/current-vs-historical;
+- no secrets, credentials, private infrastructure values, or unnecessary raw payloads.
+
+The free cloud service is **recall only**. Git/project authority remains canonical.
+
+### Self-hosted/private compute available
+
+Prefer a lightweight shared-recall service such as MCP Memory Service when:
+- data must stay on approved infrastructure;
+- a stable host already exists;
+- local SQLite/ONNX is operationally cheaper than a richer graph pipeline.
+
+Use self-hosted Cognee only when its richer ontology/graph behavior is worth the additional compute and maintenance.
+
+### Free-hosting caveat
+
+Do not create extra infrastructure merely to say the memory is self-hosted. Current free web hosts commonly provide around 0.1 vCPU / 512MB and may sleep, which is a poor fit for Cognee's local model path. Choose the hosted free tier or wait for approved compute rather than burden a production server.
+
 ## Minimum viable Loom
 
 Start smaller than the research landscape:
