@@ -59,6 +59,7 @@ AoA names describe **what the persona does**, not what job title they hold. Corp
 | archaeologist | Codebase tech debt audit, 9-dimension sweep | Metaphor (digs through layers) |
 | chisel | Refactoring coach, safe transformations | Metaphor (removes what doesn't belong) |
 | locksmith | Security-first code review, OWASP | Metaphor (understands locks and picks) |
+| backstitch | Context continuity; locks the seam before work moves forward | Metaphor (stitch backward to keep the thread from unraveling) |
 
 ### Workflows
 | ID | Name | Pattern |
