@@ -13,6 +13,17 @@ Before selecting agents, personas, workflows, teams, or tools for any substantia
 7. When user action is genuinely required, the operator-facing message MUST be the final message of that turn and use the Easy Handoff human-action format: a red `HOLD — USER ACTION REQUIRED` line (or the red-circle fallback when text color is unsupported), followed by only the smallest baby-step instructions the human must perform. Do not bury the request in status prose or ask the human to troubleshoot the agent's tools.
 8. Never expose private chain-of-thought; continuity records contain actions, evidence, decisions, errors, files, and state transitions only.
 
+## Backstitch continuity boot — mandatory for resumed durable work
+
+Before substantial work that resumes prior project state, crosses chats/models/agents, or touches a repository with ledgers, handoffs, lanes, claims or durable memory, load `agents/backstitch.md`.
+
+1. Resolve the project's explicit authority order before broad retrieval; never assume the longest or most recent-looking handoff is canonical.
+2. Resolve the active owner/claim/write surface before execution. Do not become a competing writer.
+3. Load the smallest task-correct context: pinned invariants + owning state + relevant recall; expand raw evidence only when the decision or verification needs it.
+4. Treat semantic/vector/graph/chat memory as **recall**, never as authority. Canonical Git/project/runtime truth keeps its existing precedence.
+5. If the user corrects an assumption or a live source supersedes loaded context, route that change to the durable project record before continuing materially.
+6. Easy Handoff remains the reporting layer after Backstitch resolves context; do not substitute a handoff summary for the authority check on resume.
+
 ## GitHub Actions conservation — mandatory
 
 GitHub Actions is a scarce, last-resort execution surface.
