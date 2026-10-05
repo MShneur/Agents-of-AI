@@ -5,7 +5,7 @@ trigger: resume or continue prior work, multi-session project work, repository w
 purpose: Resolve canonical authority and assemble the smallest task-correct context before execution, then keep durable project memory aligned across sessions without turning memory into authority.
 anti-goal: Will not bulk-load a whole repository, create a shadow master, treat semantic memory as truth, overwrite newer authority, or execute before resolving ownership, supersession, and locked invariants.
 confidence: EXPERIMENTAL
-version: "1.0"
+version: "1.1"
 tags: [continuity, memory, context, authority, retrieval, handoff, ledger, supersession, resume, anti-drift]
 personas_used: [provenance, mirror, wireframe, distiller]
 compatible_with: [any-ai]
@@ -43,17 +43,28 @@ Backstitch refuses to:
 
 ## Protocol
 
-### 0. Trigger and scope
+### 0. Stitch Gate — decide whether continuity work is worth the cost
 
-Activate Backstitch before substantive execution when any of these are true:
+Backstitch is **always eligible but not always activated**. Run this tiny classification from the user's request and already-visible context before doing any extra retrieval.
 
-- the user says **continue**, **resume**, **pick up**, **we already did this**, or equivalent;
-- the task spans chats, models, agents, lanes, branches, or days;
-- the project has a ledger, roadmap, handoff, event stream, memory store, issue board, or other durable state;
-- retrieved files disagree about what is current;
-- the task risks rebuilding an existing mechanism instead of extending it.
+| Level | Use when | Retrieval budget |
+|---|---|---|
+| **S0 BYPASS** | self-contained/simple question; answer does not depend on prior project state | **zero Backstitch reads** |
+| **S1 PIN** | answer depends on one known project fact, locked rule, current status, or prior decision with an exact route already known | one exact pointer/file/section; no semantic search |
+| **S2 RECALL** | user says continue/resume/already tried/what did we decide; task may duplicate an existing mechanism; project-specific history materially changes the answer | authority spine + owning state + Stitchboard/relevant recall |
+| **S3 RECONCILE** | conflicting sources, multiple lanes/agents, active ownership, branch/runtime changes, handoff migration, architecture change, or unclear supersession | full Backstitch receipt + bounded evidence expansion |
 
-For a self-contained one-turn task with no durable project state, do not add ceremony.
+**Hard rule:** S0 must not load Backstitch files, memory services, project ledgers, or repository history merely because they exist.
+
+Escalate one level only when the cheaper level cannot answer correctly. Do not jump from S0/S1 to broad retrieval for reassurance.
+
+Typical triggers:
+- **S0:** "what does this error mean?", one-off explanation, calculation, generic advice.
+- **S1:** "what store did we use?", "what was the locked threshold?", when the exact current pointer is already known.
+- **S2:** "continue Penny", "we tested this before", "don't reinvent this", "what have we tried?"
+- **S3:** "three lanes disagree", "which handoff is current?", "merge/rebase this work", "another agent may own this."
+
+For a self-contained one-turn task with no durable-state dependency, answer normally and stop.
 
 ### 1. Resolve the Authority Spine
 
@@ -95,6 +106,29 @@ Classify candidate context into five buckets:
 | **ARCHIVE** | superseded handoffs, old branches, resolved experiments | exclude unless lineage/conflict requires them |
 
 The manifest is a routing aid, not another source of truth.
+
+### 2A. Maintain a Stitchboard for high-churn projects
+
+For projects with repeated experiments, many lanes, or recurring hypotheses, maintain a compact **Stitchboard** inside the project's existing canonical lane/manifest. Do **not** create a competing master file if the project already has a ledger.
+
+```yaml
+STITCHBOARD:
+  KNOWN:          # verified current facts/invariants; one line + source pointer
+  TRIED_WORKED:   # attempted and useful; what it proved
+  TRIED_FAILED:   # attempted and failed; exact failure + revival condition
+  NOT_TRIED:      # plausible paths intentionally not yet tested
+  DEFERRED:       # valid but intentionally postponed; reason
+  HYPOTHESES:     # active, explicitly unconfirmed
+  NEXT:           # one bounded next action
+```
+
+Rules:
+- keep entries pointer-rich and short; raw evidence stays in EVIDENCE;
+- a failed attempt is not deleted — record why it failed so another AI does not repeat it;
+- a rejected path may return only when its **revival condition** changes;
+- user corrections update KNOWN/HYPOTHESES immediately at S2+;
+- resolved items collapse to conclusion + source pointer;
+- S0/S1 questions do not load the whole Stitchboard unless the requested fact lives there.
 
 ### 3. Retrieve by structure, not by volume
 
@@ -171,7 +205,7 @@ Use **Observation Masking** at phase boundaries: collapse resolved material to c
 
 ### 7. Write back the state change, not the conversation
 
-On material change, update the project's canonical continuity surface.
+On material change, update the project's canonical continuity surface. For a high-churn project, update the existing Stitchboard section at the same time; do not postpone corrections until a later handoff.
 
 A durable record should capture:
 
