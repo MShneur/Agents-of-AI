@@ -7,8 +7,10 @@ For fast-moving tool/API changes, also see [`tools/CHANGELOG.md`](tools/CHANGELO
 ## 2026-10-05 — Backstitch context continuity
 
 - Added `agents/backstitch.md` as the pre-execution context-continuity agent for multi-session, multi-agent and durable-project work.
-- Backstitch resolves the project's authority spine, active ownership, pinned invariants, routed task state, relevant recall and supersession before execution begins.
+- Added a cost-aware **Stitch Gate**: S0 BYPASS (zero continuity reads), S1 PIN (one exact lookup), S2 RECALL (authority + relevant prior state), S3 RECONCILE (conflicts/ownership/multi-lane).
+- Backstitch resolves the project's authority spine, active ownership, pinned invariants, routed task state, relevant recall and supersession only at the level justified by that gate.
 - Added the five-class context manifest: **PINNED**, **ROUTED**, **RECALL**, **EVIDENCE**, **ARCHIVE**; broad repository loading is a last resort rather than a default.
+- Added a compact **Stitchboard** for high-churn projects: KNOWN / TRIED_WORKED / TRIED_FAILED / NOT_TRIED / DEFERRED / HYPOTHESES / NEXT, stored inside the existing canonical lane/manifest rather than as a shadow master.
 - Added a compact `BACKSTITCH RECEIPT` so future sessions can resume from a validated map without treating the previous summary as unquestioned truth.
 - Kept **Easy Handoff** as the operator/reporting layer; Backstitch is the context/recall layer underneath it.
 - Added Origin provenance at `origin/backstitch-context-continuity-2026-10-05.md`, comparing current memory/context approaches and transferring only their reusable mechanisms.
