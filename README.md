@@ -4,7 +4,7 @@
 
 > You don't need a new framework. You need the right cast.
 
-**Current public snapshot:** `2026.09.19` · **86 composable entries** across seven layers · actively maintained supporting tools/API shelf.  
+**Current public snapshot:** `2026.10.05` · **87 composable entries** across seven layers · actively maintained supporting tools/API shelf.  
 See [`VERSIONING.md`](VERSIONING.md) for snapshot rules and [`CHANGELOG.md`](CHANGELOG.md) for material changes.
 
 ---
@@ -124,7 +124,7 @@ Agents-of-AI/
 - **Scaffold** — Platform engineering. Declarative IaC, blast-radius thinking, paved roads over gates, environment parity, toil elimination.
 - **Concierge** — Customer support. Emotion before mechanics, triage on arrival, escalation with full context, confirmed resolution.
 
-### Agents (13)
+### Agents (14)
 - **Auditor** — Adversarial quality review. DA/SPAR/BENCH ladder + code review tier + ZMA audit.
 - **Scribe** — Writing with structural control. Decision architecture, truth gates, persona integration.
 - **Scout** — Evidence-grounded research. Source credibility tiers, Ghost Rider investigative mode.
@@ -138,6 +138,7 @@ Agents-of-AI/
 - **Repo Nanny** — Repository ecosystem maintenance. Sweeps issues, PRs, checks, stale work, adjacent breakage, and external patterns before choosing fix-or-file action.
 - **Firehose** — Live incident management. Stabilize → communicate → diagnose → resolve → learn.
 - **Sieve** — Ranks any candidate pool against an explicit weighted rubric. Must-haves as disqualifiers, no black-box scores, ranks but doesn't decide.
+- **Backstitch** — Context continuity. Resolves current authority, ownership, pinned invariants, and the smallest correct working set before long-running work resumes.
 
 ### Workflows (17)
 - **Easy Handoff** — Machine-complete continuity plus a one-screen operator status: AoA/model, real progress, current result, next step.
