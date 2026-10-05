@@ -2,6 +2,16 @@
 
 Fast-moving history for `tools/`. Repository-wide changes live in [`../CHANGELOG.md`](../CHANGELOG.md).
 
+## 2026-10-05
+
+### Loom context runtime
+
+- Added `loom-context-runtime.md` as the provider-neutral runtime shelf under the Backstitch continuity agent.
+- Separated **authority**, **shared recall**, **semantic code structure**, **long-document hierarchy**, **temporal semantics**, and optional **workflow pulse** into replaceable roles instead of recommending one giant memory platform.
+- Added current public recommendations for MCP Memory Service, Cognee, Serena, PageIndex, Graphiti, Mem0, Letta and Honcho by exact role.
+- Default rule: run one general shared-memory brain, not several; Git/project authority remains canonical and memory is recall only.
+- n8n remains an optional automation/pulse layer, not a memory or authority system.
+
 ## 2026-08-24
 
 ### Remote MCP + Cloud Bridge roadmap
