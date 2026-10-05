@@ -4,7 +4,7 @@
 
 > You don't need a new framework. You need the right cast.
 
-**Current public snapshot:** `2026.10.05` · **87 composable entries** across seven layers · actively maintained supporting tools/API shelf.  
+**Current public snapshot:** `2026.10.05` · **88 composable entries** across seven layers · actively maintained supporting tools/API shelf.  
 See [`VERSIONING.md`](VERSIONING.md) for snapshot rules and [`CHANGELOG.md`](CHANGELOG.md) for material changes.
 
 ---
@@ -140,7 +140,7 @@ Agents-of-AI/
 - **Sieve** — Ranks any candidate pool against an explicit weighted rubric. Must-haves as disqualifiers, no black-box scores, ranks but doesn't decide.
 - **Backstitch** — Context continuity. Resolves current authority, ownership, pinned invariants, and the smallest correct working set before long-running work resumes.
 
-### Workflows (17)
+### Workflows (18)
 - **Easy Handoff** — Machine-complete continuity plus a one-screen operator status: AoA/model, real progress, current result, next step.
 - **Deep Dig** — 3-stage research: brainstorm → survey → verify. Evidence-tagged. Stops between stages.
 - **Build Chain** — 6-step AI coding: scope → plan → checkpoint → implement → verify → review+merge.
@@ -158,6 +158,7 @@ Agents-of-AI/
 - **Quorum** — Expert assembly protocol with weighted seats, real documented practitioners, role rotation, dissent, and objection closure.
 - **Large Artifact Handoff** — Provider-neutral pattern for moving large binary artifacts through file/object lanes instead of stuffing them into AI context windows.
 - **New AI Workspace Bootstrap** — Rebuild a capable AI workspace using portable public tools/connectors without repeating old setup mistakes.
+- **Signal Before Verdict** — Separate precursor/candidate signals from terminal confirmation rules before retrieval or scoring narrows the field.
 
 ### Techniques (17)
 - **Steelman** — Before critiquing, construct the strongest version of the argument.
