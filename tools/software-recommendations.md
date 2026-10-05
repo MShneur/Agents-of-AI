@@ -1,6 +1,6 @@
 # Software Recommendations for AI Workflows
 
-**Public review date:** 2026-08-21
+**Public review date:** 2026-10-05
 
 This is a practical recommendation layer, not a shopping list. Pick the smallest tool that solves the job. Exact free/student quotas live in [`free-tool-ledger.md`](free-tool-ledger.md) when they have been independently recorded there; fast-changing limits should be rechecked before becoming a dependency.
 
@@ -13,6 +13,21 @@ No entry here records a specific person's account state, eligibility, infrastruc
 | **Termius** | Mobile SSH/SFTP | Strong Android/iOS/desktop remote-admin workflow; GitHub Student Pack has offered student access | Student entitlement and terms can change; keep private keys out of public repos | https://termius.com/ |
 | **1Password** | Human credential/SSH vault | Good developer UX, SSH agent and CLI ecosystem | Vault contents remain private; student offers should be rechecked | https://1password.com/ |
 | **Doppler** | Application secret distribution | Centralized environment-secret management and rotation | Do not mistake a secrets manager for authorization design | https://www.doppler.com/ |
+
+## AI context, memory, and repository continuity
+
+For long-running projects, prefer a **role-separated stack** rather than several competing memory products. The provider-neutral pattern is documented in [`loom-context-runtime.md`](loom-context-runtime.md).
+
+| Tool | Best fit | Why consider it | Main caveat | Official |
+|---|---|---|---|---|
+| **MCP Memory Service** | Lightweight shared recall across agents | MCP + REST, local embeddings, SQLite-vec option, causal/contradiction relationships | Memory must remain subordinate to canonical project truth; constrain automatic supersession | https://github.com/doobidoo/mcp-memory-service |
+| **Cognee** | Richer project/company graph memory | Documents, code and conversations into a self-hosted graph/search layer; local-model path documented | More semantic/operational machinery than a minimal recall service | https://github.com/topoteretes/cognee |
+| **Serena** | Semantic code navigation for agents | Symbol/reference-aware MCP tools backed by language servers or IDE analysis | Code structure, not durable project-decision memory | https://github.com/oraios/serena |
+| **PageIndex** | Long hierarchical documents | Tree-structured, reasoning-based retrieval avoids dumping entire long documents | Model reasoning may add compute/API cost; overkill for small exact-routed files | https://github.com/VectifyAI/PageIndex |
+| **Graphiti** | Temporal/provenance-heavy context graphs | Models validity windows, episodes and changing facts explicitly | Requires graph infrastructure; heavier than the default continuity stack | https://github.com/getzep/graphiti |
+| **Mem0** | General agent/user memory | Multi-signal retrieval and temporal/entity memory patterns | Do not let personalized memory become a competing authority source | https://github.com/mem0ai/mem0 |
+| **Letta** | Stateful-agent memory architecture | Strong pinned/core vs archival memory pattern | Full agent runtime is broader than a continuity adapter | https://github.com/letta-ai/letta |
+| **Honcho** | Evolving peer/project representations | Tracks people, agents, groups, projects and ideas over time | Background inference is interpretation, not canonical evidence | https://github.com/plastic-labs/honcho |
 
 ## Event-driven automation
 
