@@ -27,7 +27,7 @@ Use two surfaces for substantial AoA work:
 
 Before substantial work, search current AoA and choose the smallest capable method set for the exact task. Do not fall back to generic execution when a relevant Origin, Cleanerz, workflow, team, agent, persona, Quorum, or practitioner-method lens would materially improve the work.
 
-If the task resumes prior durable project state, spans chats/models/agents, or has ledgers/handoffs/claims, run **Backstitch** first. Backstitch determines what context is current; Easy Handoff reports what happened after that context is resolved.
+If the task may depend on prior durable project state, run Backstitch's **Stitch Gate** first. S0 means no Backstitch retrieval at all; S1-S3 load only the context justified by the task. Easy Handoff reports what happened after any required context resolution.
 
 - Use Quorum / Human Gate for consequential forks, not routine reversible actions.
 - A Quorum uses two live-sourced real practitioners per required seat, grounded in published methods. Never simulate participation or endorsement.
