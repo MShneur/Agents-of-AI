@@ -4,6 +4,17 @@ This log tracks material public changes to the Agents of AI repository. It is in
 
 For fast-moving tool/API changes, also see [`tools/CHANGELOG.md`](tools/CHANGELOG.md).
 
+## 2026-10-05 — Backstitch context continuity
+
+- Added `agents/backstitch.md` as the pre-execution context-continuity agent for multi-session, multi-agent and durable-project work.
+- Backstitch resolves the project's authority spine, active ownership, pinned invariants, routed task state, relevant recall and supersession before execution begins.
+- Added the five-class context manifest: **PINNED**, **ROUTED**, **RECALL**, **EVIDENCE**, **ARCHIVE**; broad repository loading is a last resort rather than a default.
+- Added a compact `BACKSTITCH RECEIPT` so future sessions can resume from a validated map without treating the previous summary as unquestioned truth.
+- Kept **Easy Handoff** as the operator/reporting layer; Backstitch is the context/recall layer underneath it.
+- Added Origin provenance at `origin/backstitch-context-continuity-2026-10-05.md`, comparing current memory/context approaches and transferring only their reusable mechanisms.
+- The default runtime direction is deliberately modular: canonical Git/project authority + one shared recall backend + semantic code navigation + on-demand long-document hierarchy; memory never outranks project truth.
+- Library roster is now **87 entries**: 23 personas, 14 agents, 17 workflows, 17 techniques, 4 modes, 6 teams, 6 failures.
+
 ## 2026-09-19 — Easy Handoff / Zero Handoff
 
 - Added `workflows/easy-handoff.md` as the default AoA reporting/continuity layer for substantial work.
