@@ -8,6 +8,7 @@ The goal is simple: when a workflow needs an external service, API, free quota, 
 
 - [`tools/README.md`](tools/README.md) — the public landing page for the actively maintained tools shelf.
 - [`tools/software-recommendations.md`](tools/software-recommendations.md) — curated software recommendations grouped by real job/use case.
+- [`tools/loom-context-runtime.md`](tools/loom-context-runtime.md) — supporting runtime pattern for Backstitch: canonical authority router, one shared recall backend, semantic code context, long-document hierarchy, and optional workflow pulse.
 - [`tools/api-catalog.md`](tools/api-catalog.md) — public API, MCP, webhook, event-stream, and integration surfaces.
 - [`tools/free-tool-ledger.md`](tools/free-tool-ledger.md) — publicly verifiable free/student tools, quotas, and caveats.
 - [`tools/publication-safety.md`](tools/publication-safety.md) — privacy and red-team gate for anything added here.
