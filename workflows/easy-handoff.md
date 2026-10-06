@@ -80,6 +80,20 @@ Rules:
 
 **Done:** another AI can resume without reconstructing the work from prose.
 
+## Step 3A — Report Stall-Guard checkpoints when active
+
+When `workflows/stall-guard.md` applies, Easy Handoff reports the actual checkpoint instead of compressing a partial implementation into "done":
+
+```text
+- ◇ Checkpoint — <badge> — PASS | FAIL | PARTIAL | BLOCKED
+- ✓ Verified — <evidence or none>
+- △ Unverified — <none or exact partial work>
+- ↩ Rollback — <last verified safe point>
+- → Next — <one bounded phase>
+```
+
+A commit does not advance a checkpoint by itself. If the operator says STOP, the final state must identify partial writes as `UNVERIFIED` and must not continue into another phase.
+
 ## Step 4 — Exhaust tools before interrupting the operator
 
 Run Human Gate / Quorum first when project policy or a consequential fork requires it and existing evidence/authority allow resolution.
