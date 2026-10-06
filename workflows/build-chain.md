@@ -40,6 +40,14 @@ Use this section for any domain; the coding stages below apply only when the ass
 7. Batch related changes and commits; never use automatic hosted Actions as a substitute for the handoff or verification contract.
 8. Before returning a blocker that asks the human to perform an operational step, exhaust the safe tools/actions exposed to the current session. If the residual step is genuinely user-only, use the mandatory Easy Handoff `HOLD — USER ACTION REQUIRED` final-message format with 1–3 baby steps. Do not convert agent/tool inconvenience into human work.
 
+## Stall-Guard phase barrier
+
+For multi-phase or interruption-prone work, `workflows/stall-guard.md` is binding alongside this workflow.
+
+Before implementation, define the major stop badges and their acceptance evidence. During execution, a newly discovered defect must be classified before it becomes a write: `IN_SCOPE_NOW | NEXT_BADGE | ROUTE | DEFER | UNKNOWN`. Only `IN_SCOPE_NOW` may interrupt the current badge.
+
+After each bounded mutation, run its narrow verification before starting a different concern. If verification is incomplete, label the mutation `UNVERIFIED`; do not stack unrelated fixes on top of it. On interruption or STOP, preserve the last verified rollback, exact current head, changed files, current badge, and first unfinished check.
+
 ## Steps
 
 ### Step 0: RECONCILE (agent-driven, required on existing projects)
