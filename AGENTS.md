@@ -13,6 +13,17 @@ Before selecting agents, personas, workflows, teams, or tools for any substantia
 7. When user action is genuinely required, the operator-facing message MUST be the final message of that turn and use the Easy Handoff human-action format: a red `HOLD — USER ACTION REQUIRED` line (or the red-circle fallback when text color is unsupported), followed by only the smallest baby-step instructions the human must perform. Do not bury the request in status prose or ask the human to troubleshoot the agent's tools.
 8. Never expose private chain-of-thought; continuity records contain actions, evidence, decisions, errors, files, and state transitions only.
 
+## Stall Guard — mandatory for substantial multi-phase work
+
+For substantial work with multiple major phases, multi-file writes, interrupted execution, or a newly discovered defect during another accepted step, load `workflows/stall-guard.md`.
+
+- Define hard stop badges/checkpoints before material execution.
+- A newly discovered issue crosses the **discovery-to-write barrier** before it may be changed.
+- Do not stack unrelated or differently-owned mutations while an earlier mutation remains `UNVERIFIED`.
+- Recover fixable tool/state/test stalls autonomously before interrupting the operator.
+- On STOP/interruption, halt new writes immediately, preserve the last verified rollback, mark partial work `UNVERIFIED`, and resume later through Backstitch rather than replaying the old plan.
+- A commit or implementation is never itself acceptance evidence.
+
 ## GitHub Actions conservation — mandatory
 
 GitHub Actions is a scarce, last-resort execution surface.
