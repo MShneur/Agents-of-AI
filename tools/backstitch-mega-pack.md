@@ -59,3 +59,18 @@ A portable Skill must work without any external provider. Only prompt for setup 
 - TypeSafe Jev: create/connect a TypeSafe account/API key for typed judgments.
 - Serena: no account; requires a suitable executable/runtime host.
 - PageIndex: optional; local mode needs runtime + LLM provider, cloud mode needs service credentials.
+
+
+## ChatGPT plugin archive layout
+
+When distributing Backstitch through ChatGPT **Plugins**, wrap the validated skill under the plugin-recognized path:
+
+```text
+skills/
+  backstitch-mega-pack/
+    SKILL.md
+    agents/openai.yaml
+    references/
+```
+
+Do not upload the normal standalone Skill archive directly to **Add Plugin** when its root is `backstitch-mega-pack/SKILL.md`; that archive is for the Skills uploader. Keep the plugin package skill-only for mobile/web portability unless a real account-accessible app is available. Do not add a raw `.mcp.json` merely to point at a remote MCP, because that can make the plugin Desktop-only.
