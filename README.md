@@ -4,7 +4,7 @@
 
 > You don't need a new framework. You need the right cast.
 
-**Current public snapshot:** `2026.09.19` · **86 composable entries** across seven layers · actively maintained supporting tools/API shelf.  
+**Current public snapshot:** `2026.10.06` · **87 composable entries** across seven layers · actively maintained supporting tools/API shelf.  
 See [`VERSIONING.md`](VERSIONING.md) for snapshot rules and [`CHANGELOG.md`](CHANGELOG.md) for material changes.
 
 ---
@@ -44,6 +44,8 @@ This library extracts them, makes them portable, and makes them free. Use them w
 2. Copy the file content.
 3. Paste it into your AI's system prompt, custom instructions, or project knowledge.
 4. Done.
+
+For substantial repository-backed work, read `AGENTS.md` first. It now routes through `workflows/repository-intelligence-boot.md` so the AI understands the live repo and existing AoA/tool capabilities before searching outside or rebuilding anything.
 
 ### As a reference in your own system
 ```text
@@ -139,7 +141,7 @@ Agents-of-AI/
 - **Firehose** — Live incident management. Stabilize → communicate → diagnose → resolve → learn.
 - **Sieve** — Ranks any candidate pool against an explicit weighted rubric. Must-haves as disqualifiers, no black-box scores, ranks but doesn't decide.
 
-### Workflows (17)
+### Workflows (18)
 - **Easy Handoff** — Machine-complete continuity plus a one-screen operator status: AoA/model, real progress, current result, next step.
 - **Deep Dig** — 3-stage research: brainstorm → survey → verify. Evidence-tagged. Stops between stages.
 - **Build Chain** — 6-step AI coding: scope → plan → checkpoint → implement → verify → review+merge.
@@ -152,6 +154,7 @@ Agents-of-AI/
 - **Second Room** — Independent multi-chat review for important public work before reconciliation and human release.
 - **Nursery Sweep** — Full repository maintenance pass with adjacent-breakage and external-pattern checks.
 - **Repo PRD** — Converts broad repo findings into agent-ready work packets with evidence, scope, acceptance checks, and routing.
+- **Repository Intelligence Boot** — Repo-first orientation plus capability-gap discovery: map the live project, check AoA first, compare external GitHub mechanisms without installing them, then use/assimilate/recommend/defer/reject.
 - **Human Gate Committee** — Named multi-perspective decision review with forced consensus challenge before consequential gates.
 - **Cleanerz** — Meta-workflow that fires when work is looping: stop, salvage, kill, re-scope, hand back one page and one decision.
 - **Quorum** — Expert assembly protocol with weighted seats, real documented practitioners, role rotation, dissent, and objection closure.
