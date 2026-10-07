@@ -4,6 +4,18 @@ This log tracks material public changes to the Agents of AI repository. It is in
 
 For fast-moving tool/API changes, also see [`tools/CHANGELOG.md`](tools/CHANGELOG.md).
 
+## 2026-10-06 — Repository Intelligence Boot
+
+- Added `workflows/repository-intelligence-boot.md` as the default repo-orientation and capability-gap workflow for substantial repository-backed work.
+- Made repository intelligence a mandatory `AGENTS.md` boot after project authority is loaded: map the live repo first, inventory existing AoA/project/tool capabilities, and search outside only for a named gap.
+- Added a progressive repository-context ladder: docs/tree -> AST/symbol map -> symbolic/semantic retrieval -> context graph when warranted -> bounded packed fallback -> generated wiki/codemap as non-authoritative orientation.
+- Added a **Repository Candidate Board** for comparing materially different GitHub implementations without pretending repositories are Quorum participants.
+- External discovery now terminates in one explicit disposition: `USE | ASSIMILATE | RECOMMEND | DEFER | REJECT`.
+- Strengthened third-party instruction handling by requiring Skill Provenance before loading/running external skills, prompts, hooks, manifests, or setup scripts.
+- Added behavior-oriented acceptance for assimilated capabilities: baseline/with-capability tests, trigger/regression cases, independent checks, and reversal conditions where practical.
+- Added `origin/research/repository-intelligence-landscape-2026-10-06.md` with clean-room mechanism extraction across repository packing, repo maps, LSP/SCIP code intelligence, semantic retrieval, context graphs, generated wikis, MCP access, repo-local instructions, tool bundles, and skill-forge/evaluation systems.
+- Public roster is now **87 entries**: 23 personas, 13 agents, 18 workflows, 17 techniques, 4 modes, 6 teams, 6 failures.
+
 ## 2026-09-19 — Easy Handoff / Zero Handoff
 
 - Added `workflows/easy-handoff.md` as the default AoA reporting/continuity layer for substantial work.
