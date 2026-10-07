@@ -14,7 +14,8 @@ For fast-moving tool/API changes, also see [`tools/CHANGELOG.md`](tools/CHANGELO
 - Strengthened third-party instruction handling by requiring Skill Provenance before loading/running external skills, prompts, hooks, manifests, or setup scripts.
 - Added behavior-oriented acceptance for assimilated capabilities: baseline/with-capability tests, trigger/regression cases, independent checks, and reversal conditions where practical.
 - Added `origin/research/repository-intelligence-landscape-2026-10-06.md` with clean-room mechanism extraction across repository packing, repo maps, LSP/SCIP code intelligence, semantic retrieval, context graphs, generated wikis, MCP access, repo-local instructions, tool bundles, and skill-forge/evaluation systems.
-- Public roster is now **87 entries**: 23 personas, 13 agents, 18 workflows, 17 techniques, 4 modes, 6 teams, 6 failures.
+- Repaired pre-existing roster drift: `signal-before-verdict.md` and `stall-guard.md` were already live but absent from the public count/list.
+- Public roster is now **89 entries**: 23 personas, 13 agents, 20 workflows, 17 techniques, 4 modes, 6 teams, 6 failures.
 
 ## 2026-09-19 — Easy Handoff / Zero Handoff
 
