@@ -12,12 +12,12 @@ Live composable roster at this snapshot:
 |---|---:|
 | Personas | 23 |
 | Agents | 13 |
-| Workflows | 18 |
+| Workflows | 20 |
 | Techniques | 17 |
 | Modes | 4 |
 | Teams | 6 |
 | Failures | 6 |
-| **Total** | **87** |
+| **Total** | **89** |
 
 Supporting tools, software recommendations, APIs, and walkthroughs are **not an eighth composable layer** and are versioned separately.
 
