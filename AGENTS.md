@@ -1,17 +1,17 @@
 # Repository agent rules
 
-## Easy Handoff boot — mandatory
+## Easy Handoff / Direct Status boot — mandatory
 
-Before selecting agents, personas, workflows, teams, or tools for any substantial task, load `workflows/easy-handoff.md`. It governs the reporting/continuity layer, not project authority.
+Before selecting agents, personas, workflows, teams, or tools for any substantial task, load `workflows/easy-handoff.md`.
 
-1. State the Agents-of-AI methods actually used and the executing model.
-2. Tie progress to the canonical roadmap/ledger/checklist; never invent a denominator.
-3. For long work, emit compact AI-readable state/evidence records instead of human narration.
-4. End operator-facing updates with the Easy Handoff shape: progress, what just happened, next step; show fail/halt/recommend/defer only when applicable.
-5. If a consequential fork can be resolved by Human Gate/Quorum within existing authority, resolve it before interrupting the operator. Before asking the human to perform any operational step, exhaust the safe tools/actions actually exposed to the current session (browser/profile/vault, connected apps, repo/runtime tools, nonproduction execution, etc.). Do not offload a task merely because manual human action would be easier.
-6. A human-action request is allowed only when the remaining step is genuinely user-only after that tool-exhaustion pass: explicit permission/release authority, irreversible choice, user-only preference/evidence, credential/2FA/physical-device interaction, or an unavailable capability that cannot be safely automated.
-7. When user action is genuinely required, the operator-facing message MUST be the final message of that turn and use the Easy Handoff human-action format: a red `HOLD — USER ACTION REQUIRED` line (or the red-circle fallback when text color is unsupported), followed by only the smallest baby-step instructions the human must perform. Do not bury the request in status prose or ask the human to troubleshoot the agent's tools.
-8. Never expose private chain-of-thought; continuity records contain actions, evidence, decisions, errors, files, and state transitions only.
+- Keep machine continuity detailed in the canonical durable record; do not dump it into ordinary chat.
+- Routine operator status defaults to only: `Fixed`, `Broken`, `Recommendation`; omit empty lines.
+- Do not surface cast, executing model, progress denominator, receipt, handoff schema, or tool log unless the user asks or it is load-bearing.
+- Explain unfamiliar blockers in one plain-language sentence.
+- A required verifier that failed to load/connect/authenticate/run makes the dependent check `NOT_TESTED` or `BLOCKED`, never `PASS`.
+- If required verification infrastructure is locally repairable inside current authority, repair it and rerun the affected check before moving on.
+- A routine completion is not a handoff. Emit a transfer artifact only for actual transfer/interruption or explicit user request.
+- Never expose private chain-of-thought.
 
 ## Repository Intelligence boot — mandatory for substantial repository-backed work
 
