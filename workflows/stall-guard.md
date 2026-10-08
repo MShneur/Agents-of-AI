@@ -6,7 +6,7 @@ steps: 6
 agents_used: [tracker, auditor, conductor]
 personas_used: [mirror, burden, provenance]
 confidence: PRACTICED
-version: "1.0"
+version: "1.1"
 tags: [stall, recovery, checkpoints, interruption, verification, anti-drift, continuity]
 compatible_with: [any-ai]
 ---
@@ -22,6 +22,7 @@ Activate for any substantial task that has two or more major phases, any task th
 - a tool/runtime path fails but materially different safe paths remain;
 - the current branch/runtime/ledger changes underneath the task;
 - implementation exists but its verification has not finished;
+- a required verifier/test surface fails to load, connect, authenticate, start, or produce the observation needed for acceptance;
 - the operator says STOP, the session is interrupted, or context is at risk of expiring;
 - the agent starts repeating probes, narrating progress without state change, or accumulating fixes before verification.
 
@@ -87,10 +88,14 @@ When progress stops, classify the stall:
 - `STATE_DRIFT` — repo/runtime/ledger changed;
 - `PARTIAL_WRITE` — edits/commits exist without finished acceptance;
 - `TEST_CONTRACT` — test and accepted implementation disagree;
+- `VERIFIER_PATH` — required browser/test harness/validator/connector/runtime failed before it could prove the acceptance claim;
 - `DEPENDENCY` — required external condition is absent;
 - `HUMAN_ONLY` — permission, preference, credential/2FA, physical-device action, or irreversible release choice is genuinely required.
 
-For every class except `HUMAN_ONLY`, the agent first performs a bounded recovery pass:
+For every class except `HUMAN_ONLY`, the agent first performs a bounded recovery pass.
+
+For `VERIFIER_PATH`, the dependent acceptance result is `NOT_TESTED` or `BLOCKED` until the verifier works. A blank page, load failure, skipped assertion, unavailable browser, broken fixture, or failed connector is **not** evidence that the product path passed. If the verifier defect is localized, reversible, and inside the current scope/authority, repair it before continuing and rerun the affected verification. A different passing test may substitute only when the acceptance contract explicitly permits that evidence class.
+
 
 ```text
 RE-READ authority
@@ -144,6 +149,7 @@ Then stop if the project/user requested a checkpoint stop. Otherwise re-ground a
 - advancing because "the code is there";
 - continuing after the operator says STOP;
 - asking the operator to repair a fixable tool-path failure;
+- advancing past a required verifier that failed to load/run and calling the dependent path PASS;
 - retrying the same failed method without new evidence;
 - losing the pre-change rollback point;
 - updating a second handoff instead of the canonical record.

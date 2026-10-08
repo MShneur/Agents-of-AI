@@ -1,204 +1,185 @@
 ---
 id: easy-handoff
 type: workflow
-purpose: Keep long AI work machine-complete while making operator-facing handoffs glanceable, evidence-backed, and impossible to confuse with progress theater.
+purpose: Keep durable AI continuity complete while making the operator-facing result minimal, actionable, and impossible to confuse with verification theater.
 steps: 5
 agents_used: [scribe, conductor]
 personas_used: [distiller, mirror]
-confidence: EXPERIMENTAL
-version: "1.1"
-tags: [handoff, continuity, progress, compression, operator, long-session, ai-readable]
+confidence: PRACTICED
+version: "2.0"
+tags: [handoff, continuity, status, compression, operator, verification, repair-first]
 compatible_with: [any-ai]
 ---
 
 # Easy Handoff
 
-**Aliases:** Zero Handoff · Zero Protocol Handoff
+**Aliases:** Zero Handoff · Direct Status
 
 ## Purpose
 
-Use two surfaces for substantial AoA work:
+Separate machine continuity from human status.
 
-- **AI record:** compact actions, evidence, decisions, errors, files, state, and next action.
-- **Human handoff:** progress, current result, next step.
-- **Authority:** unchanged. This workflow never replaces the project ledger, Human Gate, Quorum, or acceptance tests.
+- **Durable AI record:** actions, evidence, decisions, errors, source refs, state changes, and next action.
+- **Operator surface:** only what changed, what remains broken, and what should happen next.
+- **Authority:** unchanged. This workflow never replaces project authority, acceptance tests, Human Gate, Quorum, or Backstitch.
 
-## Step 1 — Select and declare the cast
+A routine task completion is **not** a handoff. Do not dump a transfer artifact into chat unless the user asks for it or an actual transfer/interruption requires one.
 
-Before substantial work, search current AoA and choose the smallest capable method set for the exact task. Do not fall back to generic execution when a relevant Origin, Cleanerz, workflow, team, agent, persona, Quorum, or practitioner-method lens would materially improve the work.
+## Step 1 — Select the smallest capable route
 
-- Use Quorum / Human Gate for consequential forks, not routine reversible actions.
-- A Quorum uses two live-sourced real practitioners per required seat, grounded in published methods. Never simulate participation or endorsement.
-- Report only methods actually used.
+Before substantial work, select the minimum relevant Agents-of-AI methods and tools.
 
-First material update:
+Record methods, model, route, and ownership in the durable record when useful.
 
-```text
-AOA=<methods actually used>
-MODEL=<executing model>
-```
+**Do not surface the cast, model, workflow names, progress denominator, or tool log by default.** Show them only when the user asks, they explain a consequential decision, or they are necessary to understand a blocker.
 
-**Done:** the task has an explicit AoA route and the executing model is known.
+**Done:** the work has a valid route without making the operator read the routing ceremony.
 
-## Step 2 — Lock progress to real state
+## Step 2 — Keep progress evidence-backed and mostly internal
 
-Progress comes only from the canonical roadmap, ledger, checklist, or explicit scoped plan.
+Progress comes only from a canonical roadmap, ledger, checklist, or explicit scoped plan.
 
-- Use `A/B`; if no real denominator exists, use `0/?`.
-- Increment `A` only after acceptance evidence passes.
 - Failed attempts do not advance progress.
-- Keep `B` stable. Scope change: `6/10 -> 6/12 (+2 scope)`.
-- Nested work: `Step 7/10 · Milestone 1/4`.
-- Do not erase verified progress unless regression evidence invalidates it.
+- A commit or file change is not acceptance evidence.
+- Do not invent percentages or denominators.
+- Do not narrate routine progress in chat.
+- Surface progress only when it helps the user steer long-running work, when scope materially changes, or when the user asks.
 
-**Done:** progress is evidence-backed and traceable to real scoped state.
+**Done:** progress is real, but progress theater is absent.
 
-## Step 3 — Keep the AI record actionable
+## Step 3 — Maintain compact durable continuity
 
-For long work, emit a trace only on material state change:
+For long or multi-agent work, update the existing canonical record with only material state changes:
 
 ```text
-[AoA TRACE]
 TASK=<stable id>
-ROADMAP=<A/B>
-MILESTONE=<x/y|NONE>
 ACTION=<bounded action>
-RESULT=PASS|FAIL|PARTIAL|NOT_RUN
+RESULT=PASS|FAIL|PARTIAL|BLOCKED|NOT_TESTED
 EVIDENCE=<artifact/path/test/source>
 STATE_CHANGE=<what is now true>
-ERROR=<NONE|exact failure>
-DECISION=<accepted decision|NONE>
+BROKEN=<none|exact unresolved defect>
+DECISION=<accepted decision|none>
 NEXT=<next bounded action>
 ```
 
 Rules:
 
-- Preserve `UNKNOWN`, `NOT_RUN`, dissent, authority, and provenance.
-- Omit filler, repeated context, and tool-by-tool narration.
-- Never expose private chain-of-thought; this is an execution/state record.
-- If a canonical durable record exists, update/reference it instead of creating a competing master state.
+- Preserve `UNKNOWN`, `BLOCKED`, `NOT_TESTED`, dissent, authority, and provenance.
+- Keep tool-by-tool narration out of the operator surface.
+- Use Backstitch or the project's canonical continuity store when available.
+- Never expose private chain-of-thought.
+- Never create a competing master handoff merely because a chat is ending.
 
-**Done:** another AI can resume without reconstructing the work from prose.
+**Done:** another AI can resume without forcing the operator to read machine continuity.
 
-## Step 3A — Report Stall-Guard checkpoints when active
+## Step 4 — Verifier Integrity / Repair-First Gate
 
-When `workflows/stall-guard.md` applies, Easy Handoff reports the actual checkpoint instead of compressing a partial implementation into "done":
+A required verification path must work before its dependent claim can pass.
 
-```text
-- ◇ Checkpoint — <badge> — PASS | FAIL | PARTIAL | BLOCKED
-- ✓ Verified — <evidence or none>
-- △ Unverified — <none or exact partial work>
-- ↩ Rollback — <last verified safe point>
-- → Next — <one bounded phase>
-```
+### Failure rule
 
-A commit does not advance a checkpoint by itself. If the operator says STOP, the final state must identify partial writes as `UNVERIFIED` and must not continue into another phase.
+If a required browser, test harness, validator, connector, build tool, fixture, page, or runtime:
 
-## Step 4 — Exhaust tools before interrupting the operator
+- fails to start;
+- fails to load;
+- cannot authenticate/connect;
+- returns no usable observation;
+- skips the relevant assertion;
+- crashes or times out before the required behavior is observed;
 
-Run Human Gate / Quorum first when project policy or a consequential fork requires it and existing evidence/authority allow resolution.
+then the dependent result is **`NOT_TESTED` or `BLOCKED`**, never `PASS`.
 
-Before asking the human to click, log in, capture a screenshot, copy data, run a command, upload a file, inspect a page, or perform any other operational step, run a **tool-exhaustion pass**:
+A sibling test passing does not substitute for the missing evidence unless the acceptance contract explicitly says it does.
 
-1. Inventory the safe capabilities actually exposed to the current session.
-2. Try the strongest relevant autonomous path first: existing authenticated browser/profile/vault, connected app, repo/runtime tool, nonproduction execution surface, or another already-authorized reversible capability.
-3. If one tool fails, check the materially different available paths before concluding the human is required.
-4. Never invent credentials, bypass access controls, create unauthorized sessions, weaken safety/release gates, or mutate production merely to avoid a human gate.
-5. Record the exact blocker and why the surviving action is genuinely user-only.
+### Repair-first rule
 
-Ask the human only when at least one is true **after** that pass:
+When the failed verifier is:
 
-- explicit permission or release authority is required;
-- the choice is materially irreversible;
-- only the human can supply the preference or evidence;
-- credentials, 2FA, a physical device, or another user-presence interaction is required and no authorized session/tool can provide it;
-- the needed capability is not exposed/connected and no safe equivalent exists;
-- Quorum remains `DISPUTED` and no safe reversible step survives.
+- required for the current acceptance claim;
+- local to the current task;
+- reversible and safe to repair inside existing authority;
 
-Otherwise take the safest authorized reversible step and report the effect, not the deliberation.
+repair it **before moving on**, then rerun the affected verification.
 
-### Human-action presentation contract
+Do not create a separate stage or handoff merely because supporting test infrastructure needed a localized repair.
 
-When user action is genuinely required:
+If the verifier cannot be repaired inside authority/scope:
 
-- **Stop all further requests in that turn.** The human-action request is the final operator-facing message.
-- First line: render **`HOLD — USER ACTION REQUIRED` in red** when the client supports text color. Portable fallback: `🔴 **HOLD — USER ACTION REQUIRED**`.
-- After that line, use normal text only.
-- Give **1–3 baby steps**, one action per step.
-- State exactly what the human should send back, when applicable (for example: `Reply “done”` or `send the screenshot`).
-- Do not include Quorum deliberation, failed-tool narration, alternative workflows, or another recommendation after the steps.
-- Do not ask the human to diagnose tool failures; translate the blocker into the smallest action only they can perform.
+1. stop the dependent completion claim;
+2. state what remains untested in plain language;
+3. give the best next repair/recovery recommendation.
+
+### Plain-language explanation
+
+If the blocker uses unfamiliar technical language, explain it in one short sentence without waiting for the user to ask.
 
 Example:
 
-```text
-🔴 HOLD — USER ACTION REQUIRED
+> **Broken — The browser test never loaded the page, so the feature was not actually tested.**
 
-1. Open Penny and sign in normally.
-2. Open Me/Profile and take one screenshot showing the avatar/rank ring.
-3. Send that screenshot here.
-```
+Not:
 
-**Done:** the operator is interrupted only after automation is genuinely exhausted, and the remaining human task is unmistakable and easy to execute.
+> Browser probe failed, but other checks passed.
 
-## Step 5 — Render the Easy Handoff
+**Done:** a broken evidence path can never masquerade as product success.
 
-Default:
+## Step 5 — Direct Status
+
+Default operator-facing result:
 
 ```text
-- ✓ Agents of AI — <methods actually used> — <model>
-- Progress — <A/B> [· Milestone <x/y>]
-- ✓ Done — <current result>
-- → Next — <next bounded step>
+Fixed — <what materially changed and was verified>.
+Broken — <only real unresolved defect/blocker>.
+Recommendation — <best next action to resolve it>.
 ```
-
-Only when applicable:
-
-```text
-- ✗ Fail — <failure + location>
-- ! HALT — <non-human blocker; why work must stop>
-- △ Recommend — <minor pathway change + reason>
-- + Defer — <later item + stable id/delta when one exists>
-```
-
-For a genuine human-only blocker, **do not use the ordinary HALT bullet**. Use the Step-4 Human-action presentation contract as the final message instead.
 
 Rules:
 
-- Bullets, not paragraphs.
-- One fact/action per bullet.
-- Lead with outcome, not method.
-- Do not dump audits, Quorum deliberation, tool logs, or implementation detail unless asked.
-- If nothing changed, do not manufacture an update.
-- Keep the human handoff to one phone screen when practical.
+- **Omit any empty line.**
+- If only a verified fix remains, one `Fixed` sentence is enough.
+- If nothing was fixed, do not manufacture a `Fixed` line.
+- `Broken` means unresolved and evidence-backed, not a historical failure already repaired.
+- `Recommendation` should normally propose the repair, not merely say "proceed anyway."
+- Explain important unfamiliar terms inline in plain language.
+- Do not include routine methods, model names, progress, receipts, handoff schemas, or tool logs unless requested.
+- A user who asks for `EXPAND`, evidence, audit, handoff, or technical detail can receive the larger record.
 
-**Done:** the operator can answer: Where are we? What happened? What happens next?
+### Genuine user-only action
+
+Ask the human only after safe tool exhaustion proves the remaining step is genuinely user-only.
+
+Use the smallest possible request. Do not surround it with a status dump.
 
 ## Done Condition
 
 Pass only when:
 
-- AoA methods and model are accurate;
-- progress is real or honestly `?`;
-- result status is unambiguous;
-- next step is bounded;
-- required human action is explicit;
-- machine continuity is preserved without private reasoning;
-- recommendations have not been laundered into decisions.
+- durable continuity contains the material state;
+- the operator surface is minimal;
+- no failed or missing verifier has been counted as a pass;
+- required in-scope verification infrastructure was repaired before proceeding where feasible;
+- unresolved verification gaps are named `NOT_TESTED` or `BLOCKED`;
+- the recommendation points at the repair/recovery path;
+- no recommendation has been laundered into a decision.
 
 ## Failure Signals
 
-- invented or silently changing progress;
-- a failed attempt counted as completion;
-- long operator-facing paragraphs;
-- hidden `FAIL`, `UNKNOWN`, authority, or regression state;
-- Human Gate deliberation dumped on the operator;
-- recommendation compressed into a decision;
-- trace records emitted without material state change;
-- the human must reread the chat to find the next step.
+- cast/model/progress/tool logs shown without need;
+- routine completion followed by a large handoff dump;
+- "browser failed" followed by continued completion claims;
+- blank page, load failure, skipped assertion, or unavailable test surface counted as pass;
+- a sibling test used to cover a missing required path;
+- a repairable verifier defect deferred while downstream work continues;
+- a blocker named with no recommended repair;
+- jargon reported without a plain-language explanation when it affects the user's decision.
 
 ## Design Provenance
 
-The v1 design passed a live-sourced five-seat Quorum method review with two practitioners per seat. See [the Origin provenance record](../origin/easy-handoff-quorum-2026-09-19.md) for sources, cross-examination, Spike, and dispositions.
+v2 strengthens the existing Easy Handoff instead of creating a duplicate reporting workflow.
 
-Those practitioners did not participate in or endorse Agents of AI. Future Quorums re-source live; this record is provenance, not a frozen roster.
+Mechanism-level influences:
+- **obra/superpowers — verification-before-completion:** fresh evidence before completion claims.
+- **artyomboyko/Agent_Handoff:** localized supporting-tool defects are repaired inside the current work item; supporting failure is not automatically a new handoff/stage.
+- **openai/codex continuation goal:** completion evidence must match the scope of the claim; incomplete or indirect evidence keeps the objective active.
+
+These projects did not participate in or endorse Agents of AI. Their public mechanisms were reformulated independently.

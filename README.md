@@ -142,7 +142,7 @@ Agents-of-AI/
 - **Sieve** — Ranks any candidate pool against an explicit weighted rubric. Must-haves as disqualifiers, no black-box scores, ranks but doesn't decide.
 
 ### Workflows (20)
-- **Easy Handoff** — Machine-complete continuity plus a one-screen operator status: AoA/model, real progress, current result, next step.
+- **Easy Handoff / Direct Status** — Durable machine continuity stays internal; operator output defaults to only Fixed, Broken, and Recommendation, with verifier failures treated as NOT TESTED/BLOCKED.
 - **Deep Dig** — 3-stage research: brainstorm → survey → verify. Evidence-tagged. Stops between stages.
 - **Build Chain** — 6-step AI coding: scope → plan → checkpoint → implement → verify → review+merge.
 - **Red Green** — TDD: failing test → minimal code → refactor.
