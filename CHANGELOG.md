@@ -1,5 +1,17 @@
 # Agents of AI — Changelog
 
+## 2026-10-07 — Direct Status / Verifier Integrity
+
+- Strengthened `workflows/easy-handoff.md` to v2.0 instead of creating another reporting workflow.
+- Routine chat no longer exposes cast, model, progress, receipts, handoff schemas, or tool logs by default.
+- Operator status now defaults to `Fixed`, `Broken`, and `Recommendation`, with empty lines omitted and unfamiliar blockers explained in plain language.
+- A routine task completion is no longer treated as a handoff; durable transfer artifacts are reserved for actual transfer/interruption or explicit request.
+- Added a repair-first verifier gate: required browser/test/validator/connector/runtime failures make dependent checks `NOT_TESTED` or `BLOCKED`, never `PASS`.
+- Localized, reversible verifier defects inside current scope are repaired and rerun before downstream work continues.
+- Strengthened Stall Guard with a `VERIFIER_PATH` stall class so failed evidence infrastructure cannot be hidden behind sibling passing tests.
+- Mechanism-level comparison incorporated public patterns from obra/superpowers, artyomboyko/Agent_Handoff, and openai/codex without copying their implementation text.
+
+
 This log tracks material public changes to the Agents of AI repository. It is intentionally higher-level than Git history: the goal is to let someone rebuilding or revisiting the project understand what changed without reading every commit.
 
 For fast-moving tool/API changes, also see [`tools/CHANGELOG.md`](tools/CHANGELOG.md).
