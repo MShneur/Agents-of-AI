@@ -6,7 +6,7 @@ steps: 7
 agents_used: [chisel]
 personas_used: [wireframe]
 confidence: BATTLE-TESTED
-version: "1.0"
+version: "1.1"
 tags: [YAGNI, minimalism, code-reduction, decision-ladder, efficiency, over-engineering]
 compatible_with: [any-ai]
 ---
@@ -93,3 +93,23 @@ Non-trivial logic (a branch, a loop, a parser, a money/security path) leaves ONE
 
 ## Integration with Build Chain
 Razor runs inside build-chain Step 4 (IMPLEMENT). Before writing any code in each increment, climb the ladder. The checkpoint from Step 3 is your safety net for aggressive simplification.
+
+## Diff Reduction and Debt Gate (v1.1)
+
+After a working implementation, perform one **subtractive diff review** before declaring completion. This is the second use of the same Razor ladder, not a new agent:
+
+1. Inspect the actual diff for a newly added wrapper, dependency, adapter, option, or file already covered by existing code, standard library, or native platform features. Delete unnecessary additions.
+2. Re-run the task's load-bearing checks **after** simplifying; preserve access control, trust-boundary validation, data-loss prevention, accessibility, and any explicitly requested behavior. A smaller diff that loses a safety invariant fails.
+3. For deliberate limited solutions, record an upgrade trigger: `path | present ceiling | observable threshold | owner or existing task pointer`. Prefer the existing project's task/technical-debt ledger; do not create a competing debt store. The in-code `# razor:` comment remains a pointer, not automatic approval to defer a requirement.
+4. If claiming token, latency, code-size, or cost gains, compare equivalent tasks and acceptance results against a baseline. Without reproducible A/B evidence, label improvement **UNKNOWN**, not a measured reduction.
+5. If a reviewer identifies complexity but cannot name a simpler behavior-equivalent alternative, do not delete code merely to improve a line count.
+
+### Regression examples
+
+- A native date input already covers the requested journey: no new picker dependency.
+- A one-line simplification removes authorization or input validation: REJECT reduction.
+- A shortcut is safe at current volume but would fail above a known scale: KEEP with observable upgrade trigger; do not silently forget it.
+
+### Mechanism provenance
+
+Compared against [DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail) (review/audit/debt discipline) on 2026-10-09. Ponytail's public benchmark results are upstream-reported, not independently verified for Agents of AI. No plugin, source implementation, or hook was copied or installed; this strengthens the already-live Razor workflow.
