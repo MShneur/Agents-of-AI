@@ -1,0 +1,190 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AoA cross-provider continuity v1.0",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "task_id",
+    "objective",
+    "source_ref",
+    "requested_target",
+    "actor",
+    "status",
+    "checks",
+    "evidence",
+    "next"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "task_id": {
+      "$ref": "#/$defs/word"
+    },
+    "objective": {
+      "$ref": "#/$defs/word"
+    },
+    "source_ref": {
+      "$ref": "#/$defs/word"
+    },
+    "requested_target": {
+      "$ref": "#/$defs/target"
+    },
+    "actor": {
+      "type": "object",
+      "required": [
+        "provider",
+        "model",
+        "access_scope"
+      ],
+      "properties": {
+        "provider": {
+          "$ref": "#/$defs/word"
+        },
+        "model": {
+          "$ref": "#/$defs/word"
+        },
+        "access_scope": {
+          "$ref": "#/$defs/word"
+        }
+      }
+    },
+    "status": {
+      "enum": [
+        "PASSED",
+        "FAILED",
+        "NOT_TESTED",
+        "BLOCKED",
+        "IN_PROGRESS",
+        "UNKNOWN"
+      ]
+    },
+    "checks": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "required",
+          "status",
+          "evidence_ids"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "#/$defs/word"
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "status": {
+            "enum": [
+              "PASS",
+              "FAIL",
+              "NOT_TESTED",
+              "BLOCKED"
+            ]
+          },
+          "evidence_ids": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/word"
+            }
+          }
+        }
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "result",
+          "source",
+          "target"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "#/$defs/word"
+          },
+          "result": {
+            "enum": [
+              "PASS",
+              "FAIL",
+              "NOT_TESTED",
+              "BLOCKED"
+            ]
+          },
+          "source": {
+            "$ref": "#/$defs/word"
+          },
+          "target": {
+            "$ref": "#/$defs/target"
+          }
+        }
+      }
+    },
+    "decisions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "modality",
+          "text",
+          "source"
+        ],
+        "properties": {
+          "modality": {
+            "enum": [
+              "OBSERVED",
+              "PROPOSED",
+              "APPROVED",
+              "REJECTED",
+              "HYPOTHESIS"
+            ]
+          },
+          "text": {
+            "$ref": "#/$defs/word"
+          },
+          "source": {
+            "$ref": "#/$defs/word"
+          },
+          "approved_by": {
+            "$ref": "#/$defs/word"
+          }
+        }
+      }
+    },
+    "next": {
+      "type": "object",
+      "properties": {
+        "action": {
+          "$ref": "#/$defs/word"
+        }
+      }
+    }
+  },
+  "$defs": {
+    "word": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S"
+    },
+    "target": {
+      "type": "object",
+      "required": [
+        "kind",
+        "id"
+      ],
+      "properties": {
+        "kind": {
+          "$ref": "#/$defs/word"
+        },
+        "id": {
+          "$ref": "#/$defs/word"
+        }
+      }
+    }
+  }
+}
