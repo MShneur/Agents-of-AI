@@ -14,6 +14,10 @@ def is_nonempty(value):
     return isinstance(value, str) and bool(value.strip())
 
 
+def enum_member(value, allowed):
+    return isinstance(value, str) and value in allowed
+
+
 def same_target(a, b):
     return isinstance(a, dict) and isinstance(b, dict) and (
         is_nonempty(a.get("kind")) and is_nonempty(a.get("id"))
@@ -34,7 +38,7 @@ def validate(record):
     target = record.get("requested_target")
     if not same_target(target, target):
         problems.append("requested_target: expected nonempty kind and id")
-    if record.get("status") not in STATES:
+    if not enum_member(record.get("status"), STATES):
         problems.append("status: invalid")
     actor = record.get("actor")
     if not isinstance(actor, dict) or not all(is_nonempty(actor.get(k)) for k in ("provider", "model", "access_scope")):
@@ -57,7 +61,7 @@ def validate(record):
             problems.append(f"evidence[{i}]: missing or repeated id")
         else:
             evidence_by_id[eid] = proof
-        if proof.get("result") not in CHECK_STATES:
+        if not enum_member(proof.get("result"), CHECK_STATES):
             problems.append(f"evidence[{i}]: invalid result")
         if not is_nonempty(proof.get("source")):
             problems.append(f"evidence[{i}]: missing source pointer")
@@ -71,10 +75,11 @@ def validate(record):
         cid = check.get("id")
         if not is_nonempty(cid) or cid in ids:
             problems.append(f"checks[{i}]: missing or repeated id")
-        ids.add(cid)
+        if is_nonempty(cid):
+            ids.add(cid)
         if type(check.get("required")) is not bool:
             problems.append(f"checks[{i}]: required must be boolean")
-        if check.get("status") not in CHECK_STATES:
+        if not enum_member(check.get("status"), CHECK_STATES):
             problems.append(f"checks[{i}]: invalid status")
         refs = check.get("evidence_ids")
         if not isinstance(refs, list):
@@ -94,7 +99,7 @@ def validate(record):
         problems.append("decisions: expected array")
         decisions = []
     for i, decision in enumerate(decisions):
-        if not isinstance(decision, dict) or decision.get("modality") not in MODALITIES or not is_nonempty(decision.get("text")) or not is_nonempty(decision.get("source")):
+        if not isinstance(decision, dict) or not enum_member(decision.get("modality"), MODALITIES) or not is_nonempty(decision.get("text")) or not is_nonempty(decision.get("source")):
             problems.append(f"decisions[{i}]: modality, text, and source required")
         elif decision["modality"] == "APPROVED" and not is_nonempty(decision.get("approved_by")):
             problems.append(f"decisions[{i}]: APPROVED requires approved_by")
