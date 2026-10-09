@@ -68,3 +68,14 @@ If load-bearing authority conflicts remain unresolved, hold Designer execution a
 ## Cross-project worker continuity — mandatory
 
 For every project or lane, establish one authoritative handoff/control record and a project-specific approved file manifest before dispatch. Every worker gets one bounded assignment, named method/persona, owner, allowed files, forbidden surfaces, baseline revision, midpoint/completion gates, and one return path to that same handoff. Parallel workers must have disjoint file ownership; the coordinator integrates and updates the shared handoff. Do not create competing handoffs, shadow ledgers, duplicate style systems, or unregistered paths. Use `workflows/build-chain.md#bounded-worker-continuity-contract` for the generic packet and midpoint rules; project-specific constraints remain in the project handoff.
+
+
+## Cross-provider transfer fidelity — required on actual agent-to-agent transfer
+
+For an actual cross-model, cross-provider, or cross-agent transfer (not routine completion), use the existing project/lane canonical handoff store and the portable record contract in tools/continuity-kernel/README.md.
+
+- Declare requested_target, reporting actor/provider/model/access_scope, canonical source_ref, required checks, evidence source pointers and evidence targets, decision modalities, and next action.
+- If the Python validator is available, run it before accepting a PASSED transfer; otherwise manually apply its same invariant checks and label executable validation NOT_RUN.
+- A worker's successful test against localhost does not establish a PASS for an external requested target. Tool availability or success in another chat/model must not be inferred.
+- Do not turn PROPOSED into APPROVED from a summary alone, claim a record is externally verified just because schema validation passed, or store a second master state.
+- Keep the payload in the durable machine record; Easy Handoff remains the operator-facing output. Do not load this contract on small self-contained tasks.
