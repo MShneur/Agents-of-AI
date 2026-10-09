@@ -47,6 +47,22 @@ class ContractTests(unittest.TestCase):
         record["checks"][0]["required"] = False
         self.assertTrue(any("required check" in e for e in validate(record)))
 
+    def test_unhashable_json_fields_are_invalid_not_crashes(self):
+        # Other models can send malformed JSON values; validation must never crash.
+        for path in ("status", "checks.0.status", "checks.0.id", "evidence.0.result", "decisions.0.modality"):
+            with self.subTest(path=path):
+                record = baseline()
+                cursor = record
+                parts = path.split(".")
+                for part in parts[:-1]:
+                    cursor = cursor[int(part)] if part.isdigit() else cursor[part]
+                cursor[parts[-1]] = []
+                self.assertTrue(validate(record))
+
+    def test_malformed_root_returns_invalid(self):
+        self.assertTrue(validate(["wrong", "shape"]))
+        self.assertTrue(validate(None))
+
     def test_no_evidence_pointer_is_invalid(self):
         record = baseline()
         record["evidence"][0]["source"] = ""
