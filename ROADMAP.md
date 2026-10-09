@@ -1,6 +1,6 @@
 # Agents of AI Roadmap
 
-**Snapshot:** `2026.09.19`  
+**Roster verified:** `2026.10.09` · **Priorities last fully reviewed:** `2026.09.19`  
 **Purpose:** current gaps and next public targets. Historical changes belong in [`CHANGELOG.md`](CHANGELOG.md); version rules live in [`VERSIONING.md`](VERSIONING.md).
 
 ---
@@ -11,14 +11,14 @@
 |---|---:|---|
 | Personas | 23 | Writing, epistemology, product, finance, platform, support, legal, ML, brand, process |
 | Agents | 13 | Research, audit, debugging, verification, security, refactoring, orchestration, incident response, repo maintenance |
-| Workflows | 17 | Research, implementation, TDD, requirements, root cause, repo maintenance, review, easy operator handoff, large-file handoff, workspace bootstrap |
+| Workflows | 20 | Research, implementation, TDD, requirements, root cause, repo maintenance, review, easy operator handoff, large-file handoff, workspace bootstrap |
 | Techniques | 17 | Dissent, assumptions, evidence precision, context control, verification, terminology, provenance |
 | Modes | 4 | Inspect, Forge, Probe, Draft |
 | Teams | 6 | Engineering, research, strategy/product, communications, operations, legal/risk |
 | Failures | 6 | Process/reliability drift patterns with shared names and fixes |
-| **Total** | **86** | Broad reusable operating library |
+| **Total** | **89** | Broad reusable operating library |
 
-The live directories are source truth. If this table disagrees with the repository, fix this file; do not rationalize the drift.
+The live directories are source truth. These counts were reconciled against the main branch directory tree on 2026-10-09; this update does not imply every earlier roadmap priority has been freshly re-evaluated. If this table disagrees with the repository, fix this file; do not rationalize the drift.
 
 The repository also has a **supporting tools shelf** under `tools/`. It is not an eighth composable layer.
 
