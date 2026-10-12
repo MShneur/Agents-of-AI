@@ -54,6 +54,10 @@ Load agent: agents/auditor.md
 ```
 Your governance framework handles the loading. This library just holds the files.
 
+### For prompt refinement
+
+If you want to **improve a prompt instead of execute it**, use the existing [Scribe Prompt Refinement profile](agents/scribe.md#prompt-refinement-v11-profile). The optional [Prompt Refiner Skill](adapters/chatgpt/prompt-refiner/SKILL.md) provides QUICK and DEEP modes without a custom-GPT dependency, and preserves targets, permissions, user voice and uncertainty. It is not a new composable AoA agent and it does not automatically rewrite unrelated requests.
+
 ### For software, APIs, or setup help
 
 - [`tools/software-recommendations.md`](tools/software-recommendations.md) — curated software by real use case.
