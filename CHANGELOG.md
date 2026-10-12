@@ -1,5 +1,13 @@
 # Agents of AI — Changelog
 
+## 2026-10-11 — Portable prompt refinement profile and Skill (proposed)
+
+- Extended the existing Scribe agent to v1.1 with explicit QUICK/DEEP prompt-refinement behavior instead of introducing a duplicate agent or workflow.
+- Added an optional portable ChatGPT Skill adapter with intent-preservation and eight adversarial acceptance cases. A Skill can be installed without relying on a custom GPT or external API, but installation/behavioral field performance is not claimed.
+- Recorded lineage to the January 2026 jonnyzzz Lyra gist, October 2026 revision activity in the earlier xthezealot gist, other implementations, and relevant jonnyzzz repos. Source expression was not copied; unsupported performance or permission claims remain NOT_TESTED.
+- No external CLI, IDE plugin, model router, hooks or GitHub-hosted Actions were installed or executed.
+
+
 ## 2026-10-07 — Direct Status / Verifier Integrity
 
 - Strengthened `workflows/easy-handoff.md` to v2.0 instead of creating another reporting workflow.
