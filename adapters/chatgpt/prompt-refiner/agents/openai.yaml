@@ -1,0 +1,4 @@
+interface:
+  display_name: "Prompt Refiner"
+  short_description: "Refine AI prompts without changing your goal or inventing context"
+  default_prompt: "Improve this prompt for my target AI, preserving my constraints and voice."
