@@ -1,5 +1,16 @@
 # Agents of AI — Changelog
 
+## 2026-10-12 — Outcome routing, simulation integrity and selective activation
+
+- Added `workflows/outcome-reconciliation.md`: bounded intent resolution for improvement requests, preserving explicit scope and live authority.
+- Added `workflows/scenario-falsification.md`: null-baseline and heldout checks that distinguish agent simulation from empirical validation.
+- Added `techniques/activation-receipt.md`: method activation counts reflect fetched-and-applied definitions, never suggested or simulated agents.
+- Updated `workflows/easy-handoff.md` to v2.1: clear separation of host refusals before execution from failed in-execution verification, without inflating completion claims.
+- Updated the existing Scribe to v1.1: prompt refinement is explicitly limited to requests for prompt artifacts; ordinary tasks proceed without a rewrite detour.
+- Updated routing guidance, roster documentation and snapshot counts to 22 workflows, 18 techniques and 92 total catalog entries.
+- Companion single-Skill packaging may route the library on demand; the catalog does not represent 92 separate Skill installations, external engines or automatically active agents.
+
+
 ## 2026-10-07 — Direct Status / Verifier Integrity
 
 - Strengthened `workflows/easy-handoff.md` to v2.0 instead of creating another reporting workflow.

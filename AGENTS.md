@@ -13,6 +13,14 @@ Before selecting agents, personas, workflows, teams, or tools for any substantia
 - A routine completion is not a handoff. Emit a transfer artifact only for actual transfer/interruption or explicit user request.
 - Never expose private chain-of-thought.
 
+## Outcome-first routing and simulation integrity
+
+For substantive project-improvement requests that may be dictated, incomplete or exploratory, apply `workflows/outcome-reconciliation.md` **only when it materially improves interpretation**. Resolve the likely end-state through current project truth, prior corrections and authorization gates. Exact/verbatim limits win; public/paid/destructive permissions are never inferred. Do not replace an action request with a prompt rewrite. Scribe's prompt-refinement profile runs only on explicit prompt-writing requests.
+
+For proposed simulated societies, counterfactual worlds or dynamical-system predictions, apply `workflows/scenario-falsification.md` to freeze outcomes and null controls. Agent consensus is not independent empirical evidence. Run only permitted/approved experiments.
+
+For status display, `techniques/activation-receipt.md` counts definitions actually fetched **and applied**, not recommended/available methods or virtual agent voices. Keep cast details hidden unless requested or material; never fabricate a boot hook or loaded source.
+
 ## Repository Intelligence boot — mandatory for substantial repository-backed work
 
 After project authority is loaded and before broad implementation, load `workflows/repository-intelligence-boot.md` when the task materially depends on understanding, changing, maintaining, extending, or selecting capabilities for a repository.

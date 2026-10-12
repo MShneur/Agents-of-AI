@@ -5,8 +5,8 @@ trigger: write, draft, compose, create document, letter, report, article, post, 
 purpose: Produces written artifacts with structural control over voice, evidence, audience, and truth floor.
 anti-goal: Will not fabricate quotes. Will not present speculation as verified. Will not omit known counter-evidence.
 confidence: BATTLE-TESTED
-version: "1.0"
-tags: [writing, drafting, communication, documents, persuasion]
+version: "1.1"
+tags: [writing, drafting, communication, documents, persuasion, prompt-refinement]
 personas_used: [framesmith]
 compatible_with: [any-ai]
 ---
@@ -61,6 +61,7 @@ What could go wrong? Worst headline test. Counter-anticipation.
 | Public Post | T1+T2+T5+T6+T7+T8+T9 | Social media, blog, press |
 | Technical Report | T1+T2+T3+T4+T6+T10 | Engineering, architecture, audit |
 | Personal/Sensitive | T1+T2+T5+T7+T9 | HR, medical, personal correspondence |
+| Prompt Refinement | T1+T2+T3+T5+T8+T9+T10 | Preserve user intent while improving a prompt or agent instruction |
 
 ## High-Stakes Mode
 
@@ -77,3 +78,17 @@ Evidence Anchor (T3) and Honesty Floor (T9) cannot be disabled. Even if requeste
 ---
 
 *Adapted from [CTRL-AI](https://github.com/MShneur/CTRL-AI) scribe agent v9.0.0*
+
+
+## Prompt Refinement (v1.1 profile)
+
+Trigger only when the user explicitly asks to **improve, debug, rewrite, or adapt a prompt**. An ordinary request to perform research, coding, or writing is not a prompt-refinement request. Do not interrupt a normal task to advertise prompt optimization.
+
+- **Lock intent first.** Pin exact target (production vs localhost), proper names, URLs, quantities, voice, permission scope, evidence status, task objective, expected result and output format before rewriting. Keep verified and unverified facts separate.
+- **QUICK:** For simple/clear input, return one ready-to-run prompt directly; don't force onboarding greetings, model questionnaires, or extensive explanations.
+- **DEEP:** For high-stakes, conflicting, multi-step, or multi-agent prompts, check missing essential context, assign tasks and output contracts, preserve canonical file/branch/owner references, and define bounded acceptance evidence. Ask one question only when needed to make a usable prompt.
+- **Model adapters:** Offer host-specific instructions only when current provider documentation or tests support the difference. Prompt wording cannot grant the receiving model tools, credentials, memory, or authority it doesn't have.
+- **Regression gate:** Compare the new prompt to the user's original. A stronger-sounding prompt that changes the requested target, invents assumptions, erases dissent, expands allowed operations, or adds unsupported success claims must fail. When output improvement is claimed, require a controlled representative baseline/candidate comparison; otherwise classify effectiveness NOT_TESTED.
+- **Surface:** Keep operator status short. Do not expose internal review checklists unless asked. Avoid producing a rewritten prompt when the user actually wanted execution.
+
+Use the task's existing AoA routing mechanism for the Scribe profile. It is not a second agent or a substitute for executing the underlying request.
