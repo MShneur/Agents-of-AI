@@ -4,7 +4,7 @@
 
 > You don't need a new framework. You need the right cast.
 
-**Current public snapshot:** `2026.10.12` · **93 composable entries** across seven layers · actively maintained supporting tools/API shelf.  
+**Current public snapshot:** `2026.10.13` · **93 composable entries** across seven layers · actively maintained supporting tools/API shelf.  
 See [`VERSIONING.md`](VERSIONING.md) for snapshot rules and [`CHANGELOG.md`](CHANGELOG.md) for material changes.
 
 ---
@@ -64,6 +64,14 @@ If you want to **improve a prompt instead of execute it**, use the existing [Scr
 - [`tools/api-catalog.md`](tools/api-catalog.md) — APIs, MCP, webhooks, event streams, and integrations.
 - [`tools/free-tool-ledger.md`](tools/free-tool-ledger.md) — public free/student quotas and caveats.
 - **[Control Walkthrough](https://github.com/MShneur/Ctrl-Walkthrough)** — standalone novice-first setup automation; the old [`tools/ctrl-walkthrough/`](tools/ctrl-walkthrough/) folder remains as a migration bridge for existing installs.
+
+### For dictated or project-level intent
+
+Say **"take the spirit of what I'm saying"** or **"spirit pass"** to invoke the existing [Outcome Reconciliation workflow](workflows/outcome-reconciliation.md). It reconstructs the likely project-level goal from the smallest relevant multi-turn/project context, tolerates likely dictation/spelling errors, maps colloquial wording to better domain terminology when useful, and resists single-keyword tunnel vision. It may infer meaning, never permission.
+
+### For forecasting a path
+
+Say **"trajectory quorum"**, **"forecast quorum"**, or **"predictive quorum"** to use the [Quorum](workflows/quorum.md) Trajectory Mode. It sources real practitioner methods, converts them into method-policy branches without pretending the practitioners personally participated, tracks leading signals/disconfirmers, and routes any predictive-skill claim through [Scenario Falsification](workflows/scenario-falsification.md) for blind rollback or prospective testing.
 
 ### In CTRL-AI or R-Duck
 Both frameworks can reference this library. Personas and agents load on-demand through the composition engine. See each framework's documentation for integration details.
