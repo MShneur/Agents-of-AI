@@ -26,7 +26,12 @@ compatible_with: [any-ai]
 
 # Quorum
 
-**Invocation:** `quorum` · `convene quorum` · `named quorum`
+**Invocation:** `quorum` · `convene quorum` · `named quorum` · `human gate`
+
+**Human Gate profile:** Human Gate is the consequential **stop/approval condition**;
+Quorum is the body that supplies the decision evidence. When `human gate` fires,
+run this workflow normally, then set `HUMAN CHOICE = YES` and stop before the
+consequential action. Do not maintain a second committee method for the same seats.
 
 A quorum is the minimum body for a decision to be **valid**. An incomplete quorum
 does not produce a weaker decision. It produces no decision.
@@ -297,7 +302,7 @@ SPIKE             the case against consensus
 DISPOSITIONS      every objection: ACCEPTED | MITIGATED | OVERRIDDEN | DISPUTED
 RECOMMENDATION    risk-adjusted
 REVERSIBLE STEP   safest thing to do first
-HUMAN CHOICE      YES | NO
+HUMAN CHOICE      YES | NO — YES is mandatory when invoked as human gate
 ```
 
 ## KILL CONDITIONS
