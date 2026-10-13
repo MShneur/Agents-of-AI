@@ -1,5 +1,14 @@
 # Agents of AI — Changelog
 
+## 2026-10-13 — Trajectory Quorum and Spirit Pass
+
+- Extended existing `workflows/quorum.md` to v1.1 with **Trajectory Mode** (aliases: `trajectory quorum`, `forecast quorum`, `predictive quorum`). The mode forecasts branching actor/system paths from live-sourced practitioner **methods**, never by role-playing named people, and keeps consensus separate from probability.
+- Extended `workflows/scenario-falsification.md` to v1.1 with blind historical rollback, future-outcome exclusion, stronger simple baselines, probabilistic calibration scoring, and an explicit replication/prospective gate before predictive authority.
+- Extended `workflows/outcome-reconciliation.md` to v1.1 with **Spirit Pass**, invoked by **"take the spirit of what I'm saying"**. It reconstructs project-level intent across relevant turns/current project truth, tolerates likely speech-to-text or spelling errors, expands terminology, and checks conversational inertia while preserving literal permission boundaries.
+- Updated repository boot and README routing so the coined phrases activate these existing workflows without adding duplicate catalog entries.
+- Public roster remains **93 entries**; this release strengthens existing components rather than adding new ones.
+- Terminology/mechanism review incorporated current multi-turn intent, instruction-inference, ASR robustness, Delphi/foresight and expert-elicitation research. External researchers/practitioners did not participate or endorse this implementation.
+
 ## 2026-10-13 — Evidence Assembly and Quorum execution continuity
 
 - Added `workflows/evidence-assembly.md`: live professional-method provenance, competing hypotheses, authorized test-and-repair, independent acceptance and short evidence-backed closeout.
