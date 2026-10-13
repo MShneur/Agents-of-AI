@@ -180,6 +180,12 @@ the strongest evidence on each side, and two to three resolution paths including
 `INVESTIGATE FURTHER`. Never force a resolution when more data is what is
 actually needed.
 
+## PORTFOLIO DEPTH AND EXECUTION HANDOFF
+
+For consequential named Quorum, research **each** HEAVY and LIGHT's task-relevant attributable primary contributions, across projects or time when available. Distinguish code-proven contributions, the person's documented methods and design choices, and analyst inference. Record published questions only when directly sourced; otherwise label a new question **METHOD-DERIVED**. A third BRIDGE practitioner can cover a genuine cross-domain gap but cannot erase dissent or substitute for the required pair. An unqualified familiar person is not a filled seat: re-source until qualified or return INCOMPLETE.
+
+Quorum supplies the strongest competing method, falsifier, reversible experiment, owner, and evidence requirement; `workflows/evidence-assembly.md` performs the permitted next implementation and independent acceptance. Never report a named Quorum as an actual conversation with those practitioners. Once execution starts, Easy Handoff governs operator reporting. For high-stakes tasks keep the publication/Human Gate intact.
+
 ## PROTOCOL
 
 1. **Frame** — decision, options, constraints, reversibility, who is affected.

@@ -4,7 +4,7 @@
 
 > You don't need a new framework. You need the right cast.
 
-**Current public snapshot:** `2026.10.06` · **89 composable entries** across seven layers · actively maintained supporting tools/API shelf.  
+**Current public snapshot:** `2026.10.12` · **93 composable entries** across seven layers · actively maintained supporting tools/API shelf.  
 See [`VERSIONING.md`](VERSIONING.md) for snapshot rules and [`CHANGELOG.md`](CHANGELOG.md) for material changes.
 
 ---
@@ -53,6 +53,10 @@ Load persona: personas/framesmith.md
 Load agent: agents/auditor.md
 ```
 Your governance framework handles the loading. This library just holds the files.
+
+### For prompt refinement
+
+If you want to **improve a prompt instead of execute it**, use the existing [Scribe Prompt Refinement profile](agents/scribe.md#prompt-refinement-v11-profile). Scribe v1.1 provides QUICK and DEEP prompt-only improvement while preserving exact targets, permissions, user voice and uncertainty. It does not automatically rewrite unrelated task-execution requests; one unified AoA Skill may route to this existing profile.
 
 ### For software, APIs, or setup help
 
@@ -128,7 +132,7 @@ Agents-of-AI/
 
 ### Agents (13)
 - **Auditor** — Adversarial quality review. DA/SPAR/BENCH ladder + code review tier + ZMA audit.
-- **Scribe** — Writing with structural control. Decision architecture, truth gates, persona integration.
+- **Scribe** — Writing with structural control and an evidence-preserving prompt-refinement profile when a prompt, not the underlying task, is requested.
 - **Scout** — Evidence-grounded research. Source credibility tiers, Ghost Rider investigative mode.
 - **Conductor** — Analysis and committee protocols (RAPID/EXTENDED). Facilitates multi-perspective decisions.
 - **Showrunner** — Prime agent. Runs the project, composes agent+persona combinations. Doesn't do the work itself.
@@ -141,7 +145,10 @@ Agents-of-AI/
 - **Firehose** — Live incident management. Stabilize → communicate → diagnose → resolve → learn.
 - **Sieve** — Ranks any candidate pool against an explicit weighted rubric. Must-haves as disqualifiers, no black-box scores, ranks but doesn't decide.
 
-### Workflows (20)
+### Workflows (23)
+- **Evidence Assembly** — Join sourced professional methods, competing hypotheses, bounded implementation and independent verification without treating simulated expert votes as evidence.
+- **Outcome Reconciliation** — Rebuild likely project intent from bounded current evidence and verify the actual result without overriding explicit scope.
+- **Scenario Falsification** — Test simulated worlds against frozen heldouts, nulls, ablations and independent physical or social observations.
 - **Easy Handoff / Direct Status** — Durable machine continuity stays internal; operator output defaults to only Fixed, Broken, and Recommendation, with verifier failures treated as NOT TESTED/BLOCKED.
 - **Deep Dig** — 3-stage research: brainstorm → survey → verify. Evidence-tagged. Stops between stages.
 - **Build Chain** — 6-step AI coding: scope → plan → checkpoint → implement → verify → review+merge.
@@ -163,7 +170,8 @@ Agents-of-AI/
 - **Large Artifact Handoff** — Provider-neutral pattern for moving large binary artifacts through file/object lanes instead of stuffing them into AI context windows.
 - **New AI Workspace Bootstrap** — Rebuild a capable AI workspace using portable public tools/connectors without repeating old setup mistakes.
 
-### Techniques (17)
+### Techniques (18)
+- **Activation Receipt** — Count only the distinct method definitions genuinely fetched and applied, not named or simulated casts.
 - **Steelman** — Before critiquing, construct the strongest version of the argument.
 - **Assumption Surface** — List unstated assumptions and rank by failure severity.
 - **Counterfactual** — Ask whether Y would still occur if X had not happened.

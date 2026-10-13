@@ -6,7 +6,7 @@ steps: 5
 agents_used: [scribe, conductor]
 personas_used: [distiller, mirror]
 confidence: PRACTICED
-version: "2.0"
+version: "2.1"
 tags: [handoff, continuity, status, compression, operator, verification, repair-first]
 compatible_with: [any-ai]
 ---
@@ -123,32 +123,52 @@ Not:
 
 **Done:** a broken evidence path can never masquerade as product success.
 
-## Step 5 — Direct Status
+### Pre-execution denial: stop causal overclaiming
 
-Default operator-facing result:
+When a host or tool reports a **safety / authorization refusal before execution**, distinguish the observable boundary from the underlying cause:
+
+- `PRE_EXECUTION_REFUSAL`: invocation refused before a result. The target application, remote endpoint, diagnostic workload and verifier were **NOT TESTED**.
+- `TOOL_ERROR`: the tool started but failed for transport, authentication, path, permission, timeout, or implementation reasons; classify using observed evidence.
+- `TARGET_RESULT`: the request actually ran and produced an attributable response; only this class may count toward the target's PASS/FAIL.
+- `UNKNOWN_ORIGIN`: a batch/orchestrator call failed before identifying which contained action triggered it; do not attribute failure to one nested command without evidence.
+
+Record privately: exact error class, caller and intended operation, whether any side effect/target request is proven, first failed boundary, root-cause confidence, and the single next permitted discriminator. In a combined call, **do not** claim the downstream diagnostic was attempted when it was not.
+
+**Remediation contract:** A locally broken verifier may be fixed inside existing authority and retested. An actual policy/safety denial is **not** a local harness bug: do not move the refused operation into GitHub Actions, a repository file, background job, shell, secondary connector, or other executor **to bypass the refusal**. A GitHub-stored script is an artifact, not an authorization. Independently authorized and policy-compliant testing may be evaluated on its own merits, or the execution boundary can be reviewed through the proper channel. Never treat a blocked test as the retailer or product failing.
+
+Before declaring a blocked workflow irreparable, silently apply existing core AoA method lenses: `mirror` (challenge premise), `burden` (proof standard), `provenance` (which layer refused), `guardrail` (allowed actions), `friction` (operator cost), and `verdict` (next defensible action). If cause is unclear, use `workflows/root-cause.md`; if an external mechanism could improve the verifier/reporting process, route Origin TRACE/COMPARE through `workflows/repository-intelligence-boot.md`. These are analytical lenses, not independent people. Do not call them an external Quorum unless live-sourced practitioner seats were actually convened.
+
+### Operator answer when a gate fails
+
+Give the short answer **why / can fix / what next**. Do not say simply `ChatGPT failed`; name the observable refusal layer and mark the hidden reason UNKNOWN. Never substitute lengthy persona, tool, HTTP-status, or GitHub-commit narration for a repair recommendation.
+
+## Step 5 — Easy Handoff / Zero Handoff: tiny working list
+
+**Default for active multi-step work:** short bullet-style operator status, with no preamble and no report-like paragraphs.
 
 ```text
-Fixed — <what materially changed and was verified>.
-Broken — <only real unresolved defect/blocker>.
-Recommendation — <best next action to resolve it>.
+- Doing: <current bounded task>
+- Done: <only the latest verified change>
+- Issue: <one real blocker in ordinary words; omit when none>
+- Fix: <fixable here? yes/no/unknown + chosen remedy; omit when not needed>
+- Next: <one bounded step>
 ```
 
-Rules:
+Use **at most five short lines** by default; omit non-applicable lines. When the operator asks how far, add **one** `Remaining: <N actual ledger stages>` line only when N is supported by the roadmap. If the task is finished, show only `Done`. If work cannot start, show `Issue / Fix / Next` instead of inventing progress.
 
-- **Omit any empty line.**
-- If only a verified fix remains, one `Fixed` sentence is enough.
-- If nothing was fixed, do not manufacture a `Fixed` line.
-- `Broken` means unresolved and evidence-backed, not a historical failure already repaired.
-- `Recommendation` should normally propose the repair, not merely say "proceed anyway."
-- Explain important unfamiliar terms inline in plain language.
-- Do not include routine methods, model names, progress, receipts, handoff schemas, or tool logs unless requested.
-- A user who asks for `EXPAND`, evidence, audit, handoff, or technical detail can receive the larger record.
+For an ordinary one-shot answer where `Doing` is meaningless, the legacy `Fixed / Broken / Recommendation` labels are acceptable, but never force them when the operator asked for a live checklist.
 
-### Genuine user-only action
+**Operator calibration:** plain words, no prose flourish, no citations/IDs/process theatrics unless requested or necessary to understand the blocker. No long postmortem, task log, quorum cast, or bibliography in routine output. The machine-readable evidence stays in the project's existing canonical ledger.
 
-Ask the human only after safe tool exhaustion proves the remaining step is genuinely user-only.
+**Example — blocked preflight, no target test:**
 
-Use the smallest possible request. Do not surround it with a status dump.
+```text
+- Doing: prepare the collection ceiling test.
+- Done: the existing non-sensitive environment health check passed.
+- Issue: the tool refused the preflight before the test ran; why is not known.
+- Fix: review the allowed test path; don't treat an unrun test as a failure.
+- Next: verify a permitted diagnostic route, then measure capacity.
+```
 
 ## Done Condition
 
@@ -172,14 +192,3 @@ Pass only when:
 - a repairable verifier defect deferred while downstream work continues;
 - a blocker named with no recommended repair;
 - jargon reported without a plain-language explanation when it affects the user's decision.
-
-## Design Provenance
-
-v2 strengthens the existing Easy Handoff instead of creating a duplicate reporting workflow.
-
-Mechanism-level influences:
-- **obra/superpowers — verification-before-completion:** fresh evidence before completion claims.
-- **artyomboyko/Agent_Handoff:** localized supporting-tool defects are repaired inside the current work item; supporting failure is not automatically a new handoff/stage.
-- **openai/codex continuation goal:** completion evidence must match the scope of the claim; incomplete or indirect evidence keeps the objective active.
-
-These projects did not participate in or endorse Agents of AI. Their public mechanisms were reformulated independently.
