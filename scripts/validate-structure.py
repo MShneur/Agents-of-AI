@@ -54,6 +54,7 @@ def main() -> int:
     errors: list[str] = []
     ids: dict[str, Path] = {}
     files_checked = 0
+    aliases = 0
 
     for layer in LAYERS:
         folder = ROOT / layer
@@ -86,9 +87,20 @@ def main() -> int:
                             f"{rel}: failure_class '{fc}' not in shared vocabulary "
                             f"({', '.join(sorted(FAILURE_CLASSES))})"
                         )
+
                 if not entry_id:
                     errors.append(f"{rel}: front matter missing id")
-                else:
+
+                if entry_type == "compatibility-alias":
+                    aliases += 1
+                    canonical = meta.get("canonical", "").strip('"\'')
+                    if not canonical:
+                        errors.append(f"{rel}: compatibility alias missing canonical")
+                    else:
+                        target = (ROOT / canonical.split("#", 1)[0]).resolve()
+                        if not target.exists():
+                            errors.append(f"{rel}: compatibility alias target missing: {canonical}")
+                elif entry_id:
                     prior = ids.get(entry_id)
                     if prior is not None:
                         errors.append(
@@ -96,6 +108,7 @@ def main() -> int:
                         )
                     else:
                         ids[entry_id] = path
+
                 if not entry_type:
                     errors.append(f"{rel}: front matter missing type")
 
@@ -115,7 +128,10 @@ def main() -> int:
         print(f"\nChecked {files_checked} library files; found {len(errors)} error(s).")
         return 1
 
-    print(f"STRUCTURE VALIDATION OK: {files_checked} library files, {len(ids)} unique IDs")
+    print(
+        f"STRUCTURE VALIDATION OK: {files_checked} library files, "
+        f"{len(ids)} composable IDs, {aliases} compatibility aliases"
+    )
     return 0
 
 
