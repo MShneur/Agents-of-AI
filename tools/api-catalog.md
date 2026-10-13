@@ -1,12 +1,34 @@
 # API and Integration Catalog
 
-**Public review date:** 2026-08-21
+**Public review date:** 2026-10-13
 
 This catalog lists public API, MCP, webhook, event-stream, or protocol surfaces that are useful when building AI workflows. It is a discovery index, not a guarantee of free capacity or universal access.
 
 For free/student quotas and plan caveats, see [`free-tool-ledger.md`](free-tool-ledger.md). For recommended software by job, see [`software-recommendations.md`](software-recommendations.md).
 
 Never place API keys, OAuth tokens, cookies, private hostnames, account IDs, or private endpoints in this file.
+
+## Agent interoperability, discovery, and reusable capability protocols
+
+These are **runtime/interoperability surfaces**, not additional AoA reasoning layers.
+Verify versions at use; several are evolving quickly.
+
+| Surface | Layer | Good for | Important boundary | Official source |
+|---|---|---|---|---|
+| **Agentic Resource Discovery (ARD)** | Pre-invocation discovery | Search federated catalogs for tools, Skills, agents, APIs and workflows instead of preloading every capability | Draft/proposal; discovery/ranking is not trust or permission | https://agenticresourcediscovery.org/ |
+| **Agent Skills** | Reusable procedure/package | Portable instructions, scripts and resources loaded just in time | A Skill is operational input; inspect provenance before use | https://agentskills.io/ |
+| **Model Context Protocol (MCP)** | Tool/data/app/task protocol | Standard tool/resource access; current spec also supports extensions such as Tasks and MCP Apps | Use current auth/security guidance; old SSE/session assumptions may be deprecated | https://modelcontextprotocol.io/ |
+| **Agent2Agent (A2A)** | Agent-to-agent protocol | Real remote-agent discovery, collaboration, task handoff and status | A2A is for actual remote agents, not persona simulation | https://developers.googleblog.com/how-a2a-is-building-a-world-of-collaborative-agents/ |
+| **AG-UI** | Agent-to-user event protocol | Stream agent state/events into interactive applications | UI transport does not make hidden reasoning independently verifiable | https://docs.ag-ui.com/ |
+| **A2UI** | Declarative generative UI protocol | Let agents describe safe/native UI using host component catalogs | UI intent stays separate from host rendering, permissions and data authority | https://developers.googleblog.com/en/a2ui-v0-9-generative-ui/ |
+
+### Current MCP note
+
+The `2026-07-28` MCP specification moved to a stateless core and formal extension
+model. Tasks are an extension for long-running calls; MCP Apps covers server-provided
+interactive UI; multi-round-trip requests support elicitation/approval without a
+permanent bidirectional session. Treat transport/runtime features as infrastructure
+and keep AoA reasoning methods separate.
 
 ## Repository and developer platforms
 

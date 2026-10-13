@@ -38,7 +38,17 @@ END_MARK = "<!-- AUTOGEN:ROSTER:END -->"
 def get_ids(layer_dir):
     if not os.path.isdir(layer_dir):
         return []
-    return sorted(f[:-3] for f in os.listdir(layer_dir) if f.endswith(".md"))
+    ids = []
+    for fname in os.listdir(layer_dir):
+        if not fname.endswith(".md"):
+            continue
+        path = os.path.join(layer_dir, fname)
+        with open(path) as f:
+            text = f.read(1200)
+        if re.search(r"^type:\s*compatibility-alias\s*$", text, re.M):
+            continue
+        ids.append(fname[:-3])
+    return sorted(ids)
 
 
 def get_field(path, field):

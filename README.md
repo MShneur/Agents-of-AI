@@ -4,7 +4,7 @@
 
 > You don't need a new framework. You need the right cast.
 
-**Current public snapshot:** `2026.10.12` · **93 composable entries** across seven layers · actively maintained supporting tools/API shelf.  
+**Current public snapshot:** `2026.10.13` · **91 composable entries** across seven layers · actively maintained supporting tools/API shelf.  
 See [`VERSIONING.md`](VERSIONING.md) for snapshot rules and [`CHANGELOG.md`](CHANGELOG.md) for material changes.
 
 ---
@@ -64,6 +64,14 @@ If you want to **improve a prompt instead of execute it**, use the existing [Scr
 - [`tools/api-catalog.md`](tools/api-catalog.md) — APIs, MCP, webhooks, event streams, and integrations.
 - [`tools/free-tool-ledger.md`](tools/free-tool-ledger.md) — public free/student quotas and caveats.
 - **[Control Walkthrough](https://github.com/MShneur/Ctrl-Walkthrough)** — standalone novice-first setup automation; the old [`tools/ctrl-walkthrough/`](tools/ctrl-walkthrough/) folder remains as a migration bridge for existing installs.
+
+### For dictated or project-level intent
+
+Say **"take the spirit of what I'm saying"** or **"spirit pass"** to invoke the existing [Outcome Reconciliation workflow](workflows/outcome-reconciliation.md). It reconstructs the likely project-level goal from the smallest relevant multi-turn/project context, tolerates likely dictation/spelling errors, maps colloquial wording to better domain terminology when useful, and resists single-keyword tunnel vision. It may infer meaning, never permission.
+
+### For forecasting a path
+
+Say **"trajectory quorum"**, **"forecast quorum"**, or **"predictive quorum"** to use the [Quorum](workflows/quorum.md) Trajectory Mode. It sources real practitioner methods, converts them into method-policy branches without pretending the practitioners personally participated, tracks leading signals/disconfirmers, and routes any predictive-skill claim through [Scenario Falsification](workflows/scenario-falsification.md) for blind rollback or prospective testing.
 
 ### In CTRL-AI or R-Duck
 Both frameworks can reference this library. Personas and agents load on-demand through the composition engine. See each framework's documentation for integration details.
@@ -135,7 +143,7 @@ Agents-of-AI/
 - **Scribe** — Writing with structural control and an evidence-preserving prompt-refinement profile when a prompt, not the underlying task, is requested.
 - **Scout** — Evidence-grounded research. Source credibility tiers, Ghost Rider investigative mode.
 - **Conductor** — Analysis and committee protocols (RAPID/EXTENDED). Facilitates multi-perspective decisions.
-- **Showrunner** — Prime agent. Runs the project, composes agent+persona combinations. Doesn't do the work itself.
+- **Showrunner** — Agent harness / Superuser profile: one accountable operator that loads Skills, methods, tools and specialists just in time instead of spawning a permanent swarm.
 - **Tracker** — Systematic debugging by hypothesis. Reproduce → observe → hypothesize → test → localize → fix → explain.
 - **Stresstest** — Adversarial verification. Tries to break implementations. Evidence before claims.
 - **Archaeologist** — Codebase structural audit with file:line evidence.
@@ -145,7 +153,7 @@ Agents-of-AI/
 - **Firehose** — Live incident management. Stabilize → communicate → diagnose → resolve → learn.
 - **Sieve** — Ranks any candidate pool against an explicit weighted rubric. Must-haves as disqualifiers, no black-box scores, ranks but doesn't decide.
 
-### Workflows (23)
+### Workflows (21)
 - **Evidence Assembly** — Join sourced professional methods, competing hypotheses, bounded implementation and independent verification without treating simulated expert votes as evidence.
 - **Outcome Reconciliation** — Rebuild likely project intent from bounded current evidence and verify the actual result without overriding explicit scope.
 - **Scenario Falsification** — Test simulated worlds against frozen heldouts, nulls, ablations and independent physical or social observations.
@@ -155,18 +163,16 @@ Agents-of-AI/
 - **Red Green** — TDD: failing test → minimal code → refactor.
 - **Razor** — 7-rung YAGNI decision ladder. Stop at the first rung that holds.
 - **Retro** — Sprint retrospective from git data, not memory.
-- **PRD** — Convert vague idea to requirements doc with scope, journeys, acceptance criteria, and handoff.
+- **PRD / Typed Spec** — One spec method with requirements-first, repo/brownfield, bugfix/surgical, and design-first profiles.
 - **Root Cause** — Failure analysis that separates triggers from root causes.
 - **Issue to Patch** — Bug report to tested fix: reproduce → localize → hypothesize → patch narrowly → test → summarize.
 - **Second Room** — Independent multi-chat review for important public work before reconciliation and human release.
 - **Nursery Sweep** — Full repository maintenance pass with adjacent-breakage and external-pattern checks.
-- **Repo PRD** — Converts broad repo findings into agent-ready work packets with evidence, scope, acceptance checks, and routing.
 - **Repository Intelligence Boot** — Repo-first orientation plus capability-gap discovery: map the live project, check AoA first, compare external GitHub mechanisms without installing them, then use/assimilate/recommend/defer/reject.
 - **Signal Before Verdict** — Preserve observations and precursor signals before terminal filtering; unknown is not rejection.
 - **Stall Guard** — Hard checkpoints, discovery-to-write barriers, bounded recovery, and interruption-safe resume for substantial multi-phase work.
-- **Human Gate Committee** — Named multi-perspective decision review with forced consensus challenge before consequential gates.
 - **Cleanerz** — Meta-workflow that fires when work is looping: stop, salvage, kill, re-scope, hand back one page and one decision.
-- **Quorum** — Expert assembly protocol with weighted seats, real documented practitioners, role rotation, dissent, and objection closure.
+- **Quorum** — Canonical expert assembly for ordinary/human-gate decisions plus Trajectory Mode for calibrated path forecasting; weighted live-sourced methods, dissent, and objection closure.
 - **Large Artifact Handoff** — Provider-neutral pattern for moving large binary artifacts through file/object lanes instead of stuffing them into AI context windows.
 - **New AI Workspace Bootstrap** — Rebuild a capable AI workspace using portable public tools/connectors without repeating old setup mistakes.
 

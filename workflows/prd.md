@@ -1,82 +1,137 @@
 ---
 id: prd
 type: workflow
-purpose: Convert a vague product idea into a usable requirements document. Moves from intent through scope to testable acceptance criteria.
+purpose: Convert ambiguous work into the smallest appropriate typed specification with measurable acceptance evidence.
 steps: 8
 agents_used: [scout]
-personas_used: [compass, wargame]
+personas_used: [compass, wargame, wireframe, burden]
 confidence: PRACTICED
-version: "1.0"
-tags: [product, requirements, PRD, spec, planning, PM]
+version: "2.0"
+tags: [product, requirements, PRD, spec, planning, PM, brownfield, bugfix, design-first]
 compatible_with: [any-ai]
 ---
 
-# PRD
+# PRD / Typed Spec
 
 ## Purpose
-Structured conversion of a product idea into an actionable spec. Each step narrows: from vague intent to testable acceptance criteria.
+
+Use one specification method with **profiles**, rather than creating a new workflow
+for every starting condition. Choose the lightest profile that matches what is
+already known.
+
+A spec is a working contract between intent and acceptance evidence. It is not a
+ceremony and it is not permission to redesign unrelated surfaces.
+
+## Profile Router
+
+### PRODUCT / REQUIREMENTS-FIRST
+Use for a new product or feature where the user problem and requirements still need
+to be shaped.
+
+Artifact: problem -> users -> goals/non-goals -> journeys -> requirements ->
+acceptance -> risks -> open questions.
+
+### REPO / BROWNFIELD
+Historical alias: `repo-prd`.
+
+Use when improving an existing repository, assimilating an external mechanism, or
+turning a maintenance finding into agent-ready work.
+
+Additional required fields:
+- current behavior with repository/runtime evidence;
+- canonical owner/ref;
+- affected files/surfaces;
+- preserved behavior;
+- desired delta;
+- verification path;
+- routing destination.
+
+### BUGFIX / SURGICAL
+Use when what is broken is already known and broad requirements discovery would
+waste time.
+
+Required fields:
+- reproducible failure;
+- expected behavior;
+- preservation constraints;
+- smallest suspected surface;
+- regression case;
+- falsifier for the proposed fix.
+
+Do not rewrite architecture unless the evidence shows the bug is architectural.
+
+### DESIGN-FIRST
+Use when requirements are settled and the architecture/interface is the unknown, or
+when an existing technical design is the starting point.
+
+Required fields:
+- settled requirements that must not be reopened without evidence;
+- interfaces/data flow;
+- design choices and rejected alternatives;
+- migration/rollback;
+- implementation tasks;
+- acceptance mapping back to requirements.
 
 ## Steps
 
-### 1. Clarify Intent
-- What user problem is being solved?
-- Who is the primary user? Name them specifically.
-- What painful current behavior is being replaced?
+### 1. Choose the profile
+Classify the starting condition. If one profile is sufficient, do not run all four.
 
-### 2. Define Success
-- Business outcome (what metric moves?)
-- User outcome (what does the user accomplish that they couldn't before?)
-- Measurable product metrics (activation, retention, task completion rate)
+### 2. Lock intent and authority
+Name the user/project outcome, current owner, exact constraints, non-goals and any
+permissions that remain literal. For dictated or ambiguous intent, use Outcome
+Reconciliation / Spirit Pass before spec construction.
 
-### 3. Scope
-- Must-have (blocks launch if missing)
-- Should-have (improves launch but not blocking)
-- Explicitly out-of-scope (prevents creep — name what you're NOT building)
-- MVP vs later versions
+### 3. Define success
+Write atomic, testable outcomes. Include both positive and negative examples when
+misinterpretation is plausible.
 
-### 4. Map User Journeys
-- Entry points (how does the user arrive?)
-- Core actions (what do they do?)
-- Decision moments (where do they choose?)
-- Completion states (what does "done" look like?)
-- Error states (what happens when things go wrong?)
+### 4. Establish current state when it exists
+For brownfield/bugfix/design-first work, record what is true now with direct evidence.
+Preserve verified BUILT behavior and identify UNKNOWN rather than filling gaps.
 
-### 5. Write Requirements
-- Functional requirements (what the system does)
-- Non-functional requirements (performance, scalability, reliability)
-- Edge cases (what happens at the boundaries?)
-- Accessibility, privacy, security, and performance considerations
+### 5. Scope the delta
+Must-have, should-have, explicit out-of-scope, affected surfaces, dependencies, and
+what must remain unchanged.
 
-### 6. Acceptance Criteria
-- Testable conditions for completion
-- Examples of success AND failure
-- Each criterion: given [context], when [action], then [result]
+### 6. Map behavior/design
+Use only the profile-relevant detail:
+- product journeys and error states;
+- repo paths and ownership;
+- bug reproduction/path signature;
+- design interfaces and migration.
 
-### 7. Risk Register
-- Product risks (wrong problem, wrong user, wrong scope)
-- Technical risks (complexity, dependencies, unknowns)
-- User adoption risks (friction, learning curve, migration)
-- Operational risks (support load, monitoring, maintenance)
+### 7. Acceptance + risk
+Each material requirement maps to an observable check. Include failure cases,
+rollback/reversal, security/privacy/performance/accessibility when load-bearing.
 
-### 8. Delivery Handoff
-- Summarize decisions made
-- List open questions (don't fake closure)
-- Implementation notes without over-prescribing engineering design
+### 8. Delivery route
+Return the smallest downstream artifact actually needed: implementation tasks,
+GitHub issue, PR work packet, research task, design review, airlock candidate, or
+human decision gate.
 
 ## Output
+
 ```
-## [Feature Name] — PRD
-### Overview
-### Problem
-### Users
-### Goals
-### Non-Goals
-### Requirements
-### User Stories
-### Acceptance Criteria
-### Risks
-### Open Questions
+SPEC TYPE        PRODUCT | REPO | BUGFIX | DESIGN_FIRST
+OUTCOME
+CURRENT STATE    when applicable
+GOALS / NON-GOALS
+REQUIREMENTS
+SCOPE / PRESERVE
+DESIGN OR JOURNEY
+ACCEPTANCE
+RISKS / UNKNOWN
+DELIVERY ROUTE
 ```
 
+## Done Condition
+
+The next operator can act without guessing the objective, current state, protected
+behavior, or proof of completion.
+
 ## Allergy
-PRDs that describe the solution before the problem. Requirements without acceptance criteria. "Users want X" without evidence.
+
+One PRD shape forced onto every task. Re-discovering settled requirements. Repo work
+without current-state evidence. Bugfix specs that quietly become rewrites.
+Requirements without acceptance evidence.

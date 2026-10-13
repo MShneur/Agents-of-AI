@@ -1,3 +1,9 @@
+## 2026-10-13 — Agent protocol stack refresh
+
+- Added Agentic Resource Discovery (ARD), Agent Skills, MCP, A2A, AG-UI and A2UI to the public API/protocol catalog.
+- Recorded MCP's 2026-07-28 stateless/extension model and kept runtime protocols separate from AoA reasoning workflows.
+- Tools shelf review date advanced to 2026-10-13.
+
 # Tools Change Log
 
 Fast-moving history for `tools/`. Repository-wide changes live in [`../CHANGELOG.md`](../CHANGELOG.md).

@@ -19,14 +19,19 @@ steps: 8
 agents_used: [scout, auditor, conductor]
 personas_used: [mirror, burden, provenance, verdict]
 confidence: EXPERIMENTAL
-version: "1.0"
-tags: [quorum, decision, expert, dissent, anti-fossilization, spike, named]
+version: "1.1"
+tags: [quorum, decision, expert, dissent, anti-fossilization, spike, named, forecast, trajectory]
 compatible_with: [any-ai]
 ---
 
 # Quorum
 
-**Invocation:** `quorum` · `convene quorum` · `named quorum`
+**Invocation:** `quorum` · `convene quorum` · `named quorum` · `human gate`
+
+**Human Gate profile:** Human Gate is the consequential **stop/approval condition**;
+Quorum is the body that supplies the decision evidence. When `human gate` fires,
+run this workflow normally, then set `HUMAN CHOICE = YES` and stop before the
+consequential action. Do not maintain a second committee method for the same seats.
 
 A quorum is the minimum body for a decision to be **valid**. An incomplete quorum
 does not produce a weaker decision. It produces no decision.
@@ -144,6 +149,87 @@ This gate is especially mandatory when the owner's language contains shorthand,
 patterns, lifecycle states, ranking thresholds, support statuses, inferred trust,
 or missing-data semantics.
 
+## TRAJECTORY MODE — FORECAST QUORUM [OPTIONAL, BINDING WHEN INVOKED]
+
+**Aliases:** `trajectory quorum` · `forecast quorum` · `predictive quorum`
+
+Use this mode when the question is about a future **path** driven by people,
+organizations, markets, policy, adoption, coordination, incentives, or other
+decision-making actors: *what will they do, where is this going, which branch is
+most likely, what signals tell us the path changed?*
+
+Do **not** use it to narrate confidence over a mechanism the model cannot represent
+(such as a genuinely random physical draw). For those cases Quorum may generate
+hypotheses, but predictive claims must stay outside this mode.
+
+### Method-policy rule
+
+Named practitioners remain **method sources, not simulated people**.
+
+For each sourced HEAVY/LIGHT method, extract a method-policy card:
+
+```
+STATE VARIABLES       what the method pays attention to
+DECISION RULE         what evidence changes the recommended action
+INCENTIVES            forces that push actors toward a branch
+FRICTIONS             forces that resist or delay the branch
+INFORMATION NEEDED    observations required before changing course
+REVERSAL CONDITION    what would make the method abandon its current branch
+```
+
+Then remove the person's identity from the simulation layer. The forecast may say
+"a method-policy derived from [published work] selects branch B under condition X."
+It may **not** say "[practitioner] would choose B" unless that exact choice is
+directly documented.
+
+### Trajectory construction
+
+1. **Forecast frame** — exact target, horizon, starting state, actors, controllable
+   decisions, exogenous events, and what counts as a resolved outcome.
+2. **Base-rate/null path** — the simplest forecast that does not need Quorum
+   simulation: persistence, historical base rate, stationary/null, or another
+   task-appropriate baseline.
+3. **Branch graph** — at least three materially different trajectories where the
+   evidence permits: expected/base path, credible alternative, and adverse or
+   discontinuity path. Record path dependencies and feedback loops.
+4. **Conditional forecast** — attach probability **ranges**, not fake precision, to
+   branches only when the evidence supports them. Seat count and simulated
+   agreement are never probability estimators.
+5. **Leading indicators** — list observable precursor signals that would move weight
+   from one branch to another. Apply `signal-before-verdict.md`: a precursor is
+   not the terminal outcome.
+6. **Disconfirmers** — one observation that would materially weaken each leading
+   trajectory.
+7. **Calibration route** — any claim that this mode has predictive skill must pass
+   `workflows/scenario-falsification.md`, including blind historical rollback or
+   prospective holdout against simpler baselines.
+
+### Forecast status
+
+Use one of:
+
+```
+UNCALIBRATED        useful scenario model; predictive lift not demonstrated
+RESEARCH_ONLY       failed/insufficient backtest but still useful for hypothesis generation
+PROMOTION_CANDIDATE beats preregistered baselines on held-out evidence; replication still required
+BLOCKED             required data, rights, runtime, or blind evaluation unavailable
+```
+
+No amount of internal agreement upgrades `UNCALIBRATED` to
+`PROMOTION_CANDIDATE`.
+
+### Additional output when this mode is used
+
+```
+FORECAST QUESTION   target + horizon
+TRAJECTORIES        branch -> probability range or UNKNOWN
+LEADING SIGNALS     observations that move branch weight
+DISCONFIRMERS       what would weaken each path
+BASELINE            simple comparator
+FORECAST STATUS     UNCALIBRATED | RESEARCH_ONLY | PROMOTION_CANDIDATE | BLOCKED
+NEXT OBSERVATION    cheapest signal that most reduces uncertainty
+```
+
 ## ROLE ROTATION [ANTI-FOSSILIZATION]
 
 After three cycles on the same project with the same heavy-weight configuration,
@@ -216,7 +302,7 @@ SPIKE             the case against consensus
 DISPOSITIONS      every objection: ACCEPTED | MITIGATED | OVERRIDDEN | DISPUTED
 RECOMMENDATION    risk-adjusted
 REVERSIBLE STEP   safest thing to do first
-HUMAN CHOICE      YES | NO
+HUMAN CHOICE      YES | NO — YES is mandatory when invoked as human gate
 ```
 
 ## KILL CONDITIONS

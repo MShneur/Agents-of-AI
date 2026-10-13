@@ -6,8 +6,8 @@ steps: 6
 agents_used: [archaeologist, conductor, stresstest]
 personas_used: [compass, mirror, provenance]
 confidence: EXPERIMENTAL
-version: "1.0"
-tags: [intent, dictation, outcomes, verification]
+version: "1.1"
+tags: [intent, dictation, outcomes, verification, multi-turn, asr, spirit-pass]
 compatible_with: [any-ai]
 ---
 
@@ -15,6 +15,75 @@ compatible_with: [any-ai]
 
 ## Purpose
 Apply to substantive, ambiguous requests to improve an existing project. Aim for the real project outcome without treating probable intent as permission. Do not use for simple factual questions or for explicit verbatim-only edits.
+
+## SPIRIT PASS — NAME IS THE INVOCATION
+
+**Primary invocation:** `take the spirit of what I'm saying`
+
+Also recognized: `take the spirit` · `spirit pass` ·
+`understand what I'm trying to do, not just the words`.
+
+This is not permission to improvise. It is an instruction to reconstruct the
+**project-level intent** before routing the task.
+
+Use the current utterance as one piece of evidence, not the entire objective. Read
+the smallest relevant set of current project truth, recent turns, accepted
+decisions, prior corrections, known failures, and durable continuity needed to
+recover the goal. Do not bulk-load history for reassurance.
+
+### Spirit Pass pipeline
+
+1. **Verbatim layer** — preserve the user's actual words and mark uncertain
+   transcription, malformed names, abrupt fragments, or likely speech-to-text
+   substitutions. Never silently erase the literal request.
+2. **Project layer** — recover the current project goal, recent direction, accepted
+   constraints, unresolved failure, non-goals, and what previous prompts were
+   collectively trying to achieve.
+3. **Intent hypotheses** — form a small set of plausible interpretations:
+   literal-turn intent, project-level intent, and one credible alternate when
+   ambiguity exists. Do not lock onto the first keyword.
+4. **Language repair** — consider phonetic neighbors, misspellings, homophones,
+   dictated punctuation loss, shorthand, and domain terminology. Example:
+   `Quora` may be a transcription of `Quorum` when the project context makes
+   that substantially more likely. Permission-critical names, URLs, quantities,
+   accounts, recipients, legal terms, or destructive targets are never silently
+   normalized.
+5. **Terminology expansion** — map colloquial language to the best current
+   professional/technical concepts when that changes the solution. Search current
+   terminology when the field is fast-moving. The user's word is a clue, not a
+   mandatory search keyword.
+6. **Goal reconstruction** — derive the likely end-state, emotional/interaction
+   intent when relevant, measurable acceptance condition, and what would count as
+   solving the *project* rather than merely satisfying the sentence.
+7. **Anti-inertia check** — ask internally whether prior answers are being copied
+   forward merely because they exist. A new turn can refine or change the goal;
+   conversation history is context, not a command to keep the old plan.
+8. **Confidence gate** — if one interpretation dominates and the next step is safe
+   and reversible, proceed and keep uncertainty proportional. If plausible
+   interpretations lead to materially different consequential actions, use the
+   smallest Human Gate question instead of pretending certainty.
+
+### Internal reconstruction record
+
+```
+VERBATIM                exact current utterance
+TRANSCRIPTION_UNKNOWN   uncertain token/name/phrase | NONE
+PROJECT_INTENT          best current end-state
+TERM_MAP                user's phrase -> likely domain term(s)
+ALTERNATIVES            credible competing intent(s)
+CONFIDENCE              HIGH | MED | LOW
+PERMISSION_BOUNDARY     exact permissions that remain literal
+NEXT_ACTION             smallest action that advances the reconstructed goal
+```
+
+Do not print this block by default. It exists to keep the interpretation auditable.
+
+### Hard boundary
+
+**Infer meaning, never authority.** Spirit Pass cannot infer permission to spend,
+publish, merge, delete, contact someone, expose secrets, modify production data, or
+cross another project owner's boundary. Exact consequential permissions remain
+literal even when the likely intent seems obvious.
 
 ## Steps
 1. **Preserve (Conductor + Mirror):** Capture the user's exact words, exclusions, uncertain transcription and any explicit narrow scope. Done when the literal request and the interpretation are separately recorded. No interruption unless an essential safety-sensitive choice remains.
