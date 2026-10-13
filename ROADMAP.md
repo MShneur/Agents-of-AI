@@ -11,12 +11,12 @@
 |---|---:|---|
 | Personas | 23 | Writing, epistemology, product, finance, platform, support, legal, ML, brand, process |
 | Agents | 13 | Research, audit, debugging, verification, security, refactoring, orchestration, incident response, repo maintenance |
-| Workflows | 23 | Research, evidence assembly, outcome reconciliation, scenario falsification, implementation, TDD, requirements, root cause, repo maintenance, review, easy operator handoff, large-file handoff, workspace bootstrap |
+| Workflows | 21 | Research, evidence assembly, outcome reconciliation, scenario falsification, typed specifications, implementation, TDD, root cause, repo maintenance, review, easy operator handoff, large-file handoff, workspace bootstrap |
 | Techniques | 18 | Dissent, assumptions, activation truth, evidence precision, context control, verification, terminology, provenance |
 | Modes | 4 | Inspect, Forge, Probe, Draft |
 | Teams | 6 | Engineering, research, strategy/product, communications, operations, legal/risk |
 | Failures | 6 | Process/reliability drift patterns with shared names and fixes |
-| **Total** | **93** | Broad reusable operating library |
+| **Total** | **91** | Broad reusable operating library |
 
 The live directories are source truth. These counts were reconciled against public `main` on 2026-10-13; this does not imply every older roadmap priority was freshly re-evaluated. If this table disagrees with the repository, fix this file; do not rationalize the drift.
 
@@ -39,6 +39,9 @@ Several July targets are now implemented rather than future work:
 - Repo Nanny and repository-maintenance workflows
 - Easy Handoff / Direct Status for durable continuity with minimal operator status
 - Evidence Assembly for sourced methods -> bounded execution -> independent acceptance
+- Showrunner v2 agent harness for just-in-time Skills/tools/subagents and bounded durable execution
+- typed PRD profiles replacing separate Repo PRD workflow
+- Human Gate consolidated into canonical Quorum rather than a second committee workflow
 - Outcome Reconciliation for evidence-backed project intent/end-state recovery
 - Scenario Falsification for heldout/null-controlled simulation claims
 - Activation Receipt for truthful fetched-and-applied method counts
@@ -49,7 +52,7 @@ Several July targets are now implemented rather than future work:
 - project/tool changelogs and explicit snapshot/component versioning rules
 - community issue intake for software, API, and walkthrough recommendations
 
-The old roadmap's note that research prompts were stale is also closed: both research prompts now describe all seven layers, carry the current 23-workflow roster, and route tool/API research into the supporting tools shelf.
+The old roadmap's note that research prompts were stale is also closed: both research prompts now describe all seven layers, carry the current 21-workflow roster, and route tool/API research into the supporting tools shelf.
 
 ---
 
