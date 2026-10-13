@@ -4,7 +4,7 @@ Agents of AI contains several kinds of artifacts that change at different rates.
 
 ## Current public snapshot
 
-**Snapshot:** `2026.10.12`
+**Snapshot:** `2026.10.13`
 
 Live composable roster at this snapshot:
 
