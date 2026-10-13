@@ -201,7 +201,7 @@ Repo Nanny pairs well with:
 - `auditor` for review and risk analysis
 - `issue-to-patch` for bug report to tested fix
 - `nursery-sweep` for full repository maintenance passes
-- `repo-prd` for converting broad findings into agent-ready work packets
+- `prd` REPO / BROWNFIELD profile for converting broad findings into agent-ready work packets
 
 A private executable layer may exist in an operator's own environment. A public runtime can be extracted later only after it is sanitized and proven useful.
 
