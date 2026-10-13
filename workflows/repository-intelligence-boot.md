@@ -6,7 +6,7 @@ steps: 9
 agents_used: [archaeologist, scout, repo-nanny, sieve]
 personas_used: [provenance, wireframe, burden, mirror]
 confidence: EXPERIMENTAL
-version: "1.0"
+version: "1.1"
 tags: [github, repository, codebase, boot, capability-discovery, assimilation, provenance, context]
 compatible_with: [any-ai]
 ---
@@ -31,7 +31,8 @@ live repo authority
 -> compact repository map
 -> task capability inventory
 -> gap? NO: continue with current AoA
-        YES: external repository board
+        YES: discover callable resource (ARD when available)
+             and/or source mechanism (GitHub Wheel Check)
 -> provenance/security gate
 -> USE | ASSIMILATE | RECOMMEND | DEFER | REJECT
 -> verify
@@ -138,6 +139,7 @@ Compare the task against:
 
 - currently loaded AoA entries;
 - project-specific methods already present;
+- installed/approved Skills;
 - connected tools/MCPs/plugins;
 - repository-native scripts;
 - existing approved runtime capabilities.
@@ -157,13 +159,37 @@ If `PARTIAL` or `MISSING`, name the exact missing mechanism before searching.
 
 **Done:** there is a specific capability gap, not a vague desire for more tooling.
 
-## Step 4 — Run an external Wheel Check by mechanism family
+## Step 4 — Discover the missing capability at the correct layer
 
 **Primary:** Scout + Wheel Check.
 
-Search canonical repositories/specifications first.
+Do not search GitHub merely because something is missing.
 
-Group candidates by **different method**, not by popularity or branding. Typical families include:
+### Callable resource discovery
+
+When the gap is "which tool, Skill, remote agent, MCP server, API or workflow can do
+this?", prefer an approved **Agentic Resource Discovery (ARD)** service/catalog when
+available. ARD is a pre-invocation search layer, not an execution runtime and not a
+trust oracle.
+
+For every discovered resource record:
+- resource type and provider;
+- task match;
+- declared invocation mechanism;
+- provenance/trust metadata available;
+- credentials/permissions requested;
+- freshness/version;
+- whether it is already approved/installed.
+
+Then apply Skill Provenance / project authorization before loading or invoking it.
+
+### Source/mechanism discovery
+
+When the gap is "how is this capability implemented?" or "what design pattern should
+we assimilate?", run the external GitHub Wheel Check.
+
+Search canonical repositories/specifications first. Group candidates by **different
+method**, not by popularity or branding. Typical families include:
 
 - repo-to-context packing;
 - AST/symbol maps;
@@ -173,26 +199,21 @@ Group candidates by **different method**, not by popularity or branding. Typical
 - generated docs/codemaps;
 - repo-local instruction loading;
 - MCP/remote repository access;
-- agent tool bundles;
+- agent harnesses, tool bundles and hooks;
 - skill discovery/evaluation;
 - supply-chain/security review.
 
-Deduplicate forks and near-clones. Prefer 3–7 materially different candidates over dozens of lookalikes.
+Deduplicate forks and near-clones. Prefer 3–7 materially different candidates over
+dozens of lookalikes.
 
-Capture:
+Capture source URL, current release/commit when practical, observed mechanism,
+maintenance signal, license/UNKNOWN, permission reach, integration burden and
+evidence quality.
 
-- source URL;
-- current project/release/commit when practical;
-- observed mechanism;
-- maintenance/activity signal;
-- license or `UNKNOWN`;
-- permission/credential reach;
-- integration burden;
-- evidence quality.
+Popularity and ARD ranking are discovery signals, never trust scores.
 
-Popularity is a discovery signal, never a trust score.
-
-**Done:** the candidate set represents distinct approaches to the missing capability.
+**Done:** the gap has the smallest relevant candidate set from the right discovery
+layer.
 
 ## Step 5 — Build the Repository Candidate Board
 
