@@ -1,12 +1,23 @@
 # Agents of AI — Changelog
 
+## 2026-10-13 — Harness consolidation and agent-protocol discovery
+
+- **Reduced the public composable roster from 93 to 91** without removing compatibility paths: `human-gate-committee.md` now aliases canonical Quorum, and `repo-prd.md` now aliases the REPO/BROWNFIELD profile in PRD v2.0.
+- Upgraded **Showrunner to v2.0 Agent Harness / Superuser profile**: one accountable operator, just-in-time Skills/methods/tools/subagents, bounded dispatch, context pruning, durable checkpoints, hooks as triggers rather than agents, and explicit separation between capability and authority.
+- Upgraded **PRD to v2.0 Typed Spec** with PRODUCT/requirements-first, REPO/brownfield, BUGFIX/surgical, and DESIGN-FIRST profiles instead of one requirements-first shape for every task.
+- Added **Agentic Resource Discovery (ARD)** to Repository Intelligence v1.1 as the preferred discovery lane for missing callable resources when available; GitHub Wheel Check remains the mechanism/source-discovery lane.
+- Refreshed the public API/protocol shelf for ARD, Agent Skills, MCP 2026-07-28, A2A, AG-UI and A2UI. These remain runtime/interoperability layers, not new AoA reasoning layers.
+- Added `origin/research/agent-harness-protocol-landscape-2026-10-13.md` with clean-room dispositions across Kiro harness/specs/hooks, Anthropic context engineering, LangGraph durable execution, Agent Skills, ARD, MCP, A2A and agent-UI protocols.
+- Updated roster tooling so **compatibility aliases do not inflate composable counts**, while structural validation still checks their canonical targets.
+- Decision: keep the seven-layer model. Harnesses compose the layers; protocols connect runtimes; Skills package reusable procedures; ARD discovers resources. None merits an eighth AoA composable layer today.
+
 ## 2026-10-13 — Trajectory Quorum and Spirit Pass
 
 - Extended existing `workflows/quorum.md` to v1.1 with **Trajectory Mode** (aliases: `trajectory quorum`, `forecast quorum`, `predictive quorum`). The mode forecasts branching actor/system paths from live-sourced practitioner **methods**, never by role-playing named people, and keeps consensus separate from probability.
 - Extended `workflows/scenario-falsification.md` to v1.1 with blind historical rollback, future-outcome exclusion, stronger simple baselines, probabilistic calibration scoring, and an explicit replication/prospective gate before predictive authority.
 - Extended `workflows/outcome-reconciliation.md` to v1.1 with **Spirit Pass**, invoked by **"take the spirit of what I'm saying"**. It reconstructs project-level intent across relevant turns/current project truth, tolerates likely speech-to-text or spelling errors, expands terminology, and checks conversational inertia while preserving literal permission boundaries.
 - Updated repository boot and README routing so the coined phrases activate these existing workflows without adding duplicate catalog entries.
-- Public roster remains **93 entries**; this release strengthens existing components rather than adding new ones.
+- This sub-release adds no new composable entry; the later same-day consolidation reduces the final public roster to **91**.
 - Terminology/mechanism review incorporated current multi-turn intent, instruction-inference, ASR robustness, Delphi/foresight and expert-elicitation research. External researchers/practitioners did not participate or endorse this implementation.
 
 ## 2026-10-13 — Evidence Assembly and Quorum execution continuity
