@@ -5,7 +5,7 @@ trigger: multi-agent maintenance, supervisor workers, recursive agents, competin
 purpose: Keep one chief operator responsible for dispatch while preventing recursive supervisor chains and overlapping writers.
 anti-goal: Will not create manager-on-manager hierarchies or multiple agents with ambiguous authority over the same write surface.
 confidence: EXPERIMENTAL
-version: "1.0"
+version: "1.1"
 tags: [orchestration, multi-agent, dispatch, concurrency, repo-maintenance]
 compatible_with: [any-ai]
 ---
@@ -56,7 +56,7 @@ The specialist returns work to the chief. It does not recursively spawn another 
 
 Repo Nanny should act as chief repository-maintenance operator unless another active project agent already owns the same change. It may call specialists for coding, verification, research, documentation, security, or target-user review, but retains dispatch responsibility.
 
-Consequential unresolved choices route through `human-gate-committee`.
+Consequential unresolved choices route through canonical `workflows/quorum.md`; when the trigger is `human gate`, Quorum returns `HUMAN CHOICE = YES` and stops before the consequential action.
 
 ## Failure Signals
 
