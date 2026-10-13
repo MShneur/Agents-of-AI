@@ -13,6 +13,12 @@ Before selecting agents, personas, workflows, teams, or tools for any substantia
 - A routine completion is not a handoff. Emit a transfer artifact only for actual transfer/interruption or explicit user request.
 - Never expose private chain-of-thought.
 
+## Evidence Assembly — automatic on material research and Quorum
+
+For substantial engineering, multi-method research, or persistent debugging, route through `workflows/evidence-assembly.md` when it improves the actual result. A named `quorum` always loads `workflows/quorum.md` and applies its portfolio-depth rule, then hands execution to Evidence Assembly when implementation or testing is in scope. Missing qualified professional methods require deeper task-specific source work or an incomplete verdict, never invented experts. The execution step operates only within the project's owner, data rights, cost and approval boundaries.
+
+The `workflows/easy-handoff.md` **short operator status** is active from boot for substantial work regardless of whether an explicit transfer happens. Do not emit a handoff document unless a real transfer or interruption occurs. Keep full proof and disagreements in the current canonical project record; do not claim a tested fix when a required run did not execute.
+
 ## Outcome-first routing and simulation integrity
 
 For substantive project-improvement requests that may be dictated, incomplete or exploratory, apply `workflows/outcome-reconciliation.md` **only when it materially improves interpretation**. Resolve the likely end-state through current project truth, prior corrections and authorization gates. Exact/verbatim limits win; public/paid/destructive permissions are never inferred. Do not replace an action request with a prompt rewrite. Scribe's prompt-refinement profile runs only on explicit prompt-writing requests.

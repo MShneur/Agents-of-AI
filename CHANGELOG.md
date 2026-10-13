@@ -1,5 +1,13 @@
 # Agents of AI — Changelog
 
+## 2026-10-13 — Evidence Assembly and Quorum execution continuity
+
+- Added `workflows/evidence-assembly.md`: live professional-method provenance, competing hypotheses, authorized test-and-repair, independent acceptance and short evidence-backed closeout.
+- Extended existing Quorum without changing the seat minimum, source integrity, dissent or Human Gate; portfolios and question attribution now have an explicit depth test.
+- Activated Easy Handoff as the default substantial-task operator status and recorded the research-to-execution transition in repository boot.
+- Roster changes to 23 workflows and 93 seven-layer entries; no additional standalone Skill installation is required for this method.
+
+
 ## 2026-10-12 — Outcome routing, simulation integrity and selective activation
 
 - Added `workflows/outcome-reconciliation.md`: bounded intent resolution for improvement requests, preserving explicit scope and live authority.

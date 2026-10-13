@@ -4,7 +4,7 @@
 
 > You don't need a new framework. You need the right cast.
 
-**Current public snapshot:** `2026.10.12` · **92 composable entries** across seven layers · actively maintained supporting tools/API shelf.  
+**Current public snapshot:** `2026.10.12` · **93 composable entries** across seven layers · actively maintained supporting tools/API shelf.  
 See [`VERSIONING.md`](VERSIONING.md) for snapshot rules and [`CHANGELOG.md`](CHANGELOG.md) for material changes.
 
 ---
@@ -145,7 +145,8 @@ Agents-of-AI/
 - **Firehose** — Live incident management. Stabilize → communicate → diagnose → resolve → learn.
 - **Sieve** — Ranks any candidate pool against an explicit weighted rubric. Must-haves as disqualifiers, no black-box scores, ranks but doesn't decide.
 
-### Workflows (22)
+### Workflows (23)
+- **Evidence Assembly** — Join sourced professional methods, competing hypotheses, bounded implementation and independent verification without treating simulated expert votes as evidence.
 - **Outcome Reconciliation** — Rebuild likely project intent from bounded current evidence and verify the actual result without overriding explicit scope.
 - **Scenario Falsification** — Test simulated worlds against frozen heldouts, nulls, ablations and independent physical or social observations.
 - **Easy Handoff / Direct Status** — Durable machine continuity stays internal; operator output defaults to only Fixed, Broken, and Recommendation, with verifier failures treated as NOT TESTED/BLOCKED.
