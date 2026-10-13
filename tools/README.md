@@ -1,6 +1,6 @@
 # Agents of AI — Tools
 
-**Last public review:** 2026-08-24  
+**Last public review:** 2026-10-13  
 **Status:** actively maintained supporting layer
 
 This folder is the public tools shelf for Agents of AI: software recommendations, APIs, free/student capability notes, setup walkthroughs, and reusable infrastructure patterns that help AI workflows actually run.
@@ -12,7 +12,7 @@ It is **not an eighth AoA composable layer**. Personas, agents, workflows, techn
 | Resource | Use it for |
 |---|---|
 | [`software-recommendations.md`](software-recommendations.md) | Curated software choices by job: automation, research, hosting, mobile admin, testing, secrets, AI, and more |
-| [`api-catalog.md`](api-catalog.md) | Public API/MCP/integration surfaces that can be wired into AI workflows |
+| [`api-catalog.md`](api-catalog.md) | Public API/protocol stack: ARD, Agent Skills, MCP, A2A, AG-UI/A2UI, webhooks, event streams and integrations |
 | [`free-tool-ledger.md`](free-tool-ledger.md) | Publicly verified free/student quotas, limits, and caveats |
 | [`remote-mcp-cloud-bridge.md`](remote-mcp-cloud-bridge.md) | Scrubbed remote-MCP + binary-ingress roadmap with a **domain? yes -> named tunnel / no -> Quick Tunnel** decision tree, mobile shortcuts, chunked large-file flow, failure lessons, and completion gates |
 | [`ctrl-walkthrough/`](ctrl-walkthrough/) | Responsive Tampermonkey setup runner and reusable public walkthrough JSON |
