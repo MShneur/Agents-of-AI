@@ -6,7 +6,7 @@ steps: 3
 agents_used: [scout]
 personas_used: [provenance, burden, prover]
 confidence: BATTLE-TESTED
-version: "1.0"
+version: "1.1"
 tags: [research, investigation, evidence, multi-stage, systematic]
 compatible_with: [any-ai]
 ---
@@ -61,7 +61,13 @@ Systematic research that separates exploration from verification. Prevents the c
 2. Resolve contradictions where possible — if not, preserve both positions
 3. Final confidence grading per claim: HIGH / MED / LOW / DEGRADED
 4. Source provenance audit — trace key claims to original source
-5. Gap report — what remains unknown and why
+5. **Genealogy backtrace when lineage/origin matters:**
+   - treat the date of a matching artifact as a witness date, not an origin date;
+   - extract stable technical fingerprints, then traverse parents, forks, prior commits, archives, package/history references, and independently dated predecessors backward;
+   - record `EARLIEST_VERIFIED_WITNESS` separately from `PROVEN_ORIGIN`;
+   - if ownership/code ancestry is not demonstrated, preserve it as `UNKNOWN` or `QUARANTINED` instead of bridging the gap by similarity;
+   - a recent repo, resale post, fork, or rebrand never terminates the backtrace merely because it resembles the current system.
+6. Gap report — what remains unknown and why
 
 **Done when:** every claim has a confidence grade, contradictions resolved or preserved, gaps documented.
 
@@ -80,6 +86,7 @@ Confidence: HIGH | MED | LOW | DEGRADED
 ## Anti-patterns
 - Searching once and stopping
 - Resolving contradictions by picking the more recent source (recency ≠ accuracy)
+- Treating the newest matching artifact as the origin instead of backtracing its lineage
 - Presenting brainstorm ideas as findings before validation
 - Skipping verification because the survey "looks solid"
 

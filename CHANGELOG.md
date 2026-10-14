@@ -170,3 +170,7 @@ The seven-layer roster count is unchanged; this release strengthens existing ent
 ## Maintenance rule
 
 A material public change should update this file when it changes how users discover, compose, install, or maintain the library. Individual entry revisions still keep their own frontmatter version; do not mass-bump unrelated entries just because the repository changed.
+
+## 2026.10.14 — reconciliation candidate
+
+Reconciles Razor 1.1, requested-target continuity validation, semantic capability routing, genealogy backtrace, Origin and Alt-ssembly under the existing harness. Adds thin ecosystem responsibility bridges. 94 composable IDs plus two compatibility aliases; no legacy Origin runtime is installed. Source/contract verification does not establish cross-provider field behavior.

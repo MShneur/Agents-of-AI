@@ -82,3 +82,5 @@ Tooling changes faster than personas and workflows. Treat quota/offer claims old
 ## Design preference
 
 Prefer tools that are portable, provider-neutral where possible, event-driven, and able to fail safely. Prefer hard-capped/no-card free capacity over surprise-billing trials when the capability is otherwise comparable. Do not confuse free capacity with permission to collect or republish data.
+
+Supporting contracts: semantic route health and fallback in tools/capability-routing.md; requested-target machine transfers in tools/continuity-kernel/README.md. Structural validity never proves field completion.

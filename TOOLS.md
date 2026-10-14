@@ -73,3 +73,4 @@ If an allowance varies by model, account, region, or provider load, say so rathe
 Good fits include free/student compute, queues, object storage, automation engines, public-web research tools, model APIs with free quotas, mobile SSH/admin clients, repository tooling, testing/observability, and generic upload/connector workarounds.
 
 What does **not** belong here: private project configuration, personal account state, affiliate economics, credentials, unpublished infrastructure, or advice for bypassing access controls, anti-bot systems, provider terms, or billing safeguards.
+Supporting contracts: semantic route health and fallback in tools/capability-routing.md; requested-target machine transfers in tools/continuity-kernel/README.md. Structural validity never proves field completion.

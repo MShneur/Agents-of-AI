@@ -4,7 +4,7 @@
 
 > You don't need a new framework. You need the right cast.
 
-**Current public snapshot:** `2026.10.13` · **91 composable entries** across seven layers · actively maintained supporting tools/API shelf.  
+**Current public snapshot:** `2026.10.14` · **94 composable entries** across seven layers · actively maintained supporting tools/API shelf.
 See [`VERSIONING.md`](VERSIONING.md) for snapshot rules and [`CHANGELOG.md`](CHANGELOG.md) for material changes.
 
 ---
@@ -138,7 +138,9 @@ Agents-of-AI/
 - **Scaffold** — Platform engineering. Declarative IaC, blast-radius thinking, paved roads over gates, environment parity, toil elimination.
 - **Concierge** — Customer support. Emotion before mechanics, triage on arrival, escalation with full context, confirmed resolution.
 
-### Agents (13)
+### Agents (15)
+- **Origin** — Provenance-first R&D and build routing under the existing Prime.
+- **Alt-ssembly Required** — Product assembly and preservation across runtime and user journeys.
 - **Auditor** — Adversarial quality review. DA/SPAR/BENCH ladder + code review tier + ZMA audit.
 - **Scribe** — Writing with structural control and an evidence-preserving prompt-refinement profile when a prompt, not the underlying task, is requested.
 - **Scout** — Evidence-grounded research. Source credibility tiers, Ghost Rider investigative mode.
@@ -153,7 +155,8 @@ Agents-of-AI/
 - **Firehose** — Live incident management. Stabilize → communicate → diagnose → resolve → learn.
 - **Sieve** — Ranks any candidate pool against an explicit weighted rubric. Must-haves as disqualifiers, no black-box scores, ranks but doesn't decide.
 
-### Workflows (21)
+### Workflows (22)
+- **Alt-ssembly** — Bounded product reconciliation, preservation, integration and field acceptance.
 - **Evidence Assembly** — Join sourced professional methods, competing hypotheses, bounded implementation and independent verification without treating simulated expert votes as evidence.
 - **Outcome Reconciliation** — Rebuild likely project intent from bounded current evidence and verify the actual result without overriding explicit scope.
 - **Scenario Falsification** — Test simulated worlds against frozen heldouts, nulls, ablations and independent physical or social observations.
