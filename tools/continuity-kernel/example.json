@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "task_id": "W3",
+  "objective": "Verify requested Home Depot journey",
+  "source_ref": "owner/repo@verified-sha:path/to/ledger",
+  "requested_target": {
+    "kind": "website",
+    "id": "https://www.homedepot.com/"
+  },
+  "actor": {
+    "provider": "other-ai",
+    "model": "model-id",
+    "access_scope": "local test harness only"
+  },
+  "status": "NOT_TESTED",
+  "checks": [
+    {
+      "id": "actual-site-journey",
+      "required": true,
+      "status": "NOT_TESTED",
+      "evidence_ids": [
+        "local-only"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "local-only",
+      "result": "PASS",
+      "source": "path/to/local/browser-report.json",
+      "target": {
+        "kind": "website",
+        "id": "http://localhost:3000/"
+      }
+    }
+  ],
+  "decisions": [
+    {
+      "modality": "PROPOSED",
+      "text": "Run the live-site check",
+      "source": "task-brief#1"
+    }
+  ],
+  "next": {
+    "action": "Verify the requested Home Depot target in an authorized browser"
+  }
+}
