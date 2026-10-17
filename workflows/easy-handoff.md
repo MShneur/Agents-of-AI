@@ -160,6 +160,29 @@ For an ordinary one-shot answer where `Doing` is meaningless, the legacy `Fixed 
 
 **Operator calibration:** plain words, no prose flourish, no citations/IDs/process theatrics unless requested or necessary to understand the blocker. No long postmortem, task log, quorum cast, or bibliography in routine output. The machine-readable evidence stays in the project's existing canonical ledger.
 
+### Narrow-screen rendering guard (mobile-first)
+
+Routine Easy Handoff status must be **one-column, stacked text**. Do not render Markdown tables, HTML tables, side-by-side cards, multi-column grids, or paired label/value columns: Android narrow screens may wrap their cells independently, causing overlapping, unreadable text. The visual formatting failure is a **presentation defect**, not missing evidence, and should never create another report or duplicate handoff.
+
+- One short checklist item per independent outcome; one label followed by its value, in the **same item**.
+- Keep sentences brief. A long item may wrap naturally, but never align it against text in another column.
+- Preserve the status distinctions `VERIFIED`, `PARTIAL`, `BLOCKED`, and `NOT_TESTED` in plain text when they materially change the outcome.
+- When the operator explicitly wants an archive/closeout decision, use the optional stacked labels `Done / Left / Recommendation / Gaps / Archive / Errors`, omitting empty ones. This is a task-specific option, not a universal mandatory form.
+- If a comparison requires multiple rows, convert each row to a separate bullet with `Item — result; caveat`. Use a table only if the operator explicitly requests a table and the device can display it readably.
+- One unresolved-error sentence at the end when requested; keep the detailed machine record in the canonical ledger.
+
+**Example — mobile-safe completion:**
+
+```text
+- Done: receipt candidates reconciled; no duplicate cards.
+- Left: 3 originals awaiting authorized transport.
+- Gaps: signed-in proof display not tested.
+- Recommendation: repair transport, then rerun the exact-source check.
+- Archive: audit may close; production release remains blocked.
+- Errors: Original bytes and rendered proof are still unverified.
+```
+
+
 **Example — blocked preflight, no target test:**
 
 ```text
