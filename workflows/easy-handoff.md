@@ -144,6 +144,10 @@ Give the short answer **why / can fix / what next**. Do not say simply `ChatGPT 
 
 ## Step 5 — Easy Handoff / Zero Handoff: narrow-screen safe operator status
 
+### Operator-selected mobile status
+
+When a user explicitly prefers brief, numbered, audio-first handoffs, that instruction overrides the generic status template below. Emit four to six short standalone paragraphs, one independently meaningful result per `1.1`-style reference, blank lines between paragraphs, and place Easy Handoff LAST. Avoid Markdown tables, task checkboxes, list tokens, inline status grids and unrequested technical dumps. Store full continuity in the existing project record. The override changes presentation only: preserve validation, permissions and Human Gates. On an ordinary simple question, answer directly. Do not claim that another client has loaded this rule or rendered it correctly without observation.
+
 **Default for active multi-step work:** minimal, vertical, **plain-text paragraphs**, with no tables or clickable/checkable task controls. One field per paragraph, separated by an empty line. Ordinary prose is preferred over a rich UI layout. Do not emit a new report or transfer artifact unless an actual handoff is necessary.
 
 Use this visual shape in the chat response (the lines inside this sample are separate **paragraphs**, not a Markdown list):
