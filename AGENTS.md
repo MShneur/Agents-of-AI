@@ -5,7 +5,7 @@
 Before selecting agents, personas, workflows, teams, or tools for any substantial task, load `workflows/easy-handoff.md`.
 
 - Keep machine continuity detailed in the canonical durable record; do not dump it into ordinary chat.
-- Routine operator status defaults to only: `Fixed`, `Broken`, `Recommendation`; omit empty lines.
+- Use `Fixed`, `Broken`, `Recommendation` only as a default. A verified current user mobile/audio-first preference invokes the numbered, single-column, final Easy Handoff override in `workflows/easy-handoff.md`; no tables or checkboxes.
 - Render routine Easy Handoff/status as separate plain-text paragraphs, one label and value per paragraph (blank line between). No Markdown task lists (`- [x]`, `- [ ]`), checkboxes, interactive task controls, tables, bullet lists, side-by-side labels, cards, or grids in mobile operator status; checked tasks produced struck-through broken columns on Android. Even when asked for a checklist, use `Done:`, `Left:`, `Gaps:`, `Recommendation:`, `Archive:`, `Errors:` as independent paragraphs, omitting irrelevant fields. A GitHub rule change does not establish client-rendering PASS without an observed on-device test. See `workflows/easy-handoff.md`.
 - Do not surface cast, executing model, progress denominator, receipt, handoff schema, or tool log unless the user asks or it is load-bearing.
 - Explain unfamiliar blockers in one plain-language sentence.
