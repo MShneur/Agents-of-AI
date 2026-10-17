@@ -142,55 +142,68 @@ Before declaring a blocked workflow irreparable, silently apply existing core Ao
 
 Give the short answer **why / can fix / what next**. Do not say simply `ChatGPT failed`; name the observable refusal layer and mark the hidden reason UNKNOWN. Never substitute lengthy persona, tool, HTTP-status, or GitHub-commit narration for a repair recommendation.
 
-## Step 5 — Easy Handoff / Zero Handoff: tiny working list
+## Step 5 — Easy Handoff / Zero Handoff: narrow-screen safe operator status
 
-**Default for active multi-step work:** short bullet-style operator status, with no preamble and no report-like paragraphs.
+**Default for active multi-step work:** minimal, vertical, **plain-text paragraphs**, with no tables or clickable/checkable task controls. One field per paragraph, separated by an empty line. Ordinary prose is preferred over a rich UI layout. Do not emit a new report or transfer artifact unless an actual handoff is necessary.
+
+Use this visual shape in the chat response (the lines inside this sample are separate **paragraphs**, not a Markdown list):
 
 ```text
-- Doing: <current bounded task>
-- Done: <only the latest verified change>
-- Issue: <one real blocker in ordinary words; omit when none>
-- Fix: <fixable here? yes/no/unknown + chosen remedy; omit when not needed>
-- Next: <one bounded step>
+Doing: Current bounded task.
+
+Done: Latest verified result.
+
+Issue: One blocker in ordinary language.
+
+Fix: What has been repaired or can be repaired.
+
+Next: One bounded action.
 ```
 
-Use **at most five short lines** by default; omit non-applicable lines. When the operator asks how far, add **one** `Remaining: <N actual ledger stages>` line only when N is supported by the roadmap. If the task is finished, show only `Done`. If work cannot start, show `Issue / Fix / Next` instead of inventing progress.
+Only retain applicable fields (at most five by default). If the task is complete, show a single Done paragraph. If it cannot start, use Issue / Fix / Next. A justified stage count may add one Remaining paragraph when the authoritative ledger supplies the count. Never invent progress.
 
-For an ordinary one-shot answer where `Doing` is meaningless, the legacy `Fixed / Broken / Recommendation` labels are acceptable, but never force them when the operator asked for a live checklist.
+### Mobile renderer failure and exact countermeasure
 
-**Operator calibration:** plain words, no prose flourish, no citations/IDs/process theatrics unless requested or necessary to understand the blocker. No long postmortem, task log, quorum cast, or bibliography in routine output. The machine-readable evidence stays in the project's existing canonical ledger.
+**Observed twice in ChatGPT Android screenshots:** A nominally vertical operator "checklist" was visually laid out as narrow interleaved columns; **checked entries were struck through**, while each label and its long value wrapped separately. The first mitigation (ban tables and request single-column lists) **failed**, because the final assistant response still used Markdown task-list tokens.
 
-### Narrow-screen rendering guard (mobile-first)
+To avoid the observed renderer trigger:
 
-Routine Easy Handoff status must be **one-column, stacked text**. Do not render Markdown tables, HTML tables, side-by-side cards, multi-column grids, or paired label/value columns: Android narrow screens may wrap their cells independently, causing overlapping, unreadable text. The visual formatting failure is a **presentation defect**, not missing evidence, and should never create another report or duplicate handoff.
+- **NEVER emit Markdown task-list tokens** `- [x]`, `- [X]`, or `- [ ]` in the user-facing operator response, even when the user requests a "checklist." That word means an ordered set of completion statuses, not interactive checkboxes. These controls may cause strikethrough and fragmented columns.
+- **Do not emit `<checkbox>` or interactive checklist components.** Do not simulate a checkbox with a two-column label/value layout, a Markdown table, a row, a grid, an HTML table, or checkable cards.
+- **Do not use Markdown bullet syntax or numbered lists for mobile operator closeouts** unless the user explicitly asks for an actual list; prefer ordinary paragraphs with `Done:`, `Left:`, and `Errors:` at the beginning of their own paragraphs.
+- Use **literal plain-text labels** inside each paragraph. Avoid fixed-width columns, alignment spaces, pipes `|`, inline row selectors, strikethrough, and rich hyperlinks inserted into narrow label headings. Place an essential URL on a separate ordinary paragraph when needed.
+- Do not describe a task as fixed merely because these text instructions were committed. Client-specific **visual rendering acceptance remains NOT_TESTED** until someone observes the corrected plain-paragraph output on the affected device.
 
-- One short checklist item per independent outcome; one label followed by its value, in the **same item**.
-- Keep sentences brief. A long item may wrap naturally, but never align it against text in another column.
-- Preserve the status distinctions `VERIFIED`, `PARTIAL`, `BLOCKED`, and `NOT_TESTED` in plain text when they materially change the outcome.
-- When the operator explicitly wants an archive/closeout decision, use the optional stacked labels `Done / Left / Recommendation / Gaps / Archive / Errors`, omitting empty ones. This is a task-specific option, not a universal mandatory form.
-- If a comparison requires multiple rows, convert each row to a separate bullet with `Item — result; caveat`. Use a table only if the operator explicitly requests a table and the device can display it readably.
-- One unresolved-error sentence at the end when requested; keep the detailed machine record in the canonical ledger.
-
-**Example — mobile-safe completion:**
+When the operator wants an archive/closeout status, use this **optional** compact form, not a task-list:
 
 ```text
-- Done: receipt candidates reconciled; no duplicate cards.
-- Left: 3 originals awaiting authorized transport.
-- Gaps: signed-in proof display not tested.
-- Recommendation: repair transport, then rerun the exact-source check.
-- Archive: audit may close; production release remains blocked.
-- Errors: Original bytes and rendered proof are still unverified.
+Done: Verified changes and saved evidence.
+
+Left: Exact unfinished actions.
+
+Recommendation: One actionable correction.
+
+Gaps: The blocked or unverified check.
+
+Archive: Yes for this bounded chat, or no with reason.
+
+Errors: One concise sentence identifying all remaining blockers.
 ```
 
+Render each line above as its **own Markdown paragraph separated by a blank line** when writing the answer, not as one code fence or one list. Omit irrelevant paragraphs. Keep full machine continuity in the existing canonical ledger. Preserve the distinctions VERIFIED, PARTIAL, BLOCKED and NOT_TESTED.
 
-**Example — blocked preflight, no target test:**
+The operator-facing failure is a presentation defect, not a proof/data failure. If basic paragraphs **also** render incorrectly on the target device, record a client rendering defect and escalate with a screenshot; don't repeatedly rename the same Markdown list as a new "fix."
+
+**Example — plain-paragraph preflight:**
 
 ```text
-- Doing: prepare the collection ceiling test.
-- Done: the existing non-sensitive environment health check passed.
-- Issue: the tool refused the preflight before the test ran; why is not known.
-- Fix: review the allowed test path; don't treat an unrun test as a failure.
-- Next: verify a permitted diagnostic route, then measure capacity.
+Done: Existing non-sensitive environment health check passed.
+
+Issue: The required browser test never loaded.
+
+Fix: Repair the verifier inside the current authority if possible.
+
+Next: Rerun the page acceptance test before declaring PASS.
 ```
 
 ## Done Condition
