@@ -6,6 +6,7 @@ Before selecting agents, personas, workflows, teams, or tools for any substantia
 
 - Keep machine continuity detailed in the canonical durable record; do not dump it into ordinary chat.
 - Routine operator status defaults to only: `Fixed`, `Broken`, `Recommendation`; omit empty lines.
+- Render routine Easy Handoff/status on narrow screens as a single-column stacked checklist; never use Markdown tables, side-by-side labels, cards, or grids for operator status. Keep the richer table only in durable records or on explicit user request. See `workflows/easy-handoff.md`.
 - Do not surface cast, executing model, progress denominator, receipt, handoff schema, or tool log unless the user asks or it is load-bearing.
 - Explain unfamiliar blockers in one plain-language sentence.
 - A required verifier that failed to load/connect/authenticate/run makes the dependent check `NOT_TESTED` or `BLOCKED`, never `PASS`.
