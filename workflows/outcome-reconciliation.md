@@ -93,6 +93,21 @@ literal even when the likely intent seems obvious.
 5. **Execute (Conductor):** Make the smallest authorized integrated change inside current ownership and run the proper verifier. Never silently expand public, paid, destructive or sensitive-data permissions. Done only after the bounded change has observable evidence.
 6. **Challenge (Stresstest + Mirror):** Check the actual project result and adjacent regressions. Preserve `UNKNOWN`, `NOT_TESTED`, and remaining follow-ups in existing project continuity. Done only when result and next bounded action are recorded.
 
+## Worked diagnostic interpretation — Penny / Oracle (2026-10-18)
+
+This is an **example of applying outcome reconciliation**, not a universal instruction to use, prohibit, rotate or disguise fingerprints.
+
+**Owner wording:** "Fingerprint diagnostic reason" / "try another fingerprint" during Penny L6 debugging.
+**Project meaning:** Penny runs a real Firefox browser on an Oracle Linux host and deliberately configures a browser-visible device/session identity for repeatable testing. The existing baseline is *already* assigned an identity. The administrator wanted to compare configured versus observed browser identities and isolate a broken catalog path — not to assert the cloud host had become a physical phone. Varying device/OS/browser configurations can be an ordinary test variable.
+
+**Measured sequence:** A saved MS/Puppeteer baseline mixed an Android Chrome user-agent with Firefox and, in a separate retained test, Firefox 142 metadata with the actual Firefox 155 binary. An independent asynchronous request-interception defect generated `Request is already handled!`. A private candidate repaired the handler and made Firefox identity compatibility explicit; source-neutral tests passed. The later MS05 Firefox-155 native identity live test still got a fresh Home Depot HTTP 403 with zero products. Therefore the identity and handler issues were real defects, **not a verified causal explanation of the source refusal**.
+
+**How another agent should handle a similar owner diagnostic instruction:** Recover the existing assigned identity, latest owner correction, installed browser/host, relevant raw receipts, source admission and stop state; state which variable is being changed and what result would falsify the hypothesis. Do not equate the word *fingerprint* with a violation, or re-ask the owner to justify ordinary authorized local configuration testing. Do not treat a local pass as proof of a live target fix. Compare observed versus configured fields, record the exact negative and positive outcomes, and keep test-local changes out of global rules unless the owner explicitly promotes them.
+
+**Independent boundary:** Project-level permission to run a diagnostic or switch a VPN profile does not automatically authorize new third-party requests, bypass active source restrictions, expose private credentials or change other accounts. Treat an explicit source refusal as an observed source state, not a statement of motive; diagnose without using identity/proxy changes to route around that refusal.
+
+**Durable Penny evidence:** `MShneur/Personal-Forge/projects/home-depot-penny-app/00-agent-control/ledger/lanes/L6-oracle.md`, private draft PR #240 and `tools/penny-scraper-operator/SKILL.md`. The example is historical evidence, not proof those runtime states still hold.
+
 ## Done Condition
 A verified outcome delta or an explicit, evidence-backed blocked state with one exact next action. A literal one-file change is not proof the underlying project failure is solved.
 
