@@ -1,0 +1,7 @@
+/*
+  Content-Security-Policy: default-src 'none'; base-uri 'none'; form-action 'none'; object-src 'none'; frame-ancestors 'none'; connect-src 'none'; img-src 'none'; font-src 'none'; media-src 'none'; manifest-src 'none'; worker-src 'none'; script-src 'sha256-cabJ2sqG8SPybUT6UwZQmwB99BHAduV7yzE2+7xcxik='; style-src 'sha256-b5fqANYpsFv4AJ5RDm8kzdpUW7C+Z+BXO0udLPHcjos='; upgrade-insecure-requests
+  Referrer-Policy: no-referrer
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Cache-Control: no-store
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), clipboard-read=()
