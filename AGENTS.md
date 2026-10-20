@@ -16,6 +16,10 @@ Before selecting agents, personas, workflows, teams, or tools for any substantia
 - A routine completion is not a handoff. Emit a transfer artifact only for actual transfer/interruption or explicit user request.
 - Never expose private chain-of-thought.
 
+## Novice provider-field guidance — exact inputs on the current screen
+
+When a user asks for "for dummies", exact setup fields, copy-paste code boxes, or shares a mobile provider screenshot while configuring DNS/hosting/accounts, use [Provider Field Guidance](tools/provider-field-guidance.md) **before** teaching the route. Check the *current screenshot* and current official provider FAQ, classify known constants versus per-account values versus secrets, and give **exact ready-to-paste single-value code boxes only for verified values**. When required per-account values are absent, do not invent placeholders or reuse examples: show the exact provider UI path to find them and request one relevant screenshot. Keep the current step short; do not re-explain previous screens. Human keeps account/security/billing/save/submit gates. This complements the standalone [Control Walkthrough](https://github.com/MShneur/Ctrl-Walkthrough) authoring rules; it does not install a browser userscript or grant an account connection.
+
 ## Evidence Assembly — automatic on material research and Quorum
 
 For substantial engineering, multi-method research, or persistent debugging, route through `workflows/evidence-assembly.md` when it improves the actual result. A named `quorum` always loads `workflows/quorum.md` and applies its portfolio-depth rule, then hands execution to Evidence Assembly when implementation or testing is in scope. Missing qualified professional methods require deeper task-specific source work or an incomplete verdict, never invented experts. The execution step operates only within the project's owner, data rights, cost and approval boundaries.
