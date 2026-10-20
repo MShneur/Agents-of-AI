@@ -4,6 +4,11 @@
 - Recorded MCP's 2026-07-28 stateless/extension model and kept runtime protocols separate from AoA reasoning workflows.
 - Tools shelf review date advanced to 2026-10-13.
 
+## 2026-10-20 — Provider-field walkthrough guidance
+
+- Added `tools/provider-field-guidance.md`: user-screenshot-first, official-provider-FAQ-backed setup instructions for phone users, with exact field enumeration, no fake copy-paste values, vendor-assigned settings sourced from authenticated UI, and saved/active verification gates. Cloudflare-to-Namecheap registrar nameservers is documented as a generic, public-safe example with official source links. No account-specific domain, nameserver, identifier, credential or private screenshot was committed.
+- Routed relevant novice account/DNS/hosting interactions through this protocol in repository `AGENTS.md` and `tools/README.md`. The separately maintained Control Walkthrough engine is unchanged; no new composable AoA layer is created.
+
 # Tools Change Log
 
 Fast-moving history for `tools/`. Repository-wide changes live in [`../CHANGELOG.md`](../CHANGELOG.md).
