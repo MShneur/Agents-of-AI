@@ -8,8 +8,8 @@ class FieldEvidenceTests(unittest.TestCase):
         doc = """<!-- Page saved with SingleFile
  url: https://dash.cloudflare.com/zone.example/confirm-scanned-records -->
         <html><body><h1>Confirm scanned records</h1>
-        <table><tr><td>A</td><td>192.64.119.115</td></tr>
-        <tr><td>CNAME</td><td>parkingpage.namecheap.com</td></tr></table></body></html>"""
+        <table><tr><td>A</td><td>192.0.2.15</td></tr>
+        <tr><td>CNAME</td><td>parkingpage.example.test</td></tr></table></body></html>"""
         x = inspect_html(doc)
         self.assertEqual(x['status'], 'DNS_SCAN_NOT_NAMESERVER_ASSIGNMENT')
         self.assertEqual(x['cloudflare_nameservers'], [])
@@ -50,7 +50,7 @@ class FieldEvidenceTests(unittest.TestCase):
         self.assertEqual(inspect_html(doc)['cloudflare_nameservers'], [])
 
     def test_account_id_not_leaked(self):
-        doc = "<!-- Page saved with SingleFile url: https://dash.cloudflare.com/PRIVATEIDENTIFIER/xyz/confirm-scanned-records --><p>192.64.119.115</p>"
+        doc = "<!-- Page saved with SingleFile url: https://dash.cloudflare.com/PRIVATEIDENTIFIER/xyz/confirm-scanned-records --><p>192.0.2.15</p>"
         self.assertNotIn('PRIVATEIDENTIFIER', str(inspect_html(doc)))
 
     def test_normalizes_case_and_trailing_period(self):
