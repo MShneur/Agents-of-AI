@@ -25,6 +25,10 @@ Activate when the operator says "for dummies", "tell me exactly what to enter", 
 - Verify provider-side state (saved confirmation or status) before declaring COMPLETE; distinguish **INPUT_ENTERED**, **SAVED**, **PROPAGATING**, **ACTIVE** and **UNKNOWN**. Avoid suggesting a full public website is hosted merely because DNS is active.
 
 
+## COMPLETION-FIRST: current screenshots override old pending steps
+
+When the operator says **"I already did it"**, the current screenshot shows the requested values entered, or the provider reports a saved/active state, **immediately stop teaching the earlier step**. Compare the newest screenshot with provider-assigned settings. Reply with the observed completion level (`VALUES_ENTERED` vs `SAVED` vs `PROVIDER_ACTIVE`) and only the one genuinely remaining check. Example: a registrar screenshot with both Cloudflare nameserver hostnames under `Custom DNS`, with no unsaved green-check editing controls, supports **registrar values entered/displayed**, but only the Cloudflare dashboard `Active` status or a live delegation check proves Cloudflare activation. Do not say to press "Continue to activation" on a previous Cloudflare screenshot when a newer registrar screenshot already proves the values have been entered. If the user shifts to an adjacent capability request ("Should we connect a Worker for our AI?"), answer the **new question** rather than redirecting to DNS setup. `No Workers connected` on a DNS page is not an error and is not a prerequisite for AI access. Consider Cloudflare's existing authorized remote MCP at `https://mcp.cloudflare.com/mcp` in compatible AI clients before suggesting building or deploying another Worker; verify account capabilities and OAuth scopes and never promise an arbitrary ChatGPT dot supports generic MCP.
+
 ## EXTRACT FIRST: existing-artifact evidence ladder
 
 **This is a correction to the original protocol.** A complete HTML upload is an available evidence source. Asking the user to find or screenshot values that can already be extracted is a protocol failure; guessing values that are NOT present is equally a failure.
