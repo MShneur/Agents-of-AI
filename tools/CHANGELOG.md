@@ -4,6 +4,11 @@
 - Recorded MCP's 2026-07-28 stateless/extension model and kept runtime protocols separate from AoA reasoning workflows.
 - Tools shelf review date advanced to 2026-10-13.
 
+## 2026-10-20 — Provider-field extraction-first repair
+
+- Upgraded provider guidance from screenshot-first to **existing-artifact extraction first**. Local CLI `tools/scripts/provider_field_evidence.py` now checks rendered HTML values and identifies import-stage DNS versus actual assigned Cloudflare nameserver context; nine synthetic unit tests, including false-value and leakage checks. Introduced public-safe patterns from Microsoft Playwright accessibility-name locators and Stagehand structured extraction without installing another SaaS/runtime.
+- Boot `AGENTS.md` now requires inspecting prior uploaded HTML/screenshots before asking for another view; standalone Control Walkthrough authoring rules cross-reference the same source-role protocol. Public committed fixtures contain only documentation/reserved examples; no operator domain, user account ID, screenshot, or secret.
+
 ## 2026-10-20 — Provider-field walkthrough guidance
 
 - Added `tools/provider-field-guidance.md`: user-screenshot-first, official-provider-FAQ-backed setup instructions for phone users, with exact field enumeration, no fake copy-paste values, vendor-assigned settings sourced from authenticated UI, and saved/active verification gates. Cloudflare-to-Namecheap registrar nameservers is documented as a generic, public-safe example with official source links. No account-specific domain, nameserver, identifier, credential or private screenshot was committed.
