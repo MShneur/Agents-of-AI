@@ -6,7 +6,7 @@ steps: 5
 agents_used: [scribe, conductor]
 personas_used: [distiller, mirror]
 confidence: PRACTICED
-version: "2.1"
+version: "2.2"
 tags: [handoff, continuity, status, compression, operator, verification, repair-first]
 compatible_with: [any-ai]
 ---
@@ -209,6 +209,36 @@ Fix: Repair the verifier inside the current authority if possible.
 
 Next: Rerun the page acceptance test before declaring PASS.
 ```
+
+## Easy Handoff v4 — single-surface, evidence-based continuation
+
+For an operator who requests ADHD-friendly or short handoffs, prefer one plain-language, single-column summary, without repeating issues or milestones in separate panels. Follow the user's current project-specific output rules if they are stricter.
+
+### One screen, three questions
+
+- **1. Done:** What passed? Include the accepted completion count or a single progress bar **inside this row**, only when an authoritative checklist defines both numerator and denominator. Expand the row to see all verified items and their source links.
+- **2. Issue:** What genuinely blocks or needs attention? The closed row must name the most relevant issue. Expansion reveals **every** applicable issue and its evidence/owner; no nested "Show more" or "Show fewer" controls. Omit the row when there is no actual issue.
+- **3. Next:** What is the one safest authorized next action? The closed row states the action, not just the word "Next." Expanded detail explains its prerequisites, evidence and alternatives.
+- In supported interactive clients, each SAME summary row is its own accessible expand/collapse control. Never create a second Issues, Milestones, Drift or Progress panel showing the same material. Plain chat uses small numbered headings and 1–2 short bullets per group. Skip an interactive UI when not supported; never invent fake buttons.
+- When actions are supported, present one primary recommendation and `Other actions · N` only if there are N distinct, currently eligible alternatives. Count from real state, not a fixed four-button inventory. A read-only host can produce a copyable guarded prompt, never pretend to execute it.
+
+### Safe recommendation and drift guard
+
+- Recheck approved goal, current milestone, dependencies, owner, permission boundary, evidence and current source before **every** side effect. The workflow recommends; it does not grant permission.
+- A blocking dependency means repair/retest under its owner or HOLD; never suggest a dependent "Continue" until it passes. Unrelated pre-authorized work may continue. New evidence is compared with the existing issue/branch first; branch creation requires separately authorized ownership and genuinely distinct scope.
+- A drift alert needs a source-backed original goal, actual divergence, justification (or UNKNOWN), and return/defer route. No baseline means `DRIFT CHECK UNAVAILABLE`, not "On track."
+- Keep all milestone credits in the existing accepted ledger. Source reads, synthetic tests, commit count, draft work, unsupported tests or a new chat add no completion credit. Do not invent a denominator or reset it each turn.
+
+### Chat-pressure warning and verified GitHub transfer
+
+- If the runtime provides actual context-window measurements or compaction hooks, distinguish **MEASURED** pressure from **HEURISTIC** symptoms (repetition, missing source, contradictory evidence, lost accepted decisions). If unavailable, do not invent a context percentage, session token budget or turn countdown.
+- Recommend checkpointing within the next three user turns *only* if a real host/session counts the turns; otherwise say `Checkpoint recommended soon`. Critical context loss warrants immediate checkpoint. Treat three turns as a suggested process target, never a model-expiration forecast.
+- Resume via the **existing canonical** project handoff: verify current owner/source -> seal bounded step -> write concise evidence and latest user correction -> read back the exact saved ref/SHA -> prepare a fresh-chat bootstrap pointer. A failed or unreadable write is `DURABILITY BLOCKED`; offer a copyable unsaved handoff rather than claiming it was persisted.
+- Creating a new chat, jumping to an earlier message, updating an installed Skill and running a GitHub write require actual host/tool support; a prompt or Markdown link does not do them. A fresh chat must independently reload current authority.
+
+### Verification
+
+Pass presentation checks only after testing one-surface nonduplication, complete expanded issues (including long lists), dynamic option counts, blocked-action routing, source links, keyboard/touch accessibility, no fake context readings, missing/failed GitHub receipts and an unchanged accepted milestone ledger. Android Read Aloud and real-host message anchors require directly observed field evidence; a synthetic browser test is not proof.
 
 ## Done Condition
 
