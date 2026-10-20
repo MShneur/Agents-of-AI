@@ -38,8 +38,8 @@ briefcase, burden, compass, concierge, distiller, framesmith, friction, gridlock
 ### Agents (15)
 alt-ssembly-required, archaeologist, auditor, chisel, conductor, firehose, locksmith, origin, repo-nanny, scout, scribe, showrunner, sieve, stresstest, tracker
 
-### Workflows (22)
-alt-ssembly, build-chain, cleanerz, deep-dig, easy-handoff, evidence-assembly, issue-to-patch, large-artifact-handoff, new-ai-workspace-bootstrap, nursery-sweep, outcome-reconciliation, prd, quorum, razor, red-green, repository-intelligence-boot, retro, root-cause, scenario-falsification, second-room, signal-before-verdict, stall-guard
+### Workflows (23)
+alt-ssembly, build-chain, cleanerz, deep-dig, easy-handoff, evidence-assembly, issue-to-patch, large-artifact-handoff, new-ai-workspace-bootstrap, nursery-sweep, outcome-reconciliation, prd, quorum, razor, red-green, reddit-guardian, repository-intelligence-boot, retro, root-cause, scenario-falsification, second-room, signal-before-verdict, stall-guard
 
 ### Techniques (18)
 activation-receipt, adjacent-breakage-check, assumption-surface, conflict-extraction, controlled-vocabulary, counterfactual, error-decorrelation, failure-premortem, judge-rubric, objection-loop, observation-masking, rarv-cycle, retrieval-precision-gate, single-dispatch-operator, skill-provenance, steelman, symbol-trace, wheel-check
