@@ -1,6 +1,6 @@
 # Agents of AI — Tools
 
-**Last public review:** 2026-10-13  
+**Last public review:** 2026-10-20  
 **Status:** actively maintained supporting layer
 
 This folder is the public tools shelf for Agents of AI: software recommendations, APIs, free/student capability notes, setup walkthroughs, and reusable infrastructure patterns that help AI workflows actually run.
@@ -18,7 +18,8 @@ It is **not an eighth AoA composable layer**. Personas, agents, workflows, techn
 | [`ctrl-walkthrough/`](ctrl-walkthrough/) | Responsive Tampermonkey setup runner and reusable public walkthrough JSON |
 | [`ctrl-walkthrough/AI_HANDOFF_PROTOCOL.md`](ctrl-walkthrough/AI_HANDOFF_PROTOCOL.md) | How an AI should choose public module vs `CWZ2`/`CW2` paste code vs local file vs best-effort private GitHub pointer |
 | [`ctrl-walkthrough/make_handoff.py`](ctrl-walkthrough/make_handoff.py) | Deterministic gzip+Base64URL `CWZ2` / Base64URL `CW2` generator with expiry and basic secret guards |
-| [`provider-field-guidance.md`](provider-field-guidance.md) | Novice mobile/provider screenshot setup: official FAQ check, exact SET/KEEP/WAIT fields, true copy-ready code boxes, account-specific values from their actual UI, verified save/status gate |
+| [`provider-field-guidance.md`](provider-field-guidance.md) | Extract attached HTML/screenshots first, identify exact mobile fields and vendor-assigned values, then produce truly copy-ready boxes with a verify-before-save gate |
+| [`scripts/provider_field_evidence.py`](scripts/provider_field_evidence.py) | Offline, stdlib-only saved-HTML evidence extractor with adversarial regression tests; doesn't log account ID or publish DNS changes |
 | [`publication-safety.md`](publication-safety.md) | Privacy and publication gate for anything added under `tools/` |
 | [`CHANGELOG.md`](CHANGELOG.md) | Fast-moving history for tool/API/walkthrough additions and changes |
 
