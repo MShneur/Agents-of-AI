@@ -8,7 +8,7 @@ Activate when the operator says "for dummies", "tell me exactly what to enter", 
 
 ## PRECHECK before instructing
 
-1. **Identify the current provider + current screen** from the screenshot, current URL or uploaded page, and the last verified step; identify field labels, option values, active toggle state, and exact Save/Continue control. Never call the user "on step 3" if the screenshot is on a different step.
+1. **Inspect any existing uploaded provider HTML, screenshots, exported configuration, or captured page first**. If a saved HTML is available, read/search the actual entire file for the required value(s), identify its saved URL/screen stage, and classify extracted values by their role BEFORE asking for another screenshot. Treat older uploads as proof of what appeared on *that captured page*, not current account state. When two artifacts disagree, use their timestamps/page stage; explain the difference. Then **identify the current provider + current screen** from the screenshot, current URL or uploaded page, and the last verified step; identify field labels, option values, active toggle state, and exact Save/Continue control. Never call the user "on step 3" if the screenshot is on a different step.
 2. **Research the provider's current official help documentation** for the exact route, field semantics, plans, verification, and side effects. Prefer current provider docs, then observed live UI; do not infer account-specific fields from an evergreen FAQ.
 3. **Classify every necessary value** as: (a) safe public constant verified from official provider, (b) user-supplied and visible in this conversation, (c) account-/domain-assigned value that must be copied from the provider's authenticated UI, (d) secret/credential, or (e) unknown. Crucial: being *form-shaped* does NOT make a value knowable.
 4. **Check dependencies before irreversible effects.** DNS changes can interrupt web/email services; importing a DNS zone is not equivalent to verifying every record. Account grants, DNS changes, MFA resets, payment, subscriptions, publishing and provider mutation are human gates. Never request passwords, tokens, cookies or recovery codes in chat or shared screenshots. Guide secure provider-native entry/OAuth.
@@ -23,6 +23,42 @@ Activate when the operator says "for dummies", "tell me exactly what to enter", 
 - Don't re-teach steps the user has already completed. One or two **next actions** per reply; hold the remaining route until the next screen.
 - Label any consequential action ("Tap the green checkmark to save both nameservers") and what to verify afterward ("Cloudflare zone Active"), including normal propagation time and a safe troubleshooting source.
 - Verify provider-side state (saved confirmation or status) before declaring COMPLETE; distinguish **INPUT_ENTERED**, **SAVED**, **PROPAGATING**, **ACTIVE** and **UNKNOWN**. Avoid suggesting a full public website is hosted merely because DNS is active.
+
+
+## EXTRACT FIRST: existing-artifact evidence ladder
+
+**This is a correction to the original protocol.** A complete HTML upload is an available evidence source. Asking the user to find or screenshot values that can already be extracted is a protocol failure; guessing values that are NOT present is equally a failure.
+
+**Priority:**
+1. Current message image(s) **plus** previous uploaded page/HTML/config/export that could contain requested values. Search the full uploaded file, not just preview/snippet text, and parse displayed value/context. Example: a saved SingleFile HTML may be about 1 MB but one very long line; a 30-line preview may not contain all fields.
+2. Existing authenticated tool/browser DOM when approved and connected: focus current URL + visible field labels/roles and assigned values. Follow **Microsoft Playwright** `getByRole` / `getByLabel` semantics for identifying the actual field, NOT arbitrary text matches. Reference: https://github.com/microsoft/playwright/blob/main/docs/src/locators.md .
+3. Explicit typed `extract -> validate -> observe` concept from **Stagehand** https://github.com/browserbase/stagehand : return *a structured value plus its evidence and field role*, distinguish uncertain candidates and require current-screen evidence. **ASSIMILATE the pattern only**, do not install Stagehand, call a paid browser service, or hand private HTML to an outside AI. Its untrusted model output is not itself a DNS assignment.
+4. **Control Walkthrough** existing first-party system https://github.com/MShneur/Ctrl-Walkthrough : mobile one-task/one-action guide, deep-link then exact locator, optional safe fill but never auto-submit consequential steps. This is the owned user-interface runtime. Avoid starting a parallel walkthrough engine.
+5. When direct source extraction genuinely fails, tell the user exactly which captured page was inspected and which value category was found versus missing; give one click or exact page to expose it. **Request only the NEXT relevant screen**, not a repeat of a page already parsed.
+
+### Working CLI: not just a prose promise
+
+`python3 tools/scripts/provider_field_evidence.py saved_page.html` reads a local saved HTML **offline**, prints JSON with `cloudflare_nameservers`, `status`, `on_scanned_records_page`, and a next action. It **never reads login cookies or calls an API**. It deliberately ignores IP/CNAME/A/MX records as candidates for the registrar's Nameserver 1/2 boxes; accepts a Cloudflare pair only when exactly two distinct `*.ns.cloudflare.com` names appear near an assignment label on an appropriate page. If the file is a Cloudflare `/confirm-scanned-records` page, an NS record in its import table is **not an assigned delegation**. If two names are merely mentioned in a script or example text, status stays UNVERIFIED. This is a **preliminary offline classifier**; the current provider screen remains the final evidence for copy-paste and any Save action remains with the user.
+
+Source + unit tests:
+- `tools/scripts/provider_field_evidence.py`
+- `tools/scripts/test_provider_field_evidence.py`
+- `python3 -m unittest discover -s tools/scripts -p 'test_provider_field_evidence.py' -v`
+- Script exits 0 when it finds two labeled hostnames requiring current-screen corroboration, 2 when no ready pair. Nonzero is not a runtime failure and no output is a DNS save.
+
+### Error-recovery contract
+
+If a user says "you already have the HTML" or "why are you sending me around?", **stop and inspect the attached file**. Then either:
+- **HAS_PAIR:** reply "Nameserver 1 says [verified exact host]" and one clean code block, same for Nameserver 2; note the current provider assignment must agree before saving.
+- **EARLIER_STAGE:** reply "Your saved page is *Confirm scanned DNS records*; it shows A/CNAME/MX records, not the assigned Cloudflare nameservers. Continue to activation. Then I can copy them." No fake boxes. The user's registrar screen with empty Nameserver 1 and Nameserver 2 fields is not the Cloudflare assignment source.
+- **NEEDS_CORROBORATION:** distinguish `NS` record(s) and documentation examples from the provider's authoritative delegated pair; request one screenshot centered on the assignment panel.
+- **NO_SOURCE:** ask for the one relevant screenshot/HTML, not a large provider tour.
+
+Never interpret `192.0.2.1`, a provider parking host, or a copied TXT/MX/CNAME as a nameserver merely because it is under a "DNS" heading. Public example domains and documentation URLs are not valid account-specific inputs. Never emit personally identifying source URLs, account IDs, filenames or live domain names into the public AoA repo.
+
+### Independent evidence test vs claims
+
+The local unit tests include a captured DNS import page, adversarial NS records on that import page, lone/unlabeled hostnames, script-only values, case/period normalization, and leak-check. A unit pass proves the parser's synthetic scenarios, NOT the account's present state or a completed nameserver change. For screenshot-only cases, manual visual extraction is preferable to speculative or repeated OCR; do not infer characters from a clipped image.
 
 ## Grounded two-provider case: Cloudflare nameservers -> Namecheap Custom DNS
 
