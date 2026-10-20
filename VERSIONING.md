@@ -4,7 +4,7 @@ Agents of AI contains several kinds of artifacts that change at different rates.
 
 ## Current public snapshot
 
-**Snapshot:** `2026.10.14`
+**Snapshot:** `2026.10.20`
 
 Live composable roster at this snapshot:
 
@@ -12,12 +12,12 @@ Live composable roster at this snapshot:
 |---|---:|
 | Personas | 23 |
 | Agents | 15 |
-| Workflows | 22 |
+| Workflows | 23 |
 | Techniques | 18 |
 | Modes | 4 |
 | Teams | 6 |
 | Failures | 6 |
-| **Total** | **94** |
+| **Total** | **95** |
 
 Supporting tools, software recommendations, APIs, and walkthroughs are **not an eighth composable layer** and are versioned separately.
 

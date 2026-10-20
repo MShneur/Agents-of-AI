@@ -1,5 +1,12 @@
 # Agents of AI — Changelog
 
+## 2026-10-20 — Reddit Guardian prepublication workflow
+
+- Added `workflows/reddit-guardian.md` as a 7-step, task-specific Reddit writing review workflow composing Scribe, Scout, Auditor, and Distiller rather than creating another general ghostwriter.
+- Added a public source register at `origin/research/reddit-guardian-moderation-notes-2026-10-20.md`, separating current Reddit policy links from illustrative community-maintained moderation software and explicitly marking unknown enforcement causes.
+- Refreshed curated README and generated research-prompt rosters for **23 workflows / 95 entries**; advanced the dated public snapshot to `2026.10.20`.
+- Release claim limited to the reviewed repository content; no promise that stylistic rewriting defeats Reddit enforcement, and no user-specific ban evidence published.
+
 ## 2026-10-13 — Harness consolidation and agent-protocol discovery
 
 - **Reduced the public composable roster from 93 to 91** without removing compatibility paths: `human-gate-committee.md` now aliases canonical Quorum, and `repo-prd.md` now aliases the REPO/BROWNFIELD profile in PRD v2.0.
