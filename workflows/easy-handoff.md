@@ -15,6 +15,16 @@ compatible_with: [any-ai]
 
 **Aliases:** Zero Handoff · Direct Status
 
+## Conditional interactive operator contract — v4.1
+
+For a user who has approved interactive Easy Handoff and whose current host supports real components, finish substantive tasks with **one** compact Done / Issue / Next accordion, and keep details inside those headings. Preserve Mission and which live AoA definitions were **retrieved and applied** with evidence; names alone do not prove application. Each collapsed heading conveys a sentence without opening it. The Done heading owns the **one** cumulative progress number and a **contiguous left-to-right fill** for the current accepted task or project. Individual credited IDs belong in expanded evidence, never green islands in the summary bar. When the present task has no accepted progress register, say `Work progress not baselined` instead of borrowing another project's dated count.
+
+When actual downloadable files were produced and their exact destinations were verified in the current turn, include a compact **Files** line containing direct clickable links inside **collapsed Done**. Keep these files reachable without scrolling to an earlier paragraph or expanding the accordion. Never invent paths or carry sandbox attachments into new chats; omit Files when there is nothing real to download.
+
+The Issue heading shows the highest-priority blocker/count and expands all structured issues. The Next heading shows the one safest authorized action plus only the presently eligible `Other actions · N` options, where N is derived from state. Real host callbacks may submit only on deliberate user clicks after rechecking permission; otherwise provide a truthful copyable prompt. Place **Protocol / Lane** check LAST; missing mandatory elements are `ERROR` with repair, while pending tests/reviews are `NOT_TESTED` or `HOLD`. Never self-certify platform behavior from a schema receipt. No second dashboard, checklist, or bar.
+
+This supplements—not abolishes—the concise text/audio-only fallback described below. Host support and current user preference determine which presentation is valid. Public definitions do not override private project authority, Human Gates or ownership.
+
 ## Purpose
 
 Separate machine continuity from human status.

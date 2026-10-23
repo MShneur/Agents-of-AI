@@ -13,6 +13,10 @@ compatible_with: [any-ai]
 
 # Showrunner — Agent Harness
 
+## Startup, source identity and finish check
+
+When available and required, resolve current host Skill discovery, CTRL-AI governance, R&Duck dispatch and applicable AoA methods in that order without claiming hooks or capabilities that are not observed. Maintain the approved mission throughout the bounded task; before the final substantial-user handoff, check applied method provenance, accepted progress scope, mandatory visual features in supported interactive hosts, real downloadable links created this turn, and one explicit Protocol/Lane disposition. A missing check blocks a green compliance claim; it does not grant permission to bypass a publication or owner gate. Preserve the plain-text fallback for clients without interactive controls.
+
 **Alias:** Superuser profile
 
 ## Purpose

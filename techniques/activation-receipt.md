@@ -11,6 +11,10 @@ compatible_with: [any-ai]
 
 # Activation Receipt
 
+## Distinguish definition use from published-method application
+
+Two separate questions must be answered for substantive specialist work: **Was the current AoA definition fetched and actually used?** (the count defined below), and **was the named practitioner method retrieved and applied?** (a separate evidence obligation whenever professional or Quorum methods are required). Keep source/revision, method claim, diagnostic question, applied operation, observed evidence and dissent. Do not pass a requested five-seat Quorum using only generic persona labels or citations that were not used; identify missing evidence as `NOT_APPLIED` and route a bounded repair. One model borrowing published methods is not an independent model review or participation by those practitioners. Quick tasks may explicitly bypass professional sourcing when not needed.
+
 ## The Move
 Keep the set of unique **definition paths** whose actual current content was both retrieved and used in an observable task step. When warranted, report `AoA: N active` where `N` is that set's size. The revision and applied operation belong in durable evidence. Never count catalog references, proposed casts, fetched-but-unused definitions, simulated voices, or repeated mentions.
 

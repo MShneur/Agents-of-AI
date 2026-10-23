@@ -1,5 +1,11 @@
 # Repository agent rules
 
+## Easy Handoff v4.1 — user-approved interactive host supplement
+
+When a project has accepted a richer Easy Handoff format and the host exposes actual interactive controls, preserve one expandable Done / Issue / Next surface with one-sentence collapsed summaries, Mission, exact applied AoA method evidence, continuous cumulative progress anchored at zero for the ACTIVE accepted mission, semantic colors, eligible one-click action choices, and a final protocol/lane check. If the current answer contains verified downloadable files, link them directly inside **collapsed Done** rather than only before the card; omit the Files row when there are none. Do not guess filenames, sandbox paths, or host action capability.
+
+These specifics override the older generic text-only suggestion only for the user's approved task/host. Plain text is the truthful fallback when controls do not exist; no Skill or source text installs a UI, starts agents or grants write access. Full source-specific detail remains in the current project rules; do not reset or invent project acceptance.
+
 ## Easy Handoff / Direct Status boot — mandatory
 
 Before selecting agents, personas, workflows, teams, or tools for any substantial task, load `workflows/easy-handoff.md`.
