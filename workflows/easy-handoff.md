@@ -262,6 +262,30 @@ Pass only when:
 - the recommendation points at the repair/recovery path;
 - no recommendation has been laundered into a decision.
 
+## Bounded narrative records and handoff routing
+
+New AI-authored narrative records, handoffs and derived retrieval pages must stay at or below 32 KiB UTF-8 each. This is a ceiling, not a target: keep any stricter existing format or passage limit. At the boundary, create only an owner-authorized continuation under the existing schema and parent index; never accumulate another oversized CURRENT, HANDOFF or master ledger. Split complete logical entries. If one entry alone exceeds the limit, split it only at its own subheading, paragraph or complete-list boundaries, carrying its heading, date, attribution and governing conditions into every part; if that cannot be done losslessly, preserve the source and report the split BLOCKED rather than silently truncate it.
+
+Preserve source hashes, exact byte/line spans, IDs, old aliases, chronology, author attribution, failures, prohibitions, conditions and explicit supersession. A parser heading is navigation, not proof that an embedded title governs later dated entries. Missing dates, status or authority remain UNKNOWN; never infer them from a filename, Git timestamp, model confidence or a date alone.
+
+### Existing formats and controlled vocabulary
+
+Preserve the existing record-family format: canonical sources and handoffs remain Markdown or plain text where their protocol requires it; existing machine-readable views use their structured JSON/YAML schema, controlled vocabulary, readable statements and exact evidence. This is not a universal JSON/YAML mandate, new AI-only language, arbitrary compression code or replacement for original English/source text. Keep the applicable project schema; do not invent abbreviations or interchange vocabularies from different record families. Byte coverage, model agreement and a status-token mention do not establish semantic acceptance or permission.
+
+### Folder and index routing
+
+Resolve the project-owned logical path map and existing source/workstream index before creating a file. Place bounded continuations in the approved project/area and source-specific subfolders, preserving parent/child links and old routes. Do not create a new master folder, ledger, database or competing task board. Physical subfolders alone do not prove semantic completeness. Large raw manifests/data/code are not blindly split as narrative; provide bounded navigation into them without changing their canonical bytes.
+
+### Handoff and acceptance
+
+Keep one canonical owner/control return route. A handoff contains concise current-state pointers, exact tested revision and evidence, verified work, failed/rejected attempts, UNKNOWNs, current ownership and holds, rollback and one bounded next action. Link detailed bounded evidence rather than pasting it repeatedly. Record the source and editor/model attribution honestly. A new chat reads current bootstrap, permissions, owner record and relevant index, then escalates to exact original evidence when a condition is omitted or contradictory. It does not inherit authority or a lease from another chat.
+
+Before finishing a write packet, check UTF-8 byte sizes, the applicable schema, parent index, alias and reverse-source resolution, and source drift. Group explicit supersession across storage pages only for the same logical source identity; reject missing targets, self-links, cycles and cross-source edges. Never infer supersession from dates alone. Keep historical, proposed, installed, tested and adopted states distinct.
+
+Canonical originals and append-only ledgers remain under their existing owner and record-type protocols. Do not truncate, delete, rename, archive or rewrite them automatically. A compact source-linked append may replace duplicated evidence only where that protocol allows it. No move or deletion is permitted unless both the applicable record-type and owner protocol expressly permit it; records that forbid physical moves stay in place and use permitted archive status/routing instead. Any authorized relocation preserves identity, aliases, hashes, prior references and rollback. Generated records never grant runtime permission or override newer source authority.
+
+Before a dependent cutover, run source preservation, reference resolution, historical/superseded/UNKNOWN and fresh-chat recovery checks. Project-required independent audits must actually run; unavailable or paid-only audit routes stay NOT_RUN or BLOCKED unless an applicable owner spending authorization exists. Never count loading a Skill as an audit result. A policy file alone does not prove another client loaded it or that a write-size guard is installed. Source publication, host Skill installation, old-chat reload, enforcement and migration adoption are separate acceptance claims.
+
 ## Failure Signals
 
 - cast/model/progress/tool logs shown without need;

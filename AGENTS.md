@@ -97,6 +97,10 @@ If load-bearing authority conflicts remain unresolved, hold Designer execution a
 
 For every project or lane, establish one authoritative handoff/control record and a project-specific approved file manifest before dispatch. Every worker gets one bounded assignment, named method/persona, owner, allowed files, forbidden surfaces, baseline revision, midpoint/completion gates, and one return path to that same handoff. Parallel workers must have disjoint file ownership; the coordinator integrates and updates the shared handoff. Do not create competing handoffs, shadow ledgers, duplicate style systems, or unregistered paths. Use `workflows/build-chain.md#bounded-worker-continuity-contract` for the generic packet and midpoint rules; project-specific constraints remain in the project handoff.
 
+## Bounded records, schema and handoff writing
+
+Before a narrative/handoff write, follow `workflows/easy-handoff.md#bounded-narrative-records-and-handoff-routing`: reuse the project's existing structured schema and controlled vocabulary, keep readable statements and evidence, and use owner-approved subfolders, bounded pages, indexes and old-ID aliases. New narrative pages are at most 32 KiB UTF-8; preserve any stricter existing limit. Protected originals and record-family ownership still govern. This is not a new AI-only language or proof of client installation, reload or enforcement.
+
 ## Transfer evidence and route semantics
 
 For a real cross-provider transfer, use the supporting contract in tools/continuity-kernel/README.md after re-reading current project ownership. Structural VALID never proves execution or grants inherited access. Require evidence for the exact requested target. For external capability selection, use tools/capability-routing.md; a transport-only green or a fallback missing required semantics cannot become READY. Read ECOSYSTEM.md for cross-repository responsibility boundaries.
