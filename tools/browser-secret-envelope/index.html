@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow,noarchive">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; base-uri 'none'; form-action 'none'; object-src 'none'; connect-src 'none'; img-src 'none'; font-src 'none'; media-src 'none'; manifest-src 'none'; worker-src 'none'; script-src 'sha256-cabJ2sqG8SPybUT6UwZQmwB99BHAduV7yzE2+7xcxik='; style-src 'sha256-b5fqANYpsFv4AJ5RDm8kzdpUW7C+Z+BXO0udLPHcjos='; upgrade-insecure-requests">
+<title>Local Secret Envelope — browser-only encryption</title><style>:root{color-scheme:dark light;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}*{box-sizing:border-box}body{max-width:680px;margin:0 auto;padding:clamp(20px,6vw,54px);line-height:1.55;background:#101318;color:#eceff3}h1{font-size:clamp(24px,4vw,32px);line-height:1.18;margin:0 0 10px}.muted{color:#b8c3d1;font-size:.91rem}label{font-weight:660;display:block;margin-top:22px;margin-bottom:8px}textarea,input{width:100%;font:inherit;color:#fff;background:#1c2630;border:1px solid #738396;border-radius:9px;padding:13px;line-height:1.4}textarea{min-height:115px;resize:vertical}textarea[readonly]{background:#162127}textarea:focus,input:focus,button:focus-visible{outline:3px solid #ffbd69;outline-offset:3px}button{display:inline-block;border:0;border-radius:9px;padding:13px 16px;font:inherit;font-weight:700;cursor:pointer;background:#ffbb6b;color:#131719;margin-top:13px}button[disabled]{opacity:.6;cursor:wait}button.secondary{background:#bfcada}.fingerprint{overflow-wrap:anywhere;color:#e3ecff;font-family:ui-monospace,SFMono-Regular,monospace;font-size:.85rem}#status{min-height:1.5em;color:#b8eec6}#status[data-state=error]{color:#ffa5ad}.warning{border-left:3px solid #ffbd69;padding:8px 12px;background:#1c2229;color:#e5e9ed;margin:20px 0}small{font-size:.86rem}@media(prefers-color-scheme:light){body{background:#fafbfc;color:#181c21}.muted{color:#424e5a}textarea,input{background:#fff;color:#171e25;border-color:#677584}textarea[readonly]{background:#f1f5f6}.fingerprint{color:#243753}.warning{background:#fff2dc;color:#25282c}#status{color:#076b36}#status[data-state=error]{color:#a31527}}
+</style></head>
+<body><main>
+<h1>Local Secret Envelope</h1>
+<p class="muted">Encrypt a password or API token inside your browser using the recipient's one-time RSA-3072 public key. No secret or key is uploaded to this website.</p>
+<p class="warning"><strong>Verify the website URL and the key fingerprint.</strong> A public website is not a trusted recipient by itself. Obtain a fresh public key directly from your authorized recipient and compare its fingerprint through an independent channel. Never share a private key or recovery phrase.</p>
+<label for="public-key">Recipient public key (PEM)</label><textarea id="public-key" spellcheck="false" autocapitalize="off" autocomplete="off" placeholder="Paste your recipient’s complete RSA public key here"></textarea>
+<label for="secret">Secret to encrypt (max. 318 UTF-8 bytes)</label><input id="secret" type="password" autocomplete="off" spellcheck="false" autocapitalize="off" placeholder="Enter locally; never paste into chat">
+<button type="button" id="encrypt">Encrypt locally</button>
+<p id="status" role="status" aria-live="polite"></p>
+<label>Public key SHA-256 fingerprint</label><p class="fingerprint" id="fingerprint">—</p>
+<label for="ciphertext">Ciphertext (Base64; safe to transmit only to the intended recipient)</label><textarea id="ciphertext" readonly spellcheck="false" autocomplete="off"></textarea>
+<button type="button" id="copy" class="secondary">Copy ciphertext</button>
+<p class="muted"><small>RSA-OAEP with SHA-256 (MGF1-SHA-256); one-time 3072-bit key. Browser-only; no network APIs or external code. Copying ciphertext does not install credentials. The receiving system must validate a transfer ID, expiry, intended provider and variable; this page cannot do that. The page cannot encrypt device-bound passkeys or large files. Clearing the field is best effort, not guaranteed memory erasure.</small></p>
+</main><script>'use strict';
+const byId = id => document.getElementById(id);
+const keyField = byId('public-key');
+const secretField = byId('secret');
+const cipherField = byId('ciphertext');
+const fingerprintField = byId('fingerprint');
+const statusField = byId('status');
+const startButton = byId('encrypt');
+const copyButton = byId('copy');
+const decoder = new TextDecoder();
+const encoder = new TextEncoder();
+function status(text, error = false) {
+  statusField.textContent = text;
+  statusField.dataset.state = error ? 'error' : 'ok';
+}
+function base64(bytes) {
+  // RSA-3072 output is fixed at 384 bytes, safely below btoa limits.
+  return btoa(String.fromCharCode(...bytes));
+}
+function spkiFromPem(pem) {
+  const match = /^\s*-----BEGIN PUBLIC KEY-----\s*([A-Za-z0-9+/=\s]+?)\s*-----END PUBLIC KEY-----\s*$/.exec(pem);
+  if (!match) throw new Error('Paste one complete PEM PUBLIC KEY received from the intended recipient.');
+  const encoded = match[1].replace(/\s+/g, '');
+  if (encoded.length > 8192 || encoded.length < 128 || !/^[A-Za-z0-9+/]+={0,2}$/.test(encoded)) {
+    throw new Error('The public key encoding is invalid.');
+  }
+  const binary = atob(encoded);
+  return Uint8Array.from(binary, ch => ch.charCodeAt(0));
+}
+async function encrypt() {
+  startButton.disabled = true;
+  cipherField.value = '';
+  fingerprintField.textContent = '—';
+  let plaintext;
+  try {
+    if (!globalThis.isSecureContext || !globalThis.crypto?.subtle) {
+      throw new Error('Local Web Crypto is unavailable; use a modern browser over HTTPS.');
+    }
+    const spki = spkiFromPem(keyField.value);
+    const key = await crypto.subtle.importKey('spki', spki, {name:'RSA-OAEP', hash:'SHA-256'}, false, ['encrypt']);
+    const modulusLength = key.algorithm.modulusLength;
+    if (modulusLength !== 3072) throw new Error('Only RSA-3072 recipient keys are accepted by this version.');
+    const secret = secretField.value;
+    plaintext = encoder.encode(secret);
+    // OAEP(SHA-256) maximum = 384 - 2*32 - 2 = 318 bytes.
+    if (plaintext.length < 1 || plaintext.length > 318) throw new Error('Secret must be between 1 and 318 UTF-8 bytes.');
+    const digest = new Uint8Array(await crypto.subtle.digest('SHA-256', spki));
+    fingerprintField.textContent = Array.from(digest, n => n.toString(16).padStart(2,'0')).join('');
+    const encrypted = new Uint8Array(await crypto.subtle.encrypt({name:'RSA-OAEP'}, key, plaintext));
+    if (encrypted.length !== 384) throw new Error('Unexpected RSA ciphertext size.');
+    cipherField.value = base64(encrypted);
+    status('Encrypted locally. Verify the recipient-key fingerprint independently, then copy only the ciphertext.');
+  } catch (e) {
+    status('Encryption failed: ' + (e?.message || 'unknown error'), true);
+  } finally {
+    secretField.value = '';
+    if (plaintext) plaintext.fill(0); // best-effort: JS engines may retain earlier copies
+    startButton.disabled = false;
+  }
+}
+startButton.addEventListener('click', encrypt);
+copyButton.addEventListener('click', async () => {
+  if (!cipherField.value) { status('Encrypt a secret first.', true); return; }
+  try { await navigator.clipboard.writeText(cipherField.value); status('Ciphertext copied.'); }
+  catch { cipherField.focus(); cipherField.select(); status('Select and manually copy the ciphertext.'); }
+});
+</script></body></html>

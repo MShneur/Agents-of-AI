@@ -14,6 +14,7 @@ It is **not an eighth AoA composable layer**. Personas, agents, workflows, techn
 | [`software-recommendations.md`](software-recommendations.md) | Curated software choices by job: automation, research, hosting, mobile admin, testing, secrets, AI, and more |
 | [`api-catalog.md`](api-catalog.md) | Public API/protocol stack: ARD, Agent Skills, MCP, A2A, AG-UI/A2UI, webhooks, event streams and integrations |
 | [`free-tool-ledger.md`](free-tool-ledger.md) | Publicly verified free/student quotas, limits, and caveats |
+| [`browser-secret-envelope/`](browser-secret-envelope/) | Auditable browser-only RSA-OAEP encryption of short secrets with a recipient-supplied one-time public key; no network or private implementation details |
 | [`remote-mcp-cloud-bridge.md`](remote-mcp-cloud-bridge.md) | Scrubbed remote-MCP + binary-ingress roadmap with a **domain? yes -> named tunnel / no -> Quick Tunnel** decision tree, mobile shortcuts, chunked large-file flow, failure lessons, and completion gates |
 | [`ctrl-walkthrough/`](ctrl-walkthrough/) | Responsive Tampermonkey setup runner and reusable public walkthrough JSON |
 | [`ctrl-walkthrough/AI_HANDOFF_PROTOCOL.md`](ctrl-walkthrough/AI_HANDOFF_PROTOCOL.md) | How an AI should choose public module vs `CWZ2`/`CW2` paste code vs local file vs best-effort private GitHub pointer |
