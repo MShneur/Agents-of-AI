@@ -23,6 +23,10 @@ Insert a gate between collection and use:
 4. **Name what is missing.** The gate's second job is finding the gap the retrieval did not fill.
 5. **If nothing is load-bearing, do not proceed.** Report the absence. A retrieval that returned only ambient material has answered nothing.
 
+## Source-preserving observation compaction
+
+Keep exact provenance handles (source bytes, path/ref, accepted outcome receipt, owner, and negative evidence) before compressing bulky observations. A description is not a substitute for missing source bytes or an earlier access refusal. Retain load-bearing evidence in the working set; move corroboration to pointers; discard ambient text. Reuse existing context packs and Backstitch, not another store. Claim a gain only after comparing context reduction against recovery of exact sources and denied/failed conditions on the same approved fixture.
+
 ## Calibration
 
 Raise the bar as stakes rise: for consequential work, corroborating material must also be dropped unless it comes from an independent source, since three restatements of one origin are one source, not three.
