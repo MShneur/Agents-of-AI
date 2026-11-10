@@ -10,6 +10,10 @@
 - **Jev / TypeSafe (optional):** rank relevant evidence or route ambiguous tasks. Typed judgments and probabilities are not proof of execution, permission, or external-target success; thresholds require task-specific calibration.
 - **Claude Code hooks (optional host adapter):** snapshot record pointers before compaction and re-read authority after compaction or session restart; never assume the hooks are available in another provider.
 
+## Incremental correction and source/episode separation
+
+When an owner corrects task state, append one provenance-linked correction to the existing canonical record instead of rewriting memory wholesale. Preserve KNOWN, TRIED_WORKED, TRIED_FAILED, NOT_TRIED, DEFERRED, superseded evidence and revival conditions. Keep primary source facts separate from assistant episode summaries; current authority outranks recollection. An assistant-generated timestamp, appended log or unexecuted plan does not prove decision-changing evidence. No new memory store is authorized by this note. Host progress-token derivation remains a separate runtime requirement.
+
 ## Fidelity and evidence rules
 
 - A PASSED record requires at least one required check; every required check must be PASS with a named PASS evidence item whose target exactly matches requested_target.
