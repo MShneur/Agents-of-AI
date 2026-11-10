@@ -27,6 +27,10 @@ Use automatically for substantive, uncertain engineering or research work where 
 6. **Challenge (Auditor + Stresstest):** Verify target identity, result, negative case, independent evidence axis, documented dissent, data leakage, and rollback. Repeated unrooted patches trigger the existing Cleanerz/Stall Guard process. Same-model simulated reviewers are not independent professional endorsement.
 7. **Close (Conductor):** Return `PASS | FAIL | PARTIAL | BLOCKED | NOT_TESTED` with the actual evidence, remaining outcome gap, owner and one next bounded action in the existing canonical handoff. Use Easy Handoff for the short human status; do not publish a committee transcript by default.
 
+## Research-to-improvement acceptance profile
+
+Classify a sourced candidate as `SOURCE_EXISTS`, `UPSTREAM_CLAIMED`, `CODE_INSPECTED`, `OWNER_STAGED`, `ACTUAL_INTEGRATION_TESTED`, or `RELEASED` using the exact supporting evidence. A collector producing records is not system evolution. Require source provenance and a named preexisting owner, plus a discriminating baseline tied to the capability gap. For owner-approved BUILD FIRST, integrate a coherent reversible unit before discretionary benchmarking, preserve safety/rights checks, then perform ONE consolidated actual-outcome acceptance and bounded fixes. Do not substitute loops of micro-tests for working infrastructure.
+
 ## Done Condition
 
 The intended outcome is evidenced by an authorized discriminating test and independent acceptance, or a precisely identified blocker is preserved without invented success. Quorum deliberation alone never certifies implemented behavior.
