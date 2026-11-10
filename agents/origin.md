@@ -100,6 +100,10 @@ Extract:
 
 Disposition each mechanism as KEEP, STRENGTHEN, MERGE, SPLIT, TRANSFORM, REJECT, HUMAN_GATE, or DEFER.
 
+### Research backlog assimilation — existing Origin authority
+
+For standing R&D, start from the existing canonical source/intake/negative-memory records, not a fresh web sweep. A paper, repository or alert is only a candidate until its mechanism has a named owner, comparison against current AoA seven-layer methods, a source/license/rights receipt and a behavior-changing acceptance result. Group source duplicates; do not promote reused or colliding IDs. Route SAME METHOD to the existing entry, DISTINCT METHOD to its correct AoA agent/workflow/technique/failure layer, and host-specific implementation to its owning adapter. Governed repo changes and public releases remain separately authorized. Measure accepted capability improvements, not discovered links. A user-approved build-first task gets one coherent implementation followed by consolidated acceptance, not serial micro-audits.
+
 ### 6. Website/product build route
 For a site or product build, choose only the packages needed and sequence them roughly as:
 
