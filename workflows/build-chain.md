@@ -48,6 +48,10 @@ Before implementation, define the major stop badges and their acceptance evidenc
 
 After each bounded mutation, run its narrow verification before starting a different concern. If verification is incomplete, label the mutation `UNVERIFIED`; do not stack unrelated fixes on top of it. On interruption or STOP, preserve the last verified rollback, exact current head, changed files, current badge, and first unfinished check.
 
+## Research-derived capability build profile
+
+For a previously collected improvement candidate, identify its actual source/version/license, current owner, existing equivalent and missing behavior. If no gap exists, reject the duplicate. If there is a real gap, implement a substantive owner-file or runtime change, preserving earlier working behavior, before discretionary microchecks. Finish one consolidated acceptance and up to the approved targeted repair passes. Distinguish source collection, unit tests, private commit, host acceptance and public installation. Rights, security, paid-cost and release gates are mandatory even in build-first mode.
+
 ## Steps
 
 ### Step 0: RECONCILE (agent-driven, required on existing projects)
