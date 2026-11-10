@@ -35,6 +35,20 @@ Separate machine continuity from human status.
 
 A routine task completion is **not** a handoff. Do not dump a transfer artifact into chat unless the user asks for it or an actual transfer/interruption requires one.
 
+## Research-based improvement continuity — same Easy Handoff surface
+
+When a user's mission is to continuously improve Agents of AI and companion projects, report results as changed capabilities accepted in specific owning components. Show research intake and staged private candidates as distinct from shipped updates; do not label each batch V1 of the whole ecosystem. Preserve the original Easy Handoff v4.1 three-section interactive UI, no new dashboard, no master tracker and no false cumulative denominator. Keep exact next owner action, source proof, accepted outcome and release gate in existing machine continuity; surface only concise verified Done, current Issue and next permissible Action. No model review becomes independent merely by agreement.
+
+## Grounded execution continuity — integrated contract (2026-11-09)
+
+For substantial implementation, read only relevant current project authority, accepted goal and first unfinished criterion, source/head, owning lane, observed tool capabilities, accepted failures and no-repeat conditions. Separate inherited assistant claims from verified receipts; do not treat a previous completion speech as proof. Perform the next eligible reversible coherent implementation unit in the same turn when tools permit. This workflow remains the entry/exit continuity surface, **not** a separate executor or authority.
+
+Record in the EXISTING canonical owner ledger: `GOAL`, `ACCEPTANCE_REF`, `CURRENT_STEP`, `SOURCE_REF`, `OBSERVED_STATE`, `UNVERIFIED_CLAIMS`, `RELEVANT_TOOL_ROUTE`, `LAST_FAILURE`, `NO_REPEAT_UNTIL`, `PENDING_APPROVAL`, `LAST_ACTUAL_CHECK`, `NEXT_EXECUTABLE`. Include only load-bearing fields, not another master file. Inherited claims are leads; verify only those needed for the next action. If GitHub write/readback did not occur, do not say continuity was saved there.
+
+An execution guard, if independently installed and authorized by a host, belongs at **tool dispatch**. It must receive a host-verified evidence/progress identity; routine logs or model-created counters must NOT reset its loop ceiling. No repeat after explicit refusal; ambiguous side effects require durable operation identity and reconciliation before retry. A prompt or Markdown heading does not enforce a runtime guard.
+
+For operator output preserve all existing user-approved v4.1 interactive features and fallback: one Done/Issue/Next surface, accepted mission progress or unbaselined state, genuine action controls, all issues accessible, honest file links and final Protocol/Lane. Prefer brief `Passed / Failed / Not checked / Next / ACTION REQUIRED` wording with exact required human action only when genuinely human-only. After error: wrong assumption -> actual fix -> observed result; no defensive speech.
+
 ## Step 1 — Select the smallest capable route
 
 Before substantial work, select the minimum relevant Agents-of-AI methods and tools.
