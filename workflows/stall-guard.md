@@ -13,6 +13,10 @@ compatible_with: [any-ai]
 
 # Stall Guard
 
+## Decision-driven retry and test contract (2026-11-09)
+
+Before repeating a tool/test call, compare the exact relevant source/evidence revision and prior failure mechanism; a routine log or a new timestamp is NOT decision-relevant progress. Do not repeat unchanged checks on unchanged state. Group many failures with one observed root cause into one diagnosis while retaining the original logs. After two unchanged failed attempts, choose a materially different approved route or report the exact blocker; never route around a platform refusal. Preserve required security, schema and irreversible-operation checks during implementation, then run one consolidated affected-scope acceptance after the coherent unit. An unavailable dependent verifier is NOT_TESTED; independent authorized work may still proceed. A host-level loop guard may add a global no-progress ceiling, but this text does not claim it is installed.
+
 ## Trigger
 
 Activate for any substantial task that has two or more major phases, any task that writes multiple files/commits, or whenever one of these occurs:
