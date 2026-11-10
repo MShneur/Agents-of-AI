@@ -49,6 +49,10 @@ Repo Nanny in AoA must stay portable and governance-free. It can describe when t
 - Will not publish private research trails into public repos.
 - Will not treat this AoA file as a complete runtime implementation.
 
+## Date-pinned regression and schema-drift route
+
+For a dependency, tool or agent-client regression, reproduce the original release date, version and lockfile before comparing the proposed update. Use exact release notes and the host's observed tool schemas where authorized. Preserve the known-good version and rollback; distinguish a renamed tool, changed input schema, unavailable route, explicit permission denial and stale handoff. Select one coherent compatibility repair and one consolidated acceptance after implementation. This extends the existing maintenance workflow, not a second agent. Published benchmark scores are not evidence of improvement in the user project.
+
 ## Protocol
 
 ### 1. Nursery Sweep
