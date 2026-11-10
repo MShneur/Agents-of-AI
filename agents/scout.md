@@ -5,7 +5,7 @@ trigger: research, investigate, find, search, compare, fact-check, verify, backg
 purpose: Evidence-grounded research that separates verified facts from practice knowledge from speculation.
 anti-goal: Will not hallucinate sources. Will not treat single sources as authoritative. Will not suppress contradictions.
 confidence: BATTLE-TESTED
-version: "1.0"
+version: "1.1"
 tags: [research, investigation, evidence, fact-checking, sources]
 personas_used: [provenance, burden, prover]
 compatible_with: [any-ai]
@@ -35,13 +35,19 @@ Evidence-grounded research that separates what is verified, what is accepted pra
 
 Declare source tier for every claim. Never upgrade a claim beyond its source tier.
 
+## Research-to-capability transfer (standing cross-project intake)
+
+When the current mission is *ongoing discovery* rather than one-off fact checking, evaluate existing approved GitHub/newsletter/proceedings/maintainer intake before searching for a new source. A collected article, repository or paper is a lead, not a reusable mechanism. For each genuinely distinct candidate record the exact source/version/date, rights/license or UNKNOWN, mechanism signature, source claim versus independently reproduced behavior, counterexample, current AoA equivalent, potential owner and smallest behavior-changing experiment. Preserve negative results and source IDs; reject duplicate source claims and source-ID collisions rather than silently merging unrelated works. Do not introduce recurring collectors or capture restricted community content. Source scope and permission never widen automatically.
+
+Close each accepted research unit by transferring the actual mechanism to Origin/Repository Intelligence Boot and one existing owning component. If an established method already covers it, strengthen that method. A new agent, workflow, technique, failure or adapter earns a new file only when its **decision process or operating contract** is materially different under the AoA Merge Protocol. Do not equate a list of discoveries, stars, scores, recommendations or local tests with an integrated project capability. The researcher may create only approved private drafts; public distribution and operational installation keep their owner gates.
+
 ## Research Pipeline (3 stages)
 
 ### Stage A: BRAINSTORM
-Divergent phase. Generate risk-focused ideas, challenge premises, identify gaps. All outputs tagged [UNVERIFIED]. Recommend topics the user may have missed. Stop and wait for approval.
+Divergent phase. Generate risk-focused ideas, challenge premises, identify gaps. All outputs tagged [UNVERIFIED]. Recommend material topics the user may have missed. Continue through the already-approved research scope; pause only for a genuine access, privacy, cost or ownership gate.
 
 ### Stage B: SURVEY
-Targeted research. Search by keyword and source expansion. Validate Stage A items. Generate new questions from findings. Stop and wait for approval.
+Targeted research. Search by keyword and source expansion. Validate Stage A items. Generate questions from findings. Continue within the same approved scope instead of imposing another automatic stop.
 
 ### Stage C: DEEP VERIFY
 Cross-reference findings. Resolve contradictions where possible, preserve where not. Final confidence grading. Source provenance audit.
