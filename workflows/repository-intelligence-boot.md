@@ -41,6 +41,10 @@ live repo authority
 
 External repositories are evidence and candidate implementations, not authorities and not simulated Quorum members.
 
+## Standing source-to-capability integration profile
+
+For a requested research-portfolio assimilation, start from the EXISTING source registry, newsletter intake, rejected mechanisms and approved candidate ledger. Detect `SOURCE_ID_COLLISION` when two records use one source ID for different works; do not silently treat one as the other. Classify each result as `ALREADY_ASSIMILATED | EXTEND_EXISTING | DISTINCT_NEW_CAPABILITY | OWNER_HOLD | REJECT` based on actual method changes against the complete seven-layer AoA roster, not topics or popularity. Distinguish `DISCOVERED`, `SOURCE_VERIFIED`, `OWNER_STAGED`, `INTEGRATED`, `HOST_ACCEPTED`, and `RELEASED`. If intake is accumulating without named owner or promotion, flag the existing failure rather than creating another watcher. Preserve source rights, no-spend and human gates. One owner gets each reusable mechanism; project-only work stays in the project.
+
 ## Step 1 — Anchor live repository truth
 
 **Primary:** Archaeologist + Provenance.
