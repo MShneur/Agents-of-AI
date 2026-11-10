@@ -85,6 +85,10 @@ Examples:
 
 If the fallback changes semantics, report `DEGRADED` or `PARTIAL` to the calling workflow instead of pretending the task succeeded.
 
+## On-demand capability rediscovery (2026-11-09)
+
+Before claiming a needed tool or admin bridge is unavailable, identify the semantic capability, inspect the current host's exposed actions and schemas, then inspect relevant approved project fallbacks. A route mentioned in an old handoff is NOT evidence that it is callable in this host. Rediscover after client/session/tool failure or a material capability gap, not for every action. A permission refusal is a stop for that operation; do not retry through another account, model, endpoint or connector. Prefer native authorized GitHub and publisher API metadata to generic crawlers. External donor repos never grant source rights or spend permission.
+
 ## Cost and authorization gate
 
 Before a route that can consume paid capacity or authenticated account state is selected:
