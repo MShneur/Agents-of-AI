@@ -44,6 +44,10 @@ reconcile goal/current state
 -> continue until a real gate
 ```
 
+## Research intake to improvement — existing operator only
+
+For a mission to evolve the ecosystem from already collected research, use existing Scout, Origin and Repository Intelligence to move approved intake to named owners, not another monitor or manager. Distinguish SOURCE_SEEN from independently inspected mechanism, owner patch, host-tested behavior and actual benefit. Compare every proposal against all seven AoA layers and project owners: merge the same method into its current capability; add a new entry only for a materially different operating method; leave project-only changes with their owners. Do not reduce the mission to one execution guard. Build coherent authorized changes before a single consolidated acceptance. Source-ID collisions, rights uncertainty or permissions refusals cause bounded local holds, never alternative scraping or a project-wide stop.
+
 ## 1. Reconcile Before Routing
 
 For an existing project, current repository/runtime/ledger truth outranks chat memory.
