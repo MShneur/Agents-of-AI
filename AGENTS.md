@@ -1,5 +1,9 @@
 # Repository agent rules
 
+## Evidence-grounded execution contract — 2026-11-09
+
+For approved substantial work, let `workflows/easy-handoff.md` preserve current goal, canonical owner state, actual tool route and last failed/no-repeat condition. `workflows/stall-guard.md` controls decision-driven checks and repeated failure, while `tools/capability-routing.md` discovers real exposed tools before declaring inability. Execute the next eligible coherent unit rather than open new audits or agents. A separate runtime guard is never assumed installed merely because it is documented. Preserve all current interactive Easy Handoff v4.1 features, rights/cost gates and human publication controls.
+
 ## Easy Handoff v4.1 — user-approved interactive host supplement
 
 When a project has accepted a richer Easy Handoff format and the host exposes actual interactive controls, preserve one expandable Done / Issue / Next surface with one-sentence collapsed summaries, Mission, exact applied AoA method evidence, continuous cumulative progress anchored at zero for the ACTIVE accepted mission, semantic colors, eligible one-click action choices, and a final protocol/lane check. If the current answer contains verified downloadable files, link them directly inside **collapsed Done** rather than only before the card; omit the Files row when there are none. Do not guess filenames, sandbox paths, or host action capability.
